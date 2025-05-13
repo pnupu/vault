@@ -1,6 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Colors previously in :root, now in @theme and as full CSS colors */
+  --color-background: hsl(240, 10%, 3.9%);
+  --color-foreground: hsl(0, 0%, 98%);
+  --color-muted: hsl(240, 3.7%, 15.9%);
+  --color-muted-foreground: hsl(240, 5%, 64.9%);
+  --color-popover: hsl(240, 10%, 3.9%);
+  --color-popover-foreground: hsl(0, 0%, 98%);
+  --color-card: hsl(240, 10%, 3.9%);
+  --color-card-foreground: hsl(0, 0%, 98%);
+  --color-border: hsl(240, 3.7%, 15.9%);
+  --color-input: hsl(240, 3.7%, 15.9%);
+  --color-primary: hsl(0, 0%, 98%);
+  --color-primary-foreground: hsl(240, 5.9%, 10%);
+  --color-secondary: hsl(240, 3.7%, 15.9%);
+  --color-secondary-foreground: hsl(0, 0%, 98%);
+  --color-accent: hsl(240, 3.7%, 15.9%);
+  --color-accent-foreground: hsl(0, 0%, 98%);
+  --color-destructive: hsl(0, 62.8%, 30.6%);
+  --color-destructive-foreground: hsl(0, 85.7%, 97.3%);
+  --color-ring: hsl(240, 3.7%, 15.9%);
+
+  /* Base radius */
+  --radius: 0.5rem;
+
+  /* Border Radius (derived from --radius, as in original tailwind.config.js) */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Animations and Keyframes (from original tailwind.config.js) */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
 
 /* Remove input number arrows - Webkit */
 input::-webkit-outer-spin-button,
@@ -14,36 +56,11 @@ input[type="number"] {
 }
 
 @layer base {
-  :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
-    --ring: 240 3.7% 15.9%;
-
-    --radius: 0.5rem;
-  }
-}
-
-@layer base {
   * {
-    @apply border-border;
+    border-color: var(--color-border);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
   }
 }

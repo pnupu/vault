@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                      String                   @id @default(cuid())
+  walletAddress           String                   @unique
+  role                    UserRole                 @default(USER)
+  createdAt               DateTime                 @default(now())
+  updatedAt               DateTime                 @updatedAt
+  tradingHistory          TradingHistory[]
+  currentAllocations      CurrentAllocation[]
+  currentAssets           CurrentAsset[]
+  userStrategyAllocations UserStrategyAllocation[]
+}
+
+model TradingHistory {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id])
+  action     String // e.g., "BUY", "SELL", "DEPOSIT", "WITHDRAW", "ALLOCATE_TO_STRATEGY", "DEALLOCATE_FROM_STRATEGY", "CLAIM_STRATEGY_YIELD"
+  asset      String // e.g., "SOL", "USDC"
+  amount     Float
+  price      Float? // Optional, as it might not apply to all actions
+  strategyId String? // Optional: Link to the strategy involved
+  strategy   Strategy? @relation(fields: [strategyId], references: [id]) // Optional: Relation to Strategy
+  timestamp  DateTime  @default(now())
+
+  @@index([userId])
+  @@index([strategyId])
+}
+
+model CurrentAllocation {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  asset      String // e.g., "SOL", "USDC"
+  percentage Float // Represented as 0-100
+  updatedAt  DateTime @updatedAt
+
+  @@unique([userId, asset])
+  @@index([userId])
+}
+
+model CurrentAsset {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  assetName   String // e.g., "Solana", "USD Coin"
+  assetTicker String // e.g., "SOL", "USDC"
+  balance     Float
+  valueUSD    Float? // Optional, if tracking USD value of the asset
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, assetTicker])
+  @@index([userId])
+}
+
+model Strategy {
+  id              String                   @id @default(cuid())
+  name            String                   @unique
+  description     String?
+  assetTicker     String
+  apy             Float
+  riskLevel       String
+  platform        String?
+  createdAt       DateTime                 @default(now())
+  updatedAt       DateTime                 @updatedAt
+  userAllocations UserStrategyAllocation[]
+  tradingEvents   TradingHistory[]
+
+  @@index([assetTicker])
+}
+
+model UserStrategyAllocation {
+  id                      String    @id @default(cuid())
+  userId                  String
+  user                    User      @relation(fields: [userId], references: [id])
+  strategyId              String
+  strategy                Strategy  @relation(fields: [strategyId], references: [id])
+  assetTicker             String
+  allocatedAmount         Float
+  entryTimestamp          DateTime  @default(now())
+  cumulativeYieldEarned   Float     @default(0)
+  lastYieldClaimTimestamp DateTime?
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+
+  @@unique([userId, strategyId, assetTicker])
+  @@index([userId])
+  @@index([strategyId])
+  @@index([assetTicker])
+}
+
+// Enum for User Roles
+enum UserRole {
+  USER
+  ADMIN
+}

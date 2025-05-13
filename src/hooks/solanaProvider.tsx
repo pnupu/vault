@@ -5,23 +5,132 @@ import {
   useWallet,
 } from "@solana/wallet-adapter-react";
 import { useEffect, useState } from "react";
+import { trpc } from "@/lib/trpc";
+import { Buffer } from 'buffer';
+
+const SOLANA_VAULT_JWT_KEY = 'solana_vault_jwt_token';
 
 export function useSolanaProvider(): Provider | undefined {
   const [provider, setProvider] = useState<Provider>();
+  const trpcUtils = trpc.useContext();
 
   const { connection } = useConnection();
-  const { connected } = useWallet();
-  const wallet = useAnchorWallet();
+  const { connected, publicKey, signMessage } = useWallet();
+  const anchorWallet = useAnchorWallet();
+
+  const {
+    data: user,
+    isLoading: isUserLoading,
+    isError: isGetMeAuthError,
+    error: getMeFullErrorObject,
+    isSuccess: isGetMeSuccess
+  } = trpc.user.getMe.useQuery(undefined, {
+    enabled: connected && !!publicKey,
+    retry: false,
+  });
+  
+  useEffect(() => {
+    if (isGetMeSuccess) {
+      if (user) {
+        console.log("getMe query successful (useEffect), user context for:", user.walletAddress);
+      } else {
+        console.warn("getMe query successful (useEffect) but returned no user data. Clearing JWT if any.");
+        localStorage.removeItem(SOLANA_VAULT_JWT_KEY);
+      }
+    }
+  }, [isGetMeSuccess, user]);
 
   useEffect(() => {
-    if (connection && wallet && connected === true) {
+    if (isGetMeAuthError && getMeFullErrorObject) {
+      console.warn("getMe query failed (useEffect):", getMeFullErrorObject.message);
+      const trpcError = getMeFullErrorObject as { data?: { code?: string; httpStatus?: number } };
+      if (trpcError.data?.code === 'UNAUTHORIZED' || trpcError.data?.httpStatus === 401) {
+        console.log("getMe reported UNAUTHORIZED (useEffect), clearing stored JWT.");
+        localStorage.removeItem(SOLANA_VAULT_JWT_KEY);
+      }
+    }
+  }, [isGetMeAuthError, getMeFullErrorObject]);
+
+  const { mutate: verifyAndLogin, status: verifyStatus } = 
+    trpc.user.verifySignatureAndLogin.useMutation({
+      onSuccess: (data) => {
+        console.log("JWT Token received:", data.token.substring(0,20) + "...");
+        localStorage.setItem(SOLANA_VAULT_JWT_KEY, data.token);
+        console.log("JWT stored. User data from verify:", data.user);
+        trpcUtils.user.getMe.invalidate();
+      },
+      onError: (error) => {
+        console.error("Verification and login failed:", error);
+      }
+    });
+
+  const { mutate: getLoginChallenge, status: challengeStatus } = 
+    trpc.user.requestLoginChallenge.useMutation({
+      onSuccess: async (data) => {
+        const nonce = data.nonce;
+        if (!publicKey || !signMessage) {
+          console.error("RequestLoginChallenge onSuccess: Wallet not connected or signMessage not available");
+          return;
+        }
+        try {
+          const message = new TextEncoder().encode(nonce);
+          const signature = await signMessage(message);
+          const signatureString = Buffer.from(signature).toString('base64');
+          verifyAndLogin({
+            walletAddress: publicKey.toBase58(),
+            nonce,
+            signature: signatureString,
+          });
+        } catch (error) {
+          console.error("Failed to sign message:", error);
+        }
+      },
+      onError: (error) => {
+        console.error("Failed to get login challenge:", error);
+      }
+    });
+
+  useEffect(() => {
+    if (connection && anchorWallet && connected === true && publicKey) {
       setProvider(
-        new AnchorProvider(connection, wallet, {
+        new AnchorProvider(connection, anchorWallet, {
           commitment: "confirmed",
         })
       );
+    } else {
+      setProvider(undefined);
     }
-  }, [connected, connection, wallet]);
+  }, [connected, connection, anchorWallet, publicKey]);
+
+  useEffect(() => {
+    if (!(connected && publicKey)) {
+      return;
+    }
+
+    if (user) {
+      return;
+    }
+
+    if (isUserLoading) {
+      return;
+    }
+
+    if (challengeStatus === 'pending' || verifyStatus === 'pending') {
+      return;
+    }
+    
+    console.log("AuthFlow: No valid user session from JWT. Initiating sign-in with wallet message.");
+    getLoginChallenge({ walletAddress: publicKey.toBase58() });
+
+  }, [
+    connected, 
+    publicKey, 
+    user,
+    isUserLoading,
+    challengeStatus,
+    verifyStatus,
+    getLoginChallenge
+  ]);
 
   return provider;
 }

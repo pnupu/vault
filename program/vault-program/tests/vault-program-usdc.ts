@@ -454,6 +454,7 @@ describe("vault-program-usdc-tests", () => {
         assert.fail("Expected USDC investment by non-admin to fail.");
       } catch (err) {
         assert.include(
+          // @ts-ignore
           err.toString(),
           "Unauthorized",
           "Error message should indicate unauthorized access."

@@ -104,6 +104,7 @@ describe("vault-program", () => {
             );
           }
         } catch (err) {
+          // @ts-ignore
           if (err.toString().includes("Account does not exist")) {
             console.log("Initializing config with admin:", admin.toBase58());
             const tx = await program.methods
@@ -170,6 +171,7 @@ describe("vault-program", () => {
         );
         console.log("Minted test tokens to user");
       } catch (err) {
+        // @ts-ignore
         throw new Error(`Failed to setup test environment: ${err.message}`);
       }
     } catch (error) {
@@ -371,6 +373,7 @@ describe("vault-program", () => {
         .rpc();
       assert.fail("Expected transaction to fail");
     } catch (err) {
+      // @ts-ignore
       assert.include(err.toString(), "Unauthorized");
     }
   });
@@ -423,6 +426,7 @@ describe("vault-program", () => {
         .rpc();
       assert.fail("Expected transaction to fail");
     } catch (err) {
+      // @ts-ignore
       assert.include(err.toString(), "Invalid amount");
     }
   });
@@ -615,6 +619,7 @@ describe("vault-program", () => {
 
         assert.fail("Expected transaction to fail");
       } catch (err) {
+        // @ts-ignore
         assert.include(err.toString(), "Unauthorized");
       }
     });
