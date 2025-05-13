@@ -1,0 +1,19 @@
+[features]
+seeds = false
+skip-lint = false
+
+[toolchain]
+anchor_version = "0.31.1"
+
+[programs.localnet]
+vault_program = "71eww9jmzMwBZ7kwqoovKZGeb54Mhvc5s3wtneQ1w8hp"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "https://api.devnet.solana.com"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
