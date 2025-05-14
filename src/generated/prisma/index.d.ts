@@ -43,6 +43,21 @@ export type Strategy = $Result.DefaultSelection<Prisma.$StrategyPayload>
  * 
  */
 export type UserStrategyAllocation = $Result.DefaultSelection<Prisma.$UserStrategyAllocationPayload>
+/**
+ * Model UserStrategyPreference
+ * 
+ */
+export type UserStrategyPreference = $Result.DefaultSelection<Prisma.$UserStrategyPreferencePayload>
+/**
+ * Model UserYieldOpportunityOptOut
+ * 
+ */
+export type UserYieldOpportunityOptOut = $Result.DefaultSelection<Prisma.$UserYieldOpportunityOptOutPayload>
+/**
+ * Model YieldOpportunity
+ * 
+ */
+export type YieldOpportunity = $Result.DefaultSelection<Prisma.$YieldOpportunityPayload>
 
 /**
  * Enums
@@ -55,11 +70,23 @@ export namespace $Enums {
 
 export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
+
+export const RiskLevel: {
+  NORMAL: 'NORMAL',
+  AGGRESSIVE: 'AGGRESSIVE'
+};
+
+export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel]
+
 }
 
 export type UserRole = $Enums.UserRole
 
 export const UserRole: typeof $Enums.UserRole
+
+export type RiskLevel = $Enums.RiskLevel
+
+export const RiskLevel: typeof $Enums.RiskLevel
 
 /**
  * ##  Prisma Client ʲˢ
@@ -245,6 +272,36 @@ export class PrismaClient<
     * ```
     */
   get userStrategyAllocation(): Prisma.UserStrategyAllocationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.userStrategyPreference`: Exposes CRUD operations for the **UserStrategyPreference** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserStrategyPreferences
+    * const userStrategyPreferences = await prisma.userStrategyPreference.findMany()
+    * ```
+    */
+  get userStrategyPreference(): Prisma.UserStrategyPreferenceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.userYieldOpportunityOptOut`: Exposes CRUD operations for the **UserYieldOpportunityOptOut** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserYieldOpportunityOptOuts
+    * const userYieldOpportunityOptOuts = await prisma.userYieldOpportunityOptOut.findMany()
+    * ```
+    */
+  get userYieldOpportunityOptOut(): Prisma.UserYieldOpportunityOptOutDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.yieldOpportunity`: Exposes CRUD operations for the **YieldOpportunity** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more YieldOpportunities
+    * const yieldOpportunities = await prisma.yieldOpportunity.findMany()
+    * ```
+    */
+  get yieldOpportunity(): Prisma.YieldOpportunityDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -690,7 +747,10 @@ export namespace Prisma {
     CurrentAllocation: 'CurrentAllocation',
     CurrentAsset: 'CurrentAsset',
     Strategy: 'Strategy',
-    UserStrategyAllocation: 'UserStrategyAllocation'
+    UserStrategyAllocation: 'UserStrategyAllocation',
+    UserStrategyPreference: 'UserStrategyPreference',
+    UserYieldOpportunityOptOut: 'UserYieldOpportunityOptOut',
+    YieldOpportunity: 'YieldOpportunity'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -709,7 +769,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "tradingHistory" | "currentAllocation" | "currentAsset" | "strategy" | "userStrategyAllocation"
+      modelProps: "user" | "tradingHistory" | "currentAllocation" | "currentAsset" | "strategy" | "userStrategyAllocation" | "userStrategyPreference" | "userYieldOpportunityOptOut" | "yieldOpportunity"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1157,6 +1217,228 @@ export namespace Prisma {
           }
         }
       }
+      UserStrategyPreference: {
+        payload: Prisma.$UserStrategyPreferencePayload<ExtArgs>
+        fields: Prisma.UserStrategyPreferenceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserStrategyPreferenceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserStrategyPreferenceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>
+          }
+          findFirst: {
+            args: Prisma.UserStrategyPreferenceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserStrategyPreferenceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>
+          }
+          findMany: {
+            args: Prisma.UserStrategyPreferenceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>[]
+          }
+          create: {
+            args: Prisma.UserStrategyPreferenceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>
+          }
+          createMany: {
+            args: Prisma.UserStrategyPreferenceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserStrategyPreferenceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>[]
+          }
+          delete: {
+            args: Prisma.UserStrategyPreferenceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>
+          }
+          update: {
+            args: Prisma.UserStrategyPreferenceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>
+          }
+          deleteMany: {
+            args: Prisma.UserStrategyPreferenceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserStrategyPreferenceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UserStrategyPreferenceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>[]
+          }
+          upsert: {
+            args: Prisma.UserStrategyPreferenceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserStrategyPreferencePayload>
+          }
+          aggregate: {
+            args: Prisma.UserStrategyPreferenceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserStrategyPreference>
+          }
+          groupBy: {
+            args: Prisma.UserStrategyPreferenceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserStrategyPreferenceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserStrategyPreferenceCountArgs<ExtArgs>
+            result: $Utils.Optional<UserStrategyPreferenceCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserYieldOpportunityOptOut: {
+        payload: Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>
+        fields: Prisma.UserYieldOpportunityOptOutFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserYieldOpportunityOptOutFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserYieldOpportunityOptOutFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>
+          }
+          findFirst: {
+            args: Prisma.UserYieldOpportunityOptOutFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserYieldOpportunityOptOutFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>
+          }
+          findMany: {
+            args: Prisma.UserYieldOpportunityOptOutFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>[]
+          }
+          create: {
+            args: Prisma.UserYieldOpportunityOptOutCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>
+          }
+          createMany: {
+            args: Prisma.UserYieldOpportunityOptOutCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserYieldOpportunityOptOutCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>[]
+          }
+          delete: {
+            args: Prisma.UserYieldOpportunityOptOutDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>
+          }
+          update: {
+            args: Prisma.UserYieldOpportunityOptOutUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserYieldOpportunityOptOutDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserYieldOpportunityOptOutUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UserYieldOpportunityOptOutUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>[]
+          }
+          upsert: {
+            args: Prisma.UserYieldOpportunityOptOutUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserYieldOpportunityOptOutPayload>
+          }
+          aggregate: {
+            args: Prisma.UserYieldOpportunityOptOutAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserYieldOpportunityOptOut>
+          }
+          groupBy: {
+            args: Prisma.UserYieldOpportunityOptOutGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserYieldOpportunityOptOutGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserYieldOpportunityOptOutCountArgs<ExtArgs>
+            result: $Utils.Optional<UserYieldOpportunityOptOutCountAggregateOutputType> | number
+          }
+        }
+      }
+      YieldOpportunity: {
+        payload: Prisma.$YieldOpportunityPayload<ExtArgs>
+        fields: Prisma.YieldOpportunityFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.YieldOpportunityFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.YieldOpportunityFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>
+          }
+          findFirst: {
+            args: Prisma.YieldOpportunityFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.YieldOpportunityFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>
+          }
+          findMany: {
+            args: Prisma.YieldOpportunityFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>[]
+          }
+          create: {
+            args: Prisma.YieldOpportunityCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>
+          }
+          createMany: {
+            args: Prisma.YieldOpportunityCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.YieldOpportunityCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>[]
+          }
+          delete: {
+            args: Prisma.YieldOpportunityDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>
+          }
+          update: {
+            args: Prisma.YieldOpportunityUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>
+          }
+          deleteMany: {
+            args: Prisma.YieldOpportunityDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.YieldOpportunityUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.YieldOpportunityUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>[]
+          }
+          upsert: {
+            args: Prisma.YieldOpportunityUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YieldOpportunityPayload>
+          }
+          aggregate: {
+            args: Prisma.YieldOpportunityAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYieldOpportunity>
+          }
+          groupBy: {
+            args: Prisma.YieldOpportunityGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YieldOpportunityGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.YieldOpportunityCountArgs<ExtArgs>
+            result: $Utils.Optional<YieldOpportunityCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1247,6 +1529,9 @@ export namespace Prisma {
     currentAsset?: CurrentAssetOmit
     strategy?: StrategyOmit
     userStrategyAllocation?: UserStrategyAllocationOmit
+    userStrategyPreference?: UserStrategyPreferenceOmit
+    userYieldOpportunityOptOut?: UserYieldOpportunityOptOutOmit
+    yieldOpportunity?: YieldOpportunityOmit
   }
 
   /* Types for Logging */
@@ -1345,6 +1630,8 @@ export namespace Prisma {
     currentAllocations: number
     currentAssets: number
     userStrategyAllocations: number
+    strategyPreferences: number
+    yieldOpportunityOptOuts: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1352,6 +1639,8 @@ export namespace Prisma {
     currentAllocations?: boolean | UserCountOutputTypeCountCurrentAllocationsArgs
     currentAssets?: boolean | UserCountOutputTypeCountCurrentAssetsArgs
     userStrategyAllocations?: boolean | UserCountOutputTypeCountUserStrategyAllocationsArgs
+    strategyPreferences?: boolean | UserCountOutputTypeCountStrategyPreferencesArgs
+    yieldOpportunityOptOuts?: boolean | UserCountOutputTypeCountYieldOpportunityOptOutsArgs
   }
 
   // Custom InputTypes
@@ -1393,6 +1682,20 @@ export namespace Prisma {
     where?: UserStrategyAllocationWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountStrategyPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserStrategyPreferenceWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountYieldOpportunityOptOutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserYieldOpportunityOptOutWhereInput
+  }
+
 
   /**
    * Count Type StrategyCountOutputType
@@ -1401,11 +1704,13 @@ export namespace Prisma {
   export type StrategyCountOutputType = {
     userAllocations: number
     tradingEvents: number
+    userPreferences: number
   }
 
   export type StrategyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userAllocations?: boolean | StrategyCountOutputTypeCountUserAllocationsArgs
     tradingEvents?: boolean | StrategyCountOutputTypeCountTradingEventsArgs
+    userPreferences?: boolean | StrategyCountOutputTypeCountUserPreferencesArgs
   }
 
   // Custom InputTypes
@@ -1431,6 +1736,44 @@ export namespace Prisma {
    */
   export type StrategyCountOutputTypeCountTradingEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TradingHistoryWhereInput
+  }
+
+  /**
+   * StrategyCountOutputType without action
+   */
+  export type StrategyCountOutputTypeCountUserPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserStrategyPreferenceWhereInput
+  }
+
+
+  /**
+   * Count Type YieldOpportunityCountOutputType
+   */
+
+  export type YieldOpportunityCountOutputType = {
+    userOptOuts: number
+  }
+
+  export type YieldOpportunityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userOptOuts?: boolean | YieldOpportunityCountOutputTypeCountUserOptOutsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * YieldOpportunityCountOutputType without action
+   */
+  export type YieldOpportunityCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunityCountOutputType
+     */
+    select?: YieldOpportunityCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * YieldOpportunityCountOutputType without action
+   */
+  export type YieldOpportunityCountOutputTypeCountUserOptOutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserYieldOpportunityOptOutWhereInput
   }
 
 
@@ -1606,6 +1949,8 @@ export namespace Prisma {
     currentAllocations?: boolean | User$currentAllocationsArgs<ExtArgs>
     currentAssets?: boolean | User$currentAssetsArgs<ExtArgs>
     userStrategyAllocations?: boolean | User$userStrategyAllocationsArgs<ExtArgs>
+    strategyPreferences?: boolean | User$strategyPreferencesArgs<ExtArgs>
+    yieldOpportunityOptOuts?: boolean | User$yieldOpportunityOptOutsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1639,6 +1984,8 @@ export namespace Prisma {
     currentAllocations?: boolean | User$currentAllocationsArgs<ExtArgs>
     currentAssets?: boolean | User$currentAssetsArgs<ExtArgs>
     userStrategyAllocations?: boolean | User$userStrategyAllocationsArgs<ExtArgs>
+    strategyPreferences?: boolean | User$strategyPreferencesArgs<ExtArgs>
+    yieldOpportunityOptOuts?: boolean | User$yieldOpportunityOptOutsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1651,6 +1998,8 @@ export namespace Prisma {
       currentAllocations: Prisma.$CurrentAllocationPayload<ExtArgs>[]
       currentAssets: Prisma.$CurrentAssetPayload<ExtArgs>[]
       userStrategyAllocations: Prisma.$UserStrategyAllocationPayload<ExtArgs>[]
+      strategyPreferences: Prisma.$UserStrategyPreferencePayload<ExtArgs>[]
+      yieldOpportunityOptOuts: Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2056,6 +2405,8 @@ export namespace Prisma {
     currentAllocations<T extends User$currentAllocationsArgs<ExtArgs> = {}>(args?: Subset<T, User$currentAllocationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CurrentAllocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     currentAssets<T extends User$currentAssetsArgs<ExtArgs> = {}>(args?: Subset<T, User$currentAssetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CurrentAssetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userStrategyAllocations<T extends User$userStrategyAllocationsArgs<ExtArgs> = {}>(args?: Subset<T, User$userStrategyAllocationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyAllocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    strategyPreferences<T extends User$strategyPreferencesArgs<ExtArgs> = {}>(args?: Subset<T, User$strategyPreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    yieldOpportunityOptOuts<T extends User$yieldOpportunityOptOutsArgs<ExtArgs> = {}>(args?: Subset<T, User$yieldOpportunityOptOutsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2571,6 +2922,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserStrategyAllocationScalarFieldEnum | UserStrategyAllocationScalarFieldEnum[]
+  }
+
+  /**
+   * User.strategyPreferences
+   */
+  export type User$strategyPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    where?: UserStrategyPreferenceWhereInput
+    orderBy?: UserStrategyPreferenceOrderByWithRelationInput | UserStrategyPreferenceOrderByWithRelationInput[]
+    cursor?: UserStrategyPreferenceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserStrategyPreferenceScalarFieldEnum | UserStrategyPreferenceScalarFieldEnum[]
+  }
+
+  /**
+   * User.yieldOpportunityOptOuts
+   */
+  export type User$yieldOpportunityOptOutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    where?: UserYieldOpportunityOptOutWhereInput
+    orderBy?: UserYieldOpportunityOptOutOrderByWithRelationInput | UserYieldOpportunityOptOutOrderByWithRelationInput[]
+    cursor?: UserYieldOpportunityOptOutWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserYieldOpportunityOptOutScalarFieldEnum | UserYieldOpportunityOptOutScalarFieldEnum[]
   }
 
   /**
@@ -5992,9 +6391,10 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
+    image: string | null
     assetTicker: string | null
     apy: number | null
-    riskLevel: string | null
+    riskLevel: $Enums.RiskLevel | null
     platform: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -6004,9 +6404,10 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
+    image: string | null
     assetTicker: string | null
     apy: number | null
-    riskLevel: string | null
+    riskLevel: $Enums.RiskLevel | null
     platform: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -6016,6 +6417,7 @@ export namespace Prisma {
     id: number
     name: number
     description: number
+    image: number
     assetTicker: number
     apy: number
     riskLevel: number
@@ -6038,6 +6440,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    image?: true
     assetTicker?: true
     apy?: true
     riskLevel?: true
@@ -6050,6 +6453,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    image?: true
     assetTicker?: true
     apy?: true
     riskLevel?: true
@@ -6062,6 +6466,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    image?: true
     assetTicker?: true
     apy?: true
     riskLevel?: true
@@ -6161,9 +6566,10 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
+    image: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform: string | null
     createdAt: Date
     updatedAt: Date
@@ -6192,6 +6598,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    image?: boolean
     assetTicker?: boolean
     apy?: boolean
     riskLevel?: boolean
@@ -6200,6 +6607,7 @@ export namespace Prisma {
     updatedAt?: boolean
     userAllocations?: boolean | Strategy$userAllocationsArgs<ExtArgs>
     tradingEvents?: boolean | Strategy$tradingEventsArgs<ExtArgs>
+    userPreferences?: boolean | Strategy$userPreferencesArgs<ExtArgs>
     _count?: boolean | StrategyCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["strategy"]>
 
@@ -6207,6 +6615,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    image?: boolean
     assetTicker?: boolean
     apy?: boolean
     riskLevel?: boolean
@@ -6219,6 +6628,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    image?: boolean
     assetTicker?: boolean
     apy?: boolean
     riskLevel?: boolean
@@ -6231,6 +6641,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    image?: boolean
     assetTicker?: boolean
     apy?: boolean
     riskLevel?: boolean
@@ -6239,10 +6650,11 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type StrategyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "assetTicker" | "apy" | "riskLevel" | "platform" | "createdAt" | "updatedAt", ExtArgs["result"]["strategy"]>
+  export type StrategyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "image" | "assetTicker" | "apy" | "riskLevel" | "platform" | "createdAt" | "updatedAt", ExtArgs["result"]["strategy"]>
   export type StrategyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userAllocations?: boolean | Strategy$userAllocationsArgs<ExtArgs>
     tradingEvents?: boolean | Strategy$tradingEventsArgs<ExtArgs>
+    userPreferences?: boolean | Strategy$userPreferencesArgs<ExtArgs>
     _count?: boolean | StrategyCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type StrategyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -6253,14 +6665,16 @@ export namespace Prisma {
     objects: {
       userAllocations: Prisma.$UserStrategyAllocationPayload<ExtArgs>[]
       tradingEvents: Prisma.$TradingHistoryPayload<ExtArgs>[]
+      userPreferences: Prisma.$UserStrategyPreferencePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       description: string | null
+      image: string | null
       assetTicker: string
       apy: number
-      riskLevel: string
+      riskLevel: $Enums.RiskLevel
       platform: string | null
       createdAt: Date
       updatedAt: Date
@@ -6660,6 +7074,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     userAllocations<T extends Strategy$userAllocationsArgs<ExtArgs> = {}>(args?: Subset<T, Strategy$userAllocationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyAllocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tradingEvents<T extends Strategy$tradingEventsArgs<ExtArgs> = {}>(args?: Subset<T, Strategy$tradingEventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    userPreferences<T extends Strategy$userPreferencesArgs<ExtArgs> = {}>(args?: Subset<T, Strategy$userPreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6692,9 +7107,10 @@ export namespace Prisma {
     readonly id: FieldRef<"Strategy", 'String'>
     readonly name: FieldRef<"Strategy", 'String'>
     readonly description: FieldRef<"Strategy", 'String'>
+    readonly image: FieldRef<"Strategy", 'String'>
     readonly assetTicker: FieldRef<"Strategy", 'String'>
     readonly apy: FieldRef<"Strategy", 'Float'>
-    readonly riskLevel: FieldRef<"Strategy", 'String'>
+    readonly riskLevel: FieldRef<"Strategy", 'RiskLevel'>
     readonly platform: FieldRef<"Strategy", 'String'>
     readonly createdAt: FieldRef<"Strategy", 'DateTime'>
     readonly updatedAt: FieldRef<"Strategy", 'DateTime'>
@@ -7131,6 +7547,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TradingHistoryScalarFieldEnum | TradingHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Strategy.userPreferences
+   */
+  export type Strategy$userPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    where?: UserStrategyPreferenceWhereInput
+    orderBy?: UserStrategyPreferenceOrderByWithRelationInput | UserStrategyPreferenceOrderByWithRelationInput[]
+    cursor?: UserStrategyPreferenceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserStrategyPreferenceScalarFieldEnum | UserStrategyPreferenceScalarFieldEnum[]
   }
 
   /**
@@ -8322,6 +8762,3333 @@ export namespace Prisma {
 
 
   /**
+   * Model UserStrategyPreference
+   */
+
+  export type AggregateUserStrategyPreference = {
+    _count: UserStrategyPreferenceCountAggregateOutputType | null
+    _min: UserStrategyPreferenceMinAggregateOutputType | null
+    _max: UserStrategyPreferenceMaxAggregateOutputType | null
+  }
+
+  export type UserStrategyPreferenceMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    strategyId: string | null
+    isFavorite: boolean | null
+    isHidden: boolean | null
+    receiveNotifications: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserStrategyPreferenceMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    strategyId: string | null
+    isFavorite: boolean | null
+    isHidden: boolean | null
+    receiveNotifications: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserStrategyPreferenceCountAggregateOutputType = {
+    id: number
+    userId: number
+    strategyId: number
+    isFavorite: number
+    isHidden: number
+    receiveNotifications: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type UserStrategyPreferenceMinAggregateInputType = {
+    id?: true
+    userId?: true
+    strategyId?: true
+    isFavorite?: true
+    isHidden?: true
+    receiveNotifications?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserStrategyPreferenceMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    strategyId?: true
+    isFavorite?: true
+    isHidden?: true
+    receiveNotifications?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserStrategyPreferenceCountAggregateInputType = {
+    id?: true
+    userId?: true
+    strategyId?: true
+    isFavorite?: true
+    isHidden?: true
+    receiveNotifications?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type UserStrategyPreferenceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserStrategyPreference to aggregate.
+     */
+    where?: UserStrategyPreferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserStrategyPreferences to fetch.
+     */
+    orderBy?: UserStrategyPreferenceOrderByWithRelationInput | UserStrategyPreferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserStrategyPreferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserStrategyPreferences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserStrategyPreferences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserStrategyPreferences
+    **/
+    _count?: true | UserStrategyPreferenceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserStrategyPreferenceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserStrategyPreferenceMaxAggregateInputType
+  }
+
+  export type GetUserStrategyPreferenceAggregateType<T extends UserStrategyPreferenceAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserStrategyPreference]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserStrategyPreference[P]>
+      : GetScalarType<T[P], AggregateUserStrategyPreference[P]>
+  }
+
+
+
+
+  export type UserStrategyPreferenceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserStrategyPreferenceWhereInput
+    orderBy?: UserStrategyPreferenceOrderByWithAggregationInput | UserStrategyPreferenceOrderByWithAggregationInput[]
+    by: UserStrategyPreferenceScalarFieldEnum[] | UserStrategyPreferenceScalarFieldEnum
+    having?: UserStrategyPreferenceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserStrategyPreferenceCountAggregateInputType | true
+    _min?: UserStrategyPreferenceMinAggregateInputType
+    _max?: UserStrategyPreferenceMaxAggregateInputType
+  }
+
+  export type UserStrategyPreferenceGroupByOutputType = {
+    id: string
+    userId: string
+    strategyId: string
+    isFavorite: boolean
+    isHidden: boolean
+    receiveNotifications: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: UserStrategyPreferenceCountAggregateOutputType | null
+    _min: UserStrategyPreferenceMinAggregateOutputType | null
+    _max: UserStrategyPreferenceMaxAggregateOutputType | null
+  }
+
+  type GetUserStrategyPreferenceGroupByPayload<T extends UserStrategyPreferenceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserStrategyPreferenceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserStrategyPreferenceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserStrategyPreferenceGroupByOutputType[P]>
+            : GetScalarType<T[P], UserStrategyPreferenceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserStrategyPreferenceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    strategyId?: boolean
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userStrategyPreference"]>
+
+  export type UserStrategyPreferenceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    strategyId?: boolean
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userStrategyPreference"]>
+
+  export type UserStrategyPreferenceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    strategyId?: boolean
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userStrategyPreference"]>
+
+  export type UserStrategyPreferenceSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    strategyId?: boolean
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type UserStrategyPreferenceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "strategyId" | "isFavorite" | "isHidden" | "receiveNotifications" | "createdAt" | "updatedAt", ExtArgs["result"]["userStrategyPreference"]>
+  export type UserStrategyPreferenceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+  }
+  export type UserStrategyPreferenceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+  }
+  export type UserStrategyPreferenceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+  }
+
+  export type $UserStrategyPreferencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserStrategyPreference"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      strategy: Prisma.$StrategyPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      strategyId: string
+      isFavorite: boolean
+      isHidden: boolean
+      receiveNotifications: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["userStrategyPreference"]>
+    composites: {}
+  }
+
+  type UserStrategyPreferenceGetPayload<S extends boolean | null | undefined | UserStrategyPreferenceDefaultArgs> = $Result.GetResult<Prisma.$UserStrategyPreferencePayload, S>
+
+  type UserStrategyPreferenceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserStrategyPreferenceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserStrategyPreferenceCountAggregateInputType | true
+    }
+
+  export interface UserStrategyPreferenceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserStrategyPreference'], meta: { name: 'UserStrategyPreference' } }
+    /**
+     * Find zero or one UserStrategyPreference that matches the filter.
+     * @param {UserStrategyPreferenceFindUniqueArgs} args - Arguments to find a UserStrategyPreference
+     * @example
+     * // Get one UserStrategyPreference
+     * const userStrategyPreference = await prisma.userStrategyPreference.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserStrategyPreferenceFindUniqueArgs>(args: SelectSubset<T, UserStrategyPreferenceFindUniqueArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UserStrategyPreference that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserStrategyPreferenceFindUniqueOrThrowArgs} args - Arguments to find a UserStrategyPreference
+     * @example
+     * // Get one UserStrategyPreference
+     * const userStrategyPreference = await prisma.userStrategyPreference.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserStrategyPreferenceFindUniqueOrThrowArgs>(args: SelectSubset<T, UserStrategyPreferenceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserStrategyPreference that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserStrategyPreferenceFindFirstArgs} args - Arguments to find a UserStrategyPreference
+     * @example
+     * // Get one UserStrategyPreference
+     * const userStrategyPreference = await prisma.userStrategyPreference.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserStrategyPreferenceFindFirstArgs>(args?: SelectSubset<T, UserStrategyPreferenceFindFirstArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserStrategyPreference that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserStrategyPreferenceFindFirstOrThrowArgs} args - Arguments to find a UserStrategyPreference
+     * @example
+     * // Get one UserStrategyPreference
+     * const userStrategyPreference = await prisma.userStrategyPreference.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserStrategyPreferenceFindFirstOrThrowArgs>(args?: SelectSubset<T, UserStrategyPreferenceFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserStrategyPreferences that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserStrategyPreferenceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserStrategyPreferences
+     * const userStrategyPreferences = await prisma.userStrategyPreference.findMany()
+     * 
+     * // Get first 10 UserStrategyPreferences
+     * const userStrategyPreferences = await prisma.userStrategyPreference.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userStrategyPreferenceWithIdOnly = await prisma.userStrategyPreference.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserStrategyPreferenceFindManyArgs>(args?: SelectSubset<T, UserStrategyPreferenceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UserStrategyPreference.
+     * @param {UserStrategyPreferenceCreateArgs} args - Arguments to create a UserStrategyPreference.
+     * @example
+     * // Create one UserStrategyPreference
+     * const UserStrategyPreference = await prisma.userStrategyPreference.create({
+     *   data: {
+     *     // ... data to create a UserStrategyPreference
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserStrategyPreferenceCreateArgs>(args: SelectSubset<T, UserStrategyPreferenceCreateArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UserStrategyPreferences.
+     * @param {UserStrategyPreferenceCreateManyArgs} args - Arguments to create many UserStrategyPreferences.
+     * @example
+     * // Create many UserStrategyPreferences
+     * const userStrategyPreference = await prisma.userStrategyPreference.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserStrategyPreferenceCreateManyArgs>(args?: SelectSubset<T, UserStrategyPreferenceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UserStrategyPreferences and returns the data saved in the database.
+     * @param {UserStrategyPreferenceCreateManyAndReturnArgs} args - Arguments to create many UserStrategyPreferences.
+     * @example
+     * // Create many UserStrategyPreferences
+     * const userStrategyPreference = await prisma.userStrategyPreference.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UserStrategyPreferences and only return the `id`
+     * const userStrategyPreferenceWithIdOnly = await prisma.userStrategyPreference.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserStrategyPreferenceCreateManyAndReturnArgs>(args?: SelectSubset<T, UserStrategyPreferenceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a UserStrategyPreference.
+     * @param {UserStrategyPreferenceDeleteArgs} args - Arguments to delete one UserStrategyPreference.
+     * @example
+     * // Delete one UserStrategyPreference
+     * const UserStrategyPreference = await prisma.userStrategyPreference.delete({
+     *   where: {
+     *     // ... filter to delete one UserStrategyPreference
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserStrategyPreferenceDeleteArgs>(args: SelectSubset<T, UserStrategyPreferenceDeleteArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UserStrategyPreference.
+     * @param {UserStrategyPreferenceUpdateArgs} args - Arguments to update one UserStrategyPreference.
+     * @example
+     * // Update one UserStrategyPreference
+     * const userStrategyPreference = await prisma.userStrategyPreference.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserStrategyPreferenceUpdateArgs>(args: SelectSubset<T, UserStrategyPreferenceUpdateArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UserStrategyPreferences.
+     * @param {UserStrategyPreferenceDeleteManyArgs} args - Arguments to filter UserStrategyPreferences to delete.
+     * @example
+     * // Delete a few UserStrategyPreferences
+     * const { count } = await prisma.userStrategyPreference.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserStrategyPreferenceDeleteManyArgs>(args?: SelectSubset<T, UserStrategyPreferenceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserStrategyPreferences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserStrategyPreferenceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserStrategyPreferences
+     * const userStrategyPreference = await prisma.userStrategyPreference.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserStrategyPreferenceUpdateManyArgs>(args: SelectSubset<T, UserStrategyPreferenceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserStrategyPreferences and returns the data updated in the database.
+     * @param {UserStrategyPreferenceUpdateManyAndReturnArgs} args - Arguments to update many UserStrategyPreferences.
+     * @example
+     * // Update many UserStrategyPreferences
+     * const userStrategyPreference = await prisma.userStrategyPreference.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more UserStrategyPreferences and only return the `id`
+     * const userStrategyPreferenceWithIdOnly = await prisma.userStrategyPreference.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UserStrategyPreferenceUpdateManyAndReturnArgs>(args: SelectSubset<T, UserStrategyPreferenceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one UserStrategyPreference.
+     * @param {UserStrategyPreferenceUpsertArgs} args - Arguments to update or create a UserStrategyPreference.
+     * @example
+     * // Update or create a UserStrategyPreference
+     * const userStrategyPreference = await prisma.userStrategyPreference.upsert({
+     *   create: {
+     *     // ... data to create a UserStrategyPreference
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserStrategyPreference we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserStrategyPreferenceUpsertArgs>(args: SelectSubset<T, UserStrategyPreferenceUpsertArgs<ExtArgs>>): Prisma__UserStrategyPreferenceClient<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of UserStrategyPreferences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserStrategyPreferenceCountArgs} args - Arguments to filter UserStrategyPreferences to count.
+     * @example
+     * // Count the number of UserStrategyPreferences
+     * const count = await prisma.userStrategyPreference.count({
+     *   where: {
+     *     // ... the filter for the UserStrategyPreferences we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserStrategyPreferenceCountArgs>(
+      args?: Subset<T, UserStrategyPreferenceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserStrategyPreferenceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserStrategyPreference.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserStrategyPreferenceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserStrategyPreferenceAggregateArgs>(args: Subset<T, UserStrategyPreferenceAggregateArgs>): Prisma.PrismaPromise<GetUserStrategyPreferenceAggregateType<T>>
+
+    /**
+     * Group by UserStrategyPreference.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserStrategyPreferenceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserStrategyPreferenceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserStrategyPreferenceGroupByArgs['orderBy'] }
+        : { orderBy?: UserStrategyPreferenceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserStrategyPreferenceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserStrategyPreferenceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserStrategyPreference model
+   */
+  readonly fields: UserStrategyPreferenceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserStrategyPreference.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserStrategyPreferenceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    strategy<T extends StrategyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StrategyDefaultArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserStrategyPreference model
+   */
+  interface UserStrategyPreferenceFieldRefs {
+    readonly id: FieldRef<"UserStrategyPreference", 'String'>
+    readonly userId: FieldRef<"UserStrategyPreference", 'String'>
+    readonly strategyId: FieldRef<"UserStrategyPreference", 'String'>
+    readonly isFavorite: FieldRef<"UserStrategyPreference", 'Boolean'>
+    readonly isHidden: FieldRef<"UserStrategyPreference", 'Boolean'>
+    readonly receiveNotifications: FieldRef<"UserStrategyPreference", 'Boolean'>
+    readonly createdAt: FieldRef<"UserStrategyPreference", 'DateTime'>
+    readonly updatedAt: FieldRef<"UserStrategyPreference", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserStrategyPreference findUnique
+   */
+  export type UserStrategyPreferenceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which UserStrategyPreference to fetch.
+     */
+    where: UserStrategyPreferenceWhereUniqueInput
+  }
+
+  /**
+   * UserStrategyPreference findUniqueOrThrow
+   */
+  export type UserStrategyPreferenceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which UserStrategyPreference to fetch.
+     */
+    where: UserStrategyPreferenceWhereUniqueInput
+  }
+
+  /**
+   * UserStrategyPreference findFirst
+   */
+  export type UserStrategyPreferenceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which UserStrategyPreference to fetch.
+     */
+    where?: UserStrategyPreferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserStrategyPreferences to fetch.
+     */
+    orderBy?: UserStrategyPreferenceOrderByWithRelationInput | UserStrategyPreferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserStrategyPreferences.
+     */
+    cursor?: UserStrategyPreferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserStrategyPreferences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserStrategyPreferences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserStrategyPreferences.
+     */
+    distinct?: UserStrategyPreferenceScalarFieldEnum | UserStrategyPreferenceScalarFieldEnum[]
+  }
+
+  /**
+   * UserStrategyPreference findFirstOrThrow
+   */
+  export type UserStrategyPreferenceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which UserStrategyPreference to fetch.
+     */
+    where?: UserStrategyPreferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserStrategyPreferences to fetch.
+     */
+    orderBy?: UserStrategyPreferenceOrderByWithRelationInput | UserStrategyPreferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserStrategyPreferences.
+     */
+    cursor?: UserStrategyPreferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserStrategyPreferences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserStrategyPreferences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserStrategyPreferences.
+     */
+    distinct?: UserStrategyPreferenceScalarFieldEnum | UserStrategyPreferenceScalarFieldEnum[]
+  }
+
+  /**
+   * UserStrategyPreference findMany
+   */
+  export type UserStrategyPreferenceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which UserStrategyPreferences to fetch.
+     */
+    where?: UserStrategyPreferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserStrategyPreferences to fetch.
+     */
+    orderBy?: UserStrategyPreferenceOrderByWithRelationInput | UserStrategyPreferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserStrategyPreferences.
+     */
+    cursor?: UserStrategyPreferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserStrategyPreferences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserStrategyPreferences.
+     */
+    skip?: number
+    distinct?: UserStrategyPreferenceScalarFieldEnum | UserStrategyPreferenceScalarFieldEnum[]
+  }
+
+  /**
+   * UserStrategyPreference create
+   */
+  export type UserStrategyPreferenceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserStrategyPreference.
+     */
+    data: XOR<UserStrategyPreferenceCreateInput, UserStrategyPreferenceUncheckedCreateInput>
+  }
+
+  /**
+   * UserStrategyPreference createMany
+   */
+  export type UserStrategyPreferenceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserStrategyPreferences.
+     */
+    data: UserStrategyPreferenceCreateManyInput | UserStrategyPreferenceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserStrategyPreference createManyAndReturn
+   */
+  export type UserStrategyPreferenceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * The data used to create many UserStrategyPreferences.
+     */
+    data: UserStrategyPreferenceCreateManyInput | UserStrategyPreferenceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UserStrategyPreference update
+   */
+  export type UserStrategyPreferenceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserStrategyPreference.
+     */
+    data: XOR<UserStrategyPreferenceUpdateInput, UserStrategyPreferenceUncheckedUpdateInput>
+    /**
+     * Choose, which UserStrategyPreference to update.
+     */
+    where: UserStrategyPreferenceWhereUniqueInput
+  }
+
+  /**
+   * UserStrategyPreference updateMany
+   */
+  export type UserStrategyPreferenceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserStrategyPreferences.
+     */
+    data: XOR<UserStrategyPreferenceUpdateManyMutationInput, UserStrategyPreferenceUncheckedUpdateManyInput>
+    /**
+     * Filter which UserStrategyPreferences to update
+     */
+    where?: UserStrategyPreferenceWhereInput
+    /**
+     * Limit how many UserStrategyPreferences to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserStrategyPreference updateManyAndReturn
+   */
+  export type UserStrategyPreferenceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * The data used to update UserStrategyPreferences.
+     */
+    data: XOR<UserStrategyPreferenceUpdateManyMutationInput, UserStrategyPreferenceUncheckedUpdateManyInput>
+    /**
+     * Filter which UserStrategyPreferences to update
+     */
+    where?: UserStrategyPreferenceWhereInput
+    /**
+     * Limit how many UserStrategyPreferences to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UserStrategyPreference upsert
+   */
+  export type UserStrategyPreferenceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserStrategyPreference to update in case it exists.
+     */
+    where: UserStrategyPreferenceWhereUniqueInput
+    /**
+     * In case the UserStrategyPreference found by the `where` argument doesn't exist, create a new UserStrategyPreference with this data.
+     */
+    create: XOR<UserStrategyPreferenceCreateInput, UserStrategyPreferenceUncheckedCreateInput>
+    /**
+     * In case the UserStrategyPreference was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserStrategyPreferenceUpdateInput, UserStrategyPreferenceUncheckedUpdateInput>
+  }
+
+  /**
+   * UserStrategyPreference delete
+   */
+  export type UserStrategyPreferenceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+    /**
+     * Filter which UserStrategyPreference to delete.
+     */
+    where: UserStrategyPreferenceWhereUniqueInput
+  }
+
+  /**
+   * UserStrategyPreference deleteMany
+   */
+  export type UserStrategyPreferenceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserStrategyPreferences to delete
+     */
+    where?: UserStrategyPreferenceWhereInput
+    /**
+     * Limit how many UserStrategyPreferences to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserStrategyPreference without action
+   */
+  export type UserStrategyPreferenceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserStrategyPreference
+     */
+    select?: UserStrategyPreferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserStrategyPreference
+     */
+    omit?: UserStrategyPreferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserStrategyPreferenceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UserYieldOpportunityOptOut
+   */
+
+  export type AggregateUserYieldOpportunityOptOut = {
+    _count: UserYieldOpportunityOptOutCountAggregateOutputType | null
+    _min: UserYieldOpportunityOptOutMinAggregateOutputType | null
+    _max: UserYieldOpportunityOptOutMaxAggregateOutputType | null
+  }
+
+  export type UserYieldOpportunityOptOutMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    yieldOpportunityId: string | null
+    optedOutAt: Date | null
+  }
+
+  export type UserYieldOpportunityOptOutMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    yieldOpportunityId: string | null
+    optedOutAt: Date | null
+  }
+
+  export type UserYieldOpportunityOptOutCountAggregateOutputType = {
+    id: number
+    userId: number
+    yieldOpportunityId: number
+    optedOutAt: number
+    _all: number
+  }
+
+
+  export type UserYieldOpportunityOptOutMinAggregateInputType = {
+    id?: true
+    userId?: true
+    yieldOpportunityId?: true
+    optedOutAt?: true
+  }
+
+  export type UserYieldOpportunityOptOutMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    yieldOpportunityId?: true
+    optedOutAt?: true
+  }
+
+  export type UserYieldOpportunityOptOutCountAggregateInputType = {
+    id?: true
+    userId?: true
+    yieldOpportunityId?: true
+    optedOutAt?: true
+    _all?: true
+  }
+
+  export type UserYieldOpportunityOptOutAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserYieldOpportunityOptOut to aggregate.
+     */
+    where?: UserYieldOpportunityOptOutWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserYieldOpportunityOptOuts to fetch.
+     */
+    orderBy?: UserYieldOpportunityOptOutOrderByWithRelationInput | UserYieldOpportunityOptOutOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserYieldOpportunityOptOutWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserYieldOpportunityOptOuts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserYieldOpportunityOptOuts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserYieldOpportunityOptOuts
+    **/
+    _count?: true | UserYieldOpportunityOptOutCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserYieldOpportunityOptOutMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserYieldOpportunityOptOutMaxAggregateInputType
+  }
+
+  export type GetUserYieldOpportunityOptOutAggregateType<T extends UserYieldOpportunityOptOutAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserYieldOpportunityOptOut]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserYieldOpportunityOptOut[P]>
+      : GetScalarType<T[P], AggregateUserYieldOpportunityOptOut[P]>
+  }
+
+
+
+
+  export type UserYieldOpportunityOptOutGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserYieldOpportunityOptOutWhereInput
+    orderBy?: UserYieldOpportunityOptOutOrderByWithAggregationInput | UserYieldOpportunityOptOutOrderByWithAggregationInput[]
+    by: UserYieldOpportunityOptOutScalarFieldEnum[] | UserYieldOpportunityOptOutScalarFieldEnum
+    having?: UserYieldOpportunityOptOutScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserYieldOpportunityOptOutCountAggregateInputType | true
+    _min?: UserYieldOpportunityOptOutMinAggregateInputType
+    _max?: UserYieldOpportunityOptOutMaxAggregateInputType
+  }
+
+  export type UserYieldOpportunityOptOutGroupByOutputType = {
+    id: string
+    userId: string
+    yieldOpportunityId: string
+    optedOutAt: Date
+    _count: UserYieldOpportunityOptOutCountAggregateOutputType | null
+    _min: UserYieldOpportunityOptOutMinAggregateOutputType | null
+    _max: UserYieldOpportunityOptOutMaxAggregateOutputType | null
+  }
+
+  type GetUserYieldOpportunityOptOutGroupByPayload<T extends UserYieldOpportunityOptOutGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserYieldOpportunityOptOutGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserYieldOpportunityOptOutGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserYieldOpportunityOptOutGroupByOutputType[P]>
+            : GetScalarType<T[P], UserYieldOpportunityOptOutGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserYieldOpportunityOptOutSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    yieldOpportunityId?: boolean
+    optedOutAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    yieldOpportunity?: boolean | YieldOpportunityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userYieldOpportunityOptOut"]>
+
+  export type UserYieldOpportunityOptOutSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    yieldOpportunityId?: boolean
+    optedOutAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    yieldOpportunity?: boolean | YieldOpportunityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userYieldOpportunityOptOut"]>
+
+  export type UserYieldOpportunityOptOutSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    yieldOpportunityId?: boolean
+    optedOutAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    yieldOpportunity?: boolean | YieldOpportunityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userYieldOpportunityOptOut"]>
+
+  export type UserYieldOpportunityOptOutSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    yieldOpportunityId?: boolean
+    optedOutAt?: boolean
+  }
+
+  export type UserYieldOpportunityOptOutOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "yieldOpportunityId" | "optedOutAt", ExtArgs["result"]["userYieldOpportunityOptOut"]>
+  export type UserYieldOpportunityOptOutInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    yieldOpportunity?: boolean | YieldOpportunityDefaultArgs<ExtArgs>
+  }
+  export type UserYieldOpportunityOptOutIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    yieldOpportunity?: boolean | YieldOpportunityDefaultArgs<ExtArgs>
+  }
+  export type UserYieldOpportunityOptOutIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    yieldOpportunity?: boolean | YieldOpportunityDefaultArgs<ExtArgs>
+  }
+
+  export type $UserYieldOpportunityOptOutPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserYieldOpportunityOptOut"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      yieldOpportunity: Prisma.$YieldOpportunityPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      yieldOpportunityId: string
+      optedOutAt: Date
+    }, ExtArgs["result"]["userYieldOpportunityOptOut"]>
+    composites: {}
+  }
+
+  type UserYieldOpportunityOptOutGetPayload<S extends boolean | null | undefined | UserYieldOpportunityOptOutDefaultArgs> = $Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload, S>
+
+  type UserYieldOpportunityOptOutCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserYieldOpportunityOptOutFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserYieldOpportunityOptOutCountAggregateInputType | true
+    }
+
+  export interface UserYieldOpportunityOptOutDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserYieldOpportunityOptOut'], meta: { name: 'UserYieldOpportunityOptOut' } }
+    /**
+     * Find zero or one UserYieldOpportunityOptOut that matches the filter.
+     * @param {UserYieldOpportunityOptOutFindUniqueArgs} args - Arguments to find a UserYieldOpportunityOptOut
+     * @example
+     * // Get one UserYieldOpportunityOptOut
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserYieldOpportunityOptOutFindUniqueArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutFindUniqueArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UserYieldOpportunityOptOut that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserYieldOpportunityOptOutFindUniqueOrThrowArgs} args - Arguments to find a UserYieldOpportunityOptOut
+     * @example
+     * // Get one UserYieldOpportunityOptOut
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserYieldOpportunityOptOutFindUniqueOrThrowArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserYieldOpportunityOptOut that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserYieldOpportunityOptOutFindFirstArgs} args - Arguments to find a UserYieldOpportunityOptOut
+     * @example
+     * // Get one UserYieldOpportunityOptOut
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserYieldOpportunityOptOutFindFirstArgs>(args?: SelectSubset<T, UserYieldOpportunityOptOutFindFirstArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserYieldOpportunityOptOut that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserYieldOpportunityOptOutFindFirstOrThrowArgs} args - Arguments to find a UserYieldOpportunityOptOut
+     * @example
+     * // Get one UserYieldOpportunityOptOut
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserYieldOpportunityOptOutFindFirstOrThrowArgs>(args?: SelectSubset<T, UserYieldOpportunityOptOutFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserYieldOpportunityOptOuts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserYieldOpportunityOptOutFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserYieldOpportunityOptOuts
+     * const userYieldOpportunityOptOuts = await prisma.userYieldOpportunityOptOut.findMany()
+     * 
+     * // Get first 10 UserYieldOpportunityOptOuts
+     * const userYieldOpportunityOptOuts = await prisma.userYieldOpportunityOptOut.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userYieldOpportunityOptOutWithIdOnly = await prisma.userYieldOpportunityOptOut.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserYieldOpportunityOptOutFindManyArgs>(args?: SelectSubset<T, UserYieldOpportunityOptOutFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UserYieldOpportunityOptOut.
+     * @param {UserYieldOpportunityOptOutCreateArgs} args - Arguments to create a UserYieldOpportunityOptOut.
+     * @example
+     * // Create one UserYieldOpportunityOptOut
+     * const UserYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.create({
+     *   data: {
+     *     // ... data to create a UserYieldOpportunityOptOut
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserYieldOpportunityOptOutCreateArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutCreateArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UserYieldOpportunityOptOuts.
+     * @param {UserYieldOpportunityOptOutCreateManyArgs} args - Arguments to create many UserYieldOpportunityOptOuts.
+     * @example
+     * // Create many UserYieldOpportunityOptOuts
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserYieldOpportunityOptOutCreateManyArgs>(args?: SelectSubset<T, UserYieldOpportunityOptOutCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UserYieldOpportunityOptOuts and returns the data saved in the database.
+     * @param {UserYieldOpportunityOptOutCreateManyAndReturnArgs} args - Arguments to create many UserYieldOpportunityOptOuts.
+     * @example
+     * // Create many UserYieldOpportunityOptOuts
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UserYieldOpportunityOptOuts and only return the `id`
+     * const userYieldOpportunityOptOutWithIdOnly = await prisma.userYieldOpportunityOptOut.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserYieldOpportunityOptOutCreateManyAndReturnArgs>(args?: SelectSubset<T, UserYieldOpportunityOptOutCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a UserYieldOpportunityOptOut.
+     * @param {UserYieldOpportunityOptOutDeleteArgs} args - Arguments to delete one UserYieldOpportunityOptOut.
+     * @example
+     * // Delete one UserYieldOpportunityOptOut
+     * const UserYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.delete({
+     *   where: {
+     *     // ... filter to delete one UserYieldOpportunityOptOut
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserYieldOpportunityOptOutDeleteArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutDeleteArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UserYieldOpportunityOptOut.
+     * @param {UserYieldOpportunityOptOutUpdateArgs} args - Arguments to update one UserYieldOpportunityOptOut.
+     * @example
+     * // Update one UserYieldOpportunityOptOut
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserYieldOpportunityOptOutUpdateArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutUpdateArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UserYieldOpportunityOptOuts.
+     * @param {UserYieldOpportunityOptOutDeleteManyArgs} args - Arguments to filter UserYieldOpportunityOptOuts to delete.
+     * @example
+     * // Delete a few UserYieldOpportunityOptOuts
+     * const { count } = await prisma.userYieldOpportunityOptOut.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserYieldOpportunityOptOutDeleteManyArgs>(args?: SelectSubset<T, UserYieldOpportunityOptOutDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserYieldOpportunityOptOuts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserYieldOpportunityOptOutUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserYieldOpportunityOptOuts
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserYieldOpportunityOptOutUpdateManyArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserYieldOpportunityOptOuts and returns the data updated in the database.
+     * @param {UserYieldOpportunityOptOutUpdateManyAndReturnArgs} args - Arguments to update many UserYieldOpportunityOptOuts.
+     * @example
+     * // Update many UserYieldOpportunityOptOuts
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more UserYieldOpportunityOptOuts and only return the `id`
+     * const userYieldOpportunityOptOutWithIdOnly = await prisma.userYieldOpportunityOptOut.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UserYieldOpportunityOptOutUpdateManyAndReturnArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one UserYieldOpportunityOptOut.
+     * @param {UserYieldOpportunityOptOutUpsertArgs} args - Arguments to update or create a UserYieldOpportunityOptOut.
+     * @example
+     * // Update or create a UserYieldOpportunityOptOut
+     * const userYieldOpportunityOptOut = await prisma.userYieldOpportunityOptOut.upsert({
+     *   create: {
+     *     // ... data to create a UserYieldOpportunityOptOut
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserYieldOpportunityOptOut we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserYieldOpportunityOptOutUpsertArgs>(args: SelectSubset<T, UserYieldOpportunityOptOutUpsertArgs<ExtArgs>>): Prisma__UserYieldOpportunityOptOutClient<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of UserYieldOpportunityOptOuts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserYieldOpportunityOptOutCountArgs} args - Arguments to filter UserYieldOpportunityOptOuts to count.
+     * @example
+     * // Count the number of UserYieldOpportunityOptOuts
+     * const count = await prisma.userYieldOpportunityOptOut.count({
+     *   where: {
+     *     // ... the filter for the UserYieldOpportunityOptOuts we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserYieldOpportunityOptOutCountArgs>(
+      args?: Subset<T, UserYieldOpportunityOptOutCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserYieldOpportunityOptOutCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserYieldOpportunityOptOut.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserYieldOpportunityOptOutAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserYieldOpportunityOptOutAggregateArgs>(args: Subset<T, UserYieldOpportunityOptOutAggregateArgs>): Prisma.PrismaPromise<GetUserYieldOpportunityOptOutAggregateType<T>>
+
+    /**
+     * Group by UserYieldOpportunityOptOut.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserYieldOpportunityOptOutGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserYieldOpportunityOptOutGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserYieldOpportunityOptOutGroupByArgs['orderBy'] }
+        : { orderBy?: UserYieldOpportunityOptOutGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserYieldOpportunityOptOutGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserYieldOpportunityOptOutGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserYieldOpportunityOptOut model
+   */
+  readonly fields: UserYieldOpportunityOptOutFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserYieldOpportunityOptOut.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserYieldOpportunityOptOutClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    yieldOpportunity<T extends YieldOpportunityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, YieldOpportunityDefaultArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserYieldOpportunityOptOut model
+   */
+  interface UserYieldOpportunityOptOutFieldRefs {
+    readonly id: FieldRef<"UserYieldOpportunityOptOut", 'String'>
+    readonly userId: FieldRef<"UserYieldOpportunityOptOut", 'String'>
+    readonly yieldOpportunityId: FieldRef<"UserYieldOpportunityOptOut", 'String'>
+    readonly optedOutAt: FieldRef<"UserYieldOpportunityOptOut", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserYieldOpportunityOptOut findUnique
+   */
+  export type UserYieldOpportunityOptOutFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * Filter, which UserYieldOpportunityOptOut to fetch.
+     */
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+  }
+
+  /**
+   * UserYieldOpportunityOptOut findUniqueOrThrow
+   */
+  export type UserYieldOpportunityOptOutFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * Filter, which UserYieldOpportunityOptOut to fetch.
+     */
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+  }
+
+  /**
+   * UserYieldOpportunityOptOut findFirst
+   */
+  export type UserYieldOpportunityOptOutFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * Filter, which UserYieldOpportunityOptOut to fetch.
+     */
+    where?: UserYieldOpportunityOptOutWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserYieldOpportunityOptOuts to fetch.
+     */
+    orderBy?: UserYieldOpportunityOptOutOrderByWithRelationInput | UserYieldOpportunityOptOutOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserYieldOpportunityOptOuts.
+     */
+    cursor?: UserYieldOpportunityOptOutWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserYieldOpportunityOptOuts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserYieldOpportunityOptOuts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserYieldOpportunityOptOuts.
+     */
+    distinct?: UserYieldOpportunityOptOutScalarFieldEnum | UserYieldOpportunityOptOutScalarFieldEnum[]
+  }
+
+  /**
+   * UserYieldOpportunityOptOut findFirstOrThrow
+   */
+  export type UserYieldOpportunityOptOutFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * Filter, which UserYieldOpportunityOptOut to fetch.
+     */
+    where?: UserYieldOpportunityOptOutWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserYieldOpportunityOptOuts to fetch.
+     */
+    orderBy?: UserYieldOpportunityOptOutOrderByWithRelationInput | UserYieldOpportunityOptOutOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserYieldOpportunityOptOuts.
+     */
+    cursor?: UserYieldOpportunityOptOutWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserYieldOpportunityOptOuts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserYieldOpportunityOptOuts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserYieldOpportunityOptOuts.
+     */
+    distinct?: UserYieldOpportunityOptOutScalarFieldEnum | UserYieldOpportunityOptOutScalarFieldEnum[]
+  }
+
+  /**
+   * UserYieldOpportunityOptOut findMany
+   */
+  export type UserYieldOpportunityOptOutFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * Filter, which UserYieldOpportunityOptOuts to fetch.
+     */
+    where?: UserYieldOpportunityOptOutWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserYieldOpportunityOptOuts to fetch.
+     */
+    orderBy?: UserYieldOpportunityOptOutOrderByWithRelationInput | UserYieldOpportunityOptOutOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserYieldOpportunityOptOuts.
+     */
+    cursor?: UserYieldOpportunityOptOutWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserYieldOpportunityOptOuts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserYieldOpportunityOptOuts.
+     */
+    skip?: number
+    distinct?: UserYieldOpportunityOptOutScalarFieldEnum | UserYieldOpportunityOptOutScalarFieldEnum[]
+  }
+
+  /**
+   * UserYieldOpportunityOptOut create
+   */
+  export type UserYieldOpportunityOptOutCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserYieldOpportunityOptOut.
+     */
+    data: XOR<UserYieldOpportunityOptOutCreateInput, UserYieldOpportunityOptOutUncheckedCreateInput>
+  }
+
+  /**
+   * UserYieldOpportunityOptOut createMany
+   */
+  export type UserYieldOpportunityOptOutCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserYieldOpportunityOptOuts.
+     */
+    data: UserYieldOpportunityOptOutCreateManyInput | UserYieldOpportunityOptOutCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserYieldOpportunityOptOut createManyAndReturn
+   */
+  export type UserYieldOpportunityOptOutCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * The data used to create many UserYieldOpportunityOptOuts.
+     */
+    data: UserYieldOpportunityOptOutCreateManyInput | UserYieldOpportunityOptOutCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UserYieldOpportunityOptOut update
+   */
+  export type UserYieldOpportunityOptOutUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserYieldOpportunityOptOut.
+     */
+    data: XOR<UserYieldOpportunityOptOutUpdateInput, UserYieldOpportunityOptOutUncheckedUpdateInput>
+    /**
+     * Choose, which UserYieldOpportunityOptOut to update.
+     */
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+  }
+
+  /**
+   * UserYieldOpportunityOptOut updateMany
+   */
+  export type UserYieldOpportunityOptOutUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserYieldOpportunityOptOuts.
+     */
+    data: XOR<UserYieldOpportunityOptOutUpdateManyMutationInput, UserYieldOpportunityOptOutUncheckedUpdateManyInput>
+    /**
+     * Filter which UserYieldOpportunityOptOuts to update
+     */
+    where?: UserYieldOpportunityOptOutWhereInput
+    /**
+     * Limit how many UserYieldOpportunityOptOuts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserYieldOpportunityOptOut updateManyAndReturn
+   */
+  export type UserYieldOpportunityOptOutUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * The data used to update UserYieldOpportunityOptOuts.
+     */
+    data: XOR<UserYieldOpportunityOptOutUpdateManyMutationInput, UserYieldOpportunityOptOutUncheckedUpdateManyInput>
+    /**
+     * Filter which UserYieldOpportunityOptOuts to update
+     */
+    where?: UserYieldOpportunityOptOutWhereInput
+    /**
+     * Limit how many UserYieldOpportunityOptOuts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UserYieldOpportunityOptOut upsert
+   */
+  export type UserYieldOpportunityOptOutUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserYieldOpportunityOptOut to update in case it exists.
+     */
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+    /**
+     * In case the UserYieldOpportunityOptOut found by the `where` argument doesn't exist, create a new UserYieldOpportunityOptOut with this data.
+     */
+    create: XOR<UserYieldOpportunityOptOutCreateInput, UserYieldOpportunityOptOutUncheckedCreateInput>
+    /**
+     * In case the UserYieldOpportunityOptOut was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserYieldOpportunityOptOutUpdateInput, UserYieldOpportunityOptOutUncheckedUpdateInput>
+  }
+
+  /**
+   * UserYieldOpportunityOptOut delete
+   */
+  export type UserYieldOpportunityOptOutDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    /**
+     * Filter which UserYieldOpportunityOptOut to delete.
+     */
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+  }
+
+  /**
+   * UserYieldOpportunityOptOut deleteMany
+   */
+  export type UserYieldOpportunityOptOutDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserYieldOpportunityOptOuts to delete
+     */
+    where?: UserYieldOpportunityOptOutWhereInput
+    /**
+     * Limit how many UserYieldOpportunityOptOuts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserYieldOpportunityOptOut without action
+   */
+  export type UserYieldOpportunityOptOutDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model YieldOpportunity
+   */
+
+  export type AggregateYieldOpportunity = {
+    _count: YieldOpportunityCountAggregateOutputType | null
+    _avg: YieldOpportunityAvgAggregateOutputType | null
+    _sum: YieldOpportunitySumAggregateOutputType | null
+    _min: YieldOpportunityMinAggregateOutputType | null
+    _max: YieldOpportunityMaxAggregateOutputType | null
+  }
+
+  export type YieldOpportunityAvgAggregateOutputType = {
+    apy: number | null
+  }
+
+  export type YieldOpportunitySumAggregateOutputType = {
+    apy: number | null
+  }
+
+  export type YieldOpportunityMinAggregateOutputType = {
+    id: string | null
+    platform: string | null
+    platformImage: string | null
+    tickerImage: string | null
+    name: string | null
+    marketId: string | null
+    assetTicker: string | null
+    apy: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type YieldOpportunityMaxAggregateOutputType = {
+    id: string | null
+    platform: string | null
+    platformImage: string | null
+    tickerImage: string | null
+    name: string | null
+    marketId: string | null
+    assetTicker: string | null
+    apy: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type YieldOpportunityCountAggregateOutputType = {
+    id: number
+    platform: number
+    platformImage: number
+    tickerImage: number
+    name: number
+    marketId: number
+    assetTicker: number
+    apy: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type YieldOpportunityAvgAggregateInputType = {
+    apy?: true
+  }
+
+  export type YieldOpportunitySumAggregateInputType = {
+    apy?: true
+  }
+
+  export type YieldOpportunityMinAggregateInputType = {
+    id?: true
+    platform?: true
+    platformImage?: true
+    tickerImage?: true
+    name?: true
+    marketId?: true
+    assetTicker?: true
+    apy?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type YieldOpportunityMaxAggregateInputType = {
+    id?: true
+    platform?: true
+    platformImage?: true
+    tickerImage?: true
+    name?: true
+    marketId?: true
+    assetTicker?: true
+    apy?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type YieldOpportunityCountAggregateInputType = {
+    id?: true
+    platform?: true
+    platformImage?: true
+    tickerImage?: true
+    name?: true
+    marketId?: true
+    assetTicker?: true
+    apy?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type YieldOpportunityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YieldOpportunity to aggregate.
+     */
+    where?: YieldOpportunityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YieldOpportunities to fetch.
+     */
+    orderBy?: YieldOpportunityOrderByWithRelationInput | YieldOpportunityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: YieldOpportunityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YieldOpportunities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YieldOpportunities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned YieldOpportunities
+    **/
+    _count?: true | YieldOpportunityCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: YieldOpportunityAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: YieldOpportunitySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: YieldOpportunityMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: YieldOpportunityMaxAggregateInputType
+  }
+
+  export type GetYieldOpportunityAggregateType<T extends YieldOpportunityAggregateArgs> = {
+        [P in keyof T & keyof AggregateYieldOpportunity]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateYieldOpportunity[P]>
+      : GetScalarType<T[P], AggregateYieldOpportunity[P]>
+  }
+
+
+
+
+  export type YieldOpportunityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YieldOpportunityWhereInput
+    orderBy?: YieldOpportunityOrderByWithAggregationInput | YieldOpportunityOrderByWithAggregationInput[]
+    by: YieldOpportunityScalarFieldEnum[] | YieldOpportunityScalarFieldEnum
+    having?: YieldOpportunityScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: YieldOpportunityCountAggregateInputType | true
+    _avg?: YieldOpportunityAvgAggregateInputType
+    _sum?: YieldOpportunitySumAggregateInputType
+    _min?: YieldOpportunityMinAggregateInputType
+    _max?: YieldOpportunityMaxAggregateInputType
+  }
+
+  export type YieldOpportunityGroupByOutputType = {
+    id: string
+    platform: string
+    platformImage: string | null
+    tickerImage: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt: Date
+    updatedAt: Date
+    _count: YieldOpportunityCountAggregateOutputType | null
+    _avg: YieldOpportunityAvgAggregateOutputType | null
+    _sum: YieldOpportunitySumAggregateOutputType | null
+    _min: YieldOpportunityMinAggregateOutputType | null
+    _max: YieldOpportunityMaxAggregateOutputType | null
+  }
+
+  type GetYieldOpportunityGroupByPayload<T extends YieldOpportunityGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<YieldOpportunityGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof YieldOpportunityGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], YieldOpportunityGroupByOutputType[P]>
+            : GetScalarType<T[P], YieldOpportunityGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type YieldOpportunitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    platform?: boolean
+    platformImage?: boolean
+    tickerImage?: boolean
+    name?: boolean
+    marketId?: boolean
+    assetTicker?: boolean
+    apy?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userOptOuts?: boolean | YieldOpportunity$userOptOutsArgs<ExtArgs>
+    _count?: boolean | YieldOpportunityCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["yieldOpportunity"]>
+
+  export type YieldOpportunitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    platform?: boolean
+    platformImage?: boolean
+    tickerImage?: boolean
+    name?: boolean
+    marketId?: boolean
+    assetTicker?: boolean
+    apy?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["yieldOpportunity"]>
+
+  export type YieldOpportunitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    platform?: boolean
+    platformImage?: boolean
+    tickerImage?: boolean
+    name?: boolean
+    marketId?: boolean
+    assetTicker?: boolean
+    apy?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["yieldOpportunity"]>
+
+  export type YieldOpportunitySelectScalar = {
+    id?: boolean
+    platform?: boolean
+    platformImage?: boolean
+    tickerImage?: boolean
+    name?: boolean
+    marketId?: boolean
+    assetTicker?: boolean
+    apy?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type YieldOpportunityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "platform" | "platformImage" | "tickerImage" | "name" | "marketId" | "assetTicker" | "apy" | "createdAt" | "updatedAt", ExtArgs["result"]["yieldOpportunity"]>
+  export type YieldOpportunityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userOptOuts?: boolean | YieldOpportunity$userOptOutsArgs<ExtArgs>
+    _count?: boolean | YieldOpportunityCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type YieldOpportunityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type YieldOpportunityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $YieldOpportunityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YieldOpportunity"
+    objects: {
+      userOptOuts: Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      platform: string
+      platformImage: string | null
+      tickerImage: string | null
+      name: string
+      marketId: string
+      assetTicker: string
+      apy: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["yieldOpportunity"]>
+    composites: {}
+  }
+
+  type YieldOpportunityGetPayload<S extends boolean | null | undefined | YieldOpportunityDefaultArgs> = $Result.GetResult<Prisma.$YieldOpportunityPayload, S>
+
+  type YieldOpportunityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<YieldOpportunityFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: YieldOpportunityCountAggregateInputType | true
+    }
+
+  export interface YieldOpportunityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YieldOpportunity'], meta: { name: 'YieldOpportunity' } }
+    /**
+     * Find zero or one YieldOpportunity that matches the filter.
+     * @param {YieldOpportunityFindUniqueArgs} args - Arguments to find a YieldOpportunity
+     * @example
+     * // Get one YieldOpportunity
+     * const yieldOpportunity = await prisma.yieldOpportunity.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends YieldOpportunityFindUniqueArgs>(args: SelectSubset<T, YieldOpportunityFindUniqueArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one YieldOpportunity that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {YieldOpportunityFindUniqueOrThrowArgs} args - Arguments to find a YieldOpportunity
+     * @example
+     * // Get one YieldOpportunity
+     * const yieldOpportunity = await prisma.yieldOpportunity.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends YieldOpportunityFindUniqueOrThrowArgs>(args: SelectSubset<T, YieldOpportunityFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first YieldOpportunity that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YieldOpportunityFindFirstArgs} args - Arguments to find a YieldOpportunity
+     * @example
+     * // Get one YieldOpportunity
+     * const yieldOpportunity = await prisma.yieldOpportunity.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends YieldOpportunityFindFirstArgs>(args?: SelectSubset<T, YieldOpportunityFindFirstArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first YieldOpportunity that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YieldOpportunityFindFirstOrThrowArgs} args - Arguments to find a YieldOpportunity
+     * @example
+     * // Get one YieldOpportunity
+     * const yieldOpportunity = await prisma.yieldOpportunity.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends YieldOpportunityFindFirstOrThrowArgs>(args?: SelectSubset<T, YieldOpportunityFindFirstOrThrowArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more YieldOpportunities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YieldOpportunityFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all YieldOpportunities
+     * const yieldOpportunities = await prisma.yieldOpportunity.findMany()
+     * 
+     * // Get first 10 YieldOpportunities
+     * const yieldOpportunities = await prisma.yieldOpportunity.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const yieldOpportunityWithIdOnly = await prisma.yieldOpportunity.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends YieldOpportunityFindManyArgs>(args?: SelectSubset<T, YieldOpportunityFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a YieldOpportunity.
+     * @param {YieldOpportunityCreateArgs} args - Arguments to create a YieldOpportunity.
+     * @example
+     * // Create one YieldOpportunity
+     * const YieldOpportunity = await prisma.yieldOpportunity.create({
+     *   data: {
+     *     // ... data to create a YieldOpportunity
+     *   }
+     * })
+     * 
+     */
+    create<T extends YieldOpportunityCreateArgs>(args: SelectSubset<T, YieldOpportunityCreateArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many YieldOpportunities.
+     * @param {YieldOpportunityCreateManyArgs} args - Arguments to create many YieldOpportunities.
+     * @example
+     * // Create many YieldOpportunities
+     * const yieldOpportunity = await prisma.yieldOpportunity.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends YieldOpportunityCreateManyArgs>(args?: SelectSubset<T, YieldOpportunityCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many YieldOpportunities and returns the data saved in the database.
+     * @param {YieldOpportunityCreateManyAndReturnArgs} args - Arguments to create many YieldOpportunities.
+     * @example
+     * // Create many YieldOpportunities
+     * const yieldOpportunity = await prisma.yieldOpportunity.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many YieldOpportunities and only return the `id`
+     * const yieldOpportunityWithIdOnly = await prisma.yieldOpportunity.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends YieldOpportunityCreateManyAndReturnArgs>(args?: SelectSubset<T, YieldOpportunityCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a YieldOpportunity.
+     * @param {YieldOpportunityDeleteArgs} args - Arguments to delete one YieldOpportunity.
+     * @example
+     * // Delete one YieldOpportunity
+     * const YieldOpportunity = await prisma.yieldOpportunity.delete({
+     *   where: {
+     *     // ... filter to delete one YieldOpportunity
+     *   }
+     * })
+     * 
+     */
+    delete<T extends YieldOpportunityDeleteArgs>(args: SelectSubset<T, YieldOpportunityDeleteArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one YieldOpportunity.
+     * @param {YieldOpportunityUpdateArgs} args - Arguments to update one YieldOpportunity.
+     * @example
+     * // Update one YieldOpportunity
+     * const yieldOpportunity = await prisma.yieldOpportunity.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends YieldOpportunityUpdateArgs>(args: SelectSubset<T, YieldOpportunityUpdateArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more YieldOpportunities.
+     * @param {YieldOpportunityDeleteManyArgs} args - Arguments to filter YieldOpportunities to delete.
+     * @example
+     * // Delete a few YieldOpportunities
+     * const { count } = await prisma.yieldOpportunity.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends YieldOpportunityDeleteManyArgs>(args?: SelectSubset<T, YieldOpportunityDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YieldOpportunities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YieldOpportunityUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many YieldOpportunities
+     * const yieldOpportunity = await prisma.yieldOpportunity.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends YieldOpportunityUpdateManyArgs>(args: SelectSubset<T, YieldOpportunityUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YieldOpportunities and returns the data updated in the database.
+     * @param {YieldOpportunityUpdateManyAndReturnArgs} args - Arguments to update many YieldOpportunities.
+     * @example
+     * // Update many YieldOpportunities
+     * const yieldOpportunity = await prisma.yieldOpportunity.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more YieldOpportunities and only return the `id`
+     * const yieldOpportunityWithIdOnly = await prisma.yieldOpportunity.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends YieldOpportunityUpdateManyAndReturnArgs>(args: SelectSubset<T, YieldOpportunityUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one YieldOpportunity.
+     * @param {YieldOpportunityUpsertArgs} args - Arguments to update or create a YieldOpportunity.
+     * @example
+     * // Update or create a YieldOpportunity
+     * const yieldOpportunity = await prisma.yieldOpportunity.upsert({
+     *   create: {
+     *     // ... data to create a YieldOpportunity
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the YieldOpportunity we want to update
+     *   }
+     * })
+     */
+    upsert<T extends YieldOpportunityUpsertArgs>(args: SelectSubset<T, YieldOpportunityUpsertArgs<ExtArgs>>): Prisma__YieldOpportunityClient<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of YieldOpportunities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YieldOpportunityCountArgs} args - Arguments to filter YieldOpportunities to count.
+     * @example
+     * // Count the number of YieldOpportunities
+     * const count = await prisma.yieldOpportunity.count({
+     *   where: {
+     *     // ... the filter for the YieldOpportunities we want to count
+     *   }
+     * })
+    **/
+    count<T extends YieldOpportunityCountArgs>(
+      args?: Subset<T, YieldOpportunityCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], YieldOpportunityCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a YieldOpportunity.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YieldOpportunityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends YieldOpportunityAggregateArgs>(args: Subset<T, YieldOpportunityAggregateArgs>): Prisma.PrismaPromise<GetYieldOpportunityAggregateType<T>>
+
+    /**
+     * Group by YieldOpportunity.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YieldOpportunityGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends YieldOpportunityGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: YieldOpportunityGroupByArgs['orderBy'] }
+        : { orderBy?: YieldOpportunityGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, YieldOpportunityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYieldOpportunityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the YieldOpportunity model
+   */
+  readonly fields: YieldOpportunityFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for YieldOpportunity.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__YieldOpportunityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    userOptOuts<T extends YieldOpportunity$userOptOutsArgs<ExtArgs> = {}>(args?: Subset<T, YieldOpportunity$userOptOutsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the YieldOpportunity model
+   */
+  interface YieldOpportunityFieldRefs {
+    readonly id: FieldRef<"YieldOpportunity", 'String'>
+    readonly platform: FieldRef<"YieldOpportunity", 'String'>
+    readonly platformImage: FieldRef<"YieldOpportunity", 'String'>
+    readonly tickerImage: FieldRef<"YieldOpportunity", 'String'>
+    readonly name: FieldRef<"YieldOpportunity", 'String'>
+    readonly marketId: FieldRef<"YieldOpportunity", 'String'>
+    readonly assetTicker: FieldRef<"YieldOpportunity", 'String'>
+    readonly apy: FieldRef<"YieldOpportunity", 'Float'>
+    readonly createdAt: FieldRef<"YieldOpportunity", 'DateTime'>
+    readonly updatedAt: FieldRef<"YieldOpportunity", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * YieldOpportunity findUnique
+   */
+  export type YieldOpportunityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * Filter, which YieldOpportunity to fetch.
+     */
+    where: YieldOpportunityWhereUniqueInput
+  }
+
+  /**
+   * YieldOpportunity findUniqueOrThrow
+   */
+  export type YieldOpportunityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * Filter, which YieldOpportunity to fetch.
+     */
+    where: YieldOpportunityWhereUniqueInput
+  }
+
+  /**
+   * YieldOpportunity findFirst
+   */
+  export type YieldOpportunityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * Filter, which YieldOpportunity to fetch.
+     */
+    where?: YieldOpportunityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YieldOpportunities to fetch.
+     */
+    orderBy?: YieldOpportunityOrderByWithRelationInput | YieldOpportunityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YieldOpportunities.
+     */
+    cursor?: YieldOpportunityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YieldOpportunities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YieldOpportunities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YieldOpportunities.
+     */
+    distinct?: YieldOpportunityScalarFieldEnum | YieldOpportunityScalarFieldEnum[]
+  }
+
+  /**
+   * YieldOpportunity findFirstOrThrow
+   */
+  export type YieldOpportunityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * Filter, which YieldOpportunity to fetch.
+     */
+    where?: YieldOpportunityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YieldOpportunities to fetch.
+     */
+    orderBy?: YieldOpportunityOrderByWithRelationInput | YieldOpportunityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YieldOpportunities.
+     */
+    cursor?: YieldOpportunityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YieldOpportunities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YieldOpportunities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YieldOpportunities.
+     */
+    distinct?: YieldOpportunityScalarFieldEnum | YieldOpportunityScalarFieldEnum[]
+  }
+
+  /**
+   * YieldOpportunity findMany
+   */
+  export type YieldOpportunityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * Filter, which YieldOpportunities to fetch.
+     */
+    where?: YieldOpportunityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YieldOpportunities to fetch.
+     */
+    orderBy?: YieldOpportunityOrderByWithRelationInput | YieldOpportunityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing YieldOpportunities.
+     */
+    cursor?: YieldOpportunityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YieldOpportunities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YieldOpportunities.
+     */
+    skip?: number
+    distinct?: YieldOpportunityScalarFieldEnum | YieldOpportunityScalarFieldEnum[]
+  }
+
+  /**
+   * YieldOpportunity create
+   */
+  export type YieldOpportunityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * The data needed to create a YieldOpportunity.
+     */
+    data: XOR<YieldOpportunityCreateInput, YieldOpportunityUncheckedCreateInput>
+  }
+
+  /**
+   * YieldOpportunity createMany
+   */
+  export type YieldOpportunityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many YieldOpportunities.
+     */
+    data: YieldOpportunityCreateManyInput | YieldOpportunityCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YieldOpportunity createManyAndReturn
+   */
+  export type YieldOpportunityCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * The data used to create many YieldOpportunities.
+     */
+    data: YieldOpportunityCreateManyInput | YieldOpportunityCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YieldOpportunity update
+   */
+  export type YieldOpportunityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * The data needed to update a YieldOpportunity.
+     */
+    data: XOR<YieldOpportunityUpdateInput, YieldOpportunityUncheckedUpdateInput>
+    /**
+     * Choose, which YieldOpportunity to update.
+     */
+    where: YieldOpportunityWhereUniqueInput
+  }
+
+  /**
+   * YieldOpportunity updateMany
+   */
+  export type YieldOpportunityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update YieldOpportunities.
+     */
+    data: XOR<YieldOpportunityUpdateManyMutationInput, YieldOpportunityUncheckedUpdateManyInput>
+    /**
+     * Filter which YieldOpportunities to update
+     */
+    where?: YieldOpportunityWhereInput
+    /**
+     * Limit how many YieldOpportunities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * YieldOpportunity updateManyAndReturn
+   */
+  export type YieldOpportunityUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * The data used to update YieldOpportunities.
+     */
+    data: XOR<YieldOpportunityUpdateManyMutationInput, YieldOpportunityUncheckedUpdateManyInput>
+    /**
+     * Filter which YieldOpportunities to update
+     */
+    where?: YieldOpportunityWhereInput
+    /**
+     * Limit how many YieldOpportunities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * YieldOpportunity upsert
+   */
+  export type YieldOpportunityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * The filter to search for the YieldOpportunity to update in case it exists.
+     */
+    where: YieldOpportunityWhereUniqueInput
+    /**
+     * In case the YieldOpportunity found by the `where` argument doesn't exist, create a new YieldOpportunity with this data.
+     */
+    create: XOR<YieldOpportunityCreateInput, YieldOpportunityUncheckedCreateInput>
+    /**
+     * In case the YieldOpportunity was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<YieldOpportunityUpdateInput, YieldOpportunityUncheckedUpdateInput>
+  }
+
+  /**
+   * YieldOpportunity delete
+   */
+  export type YieldOpportunityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    /**
+     * Filter which YieldOpportunity to delete.
+     */
+    where: YieldOpportunityWhereUniqueInput
+  }
+
+  /**
+   * YieldOpportunity deleteMany
+   */
+  export type YieldOpportunityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YieldOpportunities to delete
+     */
+    where?: YieldOpportunityWhereInput
+    /**
+     * Limit how many YieldOpportunities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * YieldOpportunity.userOptOuts
+   */
+  export type YieldOpportunity$userOptOutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserYieldOpportunityOptOut
+     */
+    select?: UserYieldOpportunityOptOutSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserYieldOpportunityOptOut
+     */
+    omit?: UserYieldOpportunityOptOutOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserYieldOpportunityOptOutInclude<ExtArgs> | null
+    where?: UserYieldOpportunityOptOutWhereInput
+    orderBy?: UserYieldOpportunityOptOutOrderByWithRelationInput | UserYieldOpportunityOptOutOrderByWithRelationInput[]
+    cursor?: UserYieldOpportunityOptOutWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserYieldOpportunityOptOutScalarFieldEnum | UserYieldOpportunityOptOutScalarFieldEnum[]
+  }
+
+  /**
+   * YieldOpportunity without action
+   */
+  export type YieldOpportunityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YieldOpportunity
+     */
+    select?: YieldOpportunitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YieldOpportunity
+     */
+    omit?: YieldOpportunityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YieldOpportunityInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -8388,6 +12155,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     description: 'description',
+    image: 'image',
     assetTicker: 'assetTicker',
     apy: 'apy',
     riskLevel: 'riskLevel',
@@ -8413,6 +12181,46 @@ export namespace Prisma {
   };
 
   export type UserStrategyAllocationScalarFieldEnum = (typeof UserStrategyAllocationScalarFieldEnum)[keyof typeof UserStrategyAllocationScalarFieldEnum]
+
+
+  export const UserStrategyPreferenceScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    strategyId: 'strategyId',
+    isFavorite: 'isFavorite',
+    isHidden: 'isHidden',
+    receiveNotifications: 'receiveNotifications',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type UserStrategyPreferenceScalarFieldEnum = (typeof UserStrategyPreferenceScalarFieldEnum)[keyof typeof UserStrategyPreferenceScalarFieldEnum]
+
+
+  export const UserYieldOpportunityOptOutScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    yieldOpportunityId: 'yieldOpportunityId',
+    optedOutAt: 'optedOutAt'
+  };
+
+  export type UserYieldOpportunityOptOutScalarFieldEnum = (typeof UserYieldOpportunityOptOutScalarFieldEnum)[keyof typeof UserYieldOpportunityOptOutScalarFieldEnum]
+
+
+  export const YieldOpportunityScalarFieldEnum: {
+    id: 'id',
+    platform: 'platform',
+    platformImage: 'platformImage',
+    tickerImage: 'tickerImage',
+    name: 'name',
+    marketId: 'marketId',
+    assetTicker: 'assetTicker',
+    apy: 'apy',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type YieldOpportunityScalarFieldEnum = (typeof YieldOpportunityScalarFieldEnum)[keyof typeof YieldOpportunityScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -8501,6 +12309,27 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'RiskLevel'
+   */
+  export type EnumRiskLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RiskLevel'>
+    
+
+
+  /**
+   * Reference to a field of type 'RiskLevel[]'
+   */
+  export type ListEnumRiskLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RiskLevel[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -8530,6 +12359,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationListRelationFilter
     currentAssets?: CurrentAssetListRelationFilter
     userStrategyAllocations?: UserStrategyAllocationListRelationFilter
+    strategyPreferences?: UserStrategyPreferenceListRelationFilter
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -8542,6 +12373,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationOrderByRelationAggregateInput
     currentAssets?: CurrentAssetOrderByRelationAggregateInput
     userStrategyAllocations?: UserStrategyAllocationOrderByRelationAggregateInput
+    strategyPreferences?: UserStrategyPreferenceOrderByRelationAggregateInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -8557,6 +12390,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationListRelationFilter
     currentAssets?: CurrentAssetListRelationFilter
     userStrategyAllocations?: UserStrategyAllocationListRelationFilter
+    strategyPreferences?: UserStrategyPreferenceListRelationFilter
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutListRelationFilter
   }, "id" | "walletAddress">
 
   export type UserOrderByWithAggregationInput = {
@@ -8789,20 +12624,23 @@ export namespace Prisma {
     id?: StringFilter<"Strategy"> | string
     name?: StringFilter<"Strategy"> | string
     description?: StringNullableFilter<"Strategy"> | string | null
+    image?: StringNullableFilter<"Strategy"> | string | null
     assetTicker?: StringFilter<"Strategy"> | string
     apy?: FloatFilter<"Strategy"> | number
-    riskLevel?: StringFilter<"Strategy"> | string
+    riskLevel?: EnumRiskLevelFilter<"Strategy"> | $Enums.RiskLevel
     platform?: StringNullableFilter<"Strategy"> | string | null
     createdAt?: DateTimeFilter<"Strategy"> | Date | string
     updatedAt?: DateTimeFilter<"Strategy"> | Date | string
     userAllocations?: UserStrategyAllocationListRelationFilter
     tradingEvents?: TradingHistoryListRelationFilter
+    userPreferences?: UserStrategyPreferenceListRelationFilter
   }
 
   export type StrategyOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
     assetTicker?: SortOrder
     apy?: SortOrder
     riskLevel?: SortOrder
@@ -8811,6 +12649,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     userAllocations?: UserStrategyAllocationOrderByRelationAggregateInput
     tradingEvents?: TradingHistoryOrderByRelationAggregateInput
+    userPreferences?: UserStrategyPreferenceOrderByRelationAggregateInput
   }
 
   export type StrategyWhereUniqueInput = Prisma.AtLeast<{
@@ -8820,20 +12659,23 @@ export namespace Prisma {
     OR?: StrategyWhereInput[]
     NOT?: StrategyWhereInput | StrategyWhereInput[]
     description?: StringNullableFilter<"Strategy"> | string | null
+    image?: StringNullableFilter<"Strategy"> | string | null
     assetTicker?: StringFilter<"Strategy"> | string
     apy?: FloatFilter<"Strategy"> | number
-    riskLevel?: StringFilter<"Strategy"> | string
+    riskLevel?: EnumRiskLevelFilter<"Strategy"> | $Enums.RiskLevel
     platform?: StringNullableFilter<"Strategy"> | string | null
     createdAt?: DateTimeFilter<"Strategy"> | Date | string
     updatedAt?: DateTimeFilter<"Strategy"> | Date | string
     userAllocations?: UserStrategyAllocationListRelationFilter
     tradingEvents?: TradingHistoryListRelationFilter
+    userPreferences?: UserStrategyPreferenceListRelationFilter
   }, "id" | "name">
 
   export type StrategyOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
     assetTicker?: SortOrder
     apy?: SortOrder
     riskLevel?: SortOrder
@@ -8854,9 +12696,10 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Strategy"> | string
     name?: StringWithAggregatesFilter<"Strategy"> | string
     description?: StringNullableWithAggregatesFilter<"Strategy"> | string | null
+    image?: StringNullableWithAggregatesFilter<"Strategy"> | string | null
     assetTicker?: StringWithAggregatesFilter<"Strategy"> | string
     apy?: FloatWithAggregatesFilter<"Strategy"> | number
-    riskLevel?: StringWithAggregatesFilter<"Strategy"> | string
+    riskLevel?: EnumRiskLevelWithAggregatesFilter<"Strategy"> | $Enums.RiskLevel
     platform?: StringNullableWithAggregatesFilter<"Strategy"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Strategy"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Strategy"> | Date | string
@@ -8948,6 +12791,217 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"UserStrategyAllocation"> | Date | string
   }
 
+  export type UserStrategyPreferenceWhereInput = {
+    AND?: UserStrategyPreferenceWhereInput | UserStrategyPreferenceWhereInput[]
+    OR?: UserStrategyPreferenceWhereInput[]
+    NOT?: UserStrategyPreferenceWhereInput | UserStrategyPreferenceWhereInput[]
+    id?: StringFilter<"UserStrategyPreference"> | string
+    userId?: StringFilter<"UserStrategyPreference"> | string
+    strategyId?: StringFilter<"UserStrategyPreference"> | string
+    isFavorite?: BoolFilter<"UserStrategyPreference"> | boolean
+    isHidden?: BoolFilter<"UserStrategyPreference"> | boolean
+    receiveNotifications?: BoolFilter<"UserStrategyPreference"> | boolean
+    createdAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
+    updatedAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    strategy?: XOR<StrategyScalarRelationFilter, StrategyWhereInput>
+  }
+
+  export type UserStrategyPreferenceOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    strategyId?: SortOrder
+    isFavorite?: SortOrder
+    isHidden?: SortOrder
+    receiveNotifications?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    strategy?: StrategyOrderByWithRelationInput
+  }
+
+  export type UserStrategyPreferenceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_strategyId?: UserStrategyPreferenceUserIdStrategyIdCompoundUniqueInput
+    AND?: UserStrategyPreferenceWhereInput | UserStrategyPreferenceWhereInput[]
+    OR?: UserStrategyPreferenceWhereInput[]
+    NOT?: UserStrategyPreferenceWhereInput | UserStrategyPreferenceWhereInput[]
+    userId?: StringFilter<"UserStrategyPreference"> | string
+    strategyId?: StringFilter<"UserStrategyPreference"> | string
+    isFavorite?: BoolFilter<"UserStrategyPreference"> | boolean
+    isHidden?: BoolFilter<"UserStrategyPreference"> | boolean
+    receiveNotifications?: BoolFilter<"UserStrategyPreference"> | boolean
+    createdAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
+    updatedAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    strategy?: XOR<StrategyScalarRelationFilter, StrategyWhereInput>
+  }, "id" | "userId_strategyId">
+
+  export type UserStrategyPreferenceOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    strategyId?: SortOrder
+    isFavorite?: SortOrder
+    isHidden?: SortOrder
+    receiveNotifications?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: UserStrategyPreferenceCountOrderByAggregateInput
+    _max?: UserStrategyPreferenceMaxOrderByAggregateInput
+    _min?: UserStrategyPreferenceMinOrderByAggregateInput
+  }
+
+  export type UserStrategyPreferenceScalarWhereWithAggregatesInput = {
+    AND?: UserStrategyPreferenceScalarWhereWithAggregatesInput | UserStrategyPreferenceScalarWhereWithAggregatesInput[]
+    OR?: UserStrategyPreferenceScalarWhereWithAggregatesInput[]
+    NOT?: UserStrategyPreferenceScalarWhereWithAggregatesInput | UserStrategyPreferenceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserStrategyPreference"> | string
+    userId?: StringWithAggregatesFilter<"UserStrategyPreference"> | string
+    strategyId?: StringWithAggregatesFilter<"UserStrategyPreference"> | string
+    isFavorite?: BoolWithAggregatesFilter<"UserStrategyPreference"> | boolean
+    isHidden?: BoolWithAggregatesFilter<"UserStrategyPreference"> | boolean
+    receiveNotifications?: BoolWithAggregatesFilter<"UserStrategyPreference"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"UserStrategyPreference"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"UserStrategyPreference"> | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutWhereInput = {
+    AND?: UserYieldOpportunityOptOutWhereInput | UserYieldOpportunityOptOutWhereInput[]
+    OR?: UserYieldOpportunityOptOutWhereInput[]
+    NOT?: UserYieldOpportunityOptOutWhereInput | UserYieldOpportunityOptOutWhereInput[]
+    id?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    userId?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    yieldOpportunityId?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    optedOutAt?: DateTimeFilter<"UserYieldOpportunityOptOut"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    yieldOpportunity?: XOR<YieldOpportunityScalarRelationFilter, YieldOpportunityWhereInput>
+  }
+
+  export type UserYieldOpportunityOptOutOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    yieldOpportunityId?: SortOrder
+    optedOutAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    yieldOpportunity?: YieldOpportunityOrderByWithRelationInput
+  }
+
+  export type UserYieldOpportunityOptOutWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_yieldOpportunityId?: UserYieldOpportunityOptOutUserIdYieldOpportunityIdCompoundUniqueInput
+    AND?: UserYieldOpportunityOptOutWhereInput | UserYieldOpportunityOptOutWhereInput[]
+    OR?: UserYieldOpportunityOptOutWhereInput[]
+    NOT?: UserYieldOpportunityOptOutWhereInput | UserYieldOpportunityOptOutWhereInput[]
+    userId?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    yieldOpportunityId?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    optedOutAt?: DateTimeFilter<"UserYieldOpportunityOptOut"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    yieldOpportunity?: XOR<YieldOpportunityScalarRelationFilter, YieldOpportunityWhereInput>
+  }, "id" | "userId_yieldOpportunityId">
+
+  export type UserYieldOpportunityOptOutOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    yieldOpportunityId?: SortOrder
+    optedOutAt?: SortOrder
+    _count?: UserYieldOpportunityOptOutCountOrderByAggregateInput
+    _max?: UserYieldOpportunityOptOutMaxOrderByAggregateInput
+    _min?: UserYieldOpportunityOptOutMinOrderByAggregateInput
+  }
+
+  export type UserYieldOpportunityOptOutScalarWhereWithAggregatesInput = {
+    AND?: UserYieldOpportunityOptOutScalarWhereWithAggregatesInput | UserYieldOpportunityOptOutScalarWhereWithAggregatesInput[]
+    OR?: UserYieldOpportunityOptOutScalarWhereWithAggregatesInput[]
+    NOT?: UserYieldOpportunityOptOutScalarWhereWithAggregatesInput | UserYieldOpportunityOptOutScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserYieldOpportunityOptOut"> | string
+    userId?: StringWithAggregatesFilter<"UserYieldOpportunityOptOut"> | string
+    yieldOpportunityId?: StringWithAggregatesFilter<"UserYieldOpportunityOptOut"> | string
+    optedOutAt?: DateTimeWithAggregatesFilter<"UserYieldOpportunityOptOut"> | Date | string
+  }
+
+  export type YieldOpportunityWhereInput = {
+    AND?: YieldOpportunityWhereInput | YieldOpportunityWhereInput[]
+    OR?: YieldOpportunityWhereInput[]
+    NOT?: YieldOpportunityWhereInput | YieldOpportunityWhereInput[]
+    id?: StringFilter<"YieldOpportunity"> | string
+    platform?: StringFilter<"YieldOpportunity"> | string
+    platformImage?: StringNullableFilter<"YieldOpportunity"> | string | null
+    tickerImage?: StringNullableFilter<"YieldOpportunity"> | string | null
+    name?: StringFilter<"YieldOpportunity"> | string
+    marketId?: StringFilter<"YieldOpportunity"> | string
+    assetTicker?: StringFilter<"YieldOpportunity"> | string
+    apy?: FloatFilter<"YieldOpportunity"> | number
+    createdAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
+    updatedAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
+    userOptOuts?: UserYieldOpportunityOptOutListRelationFilter
+  }
+
+  export type YieldOpportunityOrderByWithRelationInput = {
+    id?: SortOrder
+    platform?: SortOrder
+    platformImage?: SortOrderInput | SortOrder
+    tickerImage?: SortOrderInput | SortOrder
+    name?: SortOrder
+    marketId?: SortOrder
+    assetTicker?: SortOrder
+    apy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userOptOuts?: UserYieldOpportunityOptOutOrderByRelationAggregateInput
+  }
+
+  export type YieldOpportunityWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    platform_marketId?: YieldOpportunityPlatformMarketIdCompoundUniqueInput
+    AND?: YieldOpportunityWhereInput | YieldOpportunityWhereInput[]
+    OR?: YieldOpportunityWhereInput[]
+    NOT?: YieldOpportunityWhereInput | YieldOpportunityWhereInput[]
+    platform?: StringFilter<"YieldOpportunity"> | string
+    platformImage?: StringNullableFilter<"YieldOpportunity"> | string | null
+    tickerImage?: StringNullableFilter<"YieldOpportunity"> | string | null
+    name?: StringFilter<"YieldOpportunity"> | string
+    marketId?: StringFilter<"YieldOpportunity"> | string
+    assetTicker?: StringFilter<"YieldOpportunity"> | string
+    apy?: FloatFilter<"YieldOpportunity"> | number
+    createdAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
+    updatedAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
+    userOptOuts?: UserYieldOpportunityOptOutListRelationFilter
+  }, "id" | "platform_marketId">
+
+  export type YieldOpportunityOrderByWithAggregationInput = {
+    id?: SortOrder
+    platform?: SortOrder
+    platformImage?: SortOrderInput | SortOrder
+    tickerImage?: SortOrderInput | SortOrder
+    name?: SortOrder
+    marketId?: SortOrder
+    assetTicker?: SortOrder
+    apy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: YieldOpportunityCountOrderByAggregateInput
+    _avg?: YieldOpportunityAvgOrderByAggregateInput
+    _max?: YieldOpportunityMaxOrderByAggregateInput
+    _min?: YieldOpportunityMinOrderByAggregateInput
+    _sum?: YieldOpportunitySumOrderByAggregateInput
+  }
+
+  export type YieldOpportunityScalarWhereWithAggregatesInput = {
+    AND?: YieldOpportunityScalarWhereWithAggregatesInput | YieldOpportunityScalarWhereWithAggregatesInput[]
+    OR?: YieldOpportunityScalarWhereWithAggregatesInput[]
+    NOT?: YieldOpportunityScalarWhereWithAggregatesInput | YieldOpportunityScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"YieldOpportunity"> | string
+    platform?: StringWithAggregatesFilter<"YieldOpportunity"> | string
+    platformImage?: StringNullableWithAggregatesFilter<"YieldOpportunity"> | string | null
+    tickerImage?: StringNullableWithAggregatesFilter<"YieldOpportunity"> | string | null
+    name?: StringWithAggregatesFilter<"YieldOpportunity"> | string
+    marketId?: StringWithAggregatesFilter<"YieldOpportunity"> | string
+    assetTicker?: StringWithAggregatesFilter<"YieldOpportunity"> | string
+    apy?: FloatWithAggregatesFilter<"YieldOpportunity"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"YieldOpportunity"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"YieldOpportunity"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     walletAddress: string
@@ -8958,6 +13012,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -8970,6 +13026,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationUncheckedCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetUncheckedCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -8982,6 +13040,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -8994,6 +13054,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationUncheckedUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUncheckedUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -9223,65 +13285,74 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    image?: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyInput
     tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyInput
+    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyInput
   }
 
   export type StrategyUncheckedCreateInput = {
     id?: string
     name: string
     description?: string | null
+    image?: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput
     tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyInput
+    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput
   }
 
   export type StrategyUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyNestedInput
     tradingEvents?: TradingHistoryUpdateManyWithoutStrategyNestedInput
+    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput
   }
 
   export type StrategyUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput
     tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyNestedInput
+    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput
   }
 
   export type StrategyCreateManyInput = {
     id?: string
     name: string
     description?: string | null
+    image?: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9291,9 +13362,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9303,9 +13375,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9400,6 +13473,223 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type UserStrategyPreferenceCreateInput = {
+    id?: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutStrategyPreferencesInput
+    strategy: StrategyCreateNestedOneWithoutUserPreferencesInput
+  }
+
+  export type UserStrategyPreferenceUncheckedCreateInput = {
+    id?: string
+    userId: string
+    strategyId: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserStrategyPreferenceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutStrategyPreferencesNestedInput
+    strategy?: StrategyUpdateOneRequiredWithoutUserPreferencesNestedInput
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    strategyId?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserStrategyPreferenceCreateManyInput = {
+    id?: string
+    userId: string
+    strategyId: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserStrategyPreferenceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    strategyId?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutCreateInput = {
+    id?: string
+    optedOutAt?: Date | string
+    user: UserCreateNestedOneWithoutYieldOpportunityOptOutsInput
+    yieldOpportunity: YieldOpportunityCreateNestedOneWithoutUserOptOutsInput
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedCreateInput = {
+    id?: string
+    userId: string
+    yieldOpportunityId: string
+    optedOutAt?: Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutYieldOpportunityOptOutsNestedInput
+    yieldOpportunity?: YieldOpportunityUpdateOneRequiredWithoutUserOptOutsNestedInput
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    yieldOpportunityId?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutCreateManyInput = {
+    id?: string
+    userId: string
+    yieldOpportunityId: string
+    optedOutAt?: Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    yieldOpportunityId?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YieldOpportunityCreateInput = {
+    id?: string
+    platform: string
+    platformImage?: string | null
+    tickerImage?: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutYieldOpportunityInput
+  }
+
+  export type YieldOpportunityUncheckedCreateInput = {
+    id?: string
+    platform: string
+    platformImage?: string | null
+    tickerImage?: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutYieldOpportunityInput
+  }
+
+  export type YieldOpportunityUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutYieldOpportunityNestedInput
+  }
+
+  export type YieldOpportunityUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityNestedInput
+  }
+
+  export type YieldOpportunityCreateManyInput = {
+    id?: string
+    platform: string
+    platformImage?: string | null
+    tickerImage?: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YieldOpportunityUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YieldOpportunityUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9457,6 +13747,18 @@ export namespace Prisma {
     none?: UserStrategyAllocationWhereInput
   }
 
+  export type UserStrategyPreferenceListRelationFilter = {
+    every?: UserStrategyPreferenceWhereInput
+    some?: UserStrategyPreferenceWhereInput
+    none?: UserStrategyPreferenceWhereInput
+  }
+
+  export type UserYieldOpportunityOptOutListRelationFilter = {
+    every?: UserYieldOpportunityOptOutWhereInput
+    some?: UserYieldOpportunityOptOutWhereInput
+    none?: UserYieldOpportunityOptOutWhereInput
+  }
+
   export type TradingHistoryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -9470,6 +13772,14 @@ export namespace Prisma {
   }
 
   export type UserStrategyAllocationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserStrategyPreferenceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserYieldOpportunityOptOutOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -9766,10 +14076,18 @@ export namespace Prisma {
     valueUSD?: SortOrder
   }
 
+  export type EnumRiskLevelFilter<$PrismaModel = never> = {
+    equals?: $Enums.RiskLevel | EnumRiskLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumRiskLevelFilter<$PrismaModel> | $Enums.RiskLevel
+  }
+
   export type StrategyCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    image?: SortOrder
     assetTicker?: SortOrder
     apy?: SortOrder
     riskLevel?: SortOrder
@@ -9786,6 +14104,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    image?: SortOrder
     assetTicker?: SortOrder
     apy?: SortOrder
     riskLevel?: SortOrder
@@ -9798,6 +14117,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    image?: SortOrder
     assetTicker?: SortOrder
     apy?: SortOrder
     riskLevel?: SortOrder
@@ -9808,6 +14128,16 @@ export namespace Prisma {
 
   export type StrategySumOrderByAggregateInput = {
     apy?: SortOrder
+  }
+
+  export type EnumRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RiskLevel | EnumRiskLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.RiskLevel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRiskLevelFilter<$PrismaModel>
+    _max?: NestedEnumRiskLevelFilter<$PrismaModel>
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -9895,6 +14225,140 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type UserStrategyPreferenceUserIdStrategyIdCompoundUniqueInput = {
+    userId: string
+    strategyId: string
+  }
+
+  export type UserStrategyPreferenceCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    strategyId?: SortOrder
+    isFavorite?: SortOrder
+    isHidden?: SortOrder
+    receiveNotifications?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserStrategyPreferenceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    strategyId?: SortOrder
+    isFavorite?: SortOrder
+    isHidden?: SortOrder
+    receiveNotifications?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserStrategyPreferenceMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    strategyId?: SortOrder
+    isFavorite?: SortOrder
+    isHidden?: SortOrder
+    receiveNotifications?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type YieldOpportunityScalarRelationFilter = {
+    is?: YieldOpportunityWhereInput
+    isNot?: YieldOpportunityWhereInput
+  }
+
+  export type UserYieldOpportunityOptOutUserIdYieldOpportunityIdCompoundUniqueInput = {
+    userId: string
+    yieldOpportunityId: string
+  }
+
+  export type UserYieldOpportunityOptOutCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    yieldOpportunityId?: SortOrder
+    optedOutAt?: SortOrder
+  }
+
+  export type UserYieldOpportunityOptOutMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    yieldOpportunityId?: SortOrder
+    optedOutAt?: SortOrder
+  }
+
+  export type UserYieldOpportunityOptOutMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    yieldOpportunityId?: SortOrder
+    optedOutAt?: SortOrder
+  }
+
+  export type YieldOpportunityPlatformMarketIdCompoundUniqueInput = {
+    platform: string
+    marketId: string
+  }
+
+  export type YieldOpportunityCountOrderByAggregateInput = {
+    id?: SortOrder
+    platform?: SortOrder
+    platformImage?: SortOrder
+    tickerImage?: SortOrder
+    name?: SortOrder
+    marketId?: SortOrder
+    assetTicker?: SortOrder
+    apy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type YieldOpportunityAvgOrderByAggregateInput = {
+    apy?: SortOrder
+  }
+
+  export type YieldOpportunityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    platform?: SortOrder
+    platformImage?: SortOrder
+    tickerImage?: SortOrder
+    name?: SortOrder
+    marketId?: SortOrder
+    assetTicker?: SortOrder
+    apy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type YieldOpportunityMinOrderByAggregateInput = {
+    id?: SortOrder
+    platform?: SortOrder
+    platformImage?: SortOrder
+    tickerImage?: SortOrder
+    name?: SortOrder
+    marketId?: SortOrder
+    assetTicker?: SortOrder
+    apy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type YieldOpportunitySumOrderByAggregateInput = {
+    apy?: SortOrder
+  }
+
   export type TradingHistoryCreateNestedManyWithoutUserInput = {
     create?: XOR<TradingHistoryCreateWithoutUserInput, TradingHistoryUncheckedCreateWithoutUserInput> | TradingHistoryCreateWithoutUserInput[] | TradingHistoryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TradingHistoryCreateOrConnectWithoutUserInput | TradingHistoryCreateOrConnectWithoutUserInput[]
@@ -9923,6 +14387,20 @@ export namespace Prisma {
     connect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
   }
 
+  export type UserStrategyPreferenceCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutUserInput, UserStrategyPreferenceUncheckedCreateWithoutUserInput> | UserStrategyPreferenceCreateWithoutUserInput[] | UserStrategyPreferenceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutUserInput | UserStrategyPreferenceCreateOrConnectWithoutUserInput[]
+    createMany?: UserStrategyPreferenceCreateManyUserInputEnvelope
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+  }
+
+  export type UserYieldOpportunityOptOutCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutUserInput, UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput> | UserYieldOpportunityOptOutCreateWithoutUserInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput | UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyUserInputEnvelope
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+  }
+
   export type TradingHistoryUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<TradingHistoryCreateWithoutUserInput, TradingHistoryUncheckedCreateWithoutUserInput> | TradingHistoryCreateWithoutUserInput[] | TradingHistoryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TradingHistoryCreateOrConnectWithoutUserInput | TradingHistoryCreateOrConnectWithoutUserInput[]
@@ -9949,6 +14427,20 @@ export namespace Prisma {
     connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutUserInput | UserStrategyAllocationCreateOrConnectWithoutUserInput[]
     createMany?: UserStrategyAllocationCreateManyUserInputEnvelope
     connect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
+  }
+
+  export type UserStrategyPreferenceUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutUserInput, UserStrategyPreferenceUncheckedCreateWithoutUserInput> | UserStrategyPreferenceCreateWithoutUserInput[] | UserStrategyPreferenceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutUserInput | UserStrategyPreferenceCreateOrConnectWithoutUserInput[]
+    createMany?: UserStrategyPreferenceCreateManyUserInputEnvelope
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutUserInput, UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput> | UserYieldOpportunityOptOutCreateWithoutUserInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput | UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyUserInputEnvelope
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -10019,6 +14511,34 @@ export namespace Prisma {
     deleteMany?: UserStrategyAllocationScalarWhereInput | UserStrategyAllocationScalarWhereInput[]
   }
 
+  export type UserStrategyPreferenceUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutUserInput, UserStrategyPreferenceUncheckedCreateWithoutUserInput> | UserStrategyPreferenceCreateWithoutUserInput[] | UserStrategyPreferenceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutUserInput | UserStrategyPreferenceCreateOrConnectWithoutUserInput[]
+    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutUserInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserStrategyPreferenceCreateManyUserInputEnvelope
+    set?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    disconnect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    delete?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutUserInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutUserInput | UserStrategyPreferenceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
+  }
+
+  export type UserYieldOpportunityOptOutUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutUserInput, UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput> | UserYieldOpportunityOptOutCreateWithoutUserInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput | UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput[]
+    upsert?: UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutUserInput | UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyUserInputEnvelope
+    set?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    disconnect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    delete?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    update?: UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutUserInput | UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserYieldOpportunityOptOutUpdateManyWithWhereWithoutUserInput | UserYieldOpportunityOptOutUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
+  }
+
   export type TradingHistoryUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<TradingHistoryCreateWithoutUserInput, TradingHistoryUncheckedCreateWithoutUserInput> | TradingHistoryCreateWithoutUserInput[] | TradingHistoryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TradingHistoryCreateOrConnectWithoutUserInput | TradingHistoryCreateOrConnectWithoutUserInput[]
@@ -10073,6 +14593,34 @@ export namespace Prisma {
     update?: UserStrategyAllocationUpdateWithWhereUniqueWithoutUserInput | UserStrategyAllocationUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserStrategyAllocationUpdateManyWithWhereWithoutUserInput | UserStrategyAllocationUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserStrategyAllocationScalarWhereInput | UserStrategyAllocationScalarWhereInput[]
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutUserInput, UserStrategyPreferenceUncheckedCreateWithoutUserInput> | UserStrategyPreferenceCreateWithoutUserInput[] | UserStrategyPreferenceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutUserInput | UserStrategyPreferenceCreateOrConnectWithoutUserInput[]
+    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutUserInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserStrategyPreferenceCreateManyUserInputEnvelope
+    set?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    disconnect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    delete?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutUserInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutUserInput | UserStrategyPreferenceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutUserInput, UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput> | UserYieldOpportunityOptOutCreateWithoutUserInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput | UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput[]
+    upsert?: UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutUserInput | UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyUserInputEnvelope
+    set?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    disconnect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    delete?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    update?: UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutUserInput | UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserYieldOpportunityOptOutUpdateManyWithWhereWithoutUserInput | UserYieldOpportunityOptOutUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutTradingHistoryInput = {
@@ -10167,6 +14715,13 @@ export namespace Prisma {
     connect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
   }
 
+  export type UserStrategyPreferenceCreateNestedManyWithoutStrategyInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+  }
+
   export type UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput = {
     create?: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput> | UserStrategyAllocationCreateWithoutStrategyInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyInput[]
     connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyInput | UserStrategyAllocationCreateOrConnectWithoutStrategyInput[]
@@ -10179,6 +14734,17 @@ export namespace Prisma {
     connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyInput | TradingHistoryCreateOrConnectWithoutStrategyInput[]
     createMany?: TradingHistoryCreateManyStrategyInputEnvelope
     connect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
+  }
+
+  export type UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+  }
+
+  export type EnumRiskLevelFieldUpdateOperationsInput = {
+    set?: $Enums.RiskLevel
   }
 
   export type UserStrategyAllocationUpdateManyWithoutStrategyNestedInput = {
@@ -10209,6 +14775,20 @@ export namespace Prisma {
     deleteMany?: TradingHistoryScalarWhereInput | TradingHistoryScalarWhereInput[]
   }
 
+  export type UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
+    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+    set?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    disconnect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    delete?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput[]
+    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput | UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput[]
+    deleteMany?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
+  }
+
   export type UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput = {
     create?: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput> | UserStrategyAllocationCreateWithoutStrategyInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyInput[]
     connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyInput | UserStrategyAllocationCreateOrConnectWithoutStrategyInput[]
@@ -10235,6 +14815,20 @@ export namespace Prisma {
     update?: TradingHistoryUpdateWithWhereUniqueWithoutStrategyInput | TradingHistoryUpdateWithWhereUniqueWithoutStrategyInput[]
     updateMany?: TradingHistoryUpdateManyWithWhereWithoutStrategyInput | TradingHistoryUpdateManyWithWhereWithoutStrategyInput[]
     deleteMany?: TradingHistoryScalarWhereInput | TradingHistoryScalarWhereInput[]
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
+    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+    set?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    disconnect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    delete?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput[]
+    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput | UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput[]
+    deleteMany?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutUserStrategyAllocationsInput = {
@@ -10267,6 +14861,108 @@ export namespace Prisma {
     upsert?: StrategyUpsertWithoutUserAllocationsInput
     connect?: StrategyWhereUniqueInput
     update?: XOR<XOR<StrategyUpdateToOneWithWhereWithoutUserAllocationsInput, StrategyUpdateWithoutUserAllocationsInput>, StrategyUncheckedUpdateWithoutUserAllocationsInput>
+  }
+
+  export type UserCreateNestedOneWithoutStrategyPreferencesInput = {
+    create?: XOR<UserCreateWithoutStrategyPreferencesInput, UserUncheckedCreateWithoutStrategyPreferencesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStrategyPreferencesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type StrategyCreateNestedOneWithoutUserPreferencesInput = {
+    create?: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
+    connectOrCreate?: StrategyCreateOrConnectWithoutUserPreferencesInput
+    connect?: StrategyWhereUniqueInput
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type UserUpdateOneRequiredWithoutStrategyPreferencesNestedInput = {
+    create?: XOR<UserCreateWithoutStrategyPreferencesInput, UserUncheckedCreateWithoutStrategyPreferencesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStrategyPreferencesInput
+    upsert?: UserUpsertWithoutStrategyPreferencesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutStrategyPreferencesInput, UserUpdateWithoutStrategyPreferencesInput>, UserUncheckedUpdateWithoutStrategyPreferencesInput>
+  }
+
+  export type StrategyUpdateOneRequiredWithoutUserPreferencesNestedInput = {
+    create?: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
+    connectOrCreate?: StrategyCreateOrConnectWithoutUserPreferencesInput
+    upsert?: StrategyUpsertWithoutUserPreferencesInput
+    connect?: StrategyWhereUniqueInput
+    update?: XOR<XOR<StrategyUpdateToOneWithWhereWithoutUserPreferencesInput, StrategyUpdateWithoutUserPreferencesInput>, StrategyUncheckedUpdateWithoutUserPreferencesInput>
+  }
+
+  export type UserCreateNestedOneWithoutYieldOpportunityOptOutsInput = {
+    create?: XOR<UserCreateWithoutYieldOpportunityOptOutsInput, UserUncheckedCreateWithoutYieldOpportunityOptOutsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutYieldOpportunityOptOutsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type YieldOpportunityCreateNestedOneWithoutUserOptOutsInput = {
+    create?: XOR<YieldOpportunityCreateWithoutUserOptOutsInput, YieldOpportunityUncheckedCreateWithoutUserOptOutsInput>
+    connectOrCreate?: YieldOpportunityCreateOrConnectWithoutUserOptOutsInput
+    connect?: YieldOpportunityWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutYieldOpportunityOptOutsNestedInput = {
+    create?: XOR<UserCreateWithoutYieldOpportunityOptOutsInput, UserUncheckedCreateWithoutYieldOpportunityOptOutsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutYieldOpportunityOptOutsInput
+    upsert?: UserUpsertWithoutYieldOpportunityOptOutsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutYieldOpportunityOptOutsInput, UserUpdateWithoutYieldOpportunityOptOutsInput>, UserUncheckedUpdateWithoutYieldOpportunityOptOutsInput>
+  }
+
+  export type YieldOpportunityUpdateOneRequiredWithoutUserOptOutsNestedInput = {
+    create?: XOR<YieldOpportunityCreateWithoutUserOptOutsInput, YieldOpportunityUncheckedCreateWithoutUserOptOutsInput>
+    connectOrCreate?: YieldOpportunityCreateOrConnectWithoutUserOptOutsInput
+    upsert?: YieldOpportunityUpsertWithoutUserOptOutsInput
+    connect?: YieldOpportunityWhereUniqueInput
+    update?: XOR<XOR<YieldOpportunityUpdateToOneWithWhereWithoutUserOptOutsInput, YieldOpportunityUpdateWithoutUserOptOutsInput>, YieldOpportunityUncheckedUpdateWithoutUserOptOutsInput>
+  }
+
+  export type UserYieldOpportunityOptOutCreateNestedManyWithoutYieldOpportunityInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput> | UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput | UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyYieldOpportunityInputEnvelope
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutYieldOpportunityInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput> | UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput | UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyYieldOpportunityInputEnvelope
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+  }
+
+  export type UserYieldOpportunityOptOutUpdateManyWithoutYieldOpportunityNestedInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput> | UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput | UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput[]
+    upsert?: UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutYieldOpportunityInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyYieldOpportunityInputEnvelope
+    set?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    disconnect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    delete?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    update?: UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutYieldOpportunityInput[]
+    updateMany?: UserYieldOpportunityOptOutUpdateManyWithWhereWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpdateManyWithWhereWithoutYieldOpportunityInput[]
+    deleteMany?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityNestedInput = {
+    create?: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput> | UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput[]
+    connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput | UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput[]
+    upsert?: UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutYieldOpportunityInput[]
+    createMany?: UserYieldOpportunityOptOutCreateManyYieldOpportunityInputEnvelope
+    set?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    disconnect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    delete?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+    update?: UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutYieldOpportunityInput[]
+    updateMany?: UserYieldOpportunityOptOutUpdateManyWithWhereWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpdateManyWithWhereWithoutYieldOpportunityInput[]
+    deleteMany?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -10449,6 +15145,23 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type NestedEnumRiskLevelFilter<$PrismaModel = never> = {
+    equals?: $Enums.RiskLevel | EnumRiskLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumRiskLevelFilter<$PrismaModel> | $Enums.RiskLevel
+  }
+
+  export type NestedEnumRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RiskLevel | EnumRiskLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RiskLevel[] | ListEnumRiskLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.RiskLevel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRiskLevelFilter<$PrismaModel>
+    _max?: NestedEnumRiskLevelFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -10472,6 +15185,19 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type TradingHistoryCreateWithoutUserInput = {
@@ -10587,6 +15313,58 @@ export namespace Prisma {
 
   export type UserStrategyAllocationCreateManyUserInputEnvelope = {
     data: UserStrategyAllocationCreateManyUserInput | UserStrategyAllocationCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserStrategyPreferenceCreateWithoutUserInput = {
+    id?: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    strategy: StrategyCreateNestedOneWithoutUserPreferencesInput
+  }
+
+  export type UserStrategyPreferenceUncheckedCreateWithoutUserInput = {
+    id?: string
+    strategyId: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserStrategyPreferenceCreateOrConnectWithoutUserInput = {
+    where: UserStrategyPreferenceWhereUniqueInput
+    create: XOR<UserStrategyPreferenceCreateWithoutUserInput, UserStrategyPreferenceUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserStrategyPreferenceCreateManyUserInputEnvelope = {
+    data: UserStrategyPreferenceCreateManyUserInput | UserStrategyPreferenceCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserYieldOpportunityOptOutCreateWithoutUserInput = {
+    id?: string
+    optedOutAt?: Date | string
+    yieldOpportunity: YieldOpportunityCreateNestedOneWithoutUserOptOutsInput
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput = {
+    id?: string
+    yieldOpportunityId: string
+    optedOutAt?: Date | string
+  }
+
+  export type UserYieldOpportunityOptOutCreateOrConnectWithoutUserInput = {
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+    create: XOR<UserYieldOpportunityOptOutCreateWithoutUserInput, UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserYieldOpportunityOptOutCreateManyUserInputEnvelope = {
+    data: UserYieldOpportunityOptOutCreateManyUserInput | UserYieldOpportunityOptOutCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -10708,6 +15486,62 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
   }
 
+  export type UserStrategyPreferenceUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserStrategyPreferenceWhereUniqueInput
+    update: XOR<UserStrategyPreferenceUpdateWithoutUserInput, UserStrategyPreferenceUncheckedUpdateWithoutUserInput>
+    create: XOR<UserStrategyPreferenceCreateWithoutUserInput, UserStrategyPreferenceUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserStrategyPreferenceUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserStrategyPreferenceWhereUniqueInput
+    data: XOR<UserStrategyPreferenceUpdateWithoutUserInput, UserStrategyPreferenceUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserStrategyPreferenceUpdateManyWithWhereWithoutUserInput = {
+    where: UserStrategyPreferenceScalarWhereInput
+    data: XOR<UserStrategyPreferenceUpdateManyMutationInput, UserStrategyPreferenceUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserStrategyPreferenceScalarWhereInput = {
+    AND?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
+    OR?: UserStrategyPreferenceScalarWhereInput[]
+    NOT?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
+    id?: StringFilter<"UserStrategyPreference"> | string
+    userId?: StringFilter<"UserStrategyPreference"> | string
+    strategyId?: StringFilter<"UserStrategyPreference"> | string
+    isFavorite?: BoolFilter<"UserStrategyPreference"> | boolean
+    isHidden?: BoolFilter<"UserStrategyPreference"> | boolean
+    receiveNotifications?: BoolFilter<"UserStrategyPreference"> | boolean
+    createdAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
+    updatedAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+    update: XOR<UserYieldOpportunityOptOutUpdateWithoutUserInput, UserYieldOpportunityOptOutUncheckedUpdateWithoutUserInput>
+    create: XOR<UserYieldOpportunityOptOutCreateWithoutUserInput, UserYieldOpportunityOptOutUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+    data: XOR<UserYieldOpportunityOptOutUpdateWithoutUserInput, UserYieldOpportunityOptOutUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserYieldOpportunityOptOutUpdateManyWithWhereWithoutUserInput = {
+    where: UserYieldOpportunityOptOutScalarWhereInput
+    data: XOR<UserYieldOpportunityOptOutUpdateManyMutationInput, UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserYieldOpportunityOptOutScalarWhereInput = {
+    AND?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
+    OR?: UserYieldOpportunityOptOutScalarWhereInput[]
+    NOT?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
+    id?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    userId?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    yieldOpportunityId?: StringFilter<"UserYieldOpportunityOptOut"> | string
+    optedOutAt?: DateTimeFilter<"UserYieldOpportunityOptOut"> | Date | string
+  }
+
   export type UserCreateWithoutTradingHistoryInput = {
     id?: string
     walletAddress: string
@@ -10717,6 +15551,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTradingHistoryInput = {
@@ -10728,6 +15564,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationUncheckedCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetUncheckedCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTradingHistoryInput = {
@@ -10739,26 +15577,30 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    image?: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyInput
+    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyInput
   }
 
   export type StrategyUncheckedCreateWithoutTradingEventsInput = {
     id?: string
     name: string
     description?: string | null
+    image?: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput
+    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput
   }
 
   export type StrategyCreateOrConnectWithoutTradingEventsInput = {
@@ -10786,6 +15628,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTradingHistoryInput = {
@@ -10797,6 +15641,8 @@ export namespace Prisma {
     currentAllocations?: CurrentAllocationUncheckedUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUncheckedUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type StrategyUpsertWithoutTradingEventsInput = {
@@ -10814,26 +15660,30 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyNestedInput
+    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput
   }
 
   export type StrategyUncheckedUpdateWithoutTradingEventsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput
+    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput
   }
 
   export type UserCreateWithoutCurrentAllocationsInput = {
@@ -10845,6 +15695,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCurrentAllocationsInput = {
@@ -10856,6 +15708,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUncheckedCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetUncheckedCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCurrentAllocationsInput = {
@@ -10883,6 +15737,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCurrentAllocationsInput = {
@@ -10894,6 +15750,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUncheckedUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUncheckedUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutCurrentAssetsInput = {
@@ -10905,6 +15763,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryCreateNestedManyWithoutUserInput
     currentAllocations?: CurrentAllocationCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCurrentAssetsInput = {
@@ -10916,6 +15776,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUncheckedCreateNestedManyWithoutUserInput
     currentAllocations?: CurrentAllocationUncheckedCreateNestedManyWithoutUserInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCurrentAssetsInput = {
@@ -10943,6 +15805,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUpdateManyWithoutUserNestedInput
     currentAllocations?: CurrentAllocationUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCurrentAssetsInput = {
@@ -10954,6 +15818,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUncheckedUpdateManyWithoutUserNestedInput
     currentAllocations?: CurrentAllocationUncheckedUpdateManyWithoutUserNestedInput
     userStrategyAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserStrategyAllocationCreateWithoutStrategyInput = {
@@ -11020,6 +15886,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type UserStrategyPreferenceCreateWithoutStrategyInput = {
+    id?: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutStrategyPreferencesInput
+  }
+
+  export type UserStrategyPreferenceUncheckedCreateWithoutStrategyInput = {
+    id?: string
+    userId: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserStrategyPreferenceCreateOrConnectWithoutStrategyInput = {
+    where: UserStrategyPreferenceWhereUniqueInput
+    create: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput>
+  }
+
+  export type UserStrategyPreferenceCreateManyStrategyInputEnvelope = {
+    data: UserStrategyPreferenceCreateManyStrategyInput | UserStrategyPreferenceCreateManyStrategyInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyInput = {
     where: UserStrategyAllocationWhereUniqueInput
     update: XOR<UserStrategyAllocationUpdateWithoutStrategyInput, UserStrategyAllocationUncheckedUpdateWithoutStrategyInput>
@@ -11052,6 +15948,22 @@ export namespace Prisma {
     data: XOR<TradingHistoryUpdateManyMutationInput, TradingHistoryUncheckedUpdateManyWithoutStrategyInput>
   }
 
+  export type UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput = {
+    where: UserStrategyPreferenceWhereUniqueInput
+    update: XOR<UserStrategyPreferenceUpdateWithoutStrategyInput, UserStrategyPreferenceUncheckedUpdateWithoutStrategyInput>
+    create: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput>
+  }
+
+  export type UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput = {
+    where: UserStrategyPreferenceWhereUniqueInput
+    data: XOR<UserStrategyPreferenceUpdateWithoutStrategyInput, UserStrategyPreferenceUncheckedUpdateWithoutStrategyInput>
+  }
+
+  export type UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput = {
+    where: UserStrategyPreferenceScalarWhereInput
+    data: XOR<UserStrategyPreferenceUpdateManyMutationInput, UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyInput>
+  }
+
   export type UserCreateWithoutUserStrategyAllocationsInput = {
     id?: string
     walletAddress: string
@@ -11061,6 +15973,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryCreateNestedManyWithoutUserInput
     currentAllocations?: CurrentAllocationCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutUserStrategyAllocationsInput = {
@@ -11072,6 +15986,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUncheckedCreateNestedManyWithoutUserInput
     currentAllocations?: CurrentAllocationUncheckedCreateNestedManyWithoutUserInput
     currentAssets?: CurrentAssetUncheckedCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutUserStrategyAllocationsInput = {
@@ -11083,26 +15999,30 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    image?: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyInput
+    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyInput
   }
 
   export type StrategyUncheckedCreateWithoutUserAllocationsInput = {
     id?: string
     name: string
     description?: string | null
+    image?: string | null
     assetTicker: string
     apy: number
-    riskLevel: string
+    riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyInput
+    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput
   }
 
   export type StrategyCreateOrConnectWithoutUserAllocationsInput = {
@@ -11130,6 +16050,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUpdateManyWithoutUserNestedInput
     currentAllocations?: CurrentAllocationUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserStrategyAllocationsInput = {
@@ -11141,6 +16063,8 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryUncheckedUpdateManyWithoutUserNestedInput
     currentAllocations?: CurrentAllocationUncheckedUpdateManyWithoutUserNestedInput
     currentAssets?: CurrentAssetUncheckedUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type StrategyUpsertWithoutUserAllocationsInput = {
@@ -11158,26 +16082,348 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tradingEvents?: TradingHistoryUpdateManyWithoutStrategyNestedInput
+    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput
   }
 
   export type StrategyUncheckedUpdateWithoutUserAllocationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
     apy?: FloatFieldUpdateOperationsInput | number
-    riskLevel?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyNestedInput
+    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput
+  }
+
+  export type UserCreateWithoutStrategyPreferencesInput = {
+    id?: string
+    walletAddress: string
+    role?: $Enums.UserRole
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tradingHistory?: TradingHistoryCreateNestedManyWithoutUserInput
+    currentAllocations?: CurrentAllocationCreateNestedManyWithoutUserInput
+    currentAssets?: CurrentAssetCreateNestedManyWithoutUserInput
+    userStrategyAllocations?: UserStrategyAllocationCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutStrategyPreferencesInput = {
+    id?: string
+    walletAddress: string
+    role?: $Enums.UserRole
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tradingHistory?: TradingHistoryUncheckedCreateNestedManyWithoutUserInput
+    currentAllocations?: CurrentAllocationUncheckedCreateNestedManyWithoutUserInput
+    currentAssets?: CurrentAssetUncheckedCreateNestedManyWithoutUserInput
+    userStrategyAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutUserInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutStrategyPreferencesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutStrategyPreferencesInput, UserUncheckedCreateWithoutStrategyPreferencesInput>
+  }
+
+  export type StrategyCreateWithoutUserPreferencesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    image?: string | null
+    assetTicker: string
+    apy: number
+    riskLevel: $Enums.RiskLevel
+    platform?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyInput
+    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyInput
+  }
+
+  export type StrategyUncheckedCreateWithoutUserPreferencesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    image?: string | null
+    assetTicker: string
+    apy: number
+    riskLevel: $Enums.RiskLevel
+    platform?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput
+    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyInput
+  }
+
+  export type StrategyCreateOrConnectWithoutUserPreferencesInput = {
+    where: StrategyWhereUniqueInput
+    create: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
+  }
+
+  export type UserUpsertWithoutStrategyPreferencesInput = {
+    update: XOR<UserUpdateWithoutStrategyPreferencesInput, UserUncheckedUpdateWithoutStrategyPreferencesInput>
+    create: XOR<UserCreateWithoutStrategyPreferencesInput, UserUncheckedCreateWithoutStrategyPreferencesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutStrategyPreferencesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutStrategyPreferencesInput, UserUncheckedUpdateWithoutStrategyPreferencesInput>
+  }
+
+  export type UserUpdateWithoutStrategyPreferencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    walletAddress?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tradingHistory?: TradingHistoryUpdateManyWithoutUserNestedInput
+    currentAllocations?: CurrentAllocationUpdateManyWithoutUserNestedInput
+    currentAssets?: CurrentAssetUpdateManyWithoutUserNestedInput
+    userStrategyAllocations?: UserStrategyAllocationUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutStrategyPreferencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    walletAddress?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tradingHistory?: TradingHistoryUncheckedUpdateManyWithoutUserNestedInput
+    currentAllocations?: CurrentAllocationUncheckedUpdateManyWithoutUserNestedInput
+    currentAssets?: CurrentAssetUncheckedUpdateManyWithoutUserNestedInput
+    userStrategyAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutUserNestedInput
+    yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type StrategyUpsertWithoutUserPreferencesInput = {
+    update: XOR<StrategyUpdateWithoutUserPreferencesInput, StrategyUncheckedUpdateWithoutUserPreferencesInput>
+    create: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
+    where?: StrategyWhereInput
+  }
+
+  export type StrategyUpdateToOneWithWhereWithoutUserPreferencesInput = {
+    where?: StrategyWhereInput
+    data: XOR<StrategyUpdateWithoutUserPreferencesInput, StrategyUncheckedUpdateWithoutUserPreferencesInput>
+  }
+
+  export type StrategyUpdateWithoutUserPreferencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+    platform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyNestedInput
+    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyNestedInput
+  }
+
+  export type StrategyUncheckedUpdateWithoutUserPreferencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+    platform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput
+    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyNestedInput
+  }
+
+  export type UserCreateWithoutYieldOpportunityOptOutsInput = {
+    id?: string
+    walletAddress: string
+    role?: $Enums.UserRole
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tradingHistory?: TradingHistoryCreateNestedManyWithoutUserInput
+    currentAllocations?: CurrentAllocationCreateNestedManyWithoutUserInput
+    currentAssets?: CurrentAssetCreateNestedManyWithoutUserInput
+    userStrategyAllocations?: UserStrategyAllocationCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutYieldOpportunityOptOutsInput = {
+    id?: string
+    walletAddress: string
+    role?: $Enums.UserRole
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tradingHistory?: TradingHistoryUncheckedCreateNestedManyWithoutUserInput
+    currentAllocations?: CurrentAllocationUncheckedCreateNestedManyWithoutUserInput
+    currentAssets?: CurrentAssetUncheckedCreateNestedManyWithoutUserInput
+    userStrategyAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutUserInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutYieldOpportunityOptOutsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutYieldOpportunityOptOutsInput, UserUncheckedCreateWithoutYieldOpportunityOptOutsInput>
+  }
+
+  export type YieldOpportunityCreateWithoutUserOptOutsInput = {
+    id?: string
+    platform: string
+    platformImage?: string | null
+    tickerImage?: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YieldOpportunityUncheckedCreateWithoutUserOptOutsInput = {
+    id?: string
+    platform: string
+    platformImage?: string | null
+    tickerImage?: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YieldOpportunityCreateOrConnectWithoutUserOptOutsInput = {
+    where: YieldOpportunityWhereUniqueInput
+    create: XOR<YieldOpportunityCreateWithoutUserOptOutsInput, YieldOpportunityUncheckedCreateWithoutUserOptOutsInput>
+  }
+
+  export type UserUpsertWithoutYieldOpportunityOptOutsInput = {
+    update: XOR<UserUpdateWithoutYieldOpportunityOptOutsInput, UserUncheckedUpdateWithoutYieldOpportunityOptOutsInput>
+    create: XOR<UserCreateWithoutYieldOpportunityOptOutsInput, UserUncheckedCreateWithoutYieldOpportunityOptOutsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutYieldOpportunityOptOutsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutYieldOpportunityOptOutsInput, UserUncheckedUpdateWithoutYieldOpportunityOptOutsInput>
+  }
+
+  export type UserUpdateWithoutYieldOpportunityOptOutsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    walletAddress?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tradingHistory?: TradingHistoryUpdateManyWithoutUserNestedInput
+    currentAllocations?: CurrentAllocationUpdateManyWithoutUserNestedInput
+    currentAssets?: CurrentAssetUpdateManyWithoutUserNestedInput
+    userStrategyAllocations?: UserStrategyAllocationUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutYieldOpportunityOptOutsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    walletAddress?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tradingHistory?: TradingHistoryUncheckedUpdateManyWithoutUserNestedInput
+    currentAllocations?: CurrentAllocationUncheckedUpdateManyWithoutUserNestedInput
+    currentAssets?: CurrentAssetUncheckedUpdateManyWithoutUserNestedInput
+    userStrategyAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutUserNestedInput
+    strategyPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type YieldOpportunityUpsertWithoutUserOptOutsInput = {
+    update: XOR<YieldOpportunityUpdateWithoutUserOptOutsInput, YieldOpportunityUncheckedUpdateWithoutUserOptOutsInput>
+    create: XOR<YieldOpportunityCreateWithoutUserOptOutsInput, YieldOpportunityUncheckedCreateWithoutUserOptOutsInput>
+    where?: YieldOpportunityWhereInput
+  }
+
+  export type YieldOpportunityUpdateToOneWithWhereWithoutUserOptOutsInput = {
+    where?: YieldOpportunityWhereInput
+    data: XOR<YieldOpportunityUpdateWithoutUserOptOutsInput, YieldOpportunityUncheckedUpdateWithoutUserOptOutsInput>
+  }
+
+  export type YieldOpportunityUpdateWithoutUserOptOutsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YieldOpportunityUncheckedUpdateWithoutUserOptOutsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput = {
+    id?: string
+    optedOutAt?: Date | string
+    user: UserCreateNestedOneWithoutYieldOpportunityOptOutsInput
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput = {
+    id?: string
+    userId: string
+    optedOutAt?: Date | string
+  }
+
+  export type UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput = {
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+    create: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput>
+  }
+
+  export type UserYieldOpportunityOptOutCreateManyYieldOpportunityInputEnvelope = {
+    data: UserYieldOpportunityOptOutCreateManyYieldOpportunityInput | UserYieldOpportunityOptOutCreateManyYieldOpportunityInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutYieldOpportunityInput = {
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+    update: XOR<UserYieldOpportunityOptOutUpdateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedUpdateWithoutYieldOpportunityInput>
+    create: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput>
+  }
+
+  export type UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutYieldOpportunityInput = {
+    where: UserYieldOpportunityOptOutWhereUniqueInput
+    data: XOR<UserYieldOpportunityOptOutUpdateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedUpdateWithoutYieldOpportunityInput>
+  }
+
+  export type UserYieldOpportunityOptOutUpdateManyWithWhereWithoutYieldOpportunityInput = {
+    where: UserYieldOpportunityOptOutScalarWhereInput
+    data: XOR<UserYieldOpportunityOptOutUpdateManyMutationInput, UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityInput>
   }
 
   export type TradingHistoryCreateManyUserInput = {
@@ -11216,6 +16462,22 @@ export namespace Prisma {
     lastYieldClaimTimestamp?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type UserStrategyPreferenceCreateManyUserInput = {
+    id?: string
+    strategyId: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserYieldOpportunityOptOutCreateManyUserInput = {
+    id?: string
+    yieldOpportunityId: string
+    optedOutAt?: Date | string
   }
 
   export type TradingHistoryUpdateWithoutUserInput = {
@@ -11332,6 +16594,54 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type UserStrategyPreferenceUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    strategy?: StrategyUpdateOneRequiredWithoutUserPreferencesNestedInput
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    strategyId?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    strategyId?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    yieldOpportunity?: YieldOpportunityUpdateOneRequiredWithoutUserOptOutsNestedInput
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    yieldOpportunityId?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    yieldOpportunityId?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type UserStrategyAllocationCreateManyStrategyInput = {
     id?: string
     userId: string
@@ -11352,6 +16662,16 @@ export namespace Prisma {
     amount: number
     price?: number | null
     timestamp?: Date | string
+  }
+
+  export type UserStrategyPreferenceCreateManyStrategyInput = {
+    id?: string
+    userId: string
+    isFavorite?: boolean
+    isHidden?: boolean
+    receiveNotifications?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserStrategyAllocationUpdateWithoutStrategyInput = {
@@ -11418,6 +16738,60 @@ export namespace Prisma {
     amount?: FloatFieldUpdateOperationsInput | number
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserStrategyPreferenceUpdateWithoutStrategyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutStrategyPreferencesNestedInput
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateWithoutStrategyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutCreateManyYieldOpportunityInput = {
+    id?: string
+    userId: string
+    optedOutAt?: Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUpdateWithoutYieldOpportunityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutYieldOpportunityOptOutsNestedInput
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateWithoutYieldOpportunityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

@@ -1,0 +1,46 @@
+[
+  {
+    "app": "Solana Strategy",
+    "name": "Aggressive",
+    "apy": 8.353950782422478,
+    "category": "Solana",
+    "sources": [
+      "Sanctum haSOL",
+      "Sanctum hSOL",
+      "Sanctum mSOL"
+    ]
+  },
+  {
+    "app": "Solana Strategy",
+    "name": "Normal",
+    "apy": 7.87773331247552,
+    "category": "Solana",
+    "sources": [
+      "Sanctum bSOL",
+      "Sanctum bonkSOL",
+      "Sanctum picoSOL"
+    ]
+  },
+  {
+    "app": "USD Strategy",
+    "name": "Aggressive",
+    "apy": 5.29061767831475,
+    "category": "USD",
+    "sources": [
+      "Kamino JLP Market USDT",
+      "Save JLP Market USDS",
+      "Kamino Main Market USDT"
+    ]
+  },
+  {
+    "app": "USD Strategy",
+    "name": "Normal",
+    "apy": 3.89305037417526,
+    "category": "USD",
+    "sources": [
+      "Save Main Market USDT",
+      "Kamino Main Market PYUSD",
+      "Kamino Main Market FDUSD"
+    ]
+  }
+]

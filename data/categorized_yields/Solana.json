@@ -1,0 +1,300 @@
+{
+  "Kamino-Jito Market-6gTJfuPHEg6uRAijRkMqNc9kan4sVZejKMxmvx2grT1p": {
+    "app": "Kamino Jito Market",
+    "name": "SOL",
+    "apy": 5.46,
+    "category": "Solana"
+  },
+  "Kamino-Jito Market-F9HdecRG8GPs9LEn4S5VfeJVEZVqrDJFR6bvmQTi22na": {
+    "app": "Kamino Jito Market",
+    "name": "JITOSOL",
+    "apy": 0.01,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-d4A2prbA2whesmvHaL88BH6Ewn5N4bTSU2Ze8P6Bc4Q": {
+    "app": "Kamino Main Market",
+    "name": "SOL",
+    "apy": 5.23,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-DGQZWCY17gGtBUgdaFs1VreJWsodkjFxndPsskwFKGpp": {
+    "app": "Kamino Main Market",
+    "name": "JupSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-EVbyPKrHG6WBfm4dLxLMJpUDY43cCAcHSpV3KYjKsktW": {
+    "app": "Kamino Main Market",
+    "name": "JITOSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-FBSyPnxtHKLBZ4UeeUyAnbtFuAmTHLtso9YtsqRDRWpM": {
+    "app": "Kamino Main Market",
+    "name": "MSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-BvafE5Sm6rLrBbVRtJ2FkCzfNJQ2TjcL8bvPZULUDYrt": {
+    "app": "Kamino Main Market",
+    "name": "cgntSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-CHBNUPdjeo2N5QkZY2uAqv7TW5EbCTMsfvaskCBuxbom": {
+    "app": "Kamino Main Market",
+    "name": "vSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-H9vmCVd77N1HZa36eBn3UnftYmg4vQzPfm1RxabHAMER": {
+    "app": "Kamino Main Market",
+    "name": "bSOL",
+    "apy": 0.02,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-2UFz8kwraHybFyKhGQRwAsE5NtNpAhWs2X5grGoS7hnQ": {
+    "app": "Kamino Main Market",
+    "name": "picoSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-CExamod1Ai3d1N8Vh7sBjt5xbZzb2VmGMAFocf7fxCzm": {
+    "app": "Kamino Main Market",
+    "name": "hSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-B5uYvxUcwX5fCB4msGU4DaHh8k6fsSkKHNboy94F9vbt": {
+    "app": "Kamino Main Market",
+    "name": "hubSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-HMCXsf1jFUDbvGGhvUzCzwkKbmUhxhxz7gYZwXpTuReT": {
+    "app": "Kamino Main Market",
+    "name": "laineSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-StGKGcLQoTsWzQ1tFY2bWqrdiuBhqdFE4niiAutQxQB": {
+    "app": "Kamino Main Market",
+    "name": "dSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-Ht9NoB1udjpRqws1sCw1j2dL7MeTDHYCDdDFkbc1Arst": {
+    "app": "Kamino Main Market",
+    "name": "bonkSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-6U9CnJYCQwHUEmf4Pq4oGVKHVvD29wZvtPbFNjYmgjaF": {
+    "app": "Kamino Main Market",
+    "name": "bbSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Kamino-Main Market-Fqjbo3L4NAyzPcy6swv1XXLm1c7tUTKWMDkjCo9mfSDq": {
+    "app": "Kamino Main Market",
+    "name": "bnSOL",
+    "apy": 0.06,
+    "category": "Solana"
+  },
+  "Meteora-BoeMUkCLHchTD31HdXsbDExuZZfcUppSLpYtV3LZTH6U": {
+    "app": "Meteora",
+    "name": "JitoSOL-SOL",
+    "apy": 1.2509279374885773,
+    "category": "Solana"
+  },
+  "Orca-Hp53XEtt4S8SvPCXarsLSdGfZBuUr5mMmZmX2DRNXQKp": {
+    "app": "Orca",
+    "name": "SOL-JitoSOL",
+    "apy": 0.00556115925114012,
+    "category": "Solana"
+  },
+  "Raydium-8EzbUfvcRT1Q6RL462ekGkgqbxsPmwC5FMLQZhSPMjJ3": {
+    "app": "Raydium",
+    "name": "WSOL-mSOL",
+    "apy": 4.2291677538321135,
+    "category": "Solana"
+  },
+  "Raydium-2uoKbPEidR7KAMYtY4x7xdkHXWqYib5k4CutJauSL3Mc": {
+    "app": "Raydium",
+    "name": "WSOL-JitoSOL",
+    "apy": 4.421169513763596,
+    "category": "Solana"
+  },
+  "Raydium-529FAHK9P4bZtUtG2qpGemdttE9jDNSEohH5HzoAHMXJ": {
+    "app": "Raydium",
+    "name": "kySOL-JitoSOL",
+    "apy": 0.59,
+    "category": "Solana"
+  },
+  "Save-Main Market-8PbodeaosQP19SjYFx855UMqWxH2HynZLdBXmsrbac36": {
+    "app": "Save Main Market",
+    "name": "SOL",
+    "apy": 1.58918484663091,
+    "category": "Solana"
+  },
+  "Save-Main Market-47kDoVo8gxWYe7oP2UT1AUtR2uGxEokGqdpc1qGPP3EX": {
+    "app": "Save Main Market",
+    "name": "saveSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Save-Main Market-7ZedNeKC6WU8soC4k3QrWwg4RNjzmuohbrTQuVpZkqnv": {
+    "app": "Save Main Market",
+    "name": "SOL-mSOL MLP",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Save-Main Market-6TyNRszAjzPh52mDEnmXcqq1u3p9S2z1iNmMdKN76wq2": {
+    "app": "Save Main Market",
+    "name": "SOL-bSOL MLP",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Save-Main Market-CCpirWrgNuBVLdkP2haxLTbD6XqEgaYuVXixbbpxUB6": {
+    "app": "Save Main Market",
+    "name": "mSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Save-Main Market-3DjAsrew4ZmBwcLjp2wUmjqvSKs4vpJ43ZKxaCjjEdur": {
+    "app": "Save Main Market",
+    "name": "bSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Save-Main Market-BRsz1xVQMuVLbc4YjLP1FXhEx1LxSYig2nLqRgJEzR9r": {
+    "app": "Save Main Market",
+    "name": "JitoSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Save-Main Market-H5znFbw5v8z5knynkv1tKi8TgvdhTSt7QyoTXDigCVkW": {
+    "app": "Save Main Market",
+    "name": "haSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Save-Main Market-Aj3MjwEeAcT5Phan6unxbpKYR8Jx1bNZUoWxA59yg1cF": {
+    "app": "Save Main Market",
+    "name": "JupSOL",
+    "apy": 0.0,
+    "category": "Solana"
+  },
+  "Sanctum-J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn": {
+    "app": "Sanctum",
+    "name": "JitoSOL",
+    "apy": 8.049462877604242,
+    "category": "Solana"
+  },
+  "Sanctum-bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1": {
+    "app": "Sanctum",
+    "name": "bSOL",
+    "apy": 8.021811494458774,
+    "category": "Solana"
+  },
+  "Sanctum-jupSoLaHXQiZZTSfEWMTRRgpnyFm8f6sZdosWBjx93v": {
+    "app": "Sanctum",
+    "name": "JupSOL",
+    "apy": 8.69617771607507,
+    "category": "Solana"
+  },
+  "Sanctum-CgnTSoL3DgY9SFHxcLj6CgCgKKoTBr6tp4CPAEWy25DE": {
+    "app": "Sanctum",
+    "name": "cgntSOL",
+    "apy": 3.298165055285951,
+    "category": "Solana"
+  },
+  "Sanctum-vSoLxydx6akxyMD9XEcPvGYNGq6Nn66oqVb3UkGkei7": {
+    "app": "Sanctum",
+    "name": "vSOL",
+    "apy": 7.405512147943449,
+    "category": "Solana"
+  },
+  "Sanctum-picobAEvs6w7QEknPce34wAE4gknZA9v5tTonnmHYdX": {
+    "app": "Sanctum",
+    "name": "picoSOL",
+    "apy": 7.729072421737748,
+    "category": "Solana"
+  },
+  "Sanctum-he1iusmfkpAdwvxLNGV8Y1iSbj4rUy6yMhEA3fotn9A": {
+    "app": "Sanctum",
+    "name": "hSOL",
+    "apy": 8.431875236620257,
+    "category": "Solana"
+  },
+  "Sanctum-HUBsveNpjo5pWqNkH57QzxjQASdTVXcSK7bVKTSZtcSX": {
+    "app": "Sanctum",
+    "name": "hubSOL",
+    "apy": 5.852023743004775,
+    "category": "Solana"
+  },
+  "Sanctum-LAinEtNLgpmCP9Rvsf5Hn8W6EhNiKLZQti1xfWMLy6X": {
+    "app": "Sanctum",
+    "name": "laineSOL",
+    "apy": 8.037889537271958,
+    "category": "Solana"
+  },
+  "Sanctum-Dso1bDeDjCQxTrWHqUUi63oBvV7Mdm6WaobLbQ7gnPQ": {
+    "app": "Sanctum",
+    "name": "dSOL",
+    "apy": 9.360047617377187,
+    "category": "Solana"
+  },
+  "Sanctum-BonK1YhkXEGLZzwtcvRTip3gAL9nCeQD7ppZBLXhtTs": {
+    "app": "Sanctum",
+    "name": "bonkSOL",
+    "apy": 7.88231602123004,
+    "category": "Solana"
+  },
+  "Sanctum-BNso1VUJnh4zcfpZa6986Ea66P6TCp59hvtNJ8b1X85": {
+    "app": "Sanctum",
+    "name": "bnSOL",
+    "apy": 6.446340645834425,
+    "category": "Solana"
+  },
+  "Sanctum-Bybit2vBJGhPF52GBdNaQfUJ6ZpThSgHBobjWZpLPb4B": {
+    "app": "Sanctum",
+    "name": "bbSOL",
+    "apy": 6.438849547205883,
+    "category": "Solana"
+  },
+  "Sanctum-mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So": {
+    "app": "Sanctum",
+    "name": "mSOL",
+    "apy": 8.16548733143556,
+    "category": "Solana"
+  },
+  "Sanctum-haSo1Vz5aTsqEnz8nisfnEsipvbAAWpgzRDh2WhhMEh": {
+    "app": "Sanctum",
+    "name": "haSOL",
+    "apy": 8.464489779211615,
+    "category": "Solana"
+  },
+  "Solana-Strategy-Aggressive": {
+    "app": "Solana Strategy",
+    "name": "Aggressive",
+    "apy": 8.353950782422478,
+    "category": "Solana",
+    "sources": [
+      "Sanctum haSOL",
+      "Sanctum hSOL",
+      "Sanctum mSOL"
+    ]
+  },
+  "Solana-Strategy-Normal": {
+    "app": "Solana Strategy",
+    "name": "Normal",
+    "apy": 7.87773331247552,
+    "category": "Solana",
+    "sources": [
+      "Sanctum bSOL",
+      "Sanctum bonkSOL",
+      "Sanctum picoSOL"
+    ]
+  }
+}

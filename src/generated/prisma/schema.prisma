@@ -15,15 +15,17 @@ datasource db {
 }
 
 model User {
-  id                      String                   @id @default(cuid())
-  walletAddress           String                   @unique
-  role                    UserRole                 @default(USER)
-  createdAt               DateTime                 @default(now())
-  updatedAt               DateTime                 @updatedAt
+  id                      String                       @id @default(cuid())
+  walletAddress           String                       @unique
+  role                    UserRole                     @default(USER)
+  createdAt               DateTime                     @default(now())
+  updatedAt               DateTime                     @updatedAt
   tradingHistory          TradingHistory[]
   currentAllocations      CurrentAllocation[]
   currentAssets           CurrentAsset[]
   userStrategyAllocations UserStrategyAllocation[]
+  strategyPreferences     UserStrategyPreference[]
+  yieldOpportunityOptOuts UserYieldOpportunityOptOut[]
 }
 
 model TradingHistory {
@@ -72,14 +74,16 @@ model Strategy {
   id              String                   @id @default(cuid())
   name            String                   @unique
   description     String?
+  image           String?
   assetTicker     String
   apy             Float
-  riskLevel       String
+  riskLevel       RiskLevel
   platform        String?
   createdAt       DateTime                 @default(now())
   updatedAt       DateTime                 @updatedAt
   userAllocations UserStrategyAllocation[]
   tradingEvents   TradingHistory[]
+  userPreferences UserStrategyPreference[]
 
   @@index([assetTicker])
 }
@@ -104,8 +108,61 @@ model UserStrategyAllocation {
   @@index([assetTicker])
 }
 
+model UserStrategyPreference {
+  id                   String   @id @default(cuid())
+  userId               String
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  strategyId           String
+  strategy             Strategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
+  isFavorite           Boolean  @default(false)
+  isHidden             Boolean  @default(false)
+  receiveNotifications Boolean  @default(false)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@unique([userId, strategyId])
+  @@index([userId])
+  @@index([strategyId])
+}
+
+model UserYieldOpportunityOptOut {
+  id                 String           @id @default(cuid())
+  userId             String
+  user               User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  yieldOpportunityId String
+  yieldOpportunity   YieldOpportunity @relation(fields: [yieldOpportunityId], references: [id], onDelete: Cascade)
+  optedOutAt         DateTime         @default(now())
+
+  @@unique([userId, yieldOpportunityId])
+  @@index([userId])
+  @@index([yieldOpportunityId])
+}
+
 // Enum for User Roles
 enum UserRole {
   USER
   ADMIN
+}
+
+enum RiskLevel {
+  NORMAL
+  AGGRESSIVE
+}
+
+model YieldOpportunity {
+  id            String                       @id @default(cuid())
+  platform      String // e.g., "Kamino JLP Market"
+  platformImage String? // e.g., "kamino.svg"
+  tickerImage   String? // e.g., "usdc.svg"
+  name          String // e.g., "USDC" (the asset involved in the opportunity)
+  marketId      String // The specific market identifier, unique within the platform
+  assetTicker   String // The category, e.g., "USD", "Solana"
+  apy           Float
+  createdAt     DateTime                     @default(now())
+  updatedAt     DateTime                     @updatedAt
+  userOptOuts   UserYieldOpportunityOptOut[]
+
+  @@unique([platform, marketId])
+  @@index([platform])
+  @@index([assetTicker])
 }

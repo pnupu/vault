@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { publicProcedure, router, protectedProcedure } from '../trpc';
+import { publicProcedure, createTRPCRouter, protectedProcedure } from '@/server/api/trpc';
 import { TRPCError } from '@trpc/server';
 import { UserRole } from '../../generated/prisma';
 import crypto from 'crypto';
@@ -13,7 +13,7 @@ if (JWT_SECRET === 'your-super-secret-and-long-jwt-secret-key') {
   console.warn("WARNING: Using default JWT_SECRET. Please set a strong secret in your environment variables.");
 }
 
-export const userRouter = router({
+export const userRouter = createTRPCRouter({
   requestLoginChallenge: publicProcedure
     .input(z.object({ walletAddress: z.string().min(1) }))
     .mutation(async ({ input }) => {

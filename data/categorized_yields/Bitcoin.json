@@ -1,0 +1,20 @@
+{
+  "Kamino-Main Market-37Jk2zkz23vkAYBT66HM2gaqJuNg2nYLsCreQAVt5MWK": {
+    "app": "Kamino Main Market",
+    "name": "cbBTC",
+    "apy": 0.01,
+    "category": "Bitcoin"
+  },
+  "Kamino-Main Market-HYnVhjsvU1vBKTPsXs1dWe6cJeuU8E4gjoYpmwe81KzN": {
+    "app": "Kamino Main Market",
+    "name": "WBTC",
+    "apy": 0.04,
+    "category": "Bitcoin"
+  },
+  "Save-Main Market-Ag7UiqS5kqcsjNFWQfeUAiEXo27auFvdwLVJQwzYCBkZ": {
+    "app": "Save Main Market",
+    "name": "cbBTC",
+    "apy": 0.0348169410216443,
+    "category": "Bitcoin"
+  }
+}

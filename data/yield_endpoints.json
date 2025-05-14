@@ -1,0 +1,470 @@
+[
+  {
+    "name": "Kamino JLP Market",
+    "image": "kamino.svg",
+    "markets": {
+      "USD": [
+        {
+          "market_id": "Ga4rZytCpq1unD4DbEJ5bkHeUz9g3oh9AAFEi6vSauXp",
+          "apy": 3.54,
+          "name": "USDC"
+        },
+        {
+          "market_id": "FswUCVjvfAuzHCgPDF95eLKscGsLHyJmD6hzkhq26CLe",
+          "apy": 4.48,
+          "name": "PYUSD"
+        },
+        {
+          "market_id": "2ov3CMqPBYG3jNBmmpXgK9KMW5GmU5GWZNGcwf7w3BC1",
+          "apy": 5.51,
+          "name": "USDT"
+        },
+        {
+          "market_id": "8rM1AY8M4YP4xNVmxhKnEUnj5CRWrcbcHpcgMoDfgqVi",
+          "apy": 6.95,
+          "name": "USDG"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Kamino Jito Market",
+    "image": "kamino.svg",
+    "markets": {
+      "Solana": [
+        {
+          "market_id": "6gTJfuPHEg6uRAijRkMqNc9kan4sVZejKMxmvx2grT1p",
+          "apy": 5.46,
+          "name": "SOL"
+        },
+        {
+          "market_id": "F9HdecRG8GPs9LEn4S5VfeJVEZVqrDJFR6bvmQTi22na",
+          "apy": 0.01,
+          "name": "JITOSOL"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Kamino Main Market",
+    "image": "kamino.svg",
+    "markets": {
+      "Solana": [
+        {
+          "market_id": "d4A2prbA2whesmvHaL88BH6Ewn5N4bTSU2Ze8P6Bc4Q",
+          "apy": 5.23,
+          "name": "SOL"
+        },
+        {
+          "market_id": "DGQZWCY17gGtBUgdaFs1VreJWsodkjFxndPsskwFKGpp",
+          "apy": 0.0,
+          "name": "JupSOL"
+        },
+        {
+          "market_id": "EVbyPKrHG6WBfm4dLxLMJpUDY43cCAcHSpV3KYjKsktW",
+          "apy": 0.0,
+          "name": "JITOSOL"
+        },
+        {
+          "market_id": "FBSyPnxtHKLBZ4UeeUyAnbtFuAmTHLtso9YtsqRDRWpM",
+          "apy": 0.0,
+          "name": "MSOL"
+        },
+        {
+          "market_id": "BvafE5Sm6rLrBbVRtJ2FkCzfNJQ2TjcL8bvPZULUDYrt",
+          "apy": 0.0,
+          "name": "cgntSOL"
+        },
+        {
+          "market_id": "CHBNUPdjeo2N5QkZY2uAqv7TW5EbCTMsfvaskCBuxbom",
+          "apy": 0.0,
+          "name": "vSOL"
+        },
+        {
+          "market_id": "H9vmCVd77N1HZa36eBn3UnftYmg4vQzPfm1RxabHAMER",
+          "apy": 0.02,
+          "name": "bSOL"
+        },
+        {
+          "market_id": "2UFz8kwraHybFyKhGQRwAsE5NtNpAhWs2X5grGoS7hnQ",
+          "apy": 0.0,
+          "name": "picoSOL"
+        },
+        {
+          "market_id": "CExamod1Ai3d1N8Vh7sBjt5xbZzb2VmGMAFocf7fxCzm",
+          "apy": 0.0,
+          "name": "hSOL"
+        },
+        {
+          "market_id": "B5uYvxUcwX5fCB4msGU4DaHh8k6fsSkKHNboy94F9vbt",
+          "apy": 0.0,
+          "name": "hubSOL"
+        },
+        {
+          "market_id": "HMCXsf1jFUDbvGGhvUzCzwkKbmUhxhxz7gYZwXpTuReT",
+          "apy": 0.0,
+          "name": "laineSOL"
+        },
+        {
+          "market_id": "StGKGcLQoTsWzQ1tFY2bWqrdiuBhqdFE4niiAutQxQB",
+          "apy": 0.0,
+          "name": "dSOL"
+        },
+        {
+          "market_id": "Ht9NoB1udjpRqws1sCw1j2dL7MeTDHYCDdDFkbc1Arst",
+          "apy": 0.0,
+          "name": "bonkSOL"
+        },
+        {
+          "market_id": "6U9CnJYCQwHUEmf4Pq4oGVKHVvD29wZvtPbFNjYmgjaF",
+          "apy": 0.0,
+          "name": "bbSOL"
+        },
+        {
+          "market_id": "Fqjbo3L4NAyzPcy6swv1XXLm1c7tUTKWMDkjCo9mfSDq",
+          "apy": 0.06,
+          "name": "bnSOL"
+        }
+      ],
+      "USD": [
+        {
+          "market_id": "D6q6wuQSrifJKZYpR1M8R4YawnLDtDsMmWM1NbBmgJ59",
+          "apy": 2.58,
+          "name": "USDC"
+        },
+        {
+          "market_id": "ESCkPWKHmgNE7Msf77n9yzqJd5kQVWWGy3o5Mgxhvavp",
+          "apy": 7.78,
+          "name": "USDG"
+        },
+        {
+          "market_id": "BHUi32TrEsfN2U821G4FprKrR4hTeK4LCWtA3BFetuqA",
+          "apy": 2.61,
+          "name": "USDS"
+        },
+        {
+          "market_id": "H3t6qZ1JkguCNTi9uzVKqQ7dvt2cum4XiXWom6Gn5e5S",
+          "apy": 5.15,
+          "name": "USDT"
+        },
+        {
+          "market_id": "Bpc4kAh29J3YDQUMJJdGdr1zBAhTQjC48R1B8YTWudsi",
+          "apy": 3.78,
+          "name": "FDUSD"
+        },
+        {
+          "market_id": "2gc9Dm1eB6UgVYFBUN9bWks6Kes9PbWSaPaa9DqyvEiN",
+          "apy": 3.85,
+          "name": "PYUSD"
+        }
+      ],
+      "Bitcoin": [
+        {
+          "market_id": "37Jk2zkz23vkAYBT66HM2gaqJuNg2nYLsCreQAVt5MWK",
+          "apy": 0.01,
+          "name": "cbBTC"
+        },
+        {
+          "market_id": "HYnVhjsvU1vBKTPsXs1dWe6cJeuU8E4gjoYpmwe81KzN",
+          "apy": 0.04,
+          "name": "WBTC"
+        }
+      ],
+      "Ethereum": [
+        {
+          "market_id": "febGYTnFX4GbSGoFHFeJXUHgNaK53fB23uDins9Jp1E",
+          "apy": 0.66,
+          "name": "ETH"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Meteora",
+    "image": "Meteora.svg",
+    "markets": {
+      "Solana": [
+        {
+          "market_id": "BoeMUkCLHchTD31HdXsbDExuZZfcUppSLpYtV3LZTH6U",
+          "apy": 1.2509279374885773,
+          "name": "JitoSOL-SOL"
+        }
+      ],
+      "USD": [
+        {
+          "market_id": "ARwi1S4DaiTG5DX7S4M4ZsrXqpMD1MrTmbu9ue2tpmEq",
+          "apy": 1.5524242621877127,
+          "name": "USDC-USDT"
+        },
+        {
+          "market_id": "JCFBoXNyFu9eLaskXm11qxSdx6x7i3LK8pETJE2LRGt2",
+          "apy": 1.0407687990392933,
+          "name": "FDUSD-USDC"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Orca",
+    "image": "Orca.png",
+    "markets": {
+      "Solana": [
+        {
+          "market_id": "Hp53XEtt4S8SvPCXarsLSdGfZBuUr5mMmZmX2DRNXQKp",
+          "apy": 0.00556115925114012,
+          "name": "SOL-JitoSOL"
+        }
+      ],
+      "USD": [
+        {
+          "market_id": "9RqDTfwCx2SgxsvKpspQHc38HUo3B6hRd3oR9JR966Ps",
+          "apy": 0.00144546532531324,
+          "name": "USDG-USDC"
+        },
+        {
+          "market_id": "D3LWymVUGhgKKJ33vKq8oHUaGwSuJPTPjnke9QHEXNqz",
+          "apy": 0.0032982586270187803,
+          "name": "AUSD-USDC"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Raydium",
+    "image": "Raydium.png",
+    "markets": {
+      "Solana": [
+        {
+          "market_id": "8EzbUfvcRT1Q6RL462ekGkgqbxsPmwC5FMLQZhSPMjJ3",
+          "apy": 4.2291677538321135,
+          "name": "WSOL-mSOL"
+        },
+        {
+          "market_id": "2uoKbPEidR7KAMYtY4x7xdkHXWqYib5k4CutJauSL3Mc",
+          "apy": 4.421169513763596,
+          "name": "WSOL-JitoSOL"
+        },
+        {
+          "market_id": "529FAHK9P4bZtUtG2qpGemdttE9jDNSEohH5HzoAHMXJ",
+          "apy": 0.59,
+          "name": "kySOL-JitoSOL"
+        }
+      ],
+      "USD": [
+        {
+          "market_id": "BZtgQEyS6eXUXicYPHecYQ7PybqodXQMvkjUbP4R8mUU",
+          "apy": 2.5255002769362074,
+          "name": "USDC-USDT"
+        },
+        {
+          "market_id": "AS5MV3ear4NZPMWXbCsEz3AdbCaXEnq4ChdaWsvLgkcM",
+          "apy": 0.1392619819872741,
+          "name": "USDS-USDC"
+        },
+        {
+          "market_id": "F5oK5zdyUktrzTgSJdBFL73xUdCLcHfHfHdBcpydhXoK",
+          "apy": 0.4,
+          "name": "FDUSD-USDT"
+        },
+        {
+          "market_id": "4fnrjdmQcfC1AcmH2qbq52QH6xa1MYo9212Ue6fhXN63",
+          "apy": 0.11,
+          "name": "USDC-USDC"
+        },
+        {
+          "market_id": "DbsTAmxnFAWRvigSks6DahpKi5Ypz3w2BMKEejTJcGGm",
+          "apy": 0.0,
+          "name": "DUSD-USDT"
+        },
+        {
+          "market_id": "Ap9MSstSzzduooxWctfcWzYDqcoZSYc5uBg413KT6XR9",
+          "apy": 0.0,
+          "name": "USDT-USDD  "
+        },
+        {
+          "market_id": "EHv8PhAfV8tEdqoiBUR3paozTjHLvdqxkm32hgb2f3WT",
+          "apy": 0.0,
+          "name": "USX-USDT"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Save Main Market",
+    "image": "save.svg",
+    "markets": {
+      "Solana": [
+        {
+          "market_id": "8PbodeaosQP19SjYFx855UMqWxH2HynZLdBXmsrbac36",
+          "apy": 1.58918484663091,
+          "name": "SOL"
+        },
+        {
+          "market_id": "47kDoVo8gxWYe7oP2UT1AUtR2uGxEokGqdpc1qGPP3EX",
+          "apy": 0.0,
+          "name": "saveSOL"
+        },
+        {
+          "market_id": "7ZedNeKC6WU8soC4k3QrWwg4RNjzmuohbrTQuVpZkqnv",
+          "apy": 0.0,
+          "name": "SOL-mSOL MLP"
+        },
+        {
+          "market_id": "6TyNRszAjzPh52mDEnmXcqq1u3p9S2z1iNmMdKN76wq2",
+          "apy": 0.0,
+          "name": "SOL-bSOL MLP"
+        },
+        {
+          "market_id": "CCpirWrgNuBVLdkP2haxLTbD6XqEgaYuVXixbbpxUB6",
+          "apy": 0.0,
+          "name": "mSOL"
+        },
+        {
+          "market_id": "3DjAsrew4ZmBwcLjp2wUmjqvSKs4vpJ43ZKxaCjjEdur",
+          "apy": 0.0,
+          "name": "bSOL"
+        },
+        {
+          "market_id": "BRsz1xVQMuVLbc4YjLP1FXhEx1LxSYig2nLqRgJEzR9r",
+          "apy": 0.0,
+          "name": "JitoSOL"
+        },
+        {
+          "market_id": "H5znFbw5v8z5knynkv1tKi8TgvdhTSt7QyoTXDigCVkW",
+          "apy": 0.0,
+          "name": "haSOL"
+        },
+        {
+          "market_id": "Aj3MjwEeAcT5Phan6unxbpKYR8Jx1bNZUoWxA59yg1cF",
+          "apy": 0.0,
+          "name": "JupSOL"
+        }
+      ],
+      "USD": [
+        {
+          "market_id": "BgxfHJDzm44T7XG68MYKx7YisTjZu73tVovyZSjJMpmw",
+          "apy": 3.3000389271563297,
+          "name": "USDC"
+        },
+        {
+          "market_id": "HUL7GeHECRMbBFwde6pBmCPwDZjoLQDX7Xis4d64jAya",
+          "apy": 3.08675990483839,
+          "name": "USDS"
+        },
+        {
+          "market_id": "8K9WC8xoh2rtQNY7iEGXtPvfbDCi563SdWhCAhuMP2xE",
+          "apy": 4.04915112252578,
+          "name": "USDT"
+        }
+      ],
+      "Bitcoin": [
+        {
+          "market_id": "Ag7UiqS5kqcsjNFWQfeUAiEXo27auFvdwLVJQwzYCBkZ",
+          "apy": 0.0348169410216443,
+          "name": "cbBTC"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Save JLP Market",
+    "image": "save.svg",
+    "markets": {
+      "USD": [
+        {
+          "market_id": "BJfY2E6TVEQe896kfR1AhhYCECVKfbceGg2ASU2LXdiA",
+          "apy": 4.10327412095552,
+          "name": "USDC"
+        },
+        {
+          "market_id": "CKqi88U4nuuU5THsELnc4vtycLLc3W3rdCWZg7VCi88T",
+          "apy": 5.21185303494425,
+          "name": "USDS"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sanctum",
+    "image": "Sanctum.png",
+    "markets": {
+      "Solana": [
+        {
+          "market_id": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+          "apy": 8.049462877604242,
+          "name": "JitoSOL"
+        },
+        {
+          "market_id": "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1",
+          "apy": 8.021811494458774,
+          "name": "bSOL"
+        },
+        {
+          "market_id": "jupSoLaHXQiZZTSfEWMTRRgpnyFm8f6sZdosWBjx93v",
+          "apy": 8.69617771607507,
+          "name": "JupSOL"
+        },
+        {
+          "market_id": "CgnTSoL3DgY9SFHxcLj6CgCgKKoTBr6tp4CPAEWy25DE",
+          "apy": 3.298165055285951,
+          "name": "cgntSOL"
+        },
+        {
+          "market_id": "vSoLxydx6akxyMD9XEcPvGYNGq6Nn66oqVb3UkGkei7",
+          "apy": 7.405512147943449,
+          "name": "vSOL"
+        },
+        {
+          "market_id": "picobAEvs6w7QEknPce34wAE4gknZA9v5tTonnmHYdX",
+          "apy": 7.729072421737748,
+          "name": "picoSOL"
+        },
+        {
+          "market_id": "he1iusmfkpAdwvxLNGV8Y1iSbj4rUy6yMhEA3fotn9A",
+          "apy": 8.431875236620257,
+          "name": "hSOL"
+        },
+        {
+          "market_id": "HUBsveNpjo5pWqNkH57QzxjQASdTVXcSK7bVKTSZtcSX",
+          "apy": 5.852023743004775,
+          "name": "hubSOL"
+        },
+        {
+          "market_id": "LAinEtNLgpmCP9Rvsf5Hn8W6EhNiKLZQti1xfWMLy6X",
+          "apy": 8.037889537271958,
+          "name": "laineSOL"
+        },
+        {
+          "market_id": "Dso1bDeDjCQxTrWHqUUi63oBvV7Mdm6WaobLbQ7gnPQ",
+          "apy": 9.360047617377187,
+          "name": "dSOL"
+        },
+        {
+          "market_id": "BonK1YhkXEGLZzwtcvRTip3gAL9nCeQD7ppZBLXhtTs",
+          "apy": 7.88231602123004,
+          "name": "bonkSOL"
+        },
+        {
+          "market_id": "BNso1VUJnh4zcfpZa6986Ea66P6TCp59hvtNJ8b1X85",
+          "apy": 6.446340645834425,
+          "name": "bnSOL"
+        },
+        {
+          "market_id": "Bybit2vBJGhPF52GBdNaQfUJ6ZpThSgHBobjWZpLPb4B",
+          "apy": 6.438849547205883,
+          "name": "bbSOL"
+        },
+        {
+          "market_id": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+          "apy": 8.16548733143556,
+          "name": "mSOL"
+        },
+        {
+          "market_id": "haSo1Vz5aTsqEnz8nisfnEsipvbAAWpgzRDh2WhhMEh",
+          "apy": 8.464489779211615,
+          "name": "haSOL"
+        }
+      ]
+    }
+  }
+]

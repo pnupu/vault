@@ -161,6 +161,7 @@ exports.Prisma.StrategyScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
+  image: 'image',
   assetTicker: 'assetTicker',
   apy: 'apy',
   riskLevel: 'riskLevel',
@@ -178,6 +179,37 @@ exports.Prisma.UserStrategyAllocationScalarFieldEnum = {
   entryTimestamp: 'entryTimestamp',
   cumulativeYieldEarned: 'cumulativeYieldEarned',
   lastYieldClaimTimestamp: 'lastYieldClaimTimestamp',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UserStrategyPreferenceScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  strategyId: 'strategyId',
+  isFavorite: 'isFavorite',
+  isHidden: 'isHidden',
+  receiveNotifications: 'receiveNotifications',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UserYieldOpportunityOptOutScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  yieldOpportunityId: 'yieldOpportunityId',
+  optedOutAt: 'optedOutAt'
+};
+
+exports.Prisma.YieldOpportunityScalarFieldEnum = {
+  id: 'id',
+  platform: 'platform',
+  platformImage: 'platformImage',
+  tickerImage: 'tickerImage',
+  name: 'name',
+  marketId: 'marketId',
+  assetTicker: 'assetTicker',
+  apy: 'apy',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -201,13 +233,21 @@ exports.UserRole = exports.$Enums.UserRole = {
   ADMIN: 'ADMIN'
 };
 
+exports.RiskLevel = exports.$Enums.RiskLevel = {
+  NORMAL: 'NORMAL',
+  AGGRESSIVE: 'AGGRESSIVE'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
   TradingHistory: 'TradingHistory',
   CurrentAllocation: 'CurrentAllocation',
   CurrentAsset: 'CurrentAsset',
   Strategy: 'Strategy',
-  UserStrategyAllocation: 'UserStrategyAllocation'
+  UserStrategyAllocation: 'UserStrategyAllocation',
+  UserStrategyPreference: 'UserStrategyPreference',
+  UserYieldOpportunityOptOut: 'UserYieldOpportunityOptOut',
+  YieldOpportunity: 'YieldOpportunity'
 };
 
 /**

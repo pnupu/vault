@@ -1,17 +1,41 @@
 import { z } from 'zod';
-import { adminProcedure, router } from '../trpc';
-import { UserRole } from '../../generated/prisma'; // Import UserRole enum
+import { adminProcedure, createTRPCRouter } from '@/server/api/trpc';
+import { UserRole } from '@/generated/prisma';
 
-export const adminRouter = router({
+export const adminRouter = createTRPCRouter({
   getAllUsers: adminProcedure.query(async ({ ctx }) => {
-    return ctx.prisma.user.findMany();
+    return ctx.prisma.user.findMany({
+      include: {
+        strategyPreferences: {
+          where: { isFavorite: true }, // Only favorite strategies
+          include: {
+            strategy: { // Include the strategy details
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
+        yieldOpportunityOptOuts: {
+          include: {
+            yieldOpportunity: { // Include yield opportunity details
+              select: {
+                name: true,
+                platform: true,
+                marketId: true, 
+              },
+            },
+          },
+        },
+      },
+    });
   }),
 
   setUserRole: adminProcedure
     .input(
       z.object({
         userId: z.string(),
-        role: z.nativeEnum(UserRole), // Use nativeEnum for Prisma enums
+        role: z.nativeEnum(UserRole),
       }),
     )
     .mutation(async ({ ctx, input }) => {

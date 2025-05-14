@@ -1,0 +1,180 @@
+{
+  "Kamino-JLP Market-Ga4rZytCpq1unD4DbEJ5bkHeUz9g3oh9AAFEi6vSauXp": {
+    "app": "Kamino JLP Market",
+    "name": "USDC",
+    "apy": 3.54,
+    "category": "USD"
+  },
+  "Kamino-JLP Market-FswUCVjvfAuzHCgPDF95eLKscGsLHyJmD6hzkhq26CLe": {
+    "app": "Kamino JLP Market",
+    "name": "PYUSD",
+    "apy": 4.48,
+    "category": "USD"
+  },
+  "Kamino-JLP Market-2ov3CMqPBYG3jNBmmpXgK9KMW5GmU5GWZNGcwf7w3BC1": {
+    "app": "Kamino JLP Market",
+    "name": "USDT",
+    "apy": 5.51,
+    "category": "USD"
+  },
+  "Kamino-JLP Market-8rM1AY8M4YP4xNVmxhKnEUnj5CRWrcbcHpcgMoDfgqVi": {
+    "app": "Kamino JLP Market",
+    "name": "USDG",
+    "apy": 6.95,
+    "category": "USD"
+  },
+  "Kamino-Main Market-D6q6wuQSrifJKZYpR1M8R4YawnLDtDsMmWM1NbBmgJ59": {
+    "app": "Kamino Main Market",
+    "name": "USDC",
+    "apy": 2.58,
+    "category": "USD"
+  },
+  "Kamino-Main Market-ESCkPWKHmgNE7Msf77n9yzqJd5kQVWWGy3o5Mgxhvavp": {
+    "app": "Kamino Main Market",
+    "name": "USDG",
+    "apy": 7.78,
+    "category": "USD"
+  },
+  "Kamino-Main Market-BHUi32TrEsfN2U821G4FprKrR4hTeK4LCWtA3BFetuqA": {
+    "app": "Kamino Main Market",
+    "name": "USDS",
+    "apy": 2.61,
+    "category": "USD"
+  },
+  "Kamino-Main Market-H3t6qZ1JkguCNTi9uzVKqQ7dvt2cum4XiXWom6Gn5e5S": {
+    "app": "Kamino Main Market",
+    "name": "USDT",
+    "apy": 5.15,
+    "category": "USD"
+  },
+  "Kamino-Main Market-Bpc4kAh29J3YDQUMJJdGdr1zBAhTQjC48R1B8YTWudsi": {
+    "app": "Kamino Main Market",
+    "name": "FDUSD",
+    "apy": 3.78,
+    "category": "USD"
+  },
+  "Kamino-Main Market-2gc9Dm1eB6UgVYFBUN9bWks6Kes9PbWSaPaa9DqyvEiN": {
+    "app": "Kamino Main Market",
+    "name": "PYUSD",
+    "apy": 3.85,
+    "category": "USD"
+  },
+  "Meteora-ARwi1S4DaiTG5DX7S4M4ZsrXqpMD1MrTmbu9ue2tpmEq": {
+    "app": "Meteora",
+    "name": "USDC-USDT",
+    "apy": 1.5524242621877127,
+    "category": "USD"
+  },
+  "Meteora-JCFBoXNyFu9eLaskXm11qxSdx6x7i3LK8pETJE2LRGt2": {
+    "app": "Meteora",
+    "name": "FDUSD-USDC",
+    "apy": 1.0407687990392933,
+    "category": "USD"
+  },
+  "Orca-9RqDTfwCx2SgxsvKpspQHc38HUo3B6hRd3oR9JR966Ps": {
+    "app": "Orca",
+    "name": "USDG-USDC",
+    "apy": 0.00144546532531324,
+    "category": "USD"
+  },
+  "Orca-D3LWymVUGhgKKJ33vKq8oHUaGwSuJPTPjnke9QHEXNqz": {
+    "app": "Orca",
+    "name": "AUSD-USDC",
+    "apy": 0.0032982586270187803,
+    "category": "USD"
+  },
+  "Raydium-BZtgQEyS6eXUXicYPHecYQ7PybqodXQMvkjUbP4R8mUU": {
+    "app": "Raydium",
+    "name": "USDC-USDT",
+    "apy": 2.5255002769362074,
+    "category": "USD"
+  },
+  "Raydium-AS5MV3ear4NZPMWXbCsEz3AdbCaXEnq4ChdaWsvLgkcM": {
+    "app": "Raydium",
+    "name": "USDS-USDC",
+    "apy": 0.1392619819872741,
+    "category": "USD"
+  },
+  "Raydium-F5oK5zdyUktrzTgSJdBFL73xUdCLcHfHfHdBcpydhXoK": {
+    "app": "Raydium",
+    "name": "FDUSD-USDT",
+    "apy": 0.4,
+    "category": "USD"
+  },
+  "Raydium-4fnrjdmQcfC1AcmH2qbq52QH6xa1MYo9212Ue6fhXN63": {
+    "app": "Raydium",
+    "name": "USDC-USDC",
+    "apy": 0.11,
+    "category": "USD"
+  },
+  "Raydium-DbsTAmxnFAWRvigSks6DahpKi5Ypz3w2BMKEejTJcGGm": {
+    "app": "Raydium",
+    "name": "DUSD-USDT",
+    "apy": 0.0,
+    "category": "USD"
+  },
+  "Raydium-Ap9MSstSzzduooxWctfcWzYDqcoZSYc5uBg413KT6XR9": {
+    "app": "Raydium",
+    "name": "USDT-USDD  ",
+    "apy": 0.0,
+    "category": "USD"
+  },
+  "Raydium-EHv8PhAfV8tEdqoiBUR3paozTjHLvdqxkm32hgb2f3WT": {
+    "app": "Raydium",
+    "name": "USX-USDT",
+    "apy": 0.0,
+    "category": "USD"
+  },
+  "Save-Main Market-BgxfHJDzm44T7XG68MYKx7YisTjZu73tVovyZSjJMpmw": {
+    "app": "Save Main Market",
+    "name": "USDC",
+    "apy": 3.3000389271563297,
+    "category": "USD"
+  },
+  "Save-Main Market-HUL7GeHECRMbBFwde6pBmCPwDZjoLQDX7Xis4d64jAya": {
+    "app": "Save Main Market",
+    "name": "USDS",
+    "apy": 3.08675990483839,
+    "category": "USD"
+  },
+  "Save-Main Market-8K9WC8xoh2rtQNY7iEGXtPvfbDCi563SdWhCAhuMP2xE": {
+    "app": "Save Main Market",
+    "name": "USDT",
+    "apy": 4.04915112252578,
+    "category": "USD"
+  },
+  "Save-JLP Market-BJfY2E6TVEQe896kfR1AhhYCECVKfbceGg2ASU2LXdiA": {
+    "app": "Save JLP Market",
+    "name": "USDC",
+    "apy": 4.10327412095552,
+    "category": "USD"
+  },
+  "Save-JLP Market-CKqi88U4nuuU5THsELnc4vtycLLc3W3rdCWZg7VCi88T": {
+    "app": "Save JLP Market",
+    "name": "USDS",
+    "apy": 5.21185303494425,
+    "category": "USD"
+  },
+  "USD-Strategy-Aggressive": {
+    "app": "USD Strategy",
+    "name": "Aggressive",
+    "apy": 5.29061767831475,
+    "category": "USD",
+    "sources": [
+      "Kamino JLP Market USDT",
+      "Save JLP Market USDS",
+      "Kamino Main Market USDT"
+    ]
+  },
+  "USD-Strategy-Normal": {
+    "app": "USD Strategy",
+    "name": "Normal",
+    "apy": 3.89305037417526,
+    "category": "USD",
+    "sources": [
+      "Save Main Market USDT",
+      "Kamino Main Market PYUSD",
+      "Kamino Main Market FDUSD"
+    ]
+  }
+}

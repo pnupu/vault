@@ -375,11 +375,14 @@ export function DepositCard() {
             Current Vault Balance
           </p>
           <p className="text-3xl font-semibold">
-            {(vaultBalance / LAMPORTS_PER_SOL).toFixed(2)}
+            {(vaultBalance / LAMPORTS_PER_SOL).toFixed(2)} SOL
+          </p>
+          <p className="text-3xl font-semibold">
+            {(vaultTokenBalance ).toFixed(2)} USDC
           </p>
         </div>
 
-        <div className="flex flex-row space-x-2">
+        {/* <div className="flex flex-row space-x-2">
           <div className="w-full p-2 text-center rounded-md border">
             <p>{interactionsData?.totalDeposits ?? 0}</p>
             <p className="text-sm text-white/50 font-light">Deposits</p>
@@ -387,19 +390,20 @@ export function DepositCard() {
           <div className="w-full p-2 text-center rounded-md border">
             <p>{interactionsData?.totalWithdrawals ?? 0}</p>
             <p className="text-sm text-white/50 font-light">Withdrawls</p>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
+
+
+        <div className="border p-4 rounded-md space-y-3">
+          <p className="text-lg font-medium">SOL Operations</p>
 
         <Input
           type="number"
-          placeholder="Amount"
+          placeholder="Amount (SOL)"
           min={0}
           onChange={correctAmount}
           value={amount}
         />
-
-        <div className="border p-4 rounded-md space-y-3">
-          <p className="text-lg font-medium">SOL Operations</p>
           <div className="flex space-x-2">
             <Button
               variant="outline"
@@ -436,14 +440,14 @@ export function DepositCard() {
 
         <div className="border p-4 rounded-md space-y-3">
           <p className="text-lg font-medium">Token Operations (USDC)</p>
-          <div className="flex justify-between text-sm">
+          {/* <div className="flex justify-between text-sm">
             <span>Your Token Balance:</span>
             <span>{userTokenBalance.toFixed(2)}</span> 
           </div>
           <div className="flex justify-between text-sm">
             <span>Vault Token Balance:</span>
             <span>{vaultTokenBalance.toFixed(2)}</span>
-          </div>
+          </div> */}
 
           <Input
             type="number"
