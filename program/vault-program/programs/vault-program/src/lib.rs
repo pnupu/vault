@@ -44,20 +44,38 @@ pub mod vault_program {
     }
 
     // SOL deposit
-    pub fn deposit_sol(ctx: Context<DepositSol>, amount: u64) -> Result<()> {
+     pub fn deposit_sol(ctx: Context<DepositSol>, amount: u64) -> Result<()> {
         require!(amount > 0, VaultError::InvalidAmount);
+        
+        // Check if investment is enabled
+        require!(
+            ctx.accounts.config.investment_enabled,
+            VaultError::InvestmentDisabled
+        );
 
+        // Verify the admin investment wallet matches config
+        require!(
+            ctx.accounts.admin_investment_wallet.key() == ctx.accounts.config.admin_investment_wallet,
+            VaultError::InvalidAdminWallet
+        );
+
+        // Transfer directly to admin investment wallet
         system_program::transfer(
             CpiContext::new(
                 ctx.accounts.system_program.to_account_info(),
                 system_program::Transfer {
                     from: ctx.accounts.signer.to_account_info(),
-                    to: ctx.accounts.user_vault_account.to_account_info(),
+                    to: ctx.accounts.admin_investment_wallet.to_account_info(),
                 },
             ),
             amount,
         )?;
 
+        // Update user metadata
+        let user_metadata = &mut ctx.accounts.user_metadata;
+        user_metadata.total_invested_sol = user_metadata.total_invested_sol.saturating_add(amount);
+        user_metadata.last_investment_timestamp = Clock::get()?.unix_timestamp;
+        
         ctx.accounts.user_interactions_counter.total_deposits += 1;
         Ok(())
     }
@@ -65,10 +83,23 @@ pub mod vault_program {
     // Token deposit
     pub fn deposit_token(ctx: Context<DepositToken>, amount: u64) -> Result<()> {
         require!(amount > 0, VaultError::InvalidAmount);
+        
+        // Check if direct deposit is enabled
+        require!(
+            ctx.accounts.config.investment_enabled,
+            VaultError::InvestmentDisabled
+        );
 
+        // Verify the admin investment token account owner matches config
+        require!(
+            ctx.accounts.admin_token_account.owner == ctx.accounts.config.admin_investment_wallet,
+            VaultError::InvalidAdminWallet
+        );
+
+        // Transfer directly to admin token account
         let cpi_accounts = Transfer {
             from: ctx.accounts.user_token_account.to_account_info(),
-            to: ctx.accounts.vault_token_account.to_account_info(),
+            to: ctx.accounts.admin_token_account.to_account_info(),
             authority: ctx.accounts.signer.to_account_info(),
         };
 
@@ -76,6 +107,11 @@ pub mod vault_program {
         let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
         token::transfer(cpi_ctx, amount)?;
 
+        // Update user metadata
+        let user_metadata = &mut ctx.accounts.user_metadata;
+        user_metadata.total_invested_token = user_metadata.total_invested_token.saturating_add(amount);
+        user_metadata.last_investment_timestamp = Clock::get()?.unix_timestamp;
+        
         ctx.accounts.user_interactions_counter.total_deposits += 1;
         Ok(())
     }
@@ -259,6 +295,14 @@ pub mod vault_program {
             VaultError::InvalidAdminWallet
         );
 
+        // Create and initialize user vault account if needed
+        let user_key = ctx.accounts.user.key();
+        let vault_seeds = &[
+            b"vault".as_ref(),
+            user_key.as_ref(),
+            &[ctx.bumps.user_vault_account],
+        ];
+
         // Transfer SOL from admin wallet to user vault account
         system_program::transfer(
             CpiContext::new(
@@ -295,6 +339,16 @@ pub mod vault_program {
             ctx.accounts.admin_token_account.owner == ctx.accounts.config.admin_investment_wallet,
             VaultError::InvalidAdminWallet
         );
+
+        // Initialize user vault token account if needed
+        let mint_key = ctx.accounts.mint.key();
+        let user_key = ctx.accounts.user.key();
+        let vault_seeds = &[
+            b"token_vault".as_ref(),
+            mint_key.as_ref(),
+            user_key.as_ref(),
+            &[ctx.bumps.vault_token_account],
+        ];
 
         // Transfer tokens from admin account to user vault token account
         let cpi_accounts = Transfer {
