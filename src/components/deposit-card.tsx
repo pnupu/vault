@@ -176,6 +176,16 @@ export function DepositCard() {
     setIsLoading(false);
   };
 
+  const onRequestWithdrawal = async () => {
+    if (!provider || !publicKey || !sendTransaction) {
+      toast.toast({ title: "Error!", description: "Wallet not connected" });
+      return;
+    }
+
+    toast.toast({ title: "Success!", description: "Withdrawal requested" });
+    
+  }
+
   const onMoveTokens = async (type: "deposit" | "withdraw") => {
     if (!provider || !publicKey || !sendTransaction) {
       toast.toast({ title: "Error!", description: "Wallet not connected" });
@@ -345,7 +355,7 @@ export function DepositCard() {
 
   return (
     <Card
-      className={`w-[450px] transition-all duration-500 ${
+      className={`w-[650px] transition-all duration-500 ${
         isLoading &&
         "animate-pulse duration-1000 pointer-events-none cursor-not-allowed grayscale"
       } ${
@@ -372,7 +382,7 @@ export function DepositCard() {
       <CardContent className="space-y-3">
         <div className="p-5 space-y-4 flex flex-col items-center justify-center rounded-md border">
           <p className="text-sm font-normal text-white/80">
-            Current Vault Balance
+            Current Invested Balance
           </p>
           <p className="text-3xl font-semibold">
             {(vaultBalance / LAMPORTS_PER_SOL).toFixed(2)} SOL
@@ -396,6 +406,10 @@ export function DepositCard() {
 
         <div className="border p-4 rounded-md space-y-3">
           <p className="text-lg font-medium">SOL Operations</p>
+          <div className="flex justify-between text-sm">
+            <span>Vault Balance:</span>
+            <span>{(vaultBalance / LAMPORTS_PER_SOL).toFixed(2)} SOL</span>
+          </div>
 
         <Input
           type="number"
@@ -424,6 +438,17 @@ export function DepositCard() {
               variant="outline"
               className="w-full text-green-500 hover:bg-green-700"
               disabled={
+                isLoading ||
+                !connected
+              }
+              onClick={() => onRequestWithdrawal()}
+            >
+              <ArrowDown className="mr-2 h-4 w-4" /> Request Withdrawal
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full text-green-500 hover:bg-green-700"
+              disabled={
                 amount === 0 ||
                 !amount ||
                 isLoading ||
@@ -443,11 +468,11 @@ export function DepositCard() {
           {/* <div className="flex justify-between text-sm">
             <span>Your Token Balance:</span>
             <span>{userTokenBalance.toFixed(2)}</span> 
-          </div>
+          </div> */}
           <div className="flex justify-between text-sm">
             <span>Vault Token Balance:</span>
             <span>{vaultTokenBalance.toFixed(2)}</span>
-          </div> */}
+          </div>
 
           <Input
             type="number"
@@ -464,6 +489,14 @@ export function DepositCard() {
               onClick={() => onMoveTokens("deposit")}
             >
               <ArrowDown className="mr-2 h-4 w-4" /> Deposit Token
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full text-purple-500 hover:bg-purple-700"
+              disabled={isLoading || !connected }
+              onClick={() => onRequestWithdrawal()}
+            >
+              <ArrowUp className="mr-2 h-4 w-4" /> Request Withdrawal
             </Button>
             <Button
               variant="outline"
