@@ -8,9 +8,10 @@ declare_id!("71eww9jmzMwBZ7kwqoovKZGeb54Mhvc5s3wtneQ1w8hp");
 pub mod vault_program {
     use super::*;
 
-    pub fn initialize_config(ctx: Context<InitializeConfig>, admin: Pubkey) -> Result<()> {
+    pub fn initialize_config(ctx: Context<InitializeConfig>, admin: Pubkey, admin_investment_wallet: Pubkey) -> Result<()> {
         let config = &mut ctx.accounts.config;
         config.admin = admin;
+        config.admin_investment_wallet = admin_investment_wallet;
         config.min_vault_balance = 0; // Default minimum balance
         config.investment_enabled = true; // Default to enabled
         Ok(())
@@ -22,6 +23,15 @@ pub mod vault_program {
             VaultError::Unauthorized
         );
         ctx.accounts.config.admin = new_admin;
+        Ok(())
+    }
+
+    pub fn update_admin_investment_wallet(ctx: Context<UpdateAdminWallet>, new_wallet: Pubkey) -> Result<()> {
+        require!(
+            ctx.accounts.signer.key() == ctx.accounts.config.admin,
+            VaultError::Unauthorized
+        );
+        ctx.accounts.config.admin_investment_wallet = new_wallet;
         Ok(())
     }
 
@@ -131,8 +141,7 @@ pub mod vault_program {
         Ok(())
     }
 
-    // SOL investment
-    pub fn invest_sol(ctx: Context<InvestSol>, amount: u64) -> Result<()> {
+    pub fn invest_sol(ctx: Context<InvestSolToAdmin>, amount: u64) -> Result<()> {
         require!(
             ctx.accounts.signer.key() == ctx.accounts.config.admin,
             VaultError::Unauthorized
@@ -145,6 +154,12 @@ pub mod vault_program {
 
         require!(amount > 0, VaultError::InvalidAmount);
 
+        // Verify the admin investment wallet matches config
+        require!(
+            ctx.accounts.admin_investment_wallet.key() == ctx.accounts.config.admin_investment_wallet,
+            VaultError::InvalidAdminWallet
+        );
+
         let user_key = ctx.accounts.user.key();
         let vault_seeds = &[
             b"vault".as_ref(),
@@ -152,16 +167,17 @@ pub mod vault_program {
             &[ctx.bumps.user_vault_account],
         ];
 
+        // Transfer directly to admin investment wallet
         let ix = anchor_lang::solana_program::system_instruction::transfer(
             &ctx.accounts.user_vault_account.key(),
-            &ctx.accounts.investment_pool.key(),
+            &ctx.accounts.admin_investment_wallet.key(),
             amount,
         );
         anchor_lang::solana_program::program::invoke_signed(
             &ix,
             &[
                 ctx.accounts.user_vault_account.to_account_info(),
-                ctx.accounts.investment_pool.to_account_info(),
+                ctx.accounts.admin_investment_wallet.to_account_info(),
             ],
             &[vault_seeds],
         )?;
@@ -174,7 +190,7 @@ pub mod vault_program {
     }
 
     // Token investment
-    pub fn invest_token(ctx: Context<InvestToken>, amount: u64) -> Result<()> {
+    pub fn invest_token(ctx: Context<InvestTokenToAdmin>, amount: u64) -> Result<()> {
         require!(
             ctx.accounts.signer.key() == ctx.accounts.config.admin,
             VaultError::Unauthorized
@@ -186,6 +202,12 @@ pub mod vault_program {
         );
 
         require!(amount > 0, VaultError::InvalidAmount);
+
+        // Verify the admin investment token account owner matches config
+        require!(
+            ctx.accounts.admin_token_account.owner == ctx.accounts.config.admin_investment_wallet,
+            VaultError::InvalidAdminWallet
+        );
 
         let mint_key = ctx.accounts.mint.key();
         let user_key = ctx.accounts.user.key();
@@ -199,7 +221,7 @@ pub mod vault_program {
 
         let cpi_accounts = Transfer {
             from: ctx.accounts.vault_token_account.to_account_info(),
-            to: ctx.accounts.investment_token_account.to_account_info(),
+            to: ctx.accounts.admin_token_account.to_account_info(),
             authority: ctx.accounts.vault_token_account.to_account_info(),
         };
 
@@ -219,7 +241,7 @@ pub mod vault_program {
     }
 
     // Return SOL investment
-    pub fn return_sol_investment(ctx: Context<ReturnSolInvestment>, amount: u64) -> Result<()> {
+    pub fn return_sol_investment(ctx: Context<ReturnSolInvestmentFromAdmin>, amount: u64) -> Result<()> {
         require!(
             ctx.accounts.signer.key() == ctx.accounts.config.admin,
             VaultError::Unauthorized
@@ -231,23 +253,22 @@ pub mod vault_program {
             VaultError::InvalidAmount
         );
 
-        let pool_seeds = &[
-            b"investment_pool".as_ref(),
-            &[ctx.bumps.investment_pool],
-        ];
-
-        let ix = anchor_lang::solana_program::system_instruction::transfer(
-            &ctx.accounts.investment_pool.key(),
-            &ctx.accounts.user_vault_account.key(),
-            amount,
+        // Verify the admin investment wallet matches config
+        require!(
+            ctx.accounts.admin_investment_wallet.key() == ctx.accounts.config.admin_investment_wallet,
+            VaultError::InvalidAdminWallet
         );
-        anchor_lang::solana_program::program::invoke_signed(
-            &ix,
-            &[
-                ctx.accounts.investment_pool.to_account_info(),
-                ctx.accounts.user_vault_account.to_account_info(),
-            ],
-            &[pool_seeds],
+
+        // Transfer SOL from admin wallet to user vault account
+        system_program::transfer(
+            CpiContext::new(
+                ctx.accounts.system_program.to_account_info(),
+                system_program::Transfer {
+                    from: ctx.accounts.admin_investment_wallet.to_account_info(),
+                    to: ctx.accounts.user_vault_account.to_account_info(),
+                },
+            ),
+            amount,
         )?;
 
         let user_metadata = &mut ctx.accounts.user_metadata;
@@ -255,9 +276,9 @@ pub mod vault_program {
 
         Ok(())
     }
-
+    
     // Return token investment
-    pub fn return_token_investment(ctx: Context<ReturnTokenInvestment>, amount: u64) -> Result<()> {
+    pub fn return_token_investment(ctx: Context<ReturnTokenInvestmentFromAdmin>, amount: u64) -> Result<()> {
         require!(
             ctx.accounts.signer.key() == ctx.accounts.config.admin,
             VaultError::Unauthorized
@@ -269,26 +290,21 @@ pub mod vault_program {
             VaultError::InvalidAmount
         );
 
-        let mint_key = ctx.accounts.mint.key();
-        let pool_seeds = &[
-            b"token_investment_pool".as_ref(),
-            mint_key.as_ref(),
-            &[ctx.bumps.investment_token_account],
-        ];
-        let seeds = &[&pool_seeds[..]];
+        // Verify the admin investment token account owner matches config
+        require!(
+            ctx.accounts.admin_token_account.owner == ctx.accounts.config.admin_investment_wallet,
+            VaultError::InvalidAdminWallet
+        );
 
+        // Transfer tokens from admin account to user vault token account
         let cpi_accounts = Transfer {
-            from: ctx.accounts.investment_token_account.to_account_info(),
+            from: ctx.accounts.admin_token_account.to_account_info(),
             to: ctx.accounts.vault_token_account.to_account_info(),
-            authority: ctx.accounts.investment_token_account.to_account_info(),
+            authority: ctx.accounts.signer.to_account_info(),
         };
 
         let cpi_program = ctx.accounts.token_program.to_account_info();
-        let cpi_ctx = CpiContext::new_with_signer(
-            cpi_program,
-            cpi_accounts,
-            seeds,
-        );
+        let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
         token::transfer(cpi_ctx, amount)?;
 
         let user_metadata = &mut ctx.accounts.user_metadata;
@@ -315,6 +331,13 @@ pub struct InitializeConfig<'info> {
 
 #[derive(Accounts)]
 pub struct UpdateAdmin<'info> {
+    #[account(mut, seeds = [b"config"], bump)]
+    pub config: Account<'info, VaultConfig>,
+    pub signer: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct UpdateAdminWallet<'info> {
     #[account(mut, seeds = [b"config"], bump)]
     pub config: Account<'info, VaultConfig>,
     pub signer: Signer<'info>,
@@ -405,7 +428,7 @@ pub struct WithdrawToken<'info> {
 }
 
 #[derive(Accounts)]
-pub struct InvestSol<'info> {
+pub struct InvestSolToAdmin<'info> {
     /// CHECK: This is the user's vault PDA, storing native SOL.
     #[account(mut, seeds=[b"vault", user.key().as_ref()], bump)]
     pub user_vault_account: AccountInfo<'info>,
@@ -413,11 +436,10 @@ pub struct InvestSol<'info> {
     pub user_metadata: Account<'info, UserMetadata>,
     #[account(seeds=[b"config"], bump)]
     pub config: Account<'info, VaultConfig>,
-    /// CHECK: This is the investment pool PDA, storing native SOL.
-    #[account(mut, seeds=[b"investment_pool"], bump)]
-    pub investment_pool: AccountInfo<'info>,
-    /// CHECK: User account, used only for vault PDA seeds.
+    /// CHECK: This is the admin's investment wallet
     #[account(mut)]
+    pub admin_investment_wallet: AccountInfo<'info>,
+    /// CHECK: User account, used only for vault PDA seeds.
     pub user: AccountInfo<'info>,
     #[account(mut)]
     pub signer: Signer<'info>,
@@ -425,22 +447,15 @@ pub struct InvestSol<'info> {
 }
 
 #[derive(Accounts)]
-pub struct InvestToken<'info> {
+pub struct InvestTokenToAdmin<'info> {
     #[account(
         mut,
         seeds = [b"token_vault", mint.key().as_ref(), user.key().as_ref()],
         bump,
     )]
     pub vault_token_account: Account<'info, TokenAccount>,
-    #[account(
-        init_if_needed,
-        payer = signer,
-        seeds = [b"token_investment_pool", mint.key().as_ref()],
-        bump,
-        token::mint = mint,
-        token::authority = investment_token_account,
-    )]
-    pub investment_token_account: Account<'info, TokenAccount>,
+    #[account(mut)]
+    pub admin_token_account: Account<'info, TokenAccount>,
     pub mint: Account<'info, Mint>,
     #[account(mut)]
     pub user_metadata: Account<'info, UserMetadata>,
@@ -450,11 +465,10 @@ pub struct InvestToken<'info> {
     #[account(mut)]
     pub signer: Signer<'info>,
     pub token_program: Program<'info, Token>,
-    pub system_program: Program<'info, System>,
 }
 
 #[derive(Accounts)]
-pub struct ReturnSolInvestment<'info> {
+pub struct ReturnSolInvestmentFromAdmin<'info> {
     /// CHECK: This is the user's vault PDA, storing native SOL.
     #[account(mut, seeds=[b"vault", user.key().as_ref()], bump)]
     pub user_vault_account: AccountInfo<'info>,
@@ -462,11 +476,10 @@ pub struct ReturnSolInvestment<'info> {
     pub user_metadata: Account<'info, UserMetadata>,
     #[account(seeds=[b"config"], bump)]
     pub config: Account<'info, VaultConfig>,
-    /// CHECK: This is the investment pool PDA, storing native SOL.
-    #[account(mut, seeds=[b"investment_pool"], bump)]
-    pub investment_pool: AccountInfo<'info>,
-    /// CHECK: User account, used only for vault PDA seeds.
+    /// CHECK: This is the admin's investment wallet
     #[account(mut)]
+    pub admin_investment_wallet: AccountInfo<'info>,
+    /// CHECK: User account, used only for vault PDA seeds.
     pub user: AccountInfo<'info>,
     #[account(mut)]
     pub signer: Signer<'info>,
@@ -474,19 +487,15 @@ pub struct ReturnSolInvestment<'info> {
 }
 
 #[derive(Accounts)]
-pub struct ReturnTokenInvestment<'info> {
+pub struct ReturnTokenInvestmentFromAdmin<'info> {
     #[account(
         mut,
         seeds = [b"token_vault", mint.key().as_ref(), user.key().as_ref()],
         bump
     )]
     pub vault_token_account: Account<'info, TokenAccount>,
-    #[account(
-        mut,
-        seeds = [b"token_investment_pool", mint.key().as_ref()],
-        bump
-    )]
-    pub investment_token_account: Account<'info, TokenAccount>,
+    #[account(mut)]
+    pub admin_token_account: Account<'info, TokenAccount>,
     pub mint: Account<'info, Mint>,
     #[account(mut)]
     pub user_metadata: Account<'info, UserMetadata>,
@@ -500,12 +509,13 @@ pub struct ReturnTokenInvestment<'info> {
 #[account]
 pub struct VaultConfig {
     pub admin: Pubkey,
+    pub admin_investment_wallet: Pubkey,
     pub min_vault_balance: u64,
     pub investment_enabled: bool,
 }
 
 impl VaultConfig {
-    pub const LEN: usize = 32 + 8 + 1;
+    pub const LEN: usize = 32 + 32 + 8 + 1;
 }
 
 #[account]
@@ -537,4 +547,6 @@ pub enum VaultError {
     Unauthorized,
     #[msg("Investment is currently disabled")]
     InvestmentDisabled,
+    #[msg("Invalid admin investment wallet")]
+    InvalidAdminWallet,
 }
