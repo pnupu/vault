@@ -44,7 +44,7 @@ pub mod vault_program {
     }
 
     // SOL deposit
-     pub fn deposit_sol(ctx: Context<DepositSol>, amount: u64) -> Result<()> {
+    pub fn deposit_sol(ctx: Context<DepositSol>, amount: u64) -> Result<()> {
         require!(amount > 0, VaultError::InvalidAmount);
         
         // Check if investment is enabled
