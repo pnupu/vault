@@ -319,7 +319,7 @@ export function DepositCard() {
       setVaultTokenBalance(0);
       setUserTokenBalanceLamports(BigInt(0));
     }
-  }, [connection, publicKey, connected, getTokenVaultPDA]);
+  }, [connection, publicKey, connected]);
 
   useEffect(() => {
     // If the user is not connected we set the balances to 0.

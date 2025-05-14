@@ -49,7 +49,7 @@ export function WalletButton() {
   const disconnectWallet = useCallback(() => {
     disconnect();
     setShowWalletDialog(true);
-  }, []);
+  }, [disconnect]);
 
   return (
     <>

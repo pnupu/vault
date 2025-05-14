@@ -96,7 +96,7 @@ export function StrategyPreferencesCard() {
       <CardContent className="space-y-6">
         <p className="text-sm text-muted-foreground">
           Manage your preferences for individual investment strategies. Mark strategies as favorites for quick access, 
-          hide those you're not interested in, and control notifications.
+          hide those you&apos;re not interested in, and control notifications.
         </p>
         <div className="space-y-4">
           {(strategiesWithPrefs as StrategyWithPreferences[]).map((strategy) => (

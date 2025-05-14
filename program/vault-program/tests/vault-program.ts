@@ -108,6 +108,7 @@ describe("vault-program", () => {
           if (err.toString().includes("Account does not exist")) {
             console.log("Initializing config with admin:", admin.toBase58());
             const tx = await program.methods
+            // @ts-ignore
               .initializeConfig(admin)
               .accounts({
                 config: configPda,

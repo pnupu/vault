@@ -91,6 +91,7 @@ describe("vault-program-usdc-tests", () => {
         if ((err as Error).toString().includes("Account does not exist")) {
           console.log("Initializing config with admin:", admin.toBase58());
           await program.methods
+          // @ts-ignore
             .initializeConfig(admin)
             // @ts-ignore
             .accounts({
