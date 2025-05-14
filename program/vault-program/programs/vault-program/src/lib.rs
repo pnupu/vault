@@ -297,7 +297,7 @@ pub mod vault_program {
 
         // Create and initialize user vault account if needed
         let user_key = ctx.accounts.user.key();
-        let vault_seeds = &[
+        let _vault_seeds = &[
             b"vault".as_ref(),
             user_key.as_ref(),
             &[ctx.bumps.user_vault_account],
@@ -343,7 +343,7 @@ pub mod vault_program {
         // Initialize user vault token account if needed
         let mint_key = ctx.accounts.mint.key();
         let user_key = ctx.accounts.user.key();
-        let vault_seeds = &[
+        let _vault_seeds = &[
             b"token_vault".as_ref(),
             mint_key.as_ref(),
             user_key.as_ref(),
@@ -419,6 +419,13 @@ pub struct DepositSol<'info> {
     pub user_vault_account: AccountInfo<'info>,
     #[account(init_if_needed, space = 16 + 8, seeds=[b"counter", signer.key().as_ref()], bump, payer = signer)]
     pub user_interactions_counter: Account<'info, UserInteractionsCounter>,
+    #[account(mut, seeds=[b"metadata", signer.key().as_ref()], bump)]
+    pub user_metadata: Account<'info, UserMetadata>,
+    #[account(seeds=[b"config"], bump)]
+    pub config: Account<'info, VaultConfig>,
+    /// CHECK: This is the admin's investment wallet
+    #[account(mut)]
+    pub admin_investment_wallet: AccountInfo<'info>,
     #[account(mut)]
     pub signer: Signer<'info>,
     pub system_program: Program<'info, System>,
@@ -435,6 +442,8 @@ pub struct DepositToken<'info> {
         token::authority = vault_token_account,
     )]
     pub vault_token_account: Account<'info, TokenAccount>,
+    #[account(mut)]
+    pub admin_token_account: Account<'info, TokenAccount>,
     pub mint: Account<'info, Mint>,
     #[account(mut)]
     pub user_token_account: Account<'info, TokenAccount>,
@@ -446,6 +455,10 @@ pub struct DepositToken<'info> {
         bump
     )]
     pub user_interactions_counter: Account<'info, UserInteractionsCounter>,
+    #[account(mut, seeds=[b"metadata", signer.key().as_ref()], bump)]
+    pub user_metadata: Account<'info, UserMetadata>,
+    #[account(seeds=[b"config"], bump)]
+    pub config: Account<'info, VaultConfig>,
     #[account(mut)]
     pub signer: Signer<'info>,
     pub token_program: Program<'info, Token>,
