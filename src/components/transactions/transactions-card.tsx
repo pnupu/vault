@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import { 
   Card, 
   CardContent, 
@@ -16,77 +17,72 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button"; // For Load More button
+import { trpc } from "@/lib/trpc";
+import { TradingHistory, StrategyTemplate } from "@/generated/prisma"; // Import generated types
 
-// Mock transaction data type
-interface MockTransaction {
-  id: string;
-  type: 'DEPOSIT' | 'WITHDRAW' | 'BUY' | 'SELL' | 'ALLOCATE' | 'DEALLOCATE' | 'CLAIM_YIELD';
-  asset: string;
-  amount: number;
-  status: 'COMPLETED' | 'PENDING' | 'FAILED';
-  timestamp: Date;
-  details?: string; // e.g., strategy name for ALLOCATE/DEALLOCATE
+// Define a type for the items returned by the API, including the nested strategyTemplate name
+interface TransactionItem extends Omit<TradingHistory, 'strategyTemplateId' | 'price'> {
+  price?: number | null; // Making price explicitly possibly null as it is in schema
+  strategyTemplate?: {
+    name: string;
+  } | null;
+  // Add status if we decide how to determine it later. For now, we assume COMPLETED.
 }
 
-const mockTransactions: MockTransaction[] = [
-  {
-    id: "txn_1",
-    type: "DEPOSIT",
-    asset: "USDC",
-    amount: 1000,
-    status: "COMPLETED",
-    timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago
-  },
-  {
-    id: "txn_2",
-    type: "ALLOCATE",
-    asset: "USDC",
-    amount: 500,
-    status: "COMPLETED",
-    timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
-    details: "Conservative USDC Lending"
-  },
-  {
-    id: "txn_3",
-    type: "BUY",
-    asset: "SOL",
-    amount: 10,
-    status: "COMPLETED",
-    timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
-  },
-  {
-    id: "txn_4",
-    type: "CLAIM_YIELD",
-    asset: "USDC",
-    amount: 5.25,
-    status: "COMPLETED",
-    timestamp: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000), // 4 days ago
-    details: "Conservative USDC Lending"
-  },
-  {
-    id: "txn_5",
-    type: "WITHDRAW",
-    asset: "SOL",
-    amount: 2,
-    status: "PENDING",
-    timestamp: new Date(Date.now() - 5 * 60 * 1000), // 5 minutes ago
-  },
-];
-
-function getStatusBadgeVariant(status: MockTransaction['status']) {
-  switch (status) {
-    case 'COMPLETED': return 'success';
-    case 'PENDING': return 'secondary';
-    case 'FAILED': return 'destructive';
-    default: return 'outline';
-  }
+function getActionBadgeVariant(action: TransactionItem['action']) {
+  // Simplified badge variants based on action type for visual distinction
+  if (action.includes('DEPOSIT') || action.includes('BUY') || action.includes('CLAIM')) return 'success';
+  if (action.includes('WITHDRAW') || action.includes('SELL')) return 'destructive';
+  if (action.includes('ALLOCATE') || action.includes('DEALLOCATE')) return 'default';
+  return 'outline';
 }
 
 export function TransactionsCard() {
-  // TODO: Later, fetch real transactions using tRPC
-  // For now, using mock data
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    error,
+  } = trpc.transaction.getAllForUser.useInfiniteQuery(
+    { limit: 10 }, // Fetch 10 items per page
+    {
+      getNextPageParam: (lastPage) => lastPage.nextCursor,
+      // refetchOnWindowFocus: false, // Optional: configure query behavior
+    }
+  );
 
-  if (mockTransactions.length === 0) {
+  if (isLoading) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Transaction History</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>Loading transactions...</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Transaction History</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-red-500">Error loading transactions: {error.message}</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  const transactions = data?.pages.flatMap(page => page.items as TransactionItem[]) ?? [];
+
+  if (transactions.length === 0) {
     return (
       <Card>
         <CardHeader>
@@ -109,31 +105,46 @@ export function TransactionsCard() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Type</TableHead>
+              <TableHead>Action</TableHead>
               <TableHead>Asset</TableHead>
               <TableHead className="text-right">Amount</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Date</TableHead>
+              <TableHead>Date & Time</TableHead>
               <TableHead>Details</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {mockTransactions.map((tx) => (
+            {transactions.map((tx) => (
               <TableRow key={tx.id}>
-                <TableCell className="font-medium">{tx.type.replace('_', ' ').toLowerCase().replace(/\b\w/g, l => l.toUpperCase())}</TableCell>
-                <TableCell>{tx.asset}</TableCell>
-                <TableCell className="text-right">{tx.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: tx.asset ==='USDC' || tx.asset === 'USDT' ? 2 : 8})}</TableCell>
                 <TableCell>
-                  <Badge variant={getStatusBadgeVariant(tx.status) as any} className="capitalize">
-                    {tx.status.toLowerCase()}
+                  <Badge variant={getActionBadgeVariant(tx.action) as any} className="capitalize">
+                    {tx.action.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, l => l.toUpperCase())}
                   </Badge>
                 </TableCell>
-                <TableCell>{tx.timestamp.toLocaleDateString()} {tx.timestamp.toLocaleTimeString()}</TableCell>
-                <TableCell className="text-xs text-muted-foreground">{tx.details || 'N/A'}</TableCell>
+                <TableCell>{tx.asset}</TableCell>
+                <TableCell className="text-right">
+                  {tx.amount.toLocaleString(undefined, { 
+                    minimumFractionDigits: 2, 
+                    maximumFractionDigits: (tx.asset ==='USDC' || tx.asset === 'USDT' || tx.asset === 'USD') ? 2 : 8 
+                  })}
+                </TableCell>
+                <TableCell>{new Date(tx.timestamp).toLocaleDateString()} {new Date(tx.timestamp).toLocaleTimeString()}</TableCell>
+                <TableCell className="text-xs text-muted-foreground">
+                  {tx.strategyTemplate?.name || (tx.price ? `Price: $${tx.price.toFixed(2)}` : 'N/A')}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
+        {hasNextPage && (
+          <div className="pt-4 text-center">
+            <Button
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+            >
+              {isFetchingNextPage ? 'Loading more...' : 'Load More'}
+            </Button>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

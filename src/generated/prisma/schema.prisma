@@ -29,19 +29,19 @@ model User {
 }
 
 model TradingHistory {
-  id         String    @id @default(cuid())
-  userId     String
-  user       User      @relation(fields: [userId], references: [id])
-  action     String // e.g., "BUY", "SELL", "DEPOSIT", "WITHDRAW", "ALLOCATE_TO_STRATEGY", "DEALLOCATE_FROM_STRATEGY", "CLAIM_STRATEGY_YIELD"
-  asset      String // e.g., "SOL", "USDC"
-  amount     Float
-  price      Float? // Optional, as it might not apply to all actions
-  strategyId String? // Optional: Link to the strategy involved
-  strategy   Strategy? @relation(fields: [strategyId], references: [id]) // Optional: Relation to Strategy
-  timestamp  DateTime  @default(now())
+  id                 String            @id @default(cuid())
+  userId             String
+  user               User              @relation(fields: [userId], references: [id])
+  action             String // e.g., "BUY", "SELL", "DEPOSIT", "WITHDRAW", "ALLOCATE_TO_STRATEGY", "DEALLOCATE_FROM_STRATEGY", "CLAIM_STRATEGY_YIELD"
+  asset              String // e.g., "SOL", "USDC"
+  amount             Float
+  price              Float? // Optional, as it might not apply to all actions
+  strategyTemplateId String? // Optional: Link to the strategy template involved
+  strategyTemplate   StrategyTemplate? @relation(fields: [strategyTemplateId], references: [id]) // Optional: Relation to StrategyTemplate
+  timestamp          DateTime          @default(now())
 
   @@index([userId])
-  @@index([strategyId])
+  @@index([strategyTemplateId])
 }
 
 model CurrentAllocation {
@@ -70,59 +70,59 @@ model CurrentAsset {
   @@index([userId])
 }
 
-model Strategy {
-  id              String                   @id @default(cuid())
-  name            String                   @unique
-  description     String?
-  image           String?
-  assetTicker     String
-  apy             Float
-  riskLevel       RiskLevel
-  platform        String?
-  createdAt       DateTime                 @default(now())
-  updatedAt       DateTime                 @updatedAt
-  userAllocations UserStrategyAllocation[]
-  tradingEvents   TradingHistory[]
-  userPreferences UserStrategyPreference[]
+model StrategyTemplate {
+  id                 String                   @id @default(cuid())
+  name               String                   @unique
+  description        String?
+  image              String?
+  assetTicker        String
+  riskLevel          RiskLevel
+  platform           String?
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+  userAllocations    UserStrategyAllocation[]
+  tradingEvents      TradingHistory[]
+  userPreferences    UserStrategyPreference[]
+  yieldOpportunities YieldOpportunity[]
 
   @@index([assetTicker])
 }
 
 model UserStrategyAllocation {
-  id                      String    @id @default(cuid())
+  id                      String           @id @default(cuid())
   userId                  String
-  user                    User      @relation(fields: [userId], references: [id])
-  strategyId              String
-  strategy                Strategy  @relation(fields: [strategyId], references: [id])
+  user                    User             @relation(fields: [userId], references: [id])
+  strategyTemplateId      String
+  strategyTemplate        StrategyTemplate @relation(fields: [strategyTemplateId], references: [id])
   assetTicker             String
   allocatedAmount         Float
-  entryTimestamp          DateTime  @default(now())
-  cumulativeYieldEarned   Float     @default(0)
+  entryTimestamp          DateTime         @default(now())
+  cumulativeYieldEarned   Float            @default(0)
   lastYieldClaimTimestamp DateTime?
-  createdAt               DateTime  @default(now())
-  updatedAt               DateTime  @updatedAt
+  createdAt               DateTime         @default(now())
+  updatedAt               DateTime         @updatedAt
 
-  @@unique([userId, strategyId, assetTicker])
+  @@unique([userId, strategyTemplateId, assetTicker])
   @@index([userId])
-  @@index([strategyId])
+  @@index([strategyTemplateId])
   @@index([assetTicker])
 }
 
 model UserStrategyPreference {
-  id                   String   @id @default(cuid())
+  id                   String           @id @default(cuid())
   userId               String
-  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  strategyId           String
-  strategy             Strategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
-  isFavorite           Boolean  @default(false)
-  isHidden             Boolean  @default(false)
-  receiveNotifications Boolean  @default(false)
-  createdAt            DateTime @default(now())
-  updatedAt            DateTime @updatedAt
+  user                 User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  strategyTemplateId   String
+  strategyTemplate     StrategyTemplate @relation(fields: [strategyTemplateId], references: [id], onDelete: Cascade)
+  isFavorite           Boolean          @default(false)
+  isHidden             Boolean          @default(false)
+  receiveNotifications Boolean          @default(false)
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
 
-  @@unique([userId, strategyId])
+  @@unique([userId, strategyTemplateId])
   @@index([userId])
-  @@index([strategyId])
+  @@index([strategyTemplateId])
 }
 
 model UserYieldOpportunityOptOut {
@@ -150,17 +150,18 @@ enum RiskLevel {
 }
 
 model YieldOpportunity {
-  id            String                       @id @default(cuid())
-  platform      String // e.g., "Kamino JLP Market"
-  platformImage String? // e.g., "kamino.svg"
-  tickerImage   String? // e.g., "usdc.svg"
-  name          String // e.g., "USDC" (the asset involved in the opportunity)
-  marketId      String // The specific market identifier, unique within the platform
-  assetTicker   String // The category, e.g., "USD", "Solana"
-  apy           Float
-  createdAt     DateTime                     @default(now())
-  updatedAt     DateTime                     @updatedAt
-  userOptOuts   UserYieldOpportunityOptOut[]
+  id                String                       @id @default(cuid())
+  platform          String // e.g., "Kamino JLP Market"
+  platformImage     String? // e.g., "kamino.svg"
+  tickerImage       String? // e.g., "usdc.svg"
+  name              String // e.g., "USDC" (the asset involved in the opportunity)
+  marketId          String // The specific market identifier, unique within the platform
+  assetTicker       String // The category, e.g., "USD", "Solana"
+  apy               Float
+  createdAt         DateTime                     @default(now())
+  updatedAt         DateTime                     @updatedAt
+  userOptOuts       UserYieldOpportunityOptOut[]
+  strategyTemplates StrategyTemplate[]
 
   @@unique([platform, marketId])
   @@index([platform])

@@ -135,7 +135,7 @@ exports.Prisma.TradingHistoryScalarFieldEnum = {
   asset: 'asset',
   amount: 'amount',
   price: 'price',
-  strategyId: 'strategyId',
+  strategyTemplateId: 'strategyTemplateId',
   timestamp: 'timestamp'
 };
 
@@ -157,13 +157,12 @@ exports.Prisma.CurrentAssetScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.StrategyScalarFieldEnum = {
+exports.Prisma.StrategyTemplateScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
   image: 'image',
   assetTicker: 'assetTicker',
-  apy: 'apy',
   riskLevel: 'riskLevel',
   platform: 'platform',
   createdAt: 'createdAt',
@@ -173,7 +172,7 @@ exports.Prisma.StrategyScalarFieldEnum = {
 exports.Prisma.UserStrategyAllocationScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  strategyId: 'strategyId',
+  strategyTemplateId: 'strategyTemplateId',
   assetTicker: 'assetTicker',
   allocatedAmount: 'allocatedAmount',
   entryTimestamp: 'entryTimestamp',
@@ -186,7 +185,7 @@ exports.Prisma.UserStrategyAllocationScalarFieldEnum = {
 exports.Prisma.UserStrategyPreferenceScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  strategyId: 'strategyId',
+  strategyTemplateId: 'strategyTemplateId',
   isFavorite: 'isFavorite',
   isHidden: 'isHidden',
   receiveNotifications: 'receiveNotifications',
@@ -243,7 +242,7 @@ exports.Prisma.ModelName = {
   TradingHistory: 'TradingHistory',
   CurrentAllocation: 'CurrentAllocation',
   CurrentAsset: 'CurrentAsset',
-  Strategy: 'Strategy',
+  StrategyTemplate: 'StrategyTemplate',
   UserStrategyAllocation: 'UserStrategyAllocation',
   UserStrategyPreference: 'UserStrategyPreference',
   UserYieldOpportunityOptOut: 'UserYieldOpportunityOptOut',

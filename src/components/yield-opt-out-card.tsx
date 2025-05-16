@@ -26,6 +26,8 @@ export function YieldOptOutCard() {
   const [marketFilter, setMarketFilter] = useState<string>('');
   const [assetFilter, setAssetFilter] = useState<string>('all'); // 'all' or specific asset ticker
 
+  const utils = trpc.useUtils(); // <--- Add this to get tRPC utils
+
   const { 
     data: opportunitiesWithOptOut, 
     isLoading, 
@@ -41,7 +43,9 @@ export function YieldOptOutCard() {
   const setOptOutMutation = trpc.yieldOpportunity.setOptOut.useMutation({
     onSuccess: () => {
       refetch(); // Refetch the opportunities to update the UI
+      utils.strategy.getAllWithPreferences.invalidate(); // <--- Add this line
       // Optionally, add a toast notification for success
+      console.log('Opt-out status updated and strategies invalidated.');
     },
     onError: (error) => {
       // Optionally, add a toast notification for error

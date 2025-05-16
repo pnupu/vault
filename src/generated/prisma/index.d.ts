@@ -34,10 +34,10 @@ export type CurrentAllocation = $Result.DefaultSelection<Prisma.$CurrentAllocati
  */
 export type CurrentAsset = $Result.DefaultSelection<Prisma.$CurrentAssetPayload>
 /**
- * Model Strategy
+ * Model StrategyTemplate
  * 
  */
-export type Strategy = $Result.DefaultSelection<Prisma.$StrategyPayload>
+export type StrategyTemplate = $Result.DefaultSelection<Prisma.$StrategyTemplatePayload>
 /**
  * Model UserStrategyAllocation
  * 
@@ -254,14 +254,14 @@ export class PrismaClient<
   get currentAsset(): Prisma.CurrentAssetDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.strategy`: Exposes CRUD operations for the **Strategy** model.
+   * `prisma.strategyTemplate`: Exposes CRUD operations for the **StrategyTemplate** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Strategies
-    * const strategies = await prisma.strategy.findMany()
+    * // Fetch zero or more StrategyTemplates
+    * const strategyTemplates = await prisma.strategyTemplate.findMany()
     * ```
     */
-  get strategy(): Prisma.StrategyDelegate<ExtArgs, ClientOptions>;
+  get strategyTemplate(): Prisma.StrategyTemplateDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.userStrategyAllocation`: Exposes CRUD operations for the **UserStrategyAllocation** model.
@@ -746,7 +746,7 @@ export namespace Prisma {
     TradingHistory: 'TradingHistory',
     CurrentAllocation: 'CurrentAllocation',
     CurrentAsset: 'CurrentAsset',
-    Strategy: 'Strategy',
+    StrategyTemplate: 'StrategyTemplate',
     UserStrategyAllocation: 'UserStrategyAllocation',
     UserStrategyPreference: 'UserStrategyPreference',
     UserYieldOpportunityOptOut: 'UserYieldOpportunityOptOut',
@@ -769,7 +769,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "tradingHistory" | "currentAllocation" | "currentAsset" | "strategy" | "userStrategyAllocation" | "userStrategyPreference" | "userYieldOpportunityOptOut" | "yieldOpportunity"
+      modelProps: "user" | "tradingHistory" | "currentAllocation" | "currentAsset" | "strategyTemplate" | "userStrategyAllocation" | "userStrategyPreference" | "userYieldOpportunityOptOut" | "yieldOpportunity"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1069,77 +1069,77 @@ export namespace Prisma {
           }
         }
       }
-      Strategy: {
-        payload: Prisma.$StrategyPayload<ExtArgs>
-        fields: Prisma.StrategyFieldRefs
+      StrategyTemplate: {
+        payload: Prisma.$StrategyTemplatePayload<ExtArgs>
+        fields: Prisma.StrategyTemplateFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.StrategyFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload> | null
+            args: Prisma.StrategyTemplateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.StrategyFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>
+            args: Prisma.StrategyTemplateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>
           }
           findFirst: {
-            args: Prisma.StrategyFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload> | null
+            args: Prisma.StrategyTemplateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.StrategyFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>
+            args: Prisma.StrategyTemplateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>
           }
           findMany: {
-            args: Prisma.StrategyFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>[]
+            args: Prisma.StrategyTemplateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>[]
           }
           create: {
-            args: Prisma.StrategyCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>
+            args: Prisma.StrategyTemplateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>
           }
           createMany: {
-            args: Prisma.StrategyCreateManyArgs<ExtArgs>
+            args: Prisma.StrategyTemplateCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.StrategyCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>[]
+            args: Prisma.StrategyTemplateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>[]
           }
           delete: {
-            args: Prisma.StrategyDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>
+            args: Prisma.StrategyTemplateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>
           }
           update: {
-            args: Prisma.StrategyUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>
+            args: Prisma.StrategyTemplateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>
           }
           deleteMany: {
-            args: Prisma.StrategyDeleteManyArgs<ExtArgs>
+            args: Prisma.StrategyTemplateDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.StrategyUpdateManyArgs<ExtArgs>
+            args: Prisma.StrategyTemplateUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.StrategyUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>[]
+            args: Prisma.StrategyTemplateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>[]
           }
           upsert: {
-            args: Prisma.StrategyUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StrategyPayload>
+            args: Prisma.StrategyTemplateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StrategyTemplatePayload>
           }
           aggregate: {
-            args: Prisma.StrategyAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateStrategy>
+            args: Prisma.StrategyTemplateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStrategyTemplate>
           }
           groupBy: {
-            args: Prisma.StrategyGroupByArgs<ExtArgs>
-            result: $Utils.Optional<StrategyGroupByOutputType>[]
+            args: Prisma.StrategyTemplateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<StrategyTemplateGroupByOutputType>[]
           }
           count: {
-            args: Prisma.StrategyCountArgs<ExtArgs>
-            result: $Utils.Optional<StrategyCountAggregateOutputType> | number
+            args: Prisma.StrategyTemplateCountArgs<ExtArgs>
+            result: $Utils.Optional<StrategyTemplateCountAggregateOutputType> | number
           }
         }
       }
@@ -1527,7 +1527,7 @@ export namespace Prisma {
     tradingHistory?: TradingHistoryOmit
     currentAllocation?: CurrentAllocationOmit
     currentAsset?: CurrentAssetOmit
-    strategy?: StrategyOmit
+    strategyTemplate?: StrategyTemplateOmit
     userStrategyAllocation?: UserStrategyAllocationOmit
     userStrategyPreference?: UserStrategyPreferenceOmit
     userYieldOpportunityOptOut?: UserYieldOpportunityOptOutOmit
@@ -1698,51 +1698,60 @@ export namespace Prisma {
 
 
   /**
-   * Count Type StrategyCountOutputType
+   * Count Type StrategyTemplateCountOutputType
    */
 
-  export type StrategyCountOutputType = {
+  export type StrategyTemplateCountOutputType = {
     userAllocations: number
     tradingEvents: number
     userPreferences: number
+    yieldOpportunities: number
   }
 
-  export type StrategyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    userAllocations?: boolean | StrategyCountOutputTypeCountUserAllocationsArgs
-    tradingEvents?: boolean | StrategyCountOutputTypeCountTradingEventsArgs
-    userPreferences?: boolean | StrategyCountOutputTypeCountUserPreferencesArgs
+  export type StrategyTemplateCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userAllocations?: boolean | StrategyTemplateCountOutputTypeCountUserAllocationsArgs
+    tradingEvents?: boolean | StrategyTemplateCountOutputTypeCountTradingEventsArgs
+    userPreferences?: boolean | StrategyTemplateCountOutputTypeCountUserPreferencesArgs
+    yieldOpportunities?: boolean | StrategyTemplateCountOutputTypeCountYieldOpportunitiesArgs
   }
 
   // Custom InputTypes
   /**
-   * StrategyCountOutputType without action
+   * StrategyTemplateCountOutputType without action
    */
-  export type StrategyCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the StrategyCountOutputType
+     * Select specific fields to fetch from the StrategyTemplateCountOutputType
      */
-    select?: StrategyCountOutputTypeSelect<ExtArgs> | null
+    select?: StrategyTemplateCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * StrategyCountOutputType without action
+   * StrategyTemplateCountOutputType without action
    */
-  export type StrategyCountOutputTypeCountUserAllocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateCountOutputTypeCountUserAllocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserStrategyAllocationWhereInput
   }
 
   /**
-   * StrategyCountOutputType without action
+   * StrategyTemplateCountOutputType without action
    */
-  export type StrategyCountOutputTypeCountTradingEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateCountOutputTypeCountTradingEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TradingHistoryWhereInput
   }
 
   /**
-   * StrategyCountOutputType without action
+   * StrategyTemplateCountOutputType without action
    */
-  export type StrategyCountOutputTypeCountUserPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateCountOutputTypeCountUserPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserStrategyPreferenceWhereInput
+  }
+
+  /**
+   * StrategyTemplateCountOutputType without action
+   */
+  export type StrategyTemplateCountOutputTypeCountYieldOpportunitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YieldOpportunityWhereInput
   }
 
 
@@ -1752,10 +1761,12 @@ export namespace Prisma {
 
   export type YieldOpportunityCountOutputType = {
     userOptOuts: number
+    strategyTemplates: number
   }
 
   export type YieldOpportunityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userOptOuts?: boolean | YieldOpportunityCountOutputTypeCountUserOptOutsArgs
+    strategyTemplates?: boolean | YieldOpportunityCountOutputTypeCountStrategyTemplatesArgs
   }
 
   // Custom InputTypes
@@ -1774,6 +1785,13 @@ export namespace Prisma {
    */
   export type YieldOpportunityCountOutputTypeCountUserOptOutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserYieldOpportunityOptOutWhereInput
+  }
+
+  /**
+   * YieldOpportunityCountOutputType without action
+   */
+  export type YieldOpportunityCountOutputTypeCountStrategyTemplatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StrategyTemplateWhereInput
   }
 
 
@@ -3020,7 +3038,7 @@ export namespace Prisma {
     asset: string | null
     amount: number | null
     price: number | null
-    strategyId: string | null
+    strategyTemplateId: string | null
     timestamp: Date | null
   }
 
@@ -3031,7 +3049,7 @@ export namespace Prisma {
     asset: string | null
     amount: number | null
     price: number | null
-    strategyId: string | null
+    strategyTemplateId: string | null
     timestamp: Date | null
   }
 
@@ -3042,7 +3060,7 @@ export namespace Prisma {
     asset: number
     amount: number
     price: number
-    strategyId: number
+    strategyTemplateId: number
     timestamp: number
     _all: number
   }
@@ -3065,7 +3083,7 @@ export namespace Prisma {
     asset?: true
     amount?: true
     price?: true
-    strategyId?: true
+    strategyTemplateId?: true
     timestamp?: true
   }
 
@@ -3076,7 +3094,7 @@ export namespace Prisma {
     asset?: true
     amount?: true
     price?: true
-    strategyId?: true
+    strategyTemplateId?: true
     timestamp?: true
   }
 
@@ -3087,7 +3105,7 @@ export namespace Prisma {
     asset?: true
     amount?: true
     price?: true
-    strategyId?: true
+    strategyTemplateId?: true
     timestamp?: true
     _all?: true
   }
@@ -3185,7 +3203,7 @@ export namespace Prisma {
     asset: string
     amount: number
     price: number | null
-    strategyId: string | null
+    strategyTemplateId: string | null
     timestamp: Date
     _count: TradingHistoryCountAggregateOutputType | null
     _avg: TradingHistoryAvgAggregateOutputType | null
@@ -3215,10 +3233,10 @@ export namespace Prisma {
     asset?: boolean
     amount?: boolean
     price?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     timestamp?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | TradingHistory$strategyArgs<ExtArgs>
+    strategyTemplate?: boolean | TradingHistory$strategyTemplateArgs<ExtArgs>
   }, ExtArgs["result"]["tradingHistory"]>
 
   export type TradingHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3228,10 +3246,10 @@ export namespace Prisma {
     asset?: boolean
     amount?: boolean
     price?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     timestamp?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | TradingHistory$strategyArgs<ExtArgs>
+    strategyTemplate?: boolean | TradingHistory$strategyTemplateArgs<ExtArgs>
   }, ExtArgs["result"]["tradingHistory"]>
 
   export type TradingHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3241,10 +3259,10 @@ export namespace Prisma {
     asset?: boolean
     amount?: boolean
     price?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     timestamp?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | TradingHistory$strategyArgs<ExtArgs>
+    strategyTemplate?: boolean | TradingHistory$strategyTemplateArgs<ExtArgs>
   }, ExtArgs["result"]["tradingHistory"]>
 
   export type TradingHistorySelectScalar = {
@@ -3254,29 +3272,29 @@ export namespace Prisma {
     asset?: boolean
     amount?: boolean
     price?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     timestamp?: boolean
   }
 
-  export type TradingHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "action" | "asset" | "amount" | "price" | "strategyId" | "timestamp", ExtArgs["result"]["tradingHistory"]>
+  export type TradingHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "action" | "asset" | "amount" | "price" | "strategyTemplateId" | "timestamp", ExtArgs["result"]["tradingHistory"]>
   export type TradingHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | TradingHistory$strategyArgs<ExtArgs>
+    strategyTemplate?: boolean | TradingHistory$strategyTemplateArgs<ExtArgs>
   }
   export type TradingHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | TradingHistory$strategyArgs<ExtArgs>
+    strategyTemplate?: boolean | TradingHistory$strategyTemplateArgs<ExtArgs>
   }
   export type TradingHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | TradingHistory$strategyArgs<ExtArgs>
+    strategyTemplate?: boolean | TradingHistory$strategyTemplateArgs<ExtArgs>
   }
 
   export type $TradingHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "TradingHistory"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      strategy: Prisma.$StrategyPayload<ExtArgs> | null
+      strategyTemplate: Prisma.$StrategyTemplatePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3285,7 +3303,7 @@ export namespace Prisma {
       asset: string
       amount: number
       price: number | null
-      strategyId: string | null
+      strategyTemplateId: string | null
       timestamp: Date
     }, ExtArgs["result"]["tradingHistory"]>
     composites: {}
@@ -3682,7 +3700,7 @@ export namespace Prisma {
   export interface Prisma__TradingHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    strategy<T extends TradingHistory$strategyArgs<ExtArgs> = {}>(args?: Subset<T, TradingHistory$strategyArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    strategyTemplate<T extends TradingHistory$strategyTemplateArgs<ExtArgs> = {}>(args?: Subset<T, TradingHistory$strategyTemplateArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3718,7 +3736,7 @@ export namespace Prisma {
     readonly asset: FieldRef<"TradingHistory", 'String'>
     readonly amount: FieldRef<"TradingHistory", 'Float'>
     readonly price: FieldRef<"TradingHistory", 'Float'>
-    readonly strategyId: FieldRef<"TradingHistory", 'String'>
+    readonly strategyTemplateId: FieldRef<"TradingHistory", 'String'>
     readonly timestamp: FieldRef<"TradingHistory", 'DateTime'>
   }
     
@@ -4116,22 +4134,22 @@ export namespace Prisma {
   }
 
   /**
-   * TradingHistory.strategy
+   * TradingHistory.strategyTemplate
    */
-  export type TradingHistory$strategyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TradingHistory$strategyTemplateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
-    where?: StrategyWhereInput
+    include?: StrategyTemplateInclude<ExtArgs> | null
+    where?: StrategyTemplateWhereInput
   }
 
   /**
@@ -6368,58 +6386,45 @@ export namespace Prisma {
 
 
   /**
-   * Model Strategy
+   * Model StrategyTemplate
    */
 
-  export type AggregateStrategy = {
-    _count: StrategyCountAggregateOutputType | null
-    _avg: StrategyAvgAggregateOutputType | null
-    _sum: StrategySumAggregateOutputType | null
-    _min: StrategyMinAggregateOutputType | null
-    _max: StrategyMaxAggregateOutputType | null
+  export type AggregateStrategyTemplate = {
+    _count: StrategyTemplateCountAggregateOutputType | null
+    _min: StrategyTemplateMinAggregateOutputType | null
+    _max: StrategyTemplateMaxAggregateOutputType | null
   }
 
-  export type StrategyAvgAggregateOutputType = {
-    apy: number | null
-  }
-
-  export type StrategySumAggregateOutputType = {
-    apy: number | null
-  }
-
-  export type StrategyMinAggregateOutputType = {
+  export type StrategyTemplateMinAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
     image: string | null
     assetTicker: string | null
-    apy: number | null
     riskLevel: $Enums.RiskLevel | null
     platform: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type StrategyMaxAggregateOutputType = {
+  export type StrategyTemplateMaxAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
     image: string | null
     assetTicker: string | null
-    apy: number | null
     riskLevel: $Enums.RiskLevel | null
     platform: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type StrategyCountAggregateOutputType = {
+  export type StrategyTemplateCountAggregateOutputType = {
     id: number
     name: number
     description: number
     image: number
     assetTicker: number
-    apy: number
     riskLevel: number
     platform: number
     createdAt: number
@@ -6428,47 +6433,36 @@ export namespace Prisma {
   }
 
 
-  export type StrategyAvgAggregateInputType = {
-    apy?: true
-  }
-
-  export type StrategySumAggregateInputType = {
-    apy?: true
-  }
-
-  export type StrategyMinAggregateInputType = {
+  export type StrategyTemplateMinAggregateInputType = {
     id?: true
     name?: true
     description?: true
     image?: true
     assetTicker?: true
-    apy?: true
     riskLevel?: true
     platform?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type StrategyMaxAggregateInputType = {
+  export type StrategyTemplateMaxAggregateInputType = {
     id?: true
     name?: true
     description?: true
     image?: true
     assetTicker?: true
-    apy?: true
     riskLevel?: true
     platform?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type StrategyCountAggregateInputType = {
+  export type StrategyTemplateCountAggregateInputType = {
     id?: true
     name?: true
     description?: true
     image?: true
     assetTicker?: true
-    apy?: true
     riskLevel?: true
     platform?: true
     createdAt?: true
@@ -6476,196 +6470,178 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type StrategyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Strategy to aggregate.
+     * Filter which StrategyTemplate to aggregate.
      */
-    where?: StrategyWhereInput
+    where?: StrategyTemplateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Strategies to fetch.
+     * Determine the order of StrategyTemplates to fetch.
      */
-    orderBy?: StrategyOrderByWithRelationInput | StrategyOrderByWithRelationInput[]
+    orderBy?: StrategyTemplateOrderByWithRelationInput | StrategyTemplateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: StrategyWhereUniqueInput
+    cursor?: StrategyTemplateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Strategies from the position of the cursor.
+     * Take `±n` StrategyTemplates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Strategies.
+     * Skip the first `n` StrategyTemplates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Strategies
+     * Count returned StrategyTemplates
     **/
-    _count?: true | StrategyCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: StrategyAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: StrategySumAggregateInputType
+    _count?: true | StrategyTemplateCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: StrategyMinAggregateInputType
+    _min?: StrategyTemplateMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: StrategyMaxAggregateInputType
+    _max?: StrategyTemplateMaxAggregateInputType
   }
 
-  export type GetStrategyAggregateType<T extends StrategyAggregateArgs> = {
-        [P in keyof T & keyof AggregateStrategy]: P extends '_count' | 'count'
+  export type GetStrategyTemplateAggregateType<T extends StrategyTemplateAggregateArgs> = {
+        [P in keyof T & keyof AggregateStrategyTemplate]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateStrategy[P]>
-      : GetScalarType<T[P], AggregateStrategy[P]>
+        : GetScalarType<T[P], AggregateStrategyTemplate[P]>
+      : GetScalarType<T[P], AggregateStrategyTemplate[P]>
   }
 
 
 
 
-  export type StrategyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: StrategyWhereInput
-    orderBy?: StrategyOrderByWithAggregationInput | StrategyOrderByWithAggregationInput[]
-    by: StrategyScalarFieldEnum[] | StrategyScalarFieldEnum
-    having?: StrategyScalarWhereWithAggregatesInput
+  export type StrategyTemplateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StrategyTemplateWhereInput
+    orderBy?: StrategyTemplateOrderByWithAggregationInput | StrategyTemplateOrderByWithAggregationInput[]
+    by: StrategyTemplateScalarFieldEnum[] | StrategyTemplateScalarFieldEnum
+    having?: StrategyTemplateScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: StrategyCountAggregateInputType | true
-    _avg?: StrategyAvgAggregateInputType
-    _sum?: StrategySumAggregateInputType
-    _min?: StrategyMinAggregateInputType
-    _max?: StrategyMaxAggregateInputType
+    _count?: StrategyTemplateCountAggregateInputType | true
+    _min?: StrategyTemplateMinAggregateInputType
+    _max?: StrategyTemplateMaxAggregateInputType
   }
 
-  export type StrategyGroupByOutputType = {
+  export type StrategyTemplateGroupByOutputType = {
     id: string
     name: string
     description: string | null
     image: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform: string | null
     createdAt: Date
     updatedAt: Date
-    _count: StrategyCountAggregateOutputType | null
-    _avg: StrategyAvgAggregateOutputType | null
-    _sum: StrategySumAggregateOutputType | null
-    _min: StrategyMinAggregateOutputType | null
-    _max: StrategyMaxAggregateOutputType | null
+    _count: StrategyTemplateCountAggregateOutputType | null
+    _min: StrategyTemplateMinAggregateOutputType | null
+    _max: StrategyTemplateMaxAggregateOutputType | null
   }
 
-  type GetStrategyGroupByPayload<T extends StrategyGroupByArgs> = Prisma.PrismaPromise<
+  type GetStrategyTemplateGroupByPayload<T extends StrategyTemplateGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<StrategyGroupByOutputType, T['by']> &
+      PickEnumerable<StrategyTemplateGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof StrategyGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof StrategyTemplateGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], StrategyGroupByOutputType[P]>
-            : GetScalarType<T[P], StrategyGroupByOutputType[P]>
+              : GetScalarType<T[P], StrategyTemplateGroupByOutputType[P]>
+            : GetScalarType<T[P], StrategyTemplateGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type StrategySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type StrategyTemplateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
     image?: boolean
     assetTicker?: boolean
-    apy?: boolean
     riskLevel?: boolean
     platform?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    userAllocations?: boolean | Strategy$userAllocationsArgs<ExtArgs>
-    tradingEvents?: boolean | Strategy$tradingEventsArgs<ExtArgs>
-    userPreferences?: boolean | Strategy$userPreferencesArgs<ExtArgs>
-    _count?: boolean | StrategyCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["strategy"]>
+    userAllocations?: boolean | StrategyTemplate$userAllocationsArgs<ExtArgs>
+    tradingEvents?: boolean | StrategyTemplate$tradingEventsArgs<ExtArgs>
+    userPreferences?: boolean | StrategyTemplate$userPreferencesArgs<ExtArgs>
+    yieldOpportunities?: boolean | StrategyTemplate$yieldOpportunitiesArgs<ExtArgs>
+    _count?: boolean | StrategyTemplateCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["strategyTemplate"]>
 
-  export type StrategySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type StrategyTemplateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
     image?: boolean
     assetTicker?: boolean
-    apy?: boolean
     riskLevel?: boolean
     platform?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["strategy"]>
+  }, ExtArgs["result"]["strategyTemplate"]>
 
-  export type StrategySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type StrategyTemplateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
     image?: boolean
     assetTicker?: boolean
-    apy?: boolean
     riskLevel?: boolean
     platform?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["strategy"]>
+  }, ExtArgs["result"]["strategyTemplate"]>
 
-  export type StrategySelectScalar = {
+  export type StrategyTemplateSelectScalar = {
     id?: boolean
     name?: boolean
     description?: boolean
     image?: boolean
     assetTicker?: boolean
-    apy?: boolean
     riskLevel?: boolean
     platform?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type StrategyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "image" | "assetTicker" | "apy" | "riskLevel" | "platform" | "createdAt" | "updatedAt", ExtArgs["result"]["strategy"]>
-  export type StrategyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    userAllocations?: boolean | Strategy$userAllocationsArgs<ExtArgs>
-    tradingEvents?: boolean | Strategy$tradingEventsArgs<ExtArgs>
-    userPreferences?: boolean | Strategy$userPreferencesArgs<ExtArgs>
-    _count?: boolean | StrategyCountOutputTypeDefaultArgs<ExtArgs>
+  export type StrategyTemplateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "image" | "assetTicker" | "riskLevel" | "platform" | "createdAt" | "updatedAt", ExtArgs["result"]["strategyTemplate"]>
+  export type StrategyTemplateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userAllocations?: boolean | StrategyTemplate$userAllocationsArgs<ExtArgs>
+    tradingEvents?: boolean | StrategyTemplate$tradingEventsArgs<ExtArgs>
+    userPreferences?: boolean | StrategyTemplate$userPreferencesArgs<ExtArgs>
+    yieldOpportunities?: boolean | StrategyTemplate$yieldOpportunitiesArgs<ExtArgs>
+    _count?: boolean | StrategyTemplateCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type StrategyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type StrategyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type StrategyTemplateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type StrategyTemplateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $StrategyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Strategy"
+  export type $StrategyTemplatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "StrategyTemplate"
     objects: {
       userAllocations: Prisma.$UserStrategyAllocationPayload<ExtArgs>[]
       tradingEvents: Prisma.$TradingHistoryPayload<ExtArgs>[]
       userPreferences: Prisma.$UserStrategyPreferencePayload<ExtArgs>[]
+      yieldOpportunities: Prisma.$YieldOpportunityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6673,141 +6649,140 @@ export namespace Prisma {
       description: string | null
       image: string | null
       assetTicker: string
-      apy: number
       riskLevel: $Enums.RiskLevel
       platform: string | null
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["strategy"]>
+    }, ExtArgs["result"]["strategyTemplate"]>
     composites: {}
   }
 
-  type StrategyGetPayload<S extends boolean | null | undefined | StrategyDefaultArgs> = $Result.GetResult<Prisma.$StrategyPayload, S>
+  type StrategyTemplateGetPayload<S extends boolean | null | undefined | StrategyTemplateDefaultArgs> = $Result.GetResult<Prisma.$StrategyTemplatePayload, S>
 
-  type StrategyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<StrategyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: StrategyCountAggregateInputType | true
+  type StrategyTemplateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<StrategyTemplateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: StrategyTemplateCountAggregateInputType | true
     }
 
-  export interface StrategyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Strategy'], meta: { name: 'Strategy' } }
+  export interface StrategyTemplateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['StrategyTemplate'], meta: { name: 'StrategyTemplate' } }
     /**
-     * Find zero or one Strategy that matches the filter.
-     * @param {StrategyFindUniqueArgs} args - Arguments to find a Strategy
+     * Find zero or one StrategyTemplate that matches the filter.
+     * @param {StrategyTemplateFindUniqueArgs} args - Arguments to find a StrategyTemplate
      * @example
-     * // Get one Strategy
-     * const strategy = await prisma.strategy.findUnique({
+     * // Get one StrategyTemplate
+     * const strategyTemplate = await prisma.strategyTemplate.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends StrategyFindUniqueArgs>(args: SelectSubset<T, StrategyFindUniqueArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends StrategyTemplateFindUniqueArgs>(args: SelectSubset<T, StrategyTemplateFindUniqueArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Strategy that matches the filter or throw an error with `error.code='P2025'`
+     * Find one StrategyTemplate that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {StrategyFindUniqueOrThrowArgs} args - Arguments to find a Strategy
+     * @param {StrategyTemplateFindUniqueOrThrowArgs} args - Arguments to find a StrategyTemplate
      * @example
-     * // Get one Strategy
-     * const strategy = await prisma.strategy.findUniqueOrThrow({
+     * // Get one StrategyTemplate
+     * const strategyTemplate = await prisma.strategyTemplate.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends StrategyFindUniqueOrThrowArgs>(args: SelectSubset<T, StrategyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends StrategyTemplateFindUniqueOrThrowArgs>(args: SelectSubset<T, StrategyTemplateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Strategy that matches the filter.
+     * Find the first StrategyTemplate that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {StrategyFindFirstArgs} args - Arguments to find a Strategy
+     * @param {StrategyTemplateFindFirstArgs} args - Arguments to find a StrategyTemplate
      * @example
-     * // Get one Strategy
-     * const strategy = await prisma.strategy.findFirst({
+     * // Get one StrategyTemplate
+     * const strategyTemplate = await prisma.strategyTemplate.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends StrategyFindFirstArgs>(args?: SelectSubset<T, StrategyFindFirstArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends StrategyTemplateFindFirstArgs>(args?: SelectSubset<T, StrategyTemplateFindFirstArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Strategy that matches the filter or
+     * Find the first StrategyTemplate that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {StrategyFindFirstOrThrowArgs} args - Arguments to find a Strategy
+     * @param {StrategyTemplateFindFirstOrThrowArgs} args - Arguments to find a StrategyTemplate
      * @example
-     * // Get one Strategy
-     * const strategy = await prisma.strategy.findFirstOrThrow({
+     * // Get one StrategyTemplate
+     * const strategyTemplate = await prisma.strategyTemplate.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends StrategyFindFirstOrThrowArgs>(args?: SelectSubset<T, StrategyFindFirstOrThrowArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends StrategyTemplateFindFirstOrThrowArgs>(args?: SelectSubset<T, StrategyTemplateFindFirstOrThrowArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Strategies that matches the filter.
+     * Find zero or more StrategyTemplates that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {StrategyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {StrategyTemplateFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Strategies
-     * const strategies = await prisma.strategy.findMany()
+     * // Get all StrategyTemplates
+     * const strategyTemplates = await prisma.strategyTemplate.findMany()
      * 
-     * // Get first 10 Strategies
-     * const strategies = await prisma.strategy.findMany({ take: 10 })
+     * // Get first 10 StrategyTemplates
+     * const strategyTemplates = await prisma.strategyTemplate.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const strategyWithIdOnly = await prisma.strategy.findMany({ select: { id: true } })
+     * const strategyTemplateWithIdOnly = await prisma.strategyTemplate.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends StrategyFindManyArgs>(args?: SelectSubset<T, StrategyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends StrategyTemplateFindManyArgs>(args?: SelectSubset<T, StrategyTemplateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Strategy.
-     * @param {StrategyCreateArgs} args - Arguments to create a Strategy.
+     * Create a StrategyTemplate.
+     * @param {StrategyTemplateCreateArgs} args - Arguments to create a StrategyTemplate.
      * @example
-     * // Create one Strategy
-     * const Strategy = await prisma.strategy.create({
+     * // Create one StrategyTemplate
+     * const StrategyTemplate = await prisma.strategyTemplate.create({
      *   data: {
-     *     // ... data to create a Strategy
+     *     // ... data to create a StrategyTemplate
      *   }
      * })
      * 
      */
-    create<T extends StrategyCreateArgs>(args: SelectSubset<T, StrategyCreateArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends StrategyTemplateCreateArgs>(args: SelectSubset<T, StrategyTemplateCreateArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Strategies.
-     * @param {StrategyCreateManyArgs} args - Arguments to create many Strategies.
+     * Create many StrategyTemplates.
+     * @param {StrategyTemplateCreateManyArgs} args - Arguments to create many StrategyTemplates.
      * @example
-     * // Create many Strategies
-     * const strategy = await prisma.strategy.createMany({
+     * // Create many StrategyTemplates
+     * const strategyTemplate = await prisma.strategyTemplate.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends StrategyCreateManyArgs>(args?: SelectSubset<T, StrategyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends StrategyTemplateCreateManyArgs>(args?: SelectSubset<T, StrategyTemplateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Strategies and returns the data saved in the database.
-     * @param {StrategyCreateManyAndReturnArgs} args - Arguments to create many Strategies.
+     * Create many StrategyTemplates and returns the data saved in the database.
+     * @param {StrategyTemplateCreateManyAndReturnArgs} args - Arguments to create many StrategyTemplates.
      * @example
-     * // Create many Strategies
-     * const strategy = await prisma.strategy.createManyAndReturn({
+     * // Create many StrategyTemplates
+     * const strategyTemplate = await prisma.strategyTemplate.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Strategies and only return the `id`
-     * const strategyWithIdOnly = await prisma.strategy.createManyAndReturn({
+     * // Create many StrategyTemplates and only return the `id`
+     * const strategyTemplateWithIdOnly = await prisma.strategyTemplate.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -6817,28 +6792,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends StrategyCreateManyAndReturnArgs>(args?: SelectSubset<T, StrategyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends StrategyTemplateCreateManyAndReturnArgs>(args?: SelectSubset<T, StrategyTemplateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Strategy.
-     * @param {StrategyDeleteArgs} args - Arguments to delete one Strategy.
+     * Delete a StrategyTemplate.
+     * @param {StrategyTemplateDeleteArgs} args - Arguments to delete one StrategyTemplate.
      * @example
-     * // Delete one Strategy
-     * const Strategy = await prisma.strategy.delete({
+     * // Delete one StrategyTemplate
+     * const StrategyTemplate = await prisma.strategyTemplate.delete({
      *   where: {
-     *     // ... filter to delete one Strategy
+     *     // ... filter to delete one StrategyTemplate
      *   }
      * })
      * 
      */
-    delete<T extends StrategyDeleteArgs>(args: SelectSubset<T, StrategyDeleteArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends StrategyTemplateDeleteArgs>(args: SelectSubset<T, StrategyTemplateDeleteArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Strategy.
-     * @param {StrategyUpdateArgs} args - Arguments to update one Strategy.
+     * Update one StrategyTemplate.
+     * @param {StrategyTemplateUpdateArgs} args - Arguments to update one StrategyTemplate.
      * @example
-     * // Update one Strategy
-     * const strategy = await prisma.strategy.update({
+     * // Update one StrategyTemplate
+     * const strategyTemplate = await prisma.strategyTemplate.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6848,30 +6823,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends StrategyUpdateArgs>(args: SelectSubset<T, StrategyUpdateArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends StrategyTemplateUpdateArgs>(args: SelectSubset<T, StrategyTemplateUpdateArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Strategies.
-     * @param {StrategyDeleteManyArgs} args - Arguments to filter Strategies to delete.
+     * Delete zero or more StrategyTemplates.
+     * @param {StrategyTemplateDeleteManyArgs} args - Arguments to filter StrategyTemplates to delete.
      * @example
-     * // Delete a few Strategies
-     * const { count } = await prisma.strategy.deleteMany({
+     * // Delete a few StrategyTemplates
+     * const { count } = await prisma.strategyTemplate.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends StrategyDeleteManyArgs>(args?: SelectSubset<T, StrategyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends StrategyTemplateDeleteManyArgs>(args?: SelectSubset<T, StrategyTemplateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Strategies.
+     * Update zero or more StrategyTemplates.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {StrategyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {StrategyTemplateUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Strategies
-     * const strategy = await prisma.strategy.updateMany({
+     * // Update many StrategyTemplates
+     * const strategyTemplate = await prisma.strategyTemplate.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6881,14 +6856,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends StrategyUpdateManyArgs>(args: SelectSubset<T, StrategyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends StrategyTemplateUpdateManyArgs>(args: SelectSubset<T, StrategyTemplateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Strategies and returns the data updated in the database.
-     * @param {StrategyUpdateManyAndReturnArgs} args - Arguments to update many Strategies.
+     * Update zero or more StrategyTemplates and returns the data updated in the database.
+     * @param {StrategyTemplateUpdateManyAndReturnArgs} args - Arguments to update many StrategyTemplates.
      * @example
-     * // Update many Strategies
-     * const strategy = await prisma.strategy.updateManyAndReturn({
+     * // Update many StrategyTemplates
+     * const strategyTemplate = await prisma.strategyTemplate.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6897,8 +6872,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Strategies and only return the `id`
-     * const strategyWithIdOnly = await prisma.strategy.updateManyAndReturn({
+     * // Update zero or more StrategyTemplates and only return the `id`
+     * const strategyTemplateWithIdOnly = await prisma.strategyTemplate.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -6911,56 +6886,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends StrategyUpdateManyAndReturnArgs>(args: SelectSubset<T, StrategyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends StrategyTemplateUpdateManyAndReturnArgs>(args: SelectSubset<T, StrategyTemplateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Strategy.
-     * @param {StrategyUpsertArgs} args - Arguments to update or create a Strategy.
+     * Create or update one StrategyTemplate.
+     * @param {StrategyTemplateUpsertArgs} args - Arguments to update or create a StrategyTemplate.
      * @example
-     * // Update or create a Strategy
-     * const strategy = await prisma.strategy.upsert({
+     * // Update or create a StrategyTemplate
+     * const strategyTemplate = await prisma.strategyTemplate.upsert({
      *   create: {
-     *     // ... data to create a Strategy
+     *     // ... data to create a StrategyTemplate
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Strategy we want to update
+     *     // ... the filter for the StrategyTemplate we want to update
      *   }
      * })
      */
-    upsert<T extends StrategyUpsertArgs>(args: SelectSubset<T, StrategyUpsertArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends StrategyTemplateUpsertArgs>(args: SelectSubset<T, StrategyTemplateUpsertArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Strategies.
+     * Count the number of StrategyTemplates.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {StrategyCountArgs} args - Arguments to filter Strategies to count.
+     * @param {StrategyTemplateCountArgs} args - Arguments to filter StrategyTemplates to count.
      * @example
-     * // Count the number of Strategies
-     * const count = await prisma.strategy.count({
+     * // Count the number of StrategyTemplates
+     * const count = await prisma.strategyTemplate.count({
      *   where: {
-     *     // ... the filter for the Strategies we want to count
+     *     // ... the filter for the StrategyTemplates we want to count
      *   }
      * })
     **/
-    count<T extends StrategyCountArgs>(
-      args?: Subset<T, StrategyCountArgs>,
+    count<T extends StrategyTemplateCountArgs>(
+      args?: Subset<T, StrategyTemplateCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], StrategyCountAggregateOutputType>
+          : GetScalarType<T['select'], StrategyTemplateCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Strategy.
+     * Allows you to perform aggregations operations on a StrategyTemplate.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {StrategyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {StrategyTemplateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6980,13 +6955,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends StrategyAggregateArgs>(args: Subset<T, StrategyAggregateArgs>): Prisma.PrismaPromise<GetStrategyAggregateType<T>>
+    aggregate<T extends StrategyTemplateAggregateArgs>(args: Subset<T, StrategyTemplateAggregateArgs>): Prisma.PrismaPromise<GetStrategyTemplateAggregateType<T>>
 
     /**
-     * Group by Strategy.
+     * Group by StrategyTemplate.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {StrategyGroupByArgs} args - Group by arguments.
+     * @param {StrategyTemplateGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -7001,14 +6976,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends StrategyGroupByArgs,
+      T extends StrategyTemplateGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: StrategyGroupByArgs['orderBy'] }
-        : { orderBy?: StrategyGroupByArgs['orderBy'] },
+        ? { orderBy: StrategyTemplateGroupByArgs['orderBy'] }
+        : { orderBy?: StrategyTemplateGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -7057,24 +7032,25 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, StrategyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStrategyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, StrategyTemplateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStrategyTemplateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Strategy model
+   * Fields of the StrategyTemplate model
    */
-  readonly fields: StrategyFieldRefs;
+  readonly fields: StrategyTemplateFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Strategy.
+   * The delegate class that acts as a "Promise-like" for StrategyTemplate.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__StrategyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__StrategyTemplateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    userAllocations<T extends Strategy$userAllocationsArgs<ExtArgs> = {}>(args?: Subset<T, Strategy$userAllocationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyAllocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    tradingEvents<T extends Strategy$tradingEventsArgs<ExtArgs> = {}>(args?: Subset<T, Strategy$tradingEventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    userPreferences<T extends Strategy$userPreferencesArgs<ExtArgs> = {}>(args?: Subset<T, Strategy$userPreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    userAllocations<T extends StrategyTemplate$userAllocationsArgs<ExtArgs> = {}>(args?: Subset<T, StrategyTemplate$userAllocationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyAllocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tradingEvents<T extends StrategyTemplate$tradingEventsArgs<ExtArgs> = {}>(args?: Subset<T, StrategyTemplate$tradingEventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    userPreferences<T extends StrategyTemplate$userPreferencesArgs<ExtArgs> = {}>(args?: Subset<T, StrategyTemplate$userPreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStrategyPreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    yieldOpportunities<T extends StrategyTemplate$yieldOpportunitiesArgs<ExtArgs> = {}>(args?: Subset<T, StrategyTemplate$yieldOpportunitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YieldOpportunityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7101,410 +7077,409 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Strategy model
+   * Fields of the StrategyTemplate model
    */
-  interface StrategyFieldRefs {
-    readonly id: FieldRef<"Strategy", 'String'>
-    readonly name: FieldRef<"Strategy", 'String'>
-    readonly description: FieldRef<"Strategy", 'String'>
-    readonly image: FieldRef<"Strategy", 'String'>
-    readonly assetTicker: FieldRef<"Strategy", 'String'>
-    readonly apy: FieldRef<"Strategy", 'Float'>
-    readonly riskLevel: FieldRef<"Strategy", 'RiskLevel'>
-    readonly platform: FieldRef<"Strategy", 'String'>
-    readonly createdAt: FieldRef<"Strategy", 'DateTime'>
-    readonly updatedAt: FieldRef<"Strategy", 'DateTime'>
+  interface StrategyTemplateFieldRefs {
+    readonly id: FieldRef<"StrategyTemplate", 'String'>
+    readonly name: FieldRef<"StrategyTemplate", 'String'>
+    readonly description: FieldRef<"StrategyTemplate", 'String'>
+    readonly image: FieldRef<"StrategyTemplate", 'String'>
+    readonly assetTicker: FieldRef<"StrategyTemplate", 'String'>
+    readonly riskLevel: FieldRef<"StrategyTemplate", 'RiskLevel'>
+    readonly platform: FieldRef<"StrategyTemplate", 'String'>
+    readonly createdAt: FieldRef<"StrategyTemplate", 'DateTime'>
+    readonly updatedAt: FieldRef<"StrategyTemplate", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Strategy findUnique
+   * StrategyTemplate findUnique
    */
-  export type StrategyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * Filter, which Strategy to fetch.
+     * Filter, which StrategyTemplate to fetch.
      */
-    where: StrategyWhereUniqueInput
+    where: StrategyTemplateWhereUniqueInput
   }
 
   /**
-   * Strategy findUniqueOrThrow
+   * StrategyTemplate findUniqueOrThrow
    */
-  export type StrategyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * Filter, which Strategy to fetch.
+     * Filter, which StrategyTemplate to fetch.
      */
-    where: StrategyWhereUniqueInput
+    where: StrategyTemplateWhereUniqueInput
   }
 
   /**
-   * Strategy findFirst
+   * StrategyTemplate findFirst
    */
-  export type StrategyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * Filter, which Strategy to fetch.
+     * Filter, which StrategyTemplate to fetch.
      */
-    where?: StrategyWhereInput
+    where?: StrategyTemplateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Strategies to fetch.
+     * Determine the order of StrategyTemplates to fetch.
      */
-    orderBy?: StrategyOrderByWithRelationInput | StrategyOrderByWithRelationInput[]
+    orderBy?: StrategyTemplateOrderByWithRelationInput | StrategyTemplateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Strategies.
+     * Sets the position for searching for StrategyTemplates.
      */
-    cursor?: StrategyWhereUniqueInput
+    cursor?: StrategyTemplateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Strategies from the position of the cursor.
+     * Take `±n` StrategyTemplates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Strategies.
+     * Skip the first `n` StrategyTemplates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Strategies.
+     * Filter by unique combinations of StrategyTemplates.
      */
-    distinct?: StrategyScalarFieldEnum | StrategyScalarFieldEnum[]
+    distinct?: StrategyTemplateScalarFieldEnum | StrategyTemplateScalarFieldEnum[]
   }
 
   /**
-   * Strategy findFirstOrThrow
+   * StrategyTemplate findFirstOrThrow
    */
-  export type StrategyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * Filter, which Strategy to fetch.
+     * Filter, which StrategyTemplate to fetch.
      */
-    where?: StrategyWhereInput
+    where?: StrategyTemplateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Strategies to fetch.
+     * Determine the order of StrategyTemplates to fetch.
      */
-    orderBy?: StrategyOrderByWithRelationInput | StrategyOrderByWithRelationInput[]
+    orderBy?: StrategyTemplateOrderByWithRelationInput | StrategyTemplateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Strategies.
+     * Sets the position for searching for StrategyTemplates.
      */
-    cursor?: StrategyWhereUniqueInput
+    cursor?: StrategyTemplateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Strategies from the position of the cursor.
+     * Take `±n` StrategyTemplates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Strategies.
+     * Skip the first `n` StrategyTemplates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Strategies.
+     * Filter by unique combinations of StrategyTemplates.
      */
-    distinct?: StrategyScalarFieldEnum | StrategyScalarFieldEnum[]
+    distinct?: StrategyTemplateScalarFieldEnum | StrategyTemplateScalarFieldEnum[]
   }
 
   /**
-   * Strategy findMany
+   * StrategyTemplate findMany
    */
-  export type StrategyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * Filter, which Strategies to fetch.
+     * Filter, which StrategyTemplates to fetch.
      */
-    where?: StrategyWhereInput
+    where?: StrategyTemplateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Strategies to fetch.
+     * Determine the order of StrategyTemplates to fetch.
      */
-    orderBy?: StrategyOrderByWithRelationInput | StrategyOrderByWithRelationInput[]
+    orderBy?: StrategyTemplateOrderByWithRelationInput | StrategyTemplateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Strategies.
+     * Sets the position for listing StrategyTemplates.
      */
-    cursor?: StrategyWhereUniqueInput
+    cursor?: StrategyTemplateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Strategies from the position of the cursor.
+     * Take `±n` StrategyTemplates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Strategies.
+     * Skip the first `n` StrategyTemplates.
      */
     skip?: number
-    distinct?: StrategyScalarFieldEnum | StrategyScalarFieldEnum[]
+    distinct?: StrategyTemplateScalarFieldEnum | StrategyTemplateScalarFieldEnum[]
   }
 
   /**
-   * Strategy create
+   * StrategyTemplate create
    */
-  export type StrategyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * The data needed to create a Strategy.
+     * The data needed to create a StrategyTemplate.
      */
-    data: XOR<StrategyCreateInput, StrategyUncheckedCreateInput>
+    data: XOR<StrategyTemplateCreateInput, StrategyTemplateUncheckedCreateInput>
   }
 
   /**
-   * Strategy createMany
+   * StrategyTemplate createMany
    */
-  export type StrategyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Strategies.
+     * The data used to create many StrategyTemplates.
      */
-    data: StrategyCreateManyInput | StrategyCreateManyInput[]
+    data: StrategyTemplateCreateManyInput | StrategyTemplateCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Strategy createManyAndReturn
+   * StrategyTemplate createManyAndReturn
    */
-  export type StrategyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelectCreateManyAndReturn<ExtArgs> | null
+    select?: StrategyTemplateSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
-     * The data used to create many Strategies.
+     * The data used to create many StrategyTemplates.
      */
-    data: StrategyCreateManyInput | StrategyCreateManyInput[]
+    data: StrategyTemplateCreateManyInput | StrategyTemplateCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Strategy update
+   * StrategyTemplate update
    */
-  export type StrategyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * The data needed to update a Strategy.
+     * The data needed to update a StrategyTemplate.
      */
-    data: XOR<StrategyUpdateInput, StrategyUncheckedUpdateInput>
+    data: XOR<StrategyTemplateUpdateInput, StrategyTemplateUncheckedUpdateInput>
     /**
-     * Choose, which Strategy to update.
+     * Choose, which StrategyTemplate to update.
      */
-    where: StrategyWhereUniqueInput
+    where: StrategyTemplateWhereUniqueInput
   }
 
   /**
-   * Strategy updateMany
+   * StrategyTemplate updateMany
    */
-  export type StrategyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Strategies.
+     * The data used to update StrategyTemplates.
      */
-    data: XOR<StrategyUpdateManyMutationInput, StrategyUncheckedUpdateManyInput>
+    data: XOR<StrategyTemplateUpdateManyMutationInput, StrategyTemplateUncheckedUpdateManyInput>
     /**
-     * Filter which Strategies to update
+     * Filter which StrategyTemplates to update
      */
-    where?: StrategyWhereInput
+    where?: StrategyTemplateWhereInput
     /**
-     * Limit how many Strategies to update.
+     * Limit how many StrategyTemplates to update.
      */
     limit?: number
   }
 
   /**
-   * Strategy updateManyAndReturn
+   * StrategyTemplate updateManyAndReturn
    */
-  export type StrategyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelectUpdateManyAndReturn<ExtArgs> | null
+    select?: StrategyTemplateSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
-     * The data used to update Strategies.
+     * The data used to update StrategyTemplates.
      */
-    data: XOR<StrategyUpdateManyMutationInput, StrategyUncheckedUpdateManyInput>
+    data: XOR<StrategyTemplateUpdateManyMutationInput, StrategyTemplateUncheckedUpdateManyInput>
     /**
-     * Filter which Strategies to update
+     * Filter which StrategyTemplates to update
      */
-    where?: StrategyWhereInput
+    where?: StrategyTemplateWhereInput
     /**
-     * Limit how many Strategies to update.
+     * Limit how many StrategyTemplates to update.
      */
     limit?: number
   }
 
   /**
-   * Strategy upsert
+   * StrategyTemplate upsert
    */
-  export type StrategyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * The filter to search for the Strategy to update in case it exists.
+     * The filter to search for the StrategyTemplate to update in case it exists.
      */
-    where: StrategyWhereUniqueInput
+    where: StrategyTemplateWhereUniqueInput
     /**
-     * In case the Strategy found by the `where` argument doesn't exist, create a new Strategy with this data.
+     * In case the StrategyTemplate found by the `where` argument doesn't exist, create a new StrategyTemplate with this data.
      */
-    create: XOR<StrategyCreateInput, StrategyUncheckedCreateInput>
+    create: XOR<StrategyTemplateCreateInput, StrategyTemplateUncheckedCreateInput>
     /**
-     * In case the Strategy was found with the provided `where` argument, update it with this data.
+     * In case the StrategyTemplate was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<StrategyUpdateInput, StrategyUncheckedUpdateInput>
+    update: XOR<StrategyTemplateUpdateInput, StrategyTemplateUncheckedUpdateInput>
   }
 
   /**
-   * Strategy delete
+   * StrategyTemplate delete
    */
-  export type StrategyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the StrategyTemplate
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: StrategyTemplateSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the StrategyTemplate
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: StrategyTemplateOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: StrategyTemplateInclude<ExtArgs> | null
     /**
-     * Filter which Strategy to delete.
+     * Filter which StrategyTemplate to delete.
      */
-    where: StrategyWhereUniqueInput
+    where: StrategyTemplateWhereUniqueInput
   }
 
   /**
-   * Strategy deleteMany
+   * StrategyTemplate deleteMany
    */
-  export type StrategyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Strategies to delete
+     * Filter which StrategyTemplates to delete
      */
-    where?: StrategyWhereInput
+    where?: StrategyTemplateWhereInput
     /**
-     * Limit how many Strategies to delete.
+     * Limit how many StrategyTemplates to delete.
      */
     limit?: number
   }
 
   /**
-   * Strategy.userAllocations
+   * StrategyTemplate.userAllocations
    */
-  export type Strategy$userAllocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplate$userAllocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the UserStrategyAllocation
      */
@@ -7526,9 +7501,9 @@ export namespace Prisma {
   }
 
   /**
-   * Strategy.tradingEvents
+   * StrategyTemplate.tradingEvents
    */
-  export type Strategy$tradingEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplate$tradingEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the TradingHistory
      */
@@ -7550,9 +7525,9 @@ export namespace Prisma {
   }
 
   /**
-   * Strategy.userPreferences
+   * StrategyTemplate.userPreferences
    */
-  export type Strategy$userPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplate$userPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the UserStrategyPreference
      */
@@ -7574,21 +7549,45 @@ export namespace Prisma {
   }
 
   /**
-   * Strategy without action
+   * StrategyTemplate.yieldOpportunities
    */
-  export type StrategyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StrategyTemplate$yieldOpportunitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Strategy
+     * Select specific fields to fetch from the YieldOpportunity
      */
-    select?: StrategySelect<ExtArgs> | null
+    select?: YieldOpportunitySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Strategy
+     * Omit specific fields from the YieldOpportunity
      */
-    omit?: StrategyOmit<ExtArgs> | null
+    omit?: YieldOpportunityOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: StrategyInclude<ExtArgs> | null
+    include?: YieldOpportunityInclude<ExtArgs> | null
+    where?: YieldOpportunityWhereInput
+    orderBy?: YieldOpportunityOrderByWithRelationInput | YieldOpportunityOrderByWithRelationInput[]
+    cursor?: YieldOpportunityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: YieldOpportunityScalarFieldEnum | YieldOpportunityScalarFieldEnum[]
+  }
+
+  /**
+   * StrategyTemplate without action
+   */
+  export type StrategyTemplateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StrategyTemplate
+     */
+    select?: StrategyTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StrategyTemplate
+     */
+    omit?: StrategyTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StrategyTemplateInclude<ExtArgs> | null
   }
 
 
@@ -7617,7 +7616,7 @@ export namespace Prisma {
   export type UserStrategyAllocationMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    strategyId: string | null
+    strategyTemplateId: string | null
     assetTicker: string | null
     allocatedAmount: number | null
     entryTimestamp: Date | null
@@ -7630,7 +7629,7 @@ export namespace Prisma {
   export type UserStrategyAllocationMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    strategyId: string | null
+    strategyTemplateId: string | null
     assetTicker: string | null
     allocatedAmount: number | null
     entryTimestamp: Date | null
@@ -7643,7 +7642,7 @@ export namespace Prisma {
   export type UserStrategyAllocationCountAggregateOutputType = {
     id: number
     userId: number
-    strategyId: number
+    strategyTemplateId: number
     assetTicker: number
     allocatedAmount: number
     entryTimestamp: number
@@ -7668,7 +7667,7 @@ export namespace Prisma {
   export type UserStrategyAllocationMinAggregateInputType = {
     id?: true
     userId?: true
-    strategyId?: true
+    strategyTemplateId?: true
     assetTicker?: true
     allocatedAmount?: true
     entryTimestamp?: true
@@ -7681,7 +7680,7 @@ export namespace Prisma {
   export type UserStrategyAllocationMaxAggregateInputType = {
     id?: true
     userId?: true
-    strategyId?: true
+    strategyTemplateId?: true
     assetTicker?: true
     allocatedAmount?: true
     entryTimestamp?: true
@@ -7694,7 +7693,7 @@ export namespace Prisma {
   export type UserStrategyAllocationCountAggregateInputType = {
     id?: true
     userId?: true
-    strategyId?: true
+    strategyTemplateId?: true
     assetTicker?: true
     allocatedAmount?: true
     entryTimestamp?: true
@@ -7794,7 +7793,7 @@ export namespace Prisma {
   export type UserStrategyAllocationGroupByOutputType = {
     id: string
     userId: string
-    strategyId: string
+    strategyTemplateId: string
     assetTicker: string
     allocatedAmount: number
     entryTimestamp: Date
@@ -7826,7 +7825,7 @@ export namespace Prisma {
   export type UserStrategyAllocationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     assetTicker?: boolean
     allocatedAmount?: boolean
     entryTimestamp?: boolean
@@ -7835,13 +7834,13 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStrategyAllocation"]>
 
   export type UserStrategyAllocationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     assetTicker?: boolean
     allocatedAmount?: boolean
     entryTimestamp?: boolean
@@ -7850,13 +7849,13 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStrategyAllocation"]>
 
   export type UserStrategyAllocationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     assetTicker?: boolean
     allocatedAmount?: boolean
     entryTimestamp?: boolean
@@ -7865,13 +7864,13 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStrategyAllocation"]>
 
   export type UserStrategyAllocationSelectScalar = {
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     assetTicker?: boolean
     allocatedAmount?: boolean
     entryTimestamp?: boolean
@@ -7881,30 +7880,30 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserStrategyAllocationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "strategyId" | "assetTicker" | "allocatedAmount" | "entryTimestamp" | "cumulativeYieldEarned" | "lastYieldClaimTimestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["userStrategyAllocation"]>
+  export type UserStrategyAllocationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "strategyTemplateId" | "assetTicker" | "allocatedAmount" | "entryTimestamp" | "cumulativeYieldEarned" | "lastYieldClaimTimestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["userStrategyAllocation"]>
   export type UserStrategyAllocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }
   export type UserStrategyAllocationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }
   export type UserStrategyAllocationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }
 
   export type $UserStrategyAllocationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "UserStrategyAllocation"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      strategy: Prisma.$StrategyPayload<ExtArgs>
+      strategyTemplate: Prisma.$StrategyTemplatePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      strategyId: string
+      strategyTemplateId: string
       assetTicker: string
       allocatedAmount: number
       entryTimestamp: Date
@@ -8307,7 +8306,7 @@ export namespace Prisma {
   export interface Prisma__UserStrategyAllocationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    strategy<T extends StrategyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StrategyDefaultArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    strategyTemplate<T extends StrategyTemplateDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StrategyTemplateDefaultArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8339,7 +8338,7 @@ export namespace Prisma {
   interface UserStrategyAllocationFieldRefs {
     readonly id: FieldRef<"UserStrategyAllocation", 'String'>
     readonly userId: FieldRef<"UserStrategyAllocation", 'String'>
-    readonly strategyId: FieldRef<"UserStrategyAllocation", 'String'>
+    readonly strategyTemplateId: FieldRef<"UserStrategyAllocation", 'String'>
     readonly assetTicker: FieldRef<"UserStrategyAllocation", 'String'>
     readonly allocatedAmount: FieldRef<"UserStrategyAllocation", 'Float'>
     readonly entryTimestamp: FieldRef<"UserStrategyAllocation", 'DateTime'>
@@ -8774,7 +8773,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    strategyId: string | null
+    strategyTemplateId: string | null
     isFavorite: boolean | null
     isHidden: boolean | null
     receiveNotifications: boolean | null
@@ -8785,7 +8784,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    strategyId: string | null
+    strategyTemplateId: string | null
     isFavorite: boolean | null
     isHidden: boolean | null
     receiveNotifications: boolean | null
@@ -8796,7 +8795,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceCountAggregateOutputType = {
     id: number
     userId: number
-    strategyId: number
+    strategyTemplateId: number
     isFavorite: number
     isHidden: number
     receiveNotifications: number
@@ -8809,7 +8808,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceMinAggregateInputType = {
     id?: true
     userId?: true
-    strategyId?: true
+    strategyTemplateId?: true
     isFavorite?: true
     isHidden?: true
     receiveNotifications?: true
@@ -8820,7 +8819,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceMaxAggregateInputType = {
     id?: true
     userId?: true
-    strategyId?: true
+    strategyTemplateId?: true
     isFavorite?: true
     isHidden?: true
     receiveNotifications?: true
@@ -8831,7 +8830,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceCountAggregateInputType = {
     id?: true
     userId?: true
-    strategyId?: true
+    strategyTemplateId?: true
     isFavorite?: true
     isHidden?: true
     receiveNotifications?: true
@@ -8915,7 +8914,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceGroupByOutputType = {
     id: string
     userId: string
-    strategyId: string
+    strategyTemplateId: string
     isFavorite: boolean
     isHidden: boolean
     receiveNotifications: boolean
@@ -8943,46 +8942,46 @@ export namespace Prisma {
   export type UserStrategyPreferenceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStrategyPreference"]>
 
   export type UserStrategyPreferenceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStrategyPreference"]>
 
   export type UserStrategyPreferenceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStrategyPreference"]>
 
   export type UserStrategyPreferenceSelectScalar = {
     id?: boolean
     userId?: boolean
-    strategyId?: boolean
+    strategyTemplateId?: boolean
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
@@ -8990,30 +8989,30 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserStrategyPreferenceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "strategyId" | "isFavorite" | "isHidden" | "receiveNotifications" | "createdAt" | "updatedAt", ExtArgs["result"]["userStrategyPreference"]>
+  export type UserStrategyPreferenceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "strategyTemplateId" | "isFavorite" | "isHidden" | "receiveNotifications" | "createdAt" | "updatedAt", ExtArgs["result"]["userStrategyPreference"]>
   export type UserStrategyPreferenceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }
   export type UserStrategyPreferenceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }
   export type UserStrategyPreferenceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    strategy?: boolean | StrategyDefaultArgs<ExtArgs>
+    strategyTemplate?: boolean | StrategyTemplateDefaultArgs<ExtArgs>
   }
 
   export type $UserStrategyPreferencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "UserStrategyPreference"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      strategy: Prisma.$StrategyPayload<ExtArgs>
+      strategyTemplate: Prisma.$StrategyTemplatePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      strategyId: string
+      strategyTemplateId: string
       isFavorite: boolean
       isHidden: boolean
       receiveNotifications: boolean
@@ -9414,7 +9413,7 @@ export namespace Prisma {
   export interface Prisma__UserStrategyPreferenceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    strategy<T extends StrategyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StrategyDefaultArgs<ExtArgs>>): Prisma__StrategyClient<$Result.GetResult<Prisma.$StrategyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    strategyTemplate<T extends StrategyTemplateDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StrategyTemplateDefaultArgs<ExtArgs>>): Prisma__StrategyTemplateClient<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9446,7 +9445,7 @@ export namespace Prisma {
   interface UserStrategyPreferenceFieldRefs {
     readonly id: FieldRef<"UserStrategyPreference", 'String'>
     readonly userId: FieldRef<"UserStrategyPreference", 'String'>
-    readonly strategyId: FieldRef<"UserStrategyPreference", 'String'>
+    readonly strategyTemplateId: FieldRef<"UserStrategyPreference", 'String'>
     readonly isFavorite: FieldRef<"UserStrategyPreference", 'Boolean'>
     readonly isHidden: FieldRef<"UserStrategyPreference", 'Boolean'>
     readonly receiveNotifications: FieldRef<"UserStrategyPreference", 'Boolean'>
@@ -11158,6 +11157,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     userOptOuts?: boolean | YieldOpportunity$userOptOutsArgs<ExtArgs>
+    strategyTemplates?: boolean | YieldOpportunity$strategyTemplatesArgs<ExtArgs>
     _count?: boolean | YieldOpportunityCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["yieldOpportunity"]>
 
@@ -11203,6 +11203,7 @@ export namespace Prisma {
   export type YieldOpportunityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "platform" | "platformImage" | "tickerImage" | "name" | "marketId" | "assetTicker" | "apy" | "createdAt" | "updatedAt", ExtArgs["result"]["yieldOpportunity"]>
   export type YieldOpportunityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userOptOuts?: boolean | YieldOpportunity$userOptOutsArgs<ExtArgs>
+    strategyTemplates?: boolean | YieldOpportunity$strategyTemplatesArgs<ExtArgs>
     _count?: boolean | YieldOpportunityCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type YieldOpportunityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -11212,6 +11213,7 @@ export namespace Prisma {
     name: "YieldOpportunity"
     objects: {
       userOptOuts: Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>[]
+      strategyTemplates: Prisma.$StrategyTemplatePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -11619,6 +11621,7 @@ export namespace Prisma {
   export interface Prisma__YieldOpportunityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     userOptOuts<T extends YieldOpportunity$userOptOutsArgs<ExtArgs> = {}>(args?: Subset<T, YieldOpportunity$userOptOutsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserYieldOpportunityOptOutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    strategyTemplates<T extends YieldOpportunity$strategyTemplatesArgs<ExtArgs> = {}>(args?: Subset<T, YieldOpportunity$strategyTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StrategyTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12070,6 +12073,30 @@ export namespace Prisma {
   }
 
   /**
+   * YieldOpportunity.strategyTemplates
+   */
+  export type YieldOpportunity$strategyTemplatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StrategyTemplate
+     */
+    select?: StrategyTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StrategyTemplate
+     */
+    omit?: StrategyTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StrategyTemplateInclude<ExtArgs> | null
+    where?: StrategyTemplateWhereInput
+    orderBy?: StrategyTemplateOrderByWithRelationInput | StrategyTemplateOrderByWithRelationInput[]
+    cursor?: StrategyTemplateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: StrategyTemplateScalarFieldEnum | StrategyTemplateScalarFieldEnum[]
+  }
+
+  /**
    * YieldOpportunity without action
    */
   export type YieldOpportunityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12120,7 +12147,7 @@ export namespace Prisma {
     asset: 'asset',
     amount: 'amount',
     price: 'price',
-    strategyId: 'strategyId',
+    strategyTemplateId: 'strategyTemplateId',
     timestamp: 'timestamp'
   };
 
@@ -12151,26 +12178,25 @@ export namespace Prisma {
   export type CurrentAssetScalarFieldEnum = (typeof CurrentAssetScalarFieldEnum)[keyof typeof CurrentAssetScalarFieldEnum]
 
 
-  export const StrategyScalarFieldEnum: {
+  export const StrategyTemplateScalarFieldEnum: {
     id: 'id',
     name: 'name',
     description: 'description',
     image: 'image',
     assetTicker: 'assetTicker',
-    apy: 'apy',
     riskLevel: 'riskLevel',
     platform: 'platform',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type StrategyScalarFieldEnum = (typeof StrategyScalarFieldEnum)[keyof typeof StrategyScalarFieldEnum]
+  export type StrategyTemplateScalarFieldEnum = (typeof StrategyTemplateScalarFieldEnum)[keyof typeof StrategyTemplateScalarFieldEnum]
 
 
   export const UserStrategyAllocationScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    strategyId: 'strategyId',
+    strategyTemplateId: 'strategyTemplateId',
     assetTicker: 'assetTicker',
     allocatedAmount: 'allocatedAmount',
     entryTimestamp: 'entryTimestamp',
@@ -12186,7 +12212,7 @@ export namespace Prisma {
   export const UserStrategyPreferenceScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    strategyId: 'strategyId',
+    strategyTemplateId: 'strategyTemplateId',
     isFavorite: 'isFavorite',
     isHidden: 'isHidden',
     receiveNotifications: 'receiveNotifications',
@@ -12426,10 +12452,10 @@ export namespace Prisma {
     asset?: StringFilter<"TradingHistory"> | string
     amount?: FloatFilter<"TradingHistory"> | number
     price?: FloatNullableFilter<"TradingHistory"> | number | null
-    strategyId?: StringNullableFilter<"TradingHistory"> | string | null
+    strategyTemplateId?: StringNullableFilter<"TradingHistory"> | string | null
     timestamp?: DateTimeFilter<"TradingHistory"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    strategy?: XOR<StrategyNullableScalarRelationFilter, StrategyWhereInput> | null
+    strategyTemplate?: XOR<StrategyTemplateNullableScalarRelationFilter, StrategyTemplateWhereInput> | null
   }
 
   export type TradingHistoryOrderByWithRelationInput = {
@@ -12439,10 +12465,10 @@ export namespace Prisma {
     asset?: SortOrder
     amount?: SortOrder
     price?: SortOrderInput | SortOrder
-    strategyId?: SortOrderInput | SortOrder
+    strategyTemplateId?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     user?: UserOrderByWithRelationInput
-    strategy?: StrategyOrderByWithRelationInput
+    strategyTemplate?: StrategyTemplateOrderByWithRelationInput
   }
 
   export type TradingHistoryWhereUniqueInput = Prisma.AtLeast<{
@@ -12455,10 +12481,10 @@ export namespace Prisma {
     asset?: StringFilter<"TradingHistory"> | string
     amount?: FloatFilter<"TradingHistory"> | number
     price?: FloatNullableFilter<"TradingHistory"> | number | null
-    strategyId?: StringNullableFilter<"TradingHistory"> | string | null
+    strategyTemplateId?: StringNullableFilter<"TradingHistory"> | string | null
     timestamp?: DateTimeFilter<"TradingHistory"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    strategy?: XOR<StrategyNullableScalarRelationFilter, StrategyWhereInput> | null
+    strategyTemplate?: XOR<StrategyTemplateNullableScalarRelationFilter, StrategyTemplateWhereInput> | null
   }, "id">
 
   export type TradingHistoryOrderByWithAggregationInput = {
@@ -12468,7 +12494,7 @@ export namespace Prisma {
     asset?: SortOrder
     amount?: SortOrder
     price?: SortOrderInput | SortOrder
-    strategyId?: SortOrderInput | SortOrder
+    strategyTemplateId?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     _count?: TradingHistoryCountOrderByAggregateInput
     _avg?: TradingHistoryAvgOrderByAggregateInput
@@ -12487,7 +12513,7 @@ export namespace Prisma {
     asset?: StringWithAggregatesFilter<"TradingHistory"> | string
     amount?: FloatWithAggregatesFilter<"TradingHistory"> | number
     price?: FloatNullableWithAggregatesFilter<"TradingHistory"> | number | null
-    strategyId?: StringNullableWithAggregatesFilter<"TradingHistory"> | string | null
+    strategyTemplateId?: StringNullableWithAggregatesFilter<"TradingHistory"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"TradingHistory"> | Date | string
   }
 
@@ -12617,32 +12643,31 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"CurrentAsset"> | Date | string
   }
 
-  export type StrategyWhereInput = {
-    AND?: StrategyWhereInput | StrategyWhereInput[]
-    OR?: StrategyWhereInput[]
-    NOT?: StrategyWhereInput | StrategyWhereInput[]
-    id?: StringFilter<"Strategy"> | string
-    name?: StringFilter<"Strategy"> | string
-    description?: StringNullableFilter<"Strategy"> | string | null
-    image?: StringNullableFilter<"Strategy"> | string | null
-    assetTicker?: StringFilter<"Strategy"> | string
-    apy?: FloatFilter<"Strategy"> | number
-    riskLevel?: EnumRiskLevelFilter<"Strategy"> | $Enums.RiskLevel
-    platform?: StringNullableFilter<"Strategy"> | string | null
-    createdAt?: DateTimeFilter<"Strategy"> | Date | string
-    updatedAt?: DateTimeFilter<"Strategy"> | Date | string
+  export type StrategyTemplateWhereInput = {
+    AND?: StrategyTemplateWhereInput | StrategyTemplateWhereInput[]
+    OR?: StrategyTemplateWhereInput[]
+    NOT?: StrategyTemplateWhereInput | StrategyTemplateWhereInput[]
+    id?: StringFilter<"StrategyTemplate"> | string
+    name?: StringFilter<"StrategyTemplate"> | string
+    description?: StringNullableFilter<"StrategyTemplate"> | string | null
+    image?: StringNullableFilter<"StrategyTemplate"> | string | null
+    assetTicker?: StringFilter<"StrategyTemplate"> | string
+    riskLevel?: EnumRiskLevelFilter<"StrategyTemplate"> | $Enums.RiskLevel
+    platform?: StringNullableFilter<"StrategyTemplate"> | string | null
+    createdAt?: DateTimeFilter<"StrategyTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"StrategyTemplate"> | Date | string
     userAllocations?: UserStrategyAllocationListRelationFilter
     tradingEvents?: TradingHistoryListRelationFilter
     userPreferences?: UserStrategyPreferenceListRelationFilter
+    yieldOpportunities?: YieldOpportunityListRelationFilter
   }
 
-  export type StrategyOrderByWithRelationInput = {
+  export type StrategyTemplateOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     assetTicker?: SortOrder
-    apy?: SortOrder
     riskLevel?: SortOrder
     platform?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -12650,59 +12675,56 @@ export namespace Prisma {
     userAllocations?: UserStrategyAllocationOrderByRelationAggregateInput
     tradingEvents?: TradingHistoryOrderByRelationAggregateInput
     userPreferences?: UserStrategyPreferenceOrderByRelationAggregateInput
+    yieldOpportunities?: YieldOpportunityOrderByRelationAggregateInput
   }
 
-  export type StrategyWhereUniqueInput = Prisma.AtLeast<{
+  export type StrategyTemplateWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     name?: string
-    AND?: StrategyWhereInput | StrategyWhereInput[]
-    OR?: StrategyWhereInput[]
-    NOT?: StrategyWhereInput | StrategyWhereInput[]
-    description?: StringNullableFilter<"Strategy"> | string | null
-    image?: StringNullableFilter<"Strategy"> | string | null
-    assetTicker?: StringFilter<"Strategy"> | string
-    apy?: FloatFilter<"Strategy"> | number
-    riskLevel?: EnumRiskLevelFilter<"Strategy"> | $Enums.RiskLevel
-    platform?: StringNullableFilter<"Strategy"> | string | null
-    createdAt?: DateTimeFilter<"Strategy"> | Date | string
-    updatedAt?: DateTimeFilter<"Strategy"> | Date | string
+    AND?: StrategyTemplateWhereInput | StrategyTemplateWhereInput[]
+    OR?: StrategyTemplateWhereInput[]
+    NOT?: StrategyTemplateWhereInput | StrategyTemplateWhereInput[]
+    description?: StringNullableFilter<"StrategyTemplate"> | string | null
+    image?: StringNullableFilter<"StrategyTemplate"> | string | null
+    assetTicker?: StringFilter<"StrategyTemplate"> | string
+    riskLevel?: EnumRiskLevelFilter<"StrategyTemplate"> | $Enums.RiskLevel
+    platform?: StringNullableFilter<"StrategyTemplate"> | string | null
+    createdAt?: DateTimeFilter<"StrategyTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"StrategyTemplate"> | Date | string
     userAllocations?: UserStrategyAllocationListRelationFilter
     tradingEvents?: TradingHistoryListRelationFilter
     userPreferences?: UserStrategyPreferenceListRelationFilter
+    yieldOpportunities?: YieldOpportunityListRelationFilter
   }, "id" | "name">
 
-  export type StrategyOrderByWithAggregationInput = {
+  export type StrategyTemplateOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     assetTicker?: SortOrder
-    apy?: SortOrder
     riskLevel?: SortOrder
     platform?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: StrategyCountOrderByAggregateInput
-    _avg?: StrategyAvgOrderByAggregateInput
-    _max?: StrategyMaxOrderByAggregateInput
-    _min?: StrategyMinOrderByAggregateInput
-    _sum?: StrategySumOrderByAggregateInput
+    _count?: StrategyTemplateCountOrderByAggregateInput
+    _max?: StrategyTemplateMaxOrderByAggregateInput
+    _min?: StrategyTemplateMinOrderByAggregateInput
   }
 
-  export type StrategyScalarWhereWithAggregatesInput = {
-    AND?: StrategyScalarWhereWithAggregatesInput | StrategyScalarWhereWithAggregatesInput[]
-    OR?: StrategyScalarWhereWithAggregatesInput[]
-    NOT?: StrategyScalarWhereWithAggregatesInput | StrategyScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Strategy"> | string
-    name?: StringWithAggregatesFilter<"Strategy"> | string
-    description?: StringNullableWithAggregatesFilter<"Strategy"> | string | null
-    image?: StringNullableWithAggregatesFilter<"Strategy"> | string | null
-    assetTicker?: StringWithAggregatesFilter<"Strategy"> | string
-    apy?: FloatWithAggregatesFilter<"Strategy"> | number
-    riskLevel?: EnumRiskLevelWithAggregatesFilter<"Strategy"> | $Enums.RiskLevel
-    platform?: StringNullableWithAggregatesFilter<"Strategy"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"Strategy"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Strategy"> | Date | string
+  export type StrategyTemplateScalarWhereWithAggregatesInput = {
+    AND?: StrategyTemplateScalarWhereWithAggregatesInput | StrategyTemplateScalarWhereWithAggregatesInput[]
+    OR?: StrategyTemplateScalarWhereWithAggregatesInput[]
+    NOT?: StrategyTemplateScalarWhereWithAggregatesInput | StrategyTemplateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"StrategyTemplate"> | string
+    name?: StringWithAggregatesFilter<"StrategyTemplate"> | string
+    description?: StringNullableWithAggregatesFilter<"StrategyTemplate"> | string | null
+    image?: StringNullableWithAggregatesFilter<"StrategyTemplate"> | string | null
+    assetTicker?: StringWithAggregatesFilter<"StrategyTemplate"> | string
+    riskLevel?: EnumRiskLevelWithAggregatesFilter<"StrategyTemplate"> | $Enums.RiskLevel
+    platform?: StringNullableWithAggregatesFilter<"StrategyTemplate"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"StrategyTemplate"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"StrategyTemplate"> | Date | string
   }
 
   export type UserStrategyAllocationWhereInput = {
@@ -12711,7 +12733,7 @@ export namespace Prisma {
     NOT?: UserStrategyAllocationWhereInput | UserStrategyAllocationWhereInput[]
     id?: StringFilter<"UserStrategyAllocation"> | string
     userId?: StringFilter<"UserStrategyAllocation"> | string
-    strategyId?: StringFilter<"UserStrategyAllocation"> | string
+    strategyTemplateId?: StringFilter<"UserStrategyAllocation"> | string
     assetTicker?: StringFilter<"UserStrategyAllocation"> | string
     allocatedAmount?: FloatFilter<"UserStrategyAllocation"> | number
     entryTimestamp?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
@@ -12720,13 +12742,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
     updatedAt?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    strategy?: XOR<StrategyScalarRelationFilter, StrategyWhereInput>
+    strategyTemplate?: XOR<StrategyTemplateScalarRelationFilter, StrategyTemplateWhereInput>
   }
 
   export type UserStrategyAllocationOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     assetTicker?: SortOrder
     allocatedAmount?: SortOrder
     entryTimestamp?: SortOrder
@@ -12735,17 +12757,17 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    strategy?: StrategyOrderByWithRelationInput
+    strategyTemplate?: StrategyTemplateOrderByWithRelationInput
   }
 
   export type UserStrategyAllocationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    userId_strategyId_assetTicker?: UserStrategyAllocationUserIdStrategyIdAssetTickerCompoundUniqueInput
+    userId_strategyTemplateId_assetTicker?: UserStrategyAllocationUserIdStrategyTemplateIdAssetTickerCompoundUniqueInput
     AND?: UserStrategyAllocationWhereInput | UserStrategyAllocationWhereInput[]
     OR?: UserStrategyAllocationWhereInput[]
     NOT?: UserStrategyAllocationWhereInput | UserStrategyAllocationWhereInput[]
     userId?: StringFilter<"UserStrategyAllocation"> | string
-    strategyId?: StringFilter<"UserStrategyAllocation"> | string
+    strategyTemplateId?: StringFilter<"UserStrategyAllocation"> | string
     assetTicker?: StringFilter<"UserStrategyAllocation"> | string
     allocatedAmount?: FloatFilter<"UserStrategyAllocation"> | number
     entryTimestamp?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
@@ -12754,13 +12776,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
     updatedAt?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    strategy?: XOR<StrategyScalarRelationFilter, StrategyWhereInput>
-  }, "id" | "userId_strategyId_assetTicker">
+    strategyTemplate?: XOR<StrategyTemplateScalarRelationFilter, StrategyTemplateWhereInput>
+  }, "id" | "userId_strategyTemplateId_assetTicker">
 
   export type UserStrategyAllocationOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     assetTicker?: SortOrder
     allocatedAmount?: SortOrder
     entryTimestamp?: SortOrder
@@ -12781,7 +12803,7 @@ export namespace Prisma {
     NOT?: UserStrategyAllocationScalarWhereWithAggregatesInput | UserStrategyAllocationScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"UserStrategyAllocation"> | string
     userId?: StringWithAggregatesFilter<"UserStrategyAllocation"> | string
-    strategyId?: StringWithAggregatesFilter<"UserStrategyAllocation"> | string
+    strategyTemplateId?: StringWithAggregatesFilter<"UserStrategyAllocation"> | string
     assetTicker?: StringWithAggregatesFilter<"UserStrategyAllocation"> | string
     allocatedAmount?: FloatWithAggregatesFilter<"UserStrategyAllocation"> | number
     entryTimestamp?: DateTimeWithAggregatesFilter<"UserStrategyAllocation"> | Date | string
@@ -12797,50 +12819,50 @@ export namespace Prisma {
     NOT?: UserStrategyPreferenceWhereInput | UserStrategyPreferenceWhereInput[]
     id?: StringFilter<"UserStrategyPreference"> | string
     userId?: StringFilter<"UserStrategyPreference"> | string
-    strategyId?: StringFilter<"UserStrategyPreference"> | string
+    strategyTemplateId?: StringFilter<"UserStrategyPreference"> | string
     isFavorite?: BoolFilter<"UserStrategyPreference"> | boolean
     isHidden?: BoolFilter<"UserStrategyPreference"> | boolean
     receiveNotifications?: BoolFilter<"UserStrategyPreference"> | boolean
     createdAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
     updatedAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    strategy?: XOR<StrategyScalarRelationFilter, StrategyWhereInput>
+    strategyTemplate?: XOR<StrategyTemplateScalarRelationFilter, StrategyTemplateWhereInput>
   }
 
   export type UserStrategyPreferenceOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     isFavorite?: SortOrder
     isHidden?: SortOrder
     receiveNotifications?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    strategy?: StrategyOrderByWithRelationInput
+    strategyTemplate?: StrategyTemplateOrderByWithRelationInput
   }
 
   export type UserStrategyPreferenceWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    userId_strategyId?: UserStrategyPreferenceUserIdStrategyIdCompoundUniqueInput
+    userId_strategyTemplateId?: UserStrategyPreferenceUserIdStrategyTemplateIdCompoundUniqueInput
     AND?: UserStrategyPreferenceWhereInput | UserStrategyPreferenceWhereInput[]
     OR?: UserStrategyPreferenceWhereInput[]
     NOT?: UserStrategyPreferenceWhereInput | UserStrategyPreferenceWhereInput[]
     userId?: StringFilter<"UserStrategyPreference"> | string
-    strategyId?: StringFilter<"UserStrategyPreference"> | string
+    strategyTemplateId?: StringFilter<"UserStrategyPreference"> | string
     isFavorite?: BoolFilter<"UserStrategyPreference"> | boolean
     isHidden?: BoolFilter<"UserStrategyPreference"> | boolean
     receiveNotifications?: BoolFilter<"UserStrategyPreference"> | boolean
     createdAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
     updatedAt?: DateTimeFilter<"UserStrategyPreference"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    strategy?: XOR<StrategyScalarRelationFilter, StrategyWhereInput>
-  }, "id" | "userId_strategyId">
+    strategyTemplate?: XOR<StrategyTemplateScalarRelationFilter, StrategyTemplateWhereInput>
+  }, "id" | "userId_strategyTemplateId">
 
   export type UserStrategyPreferenceOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     isFavorite?: SortOrder
     isHidden?: SortOrder
     receiveNotifications?: SortOrder
@@ -12857,7 +12879,7 @@ export namespace Prisma {
     NOT?: UserStrategyPreferenceScalarWhereWithAggregatesInput | UserStrategyPreferenceScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"UserStrategyPreference"> | string
     userId?: StringWithAggregatesFilter<"UserStrategyPreference"> | string
-    strategyId?: StringWithAggregatesFilter<"UserStrategyPreference"> | string
+    strategyTemplateId?: StringWithAggregatesFilter<"UserStrategyPreference"> | string
     isFavorite?: BoolWithAggregatesFilter<"UserStrategyPreference"> | boolean
     isHidden?: BoolWithAggregatesFilter<"UserStrategyPreference"> | boolean
     receiveNotifications?: BoolWithAggregatesFilter<"UserStrategyPreference"> | boolean
@@ -12934,6 +12956,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
     updatedAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
     userOptOuts?: UserYieldOpportunityOptOutListRelationFilter
+    strategyTemplates?: StrategyTemplateListRelationFilter
   }
 
   export type YieldOpportunityOrderByWithRelationInput = {
@@ -12948,6 +12971,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userOptOuts?: UserYieldOpportunityOptOutOrderByRelationAggregateInput
+    strategyTemplates?: StrategyTemplateOrderByRelationAggregateInput
   }
 
   export type YieldOpportunityWhereUniqueInput = Prisma.AtLeast<{
@@ -12966,6 +12990,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
     updatedAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
     userOptOuts?: UserYieldOpportunityOptOutListRelationFilter
+    strategyTemplates?: StrategyTemplateListRelationFilter
   }, "id" | "platform_marketId">
 
   export type YieldOpportunityOrderByWithAggregationInput = {
@@ -13090,7 +13115,7 @@ export namespace Prisma {
     price?: number | null
     timestamp?: Date | string
     user: UserCreateNestedOneWithoutTradingHistoryInput
-    strategy?: StrategyCreateNestedOneWithoutTradingEventsInput
+    strategyTemplate?: StrategyTemplateCreateNestedOneWithoutTradingEventsInput
   }
 
   export type TradingHistoryUncheckedCreateInput = {
@@ -13100,7 +13125,7 @@ export namespace Prisma {
     asset: string
     amount: number
     price?: number | null
-    strategyId?: string | null
+    strategyTemplateId?: string | null
     timestamp?: Date | string
   }
 
@@ -13112,7 +13137,7 @@ export namespace Prisma {
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutTradingHistoryNestedInput
-    strategy?: StrategyUpdateOneWithoutTradingEventsNestedInput
+    strategyTemplate?: StrategyTemplateUpdateOneWithoutTradingEventsNestedInput
   }
 
   export type TradingHistoryUncheckedUpdateInput = {
@@ -13122,7 +13147,7 @@ export namespace Prisma {
     asset?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
     price?: NullableFloatFieldUpdateOperationsInput | number | null
-    strategyId?: NullableStringFieldUpdateOperationsInput | string | null
+    strategyTemplateId?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -13133,7 +13158,7 @@ export namespace Prisma {
     asset: string
     amount: number
     price?: number | null
-    strategyId?: string | null
+    strategyTemplateId?: string | null
     timestamp?: Date | string
   }
 
@@ -13153,7 +13178,7 @@ export namespace Prisma {
     asset?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
     price?: NullableFloatFieldUpdateOperationsInput | number | null
-    strategyId?: NullableStringFieldUpdateOperationsInput | string | null
+    strategyTemplateId?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -13281,103 +13306,100 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type StrategyCreateInput = {
+  export type StrategyTemplateCreateInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyInput
-    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyInput
-    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyInput
+    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyTemplateInput
+    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyUncheckedCreateInput = {
+  export type StrategyTemplateUncheckedCreateInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput
-    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyInput
-    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput
+    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityUncheckedCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyUpdateInput = {
+  export type StrategyTemplateUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyNestedInput
-    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyNestedInput
-    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput
+    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyTemplateNestedInput
+    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
-  export type StrategyUncheckedUpdateInput = {
+  export type StrategyTemplateUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput
-    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyNestedInput
-    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput
+    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUncheckedUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
-  export type StrategyCreateManyInput = {
+  export type StrategyTemplateCreateManyInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type StrategyUpdateManyMutationInput = {
+  export type StrategyTemplateUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type StrategyUncheckedUpdateManyInput = {
+  export type StrategyTemplateUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13394,13 +13416,13 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutUserStrategyAllocationsInput
-    strategy: StrategyCreateNestedOneWithoutUserAllocationsInput
+    strategyTemplate: StrategyTemplateCreateNestedOneWithoutUserAllocationsInput
   }
 
   export type UserStrategyAllocationUncheckedCreateInput = {
     id?: string
     userId: string
-    strategyId: string
+    strategyTemplateId: string
     assetTicker: string
     allocatedAmount: number
     entryTimestamp?: Date | string
@@ -13420,13 +13442,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutUserStrategyAllocationsNestedInput
-    strategy?: StrategyUpdateOneRequiredWithoutUserAllocationsNestedInput
+    strategyTemplate?: StrategyTemplateUpdateOneRequiredWithoutUserAllocationsNestedInput
   }
 
   export type UserStrategyAllocationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     assetTicker?: StringFieldUpdateOperationsInput | string
     allocatedAmount?: FloatFieldUpdateOperationsInput | number
     entryTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13439,7 +13461,7 @@ export namespace Prisma {
   export type UserStrategyAllocationCreateManyInput = {
     id?: string
     userId: string
-    strategyId: string
+    strategyTemplateId: string
     assetTicker: string
     allocatedAmount: number
     entryTimestamp?: Date | string
@@ -13463,7 +13485,7 @@ export namespace Prisma {
   export type UserStrategyAllocationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     assetTicker?: StringFieldUpdateOperationsInput | string
     allocatedAmount?: FloatFieldUpdateOperationsInput | number
     entryTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13481,13 +13503,13 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutStrategyPreferencesInput
-    strategy: StrategyCreateNestedOneWithoutUserPreferencesInput
+    strategyTemplate: StrategyTemplateCreateNestedOneWithoutUserPreferencesInput
   }
 
   export type UserStrategyPreferenceUncheckedCreateInput = {
     id?: string
     userId: string
-    strategyId: string
+    strategyTemplateId: string
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
@@ -13503,13 +13525,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutStrategyPreferencesNestedInput
-    strategy?: StrategyUpdateOneRequiredWithoutUserPreferencesNestedInput
+    strategyTemplate?: StrategyTemplateUpdateOneRequiredWithoutUserPreferencesNestedInput
   }
 
   export type UserStrategyPreferenceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     isFavorite?: BoolFieldUpdateOperationsInput | boolean
     isHidden?: BoolFieldUpdateOperationsInput | boolean
     receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
@@ -13520,7 +13542,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceCreateManyInput = {
     id?: string
     userId: string
-    strategyId: string
+    strategyTemplateId: string
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
@@ -13540,7 +13562,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     isFavorite?: BoolFieldUpdateOperationsInput | boolean
     isHidden?: BoolFieldUpdateOperationsInput | boolean
     receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
@@ -13607,6 +13629,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     userOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutYieldOpportunityInput
+    strategyTemplates?: StrategyTemplateCreateNestedManyWithoutYieldOpportunitiesInput
   }
 
   export type YieldOpportunityUncheckedCreateInput = {
@@ -13621,6 +13644,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     userOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutYieldOpportunityInput
+    strategyTemplates?: StrategyTemplateUncheckedCreateNestedManyWithoutYieldOpportunitiesInput
   }
 
   export type YieldOpportunityUpdateInput = {
@@ -13635,6 +13659,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutYieldOpportunityNestedInput
+    strategyTemplates?: StrategyTemplateUpdateManyWithoutYieldOpportunitiesNestedInput
   }
 
   export type YieldOpportunityUncheckedUpdateInput = {
@@ -13649,6 +13674,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityNestedInput
+    strategyTemplates?: StrategyTemplateUncheckedUpdateManyWithoutYieldOpportunitiesNestedInput
   }
 
   export type YieldOpportunityCreateManyInput = {
@@ -13891,9 +13917,9 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type StrategyNullableScalarRelationFilter = {
-    is?: StrategyWhereInput | null
-    isNot?: StrategyWhereInput | null
+  export type StrategyTemplateNullableScalarRelationFilter = {
+    is?: StrategyTemplateWhereInput | null
+    isNot?: StrategyTemplateWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -13908,7 +13934,7 @@ export namespace Prisma {
     asset?: SortOrder
     amount?: SortOrder
     price?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     timestamp?: SortOrder
   }
 
@@ -13924,7 +13950,7 @@ export namespace Prisma {
     asset?: SortOrder
     amount?: SortOrder
     price?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     timestamp?: SortOrder
   }
 
@@ -13935,7 +13961,7 @@ export namespace Prisma {
     asset?: SortOrder
     amount?: SortOrder
     price?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     timestamp?: SortOrder
   }
 
@@ -14083,51 +14109,50 @@ export namespace Prisma {
     not?: NestedEnumRiskLevelFilter<$PrismaModel> | $Enums.RiskLevel
   }
 
-  export type StrategyCountOrderByAggregateInput = {
+  export type YieldOpportunityListRelationFilter = {
+    every?: YieldOpportunityWhereInput
+    some?: YieldOpportunityWhereInput
+    none?: YieldOpportunityWhereInput
+  }
+
+  export type YieldOpportunityOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type StrategyTemplateCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
     image?: SortOrder
     assetTicker?: SortOrder
-    apy?: SortOrder
     riskLevel?: SortOrder
     platform?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type StrategyAvgOrderByAggregateInput = {
-    apy?: SortOrder
-  }
-
-  export type StrategyMaxOrderByAggregateInput = {
+  export type StrategyTemplateMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
     image?: SortOrder
     assetTicker?: SortOrder
-    apy?: SortOrder
     riskLevel?: SortOrder
     platform?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type StrategyMinOrderByAggregateInput = {
+  export type StrategyTemplateMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
     image?: SortOrder
     assetTicker?: SortOrder
-    apy?: SortOrder
     riskLevel?: SortOrder
     platform?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type StrategySumOrderByAggregateInput = {
-    apy?: SortOrder
   }
 
   export type EnumRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
@@ -14151,21 +14176,21 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type StrategyScalarRelationFilter = {
-    is?: StrategyWhereInput
-    isNot?: StrategyWhereInput
+  export type StrategyTemplateScalarRelationFilter = {
+    is?: StrategyTemplateWhereInput
+    isNot?: StrategyTemplateWhereInput
   }
 
-  export type UserStrategyAllocationUserIdStrategyIdAssetTickerCompoundUniqueInput = {
+  export type UserStrategyAllocationUserIdStrategyTemplateIdAssetTickerCompoundUniqueInput = {
     userId: string
-    strategyId: string
+    strategyTemplateId: string
     assetTicker: string
   }
 
   export type UserStrategyAllocationCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     assetTicker?: SortOrder
     allocatedAmount?: SortOrder
     entryTimestamp?: SortOrder
@@ -14183,7 +14208,7 @@ export namespace Prisma {
   export type UserStrategyAllocationMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     assetTicker?: SortOrder
     allocatedAmount?: SortOrder
     entryTimestamp?: SortOrder
@@ -14196,7 +14221,7 @@ export namespace Prisma {
   export type UserStrategyAllocationMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     assetTicker?: SortOrder
     allocatedAmount?: SortOrder
     entryTimestamp?: SortOrder
@@ -14230,15 +14255,15 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type UserStrategyPreferenceUserIdStrategyIdCompoundUniqueInput = {
+  export type UserStrategyPreferenceUserIdStrategyTemplateIdCompoundUniqueInput = {
     userId: string
-    strategyId: string
+    strategyTemplateId: string
   }
 
   export type UserStrategyPreferenceCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     isFavorite?: SortOrder
     isHidden?: SortOrder
     receiveNotifications?: SortOrder
@@ -14249,7 +14274,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     isFavorite?: SortOrder
     isHidden?: SortOrder
     receiveNotifications?: SortOrder
@@ -14260,7 +14285,7 @@ export namespace Prisma {
   export type UserStrategyPreferenceMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    strategyId?: SortOrder
+    strategyTemplateId?: SortOrder
     isFavorite?: SortOrder
     isHidden?: SortOrder
     receiveNotifications?: SortOrder
@@ -14305,6 +14330,16 @@ export namespace Prisma {
     userId?: SortOrder
     yieldOpportunityId?: SortOrder
     optedOutAt?: SortOrder
+  }
+
+  export type StrategyTemplateListRelationFilter = {
+    every?: StrategyTemplateWhereInput
+    some?: StrategyTemplateWhereInput
+    none?: StrategyTemplateWhereInput
+  }
+
+  export type StrategyTemplateOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type YieldOpportunityPlatformMarketIdCompoundUniqueInput = {
@@ -14629,10 +14664,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type StrategyCreateNestedOneWithoutTradingEventsInput = {
-    create?: XOR<StrategyCreateWithoutTradingEventsInput, StrategyUncheckedCreateWithoutTradingEventsInput>
-    connectOrCreate?: StrategyCreateOrConnectWithoutTradingEventsInput
-    connect?: StrategyWhereUniqueInput
+  export type StrategyTemplateCreateNestedOneWithoutTradingEventsInput = {
+    create?: XOR<StrategyTemplateCreateWithoutTradingEventsInput, StrategyTemplateUncheckedCreateWithoutTradingEventsInput>
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutTradingEventsInput
+    connect?: StrategyTemplateWhereUniqueInput
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -14659,14 +14694,14 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTradingHistoryInput, UserUpdateWithoutTradingHistoryInput>, UserUncheckedUpdateWithoutTradingHistoryInput>
   }
 
-  export type StrategyUpdateOneWithoutTradingEventsNestedInput = {
-    create?: XOR<StrategyCreateWithoutTradingEventsInput, StrategyUncheckedCreateWithoutTradingEventsInput>
-    connectOrCreate?: StrategyCreateOrConnectWithoutTradingEventsInput
-    upsert?: StrategyUpsertWithoutTradingEventsInput
-    disconnect?: StrategyWhereInput | boolean
-    delete?: StrategyWhereInput | boolean
-    connect?: StrategyWhereUniqueInput
-    update?: XOR<XOR<StrategyUpdateToOneWithWhereWithoutTradingEventsInput, StrategyUpdateWithoutTradingEventsInput>, StrategyUncheckedUpdateWithoutTradingEventsInput>
+  export type StrategyTemplateUpdateOneWithoutTradingEventsNestedInput = {
+    create?: XOR<StrategyTemplateCreateWithoutTradingEventsInput, StrategyTemplateUncheckedCreateWithoutTradingEventsInput>
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutTradingEventsInput
+    upsert?: StrategyTemplateUpsertWithoutTradingEventsInput
+    disconnect?: StrategyTemplateWhereInput | boolean
+    delete?: StrategyTemplateWhereInput | boolean
+    connect?: StrategyTemplateWhereUniqueInput
+    update?: XOR<XOR<StrategyTemplateUpdateToOneWithWhereWithoutTradingEventsInput, StrategyTemplateUpdateWithoutTradingEventsInput>, StrategyTemplateUncheckedUpdateWithoutTradingEventsInput>
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -14701,134 +14736,172 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCurrentAssetsInput, UserUpdateWithoutCurrentAssetsInput>, UserUncheckedUpdateWithoutCurrentAssetsInput>
   }
 
-  export type UserStrategyAllocationCreateNestedManyWithoutStrategyInput = {
-    create?: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput> | UserStrategyAllocationCreateWithoutStrategyInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyInput | UserStrategyAllocationCreateOrConnectWithoutStrategyInput[]
-    createMany?: UserStrategyAllocationCreateManyStrategyInputEnvelope
+  export type UserStrategyAllocationCreateNestedManyWithoutStrategyTemplateInput = {
+    create?: XOR<UserStrategyAllocationCreateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyAllocationCreateWithoutStrategyTemplateInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput | UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyAllocationCreateManyStrategyTemplateInputEnvelope
     connect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
   }
 
-  export type TradingHistoryCreateNestedManyWithoutStrategyInput = {
-    create?: XOR<TradingHistoryCreateWithoutStrategyInput, TradingHistoryUncheckedCreateWithoutStrategyInput> | TradingHistoryCreateWithoutStrategyInput[] | TradingHistoryUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyInput | TradingHistoryCreateOrConnectWithoutStrategyInput[]
-    createMany?: TradingHistoryCreateManyStrategyInputEnvelope
+  export type TradingHistoryCreateNestedManyWithoutStrategyTemplateInput = {
+    create?: XOR<TradingHistoryCreateWithoutStrategyTemplateInput, TradingHistoryUncheckedCreateWithoutStrategyTemplateInput> | TradingHistoryCreateWithoutStrategyTemplateInput[] | TradingHistoryUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyTemplateInput | TradingHistoryCreateOrConnectWithoutStrategyTemplateInput[]
+    createMany?: TradingHistoryCreateManyStrategyTemplateInputEnvelope
     connect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
   }
 
-  export type UserStrategyPreferenceCreateNestedManyWithoutStrategyInput = {
-    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
-    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+  export type UserStrategyPreferenceCreateNestedManyWithoutStrategyTemplateInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyPreferenceCreateWithoutStrategyTemplateInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyTemplateInputEnvelope
     connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
   }
 
-  export type UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput = {
-    create?: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput> | UserStrategyAllocationCreateWithoutStrategyInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyInput | UserStrategyAllocationCreateOrConnectWithoutStrategyInput[]
-    createMany?: UserStrategyAllocationCreateManyStrategyInputEnvelope
+  export type YieldOpportunityCreateNestedManyWithoutStrategyTemplatesInput = {
+    create?: XOR<YieldOpportunityCreateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput> | YieldOpportunityCreateWithoutStrategyTemplatesInput[] | YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput[]
+    connectOrCreate?: YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput | YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput[]
+    connect?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+  }
+
+  export type UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyTemplateInput = {
+    create?: XOR<UserStrategyAllocationCreateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyAllocationCreateWithoutStrategyTemplateInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput | UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyAllocationCreateManyStrategyTemplateInputEnvelope
     connect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
   }
 
-  export type TradingHistoryUncheckedCreateNestedManyWithoutStrategyInput = {
-    create?: XOR<TradingHistoryCreateWithoutStrategyInput, TradingHistoryUncheckedCreateWithoutStrategyInput> | TradingHistoryCreateWithoutStrategyInput[] | TradingHistoryUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyInput | TradingHistoryCreateOrConnectWithoutStrategyInput[]
-    createMany?: TradingHistoryCreateManyStrategyInputEnvelope
+  export type TradingHistoryUncheckedCreateNestedManyWithoutStrategyTemplateInput = {
+    create?: XOR<TradingHistoryCreateWithoutStrategyTemplateInput, TradingHistoryUncheckedCreateWithoutStrategyTemplateInput> | TradingHistoryCreateWithoutStrategyTemplateInput[] | TradingHistoryUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyTemplateInput | TradingHistoryCreateOrConnectWithoutStrategyTemplateInput[]
+    createMany?: TradingHistoryCreateManyStrategyTemplateInputEnvelope
     connect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
   }
 
-  export type UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput = {
-    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
-    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+  export type UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyTemplateInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyPreferenceCreateWithoutStrategyTemplateInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyTemplateInputEnvelope
     connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
+  }
+
+  export type YieldOpportunityUncheckedCreateNestedManyWithoutStrategyTemplatesInput = {
+    create?: XOR<YieldOpportunityCreateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput> | YieldOpportunityCreateWithoutStrategyTemplatesInput[] | YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput[]
+    connectOrCreate?: YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput | YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput[]
+    connect?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
   }
 
   export type EnumRiskLevelFieldUpdateOperationsInput = {
     set?: $Enums.RiskLevel
   }
 
-  export type UserStrategyAllocationUpdateManyWithoutStrategyNestedInput = {
-    create?: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput> | UserStrategyAllocationCreateWithoutStrategyInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyInput | UserStrategyAllocationCreateOrConnectWithoutStrategyInput[]
-    upsert?: UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyInput | UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyInput[]
-    createMany?: UserStrategyAllocationCreateManyStrategyInputEnvelope
+  export type UserStrategyAllocationUpdateManyWithoutStrategyTemplateNestedInput = {
+    create?: XOR<UserStrategyAllocationCreateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyAllocationCreateWithoutStrategyTemplateInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput | UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput[]
+    upsert?: UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyAllocationCreateManyStrategyTemplateInputEnvelope
     set?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
     disconnect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
     delete?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
     connect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
-    update?: UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyInput | UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyInput[]
-    updateMany?: UserStrategyAllocationUpdateManyWithWhereWithoutStrategyInput | UserStrategyAllocationUpdateManyWithWhereWithoutStrategyInput[]
+    update?: UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyTemplateInput[]
+    updateMany?: UserStrategyAllocationUpdateManyWithWhereWithoutStrategyTemplateInput | UserStrategyAllocationUpdateManyWithWhereWithoutStrategyTemplateInput[]
     deleteMany?: UserStrategyAllocationScalarWhereInput | UserStrategyAllocationScalarWhereInput[]
   }
 
-  export type TradingHistoryUpdateManyWithoutStrategyNestedInput = {
-    create?: XOR<TradingHistoryCreateWithoutStrategyInput, TradingHistoryUncheckedCreateWithoutStrategyInput> | TradingHistoryCreateWithoutStrategyInput[] | TradingHistoryUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyInput | TradingHistoryCreateOrConnectWithoutStrategyInput[]
-    upsert?: TradingHistoryUpsertWithWhereUniqueWithoutStrategyInput | TradingHistoryUpsertWithWhereUniqueWithoutStrategyInput[]
-    createMany?: TradingHistoryCreateManyStrategyInputEnvelope
+  export type TradingHistoryUpdateManyWithoutStrategyTemplateNestedInput = {
+    create?: XOR<TradingHistoryCreateWithoutStrategyTemplateInput, TradingHistoryUncheckedCreateWithoutStrategyTemplateInput> | TradingHistoryCreateWithoutStrategyTemplateInput[] | TradingHistoryUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyTemplateInput | TradingHistoryCreateOrConnectWithoutStrategyTemplateInput[]
+    upsert?: TradingHistoryUpsertWithWhereUniqueWithoutStrategyTemplateInput | TradingHistoryUpsertWithWhereUniqueWithoutStrategyTemplateInput[]
+    createMany?: TradingHistoryCreateManyStrategyTemplateInputEnvelope
     set?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
     disconnect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
     delete?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
     connect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
-    update?: TradingHistoryUpdateWithWhereUniqueWithoutStrategyInput | TradingHistoryUpdateWithWhereUniqueWithoutStrategyInput[]
-    updateMany?: TradingHistoryUpdateManyWithWhereWithoutStrategyInput | TradingHistoryUpdateManyWithWhereWithoutStrategyInput[]
+    update?: TradingHistoryUpdateWithWhereUniqueWithoutStrategyTemplateInput | TradingHistoryUpdateWithWhereUniqueWithoutStrategyTemplateInput[]
+    updateMany?: TradingHistoryUpdateManyWithWhereWithoutStrategyTemplateInput | TradingHistoryUpdateManyWithWhereWithoutStrategyTemplateInput[]
     deleteMany?: TradingHistoryScalarWhereInput | TradingHistoryScalarWhereInput[]
   }
 
-  export type UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput = {
-    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
-    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput[]
-    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+  export type UserStrategyPreferenceUpdateManyWithoutStrategyTemplateNestedInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyPreferenceCreateWithoutStrategyTemplateInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput[]
+    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyTemplateInputEnvelope
     set?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
     disconnect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
     delete?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
     connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
-    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput[]
-    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput | UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput[]
+    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyTemplateInput[]
+    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyTemplateInput | UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyTemplateInput[]
     deleteMany?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
   }
 
-  export type UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput = {
-    create?: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput> | UserStrategyAllocationCreateWithoutStrategyInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyInput | UserStrategyAllocationCreateOrConnectWithoutStrategyInput[]
-    upsert?: UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyInput | UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyInput[]
-    createMany?: UserStrategyAllocationCreateManyStrategyInputEnvelope
+  export type YieldOpportunityUpdateManyWithoutStrategyTemplatesNestedInput = {
+    create?: XOR<YieldOpportunityCreateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput> | YieldOpportunityCreateWithoutStrategyTemplatesInput[] | YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput[]
+    connectOrCreate?: YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput | YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput[]
+    upsert?: YieldOpportunityUpsertWithWhereUniqueWithoutStrategyTemplatesInput | YieldOpportunityUpsertWithWhereUniqueWithoutStrategyTemplatesInput[]
+    set?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    disconnect?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    delete?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    connect?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    update?: YieldOpportunityUpdateWithWhereUniqueWithoutStrategyTemplatesInput | YieldOpportunityUpdateWithWhereUniqueWithoutStrategyTemplatesInput[]
+    updateMany?: YieldOpportunityUpdateManyWithWhereWithoutStrategyTemplatesInput | YieldOpportunityUpdateManyWithWhereWithoutStrategyTemplatesInput[]
+    deleteMany?: YieldOpportunityScalarWhereInput | YieldOpportunityScalarWhereInput[]
+  }
+
+  export type UserStrategyAllocationUncheckedUpdateManyWithoutStrategyTemplateNestedInput = {
+    create?: XOR<UserStrategyAllocationCreateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyAllocationCreateWithoutStrategyTemplateInput[] | UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput | UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput[]
+    upsert?: UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyAllocationCreateManyStrategyTemplateInputEnvelope
     set?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
     disconnect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
     delete?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
     connect?: UserStrategyAllocationWhereUniqueInput | UserStrategyAllocationWhereUniqueInput[]
-    update?: UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyInput | UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyInput[]
-    updateMany?: UserStrategyAllocationUpdateManyWithWhereWithoutStrategyInput | UserStrategyAllocationUpdateManyWithWhereWithoutStrategyInput[]
+    update?: UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyTemplateInput[]
+    updateMany?: UserStrategyAllocationUpdateManyWithWhereWithoutStrategyTemplateInput | UserStrategyAllocationUpdateManyWithWhereWithoutStrategyTemplateInput[]
     deleteMany?: UserStrategyAllocationScalarWhereInput | UserStrategyAllocationScalarWhereInput[]
   }
 
-  export type TradingHistoryUncheckedUpdateManyWithoutStrategyNestedInput = {
-    create?: XOR<TradingHistoryCreateWithoutStrategyInput, TradingHistoryUncheckedCreateWithoutStrategyInput> | TradingHistoryCreateWithoutStrategyInput[] | TradingHistoryUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyInput | TradingHistoryCreateOrConnectWithoutStrategyInput[]
-    upsert?: TradingHistoryUpsertWithWhereUniqueWithoutStrategyInput | TradingHistoryUpsertWithWhereUniqueWithoutStrategyInput[]
-    createMany?: TradingHistoryCreateManyStrategyInputEnvelope
+  export type TradingHistoryUncheckedUpdateManyWithoutStrategyTemplateNestedInput = {
+    create?: XOR<TradingHistoryCreateWithoutStrategyTemplateInput, TradingHistoryUncheckedCreateWithoutStrategyTemplateInput> | TradingHistoryCreateWithoutStrategyTemplateInput[] | TradingHistoryUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: TradingHistoryCreateOrConnectWithoutStrategyTemplateInput | TradingHistoryCreateOrConnectWithoutStrategyTemplateInput[]
+    upsert?: TradingHistoryUpsertWithWhereUniqueWithoutStrategyTemplateInput | TradingHistoryUpsertWithWhereUniqueWithoutStrategyTemplateInput[]
+    createMany?: TradingHistoryCreateManyStrategyTemplateInputEnvelope
     set?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
     disconnect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
     delete?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
     connect?: TradingHistoryWhereUniqueInput | TradingHistoryWhereUniqueInput[]
-    update?: TradingHistoryUpdateWithWhereUniqueWithoutStrategyInput | TradingHistoryUpdateWithWhereUniqueWithoutStrategyInput[]
-    updateMany?: TradingHistoryUpdateManyWithWhereWithoutStrategyInput | TradingHistoryUpdateManyWithWhereWithoutStrategyInput[]
+    update?: TradingHistoryUpdateWithWhereUniqueWithoutStrategyTemplateInput | TradingHistoryUpdateWithWhereUniqueWithoutStrategyTemplateInput[]
+    updateMany?: TradingHistoryUpdateManyWithWhereWithoutStrategyTemplateInput | TradingHistoryUpdateManyWithWhereWithoutStrategyTemplateInput[]
     deleteMany?: TradingHistoryScalarWhereInput | TradingHistoryScalarWhereInput[]
   }
 
-  export type UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput = {
-    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput> | UserStrategyPreferenceCreateWithoutStrategyInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyInput[]
-    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyInput[]
-    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput[]
-    createMany?: UserStrategyPreferenceCreateManyStrategyInputEnvelope
+  export type UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyTemplateNestedInput = {
+    create?: XOR<UserStrategyPreferenceCreateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput> | UserStrategyPreferenceCreateWithoutStrategyTemplateInput[] | UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput[]
+    connectOrCreate?: UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput | UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput[]
+    upsert?: UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyTemplateInput[]
+    createMany?: UserStrategyPreferenceCreateManyStrategyTemplateInputEnvelope
     set?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
     disconnect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
     delete?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
     connect?: UserStrategyPreferenceWhereUniqueInput | UserStrategyPreferenceWhereUniqueInput[]
-    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput[]
-    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput | UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput[]
+    update?: UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyTemplateInput | UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyTemplateInput[]
+    updateMany?: UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyTemplateInput | UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyTemplateInput[]
     deleteMany?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
+  }
+
+  export type YieldOpportunityUncheckedUpdateManyWithoutStrategyTemplatesNestedInput = {
+    create?: XOR<YieldOpportunityCreateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput> | YieldOpportunityCreateWithoutStrategyTemplatesInput[] | YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput[]
+    connectOrCreate?: YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput | YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput[]
+    upsert?: YieldOpportunityUpsertWithWhereUniqueWithoutStrategyTemplatesInput | YieldOpportunityUpsertWithWhereUniqueWithoutStrategyTemplatesInput[]
+    set?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    disconnect?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    delete?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    connect?: YieldOpportunityWhereUniqueInput | YieldOpportunityWhereUniqueInput[]
+    update?: YieldOpportunityUpdateWithWhereUniqueWithoutStrategyTemplatesInput | YieldOpportunityUpdateWithWhereUniqueWithoutStrategyTemplatesInput[]
+    updateMany?: YieldOpportunityUpdateManyWithWhereWithoutStrategyTemplatesInput | YieldOpportunityUpdateManyWithWhereWithoutStrategyTemplatesInput[]
+    deleteMany?: YieldOpportunityScalarWhereInput | YieldOpportunityScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutUserStrategyAllocationsInput = {
@@ -14837,10 +14910,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type StrategyCreateNestedOneWithoutUserAllocationsInput = {
-    create?: XOR<StrategyCreateWithoutUserAllocationsInput, StrategyUncheckedCreateWithoutUserAllocationsInput>
-    connectOrCreate?: StrategyCreateOrConnectWithoutUserAllocationsInput
-    connect?: StrategyWhereUniqueInput
+  export type StrategyTemplateCreateNestedOneWithoutUserAllocationsInput = {
+    create?: XOR<StrategyTemplateCreateWithoutUserAllocationsInput, StrategyTemplateUncheckedCreateWithoutUserAllocationsInput>
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutUserAllocationsInput
+    connect?: StrategyTemplateWhereUniqueInput
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -14855,12 +14928,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutUserStrategyAllocationsInput, UserUpdateWithoutUserStrategyAllocationsInput>, UserUncheckedUpdateWithoutUserStrategyAllocationsInput>
   }
 
-  export type StrategyUpdateOneRequiredWithoutUserAllocationsNestedInput = {
-    create?: XOR<StrategyCreateWithoutUserAllocationsInput, StrategyUncheckedCreateWithoutUserAllocationsInput>
-    connectOrCreate?: StrategyCreateOrConnectWithoutUserAllocationsInput
-    upsert?: StrategyUpsertWithoutUserAllocationsInput
-    connect?: StrategyWhereUniqueInput
-    update?: XOR<XOR<StrategyUpdateToOneWithWhereWithoutUserAllocationsInput, StrategyUpdateWithoutUserAllocationsInput>, StrategyUncheckedUpdateWithoutUserAllocationsInput>
+  export type StrategyTemplateUpdateOneRequiredWithoutUserAllocationsNestedInput = {
+    create?: XOR<StrategyTemplateCreateWithoutUserAllocationsInput, StrategyTemplateUncheckedCreateWithoutUserAllocationsInput>
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutUserAllocationsInput
+    upsert?: StrategyTemplateUpsertWithoutUserAllocationsInput
+    connect?: StrategyTemplateWhereUniqueInput
+    update?: XOR<XOR<StrategyTemplateUpdateToOneWithWhereWithoutUserAllocationsInput, StrategyTemplateUpdateWithoutUserAllocationsInput>, StrategyTemplateUncheckedUpdateWithoutUserAllocationsInput>
   }
 
   export type UserCreateNestedOneWithoutStrategyPreferencesInput = {
@@ -14869,10 +14942,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type StrategyCreateNestedOneWithoutUserPreferencesInput = {
-    create?: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
-    connectOrCreate?: StrategyCreateOrConnectWithoutUserPreferencesInput
-    connect?: StrategyWhereUniqueInput
+  export type StrategyTemplateCreateNestedOneWithoutUserPreferencesInput = {
+    create?: XOR<StrategyTemplateCreateWithoutUserPreferencesInput, StrategyTemplateUncheckedCreateWithoutUserPreferencesInput>
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutUserPreferencesInput
+    connect?: StrategyTemplateWhereUniqueInput
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -14887,12 +14960,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutStrategyPreferencesInput, UserUpdateWithoutStrategyPreferencesInput>, UserUncheckedUpdateWithoutStrategyPreferencesInput>
   }
 
-  export type StrategyUpdateOneRequiredWithoutUserPreferencesNestedInput = {
-    create?: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
-    connectOrCreate?: StrategyCreateOrConnectWithoutUserPreferencesInput
-    upsert?: StrategyUpsertWithoutUserPreferencesInput
-    connect?: StrategyWhereUniqueInput
-    update?: XOR<XOR<StrategyUpdateToOneWithWhereWithoutUserPreferencesInput, StrategyUpdateWithoutUserPreferencesInput>, StrategyUncheckedUpdateWithoutUserPreferencesInput>
+  export type StrategyTemplateUpdateOneRequiredWithoutUserPreferencesNestedInput = {
+    create?: XOR<StrategyTemplateCreateWithoutUserPreferencesInput, StrategyTemplateUncheckedCreateWithoutUserPreferencesInput>
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutUserPreferencesInput
+    upsert?: StrategyTemplateUpsertWithoutUserPreferencesInput
+    connect?: StrategyTemplateWhereUniqueInput
+    update?: XOR<XOR<StrategyTemplateUpdateToOneWithWhereWithoutUserPreferencesInput, StrategyTemplateUpdateWithoutUserPreferencesInput>, StrategyTemplateUncheckedUpdateWithoutUserPreferencesInput>
   }
 
   export type UserCreateNestedOneWithoutYieldOpportunityOptOutsInput = {
@@ -14930,11 +15003,23 @@ export namespace Prisma {
     connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
   }
 
+  export type StrategyTemplateCreateNestedManyWithoutYieldOpportunitiesInput = {
+    create?: XOR<StrategyTemplateCreateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput> | StrategyTemplateCreateWithoutYieldOpportunitiesInput[] | StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput[]
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput | StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput[]
+    connect?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+  }
+
   export type UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutYieldOpportunityInput = {
     create?: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput> | UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput[]
     connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput | UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput[]
     createMany?: UserYieldOpportunityOptOutCreateManyYieldOpportunityInputEnvelope
     connect?: UserYieldOpportunityOptOutWhereUniqueInput | UserYieldOpportunityOptOutWhereUniqueInput[]
+  }
+
+  export type StrategyTemplateUncheckedCreateNestedManyWithoutYieldOpportunitiesInput = {
+    create?: XOR<StrategyTemplateCreateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput> | StrategyTemplateCreateWithoutYieldOpportunitiesInput[] | StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput[]
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput | StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput[]
+    connect?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
   }
 
   export type UserYieldOpportunityOptOutUpdateManyWithoutYieldOpportunityNestedInput = {
@@ -14951,6 +15036,19 @@ export namespace Prisma {
     deleteMany?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
   }
 
+  export type StrategyTemplateUpdateManyWithoutYieldOpportunitiesNestedInput = {
+    create?: XOR<StrategyTemplateCreateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput> | StrategyTemplateCreateWithoutYieldOpportunitiesInput[] | StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput[]
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput | StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput[]
+    upsert?: StrategyTemplateUpsertWithWhereUniqueWithoutYieldOpportunitiesInput | StrategyTemplateUpsertWithWhereUniqueWithoutYieldOpportunitiesInput[]
+    set?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    disconnect?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    delete?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    connect?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    update?: StrategyTemplateUpdateWithWhereUniqueWithoutYieldOpportunitiesInput | StrategyTemplateUpdateWithWhereUniqueWithoutYieldOpportunitiesInput[]
+    updateMany?: StrategyTemplateUpdateManyWithWhereWithoutYieldOpportunitiesInput | StrategyTemplateUpdateManyWithWhereWithoutYieldOpportunitiesInput[]
+    deleteMany?: StrategyTemplateScalarWhereInput | StrategyTemplateScalarWhereInput[]
+  }
+
   export type UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityNestedInput = {
     create?: XOR<UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput> | UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput[] | UserYieldOpportunityOptOutUncheckedCreateWithoutYieldOpportunityInput[]
     connectOrCreate?: UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput | UserYieldOpportunityOptOutCreateOrConnectWithoutYieldOpportunityInput[]
@@ -14963,6 +15061,19 @@ export namespace Prisma {
     update?: UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpdateWithWhereUniqueWithoutYieldOpportunityInput[]
     updateMany?: UserYieldOpportunityOptOutUpdateManyWithWhereWithoutYieldOpportunityInput | UserYieldOpportunityOptOutUpdateManyWithWhereWithoutYieldOpportunityInput[]
     deleteMany?: UserYieldOpportunityOptOutScalarWhereInput | UserYieldOpportunityOptOutScalarWhereInput[]
+  }
+
+  export type StrategyTemplateUncheckedUpdateManyWithoutYieldOpportunitiesNestedInput = {
+    create?: XOR<StrategyTemplateCreateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput> | StrategyTemplateCreateWithoutYieldOpportunitiesInput[] | StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput[]
+    connectOrCreate?: StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput | StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput[]
+    upsert?: StrategyTemplateUpsertWithWhereUniqueWithoutYieldOpportunitiesInput | StrategyTemplateUpsertWithWhereUniqueWithoutYieldOpportunitiesInput[]
+    set?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    disconnect?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    delete?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    connect?: StrategyTemplateWhereUniqueInput | StrategyTemplateWhereUniqueInput[]
+    update?: StrategyTemplateUpdateWithWhereUniqueWithoutYieldOpportunitiesInput | StrategyTemplateUpdateWithWhereUniqueWithoutYieldOpportunitiesInput[]
+    updateMany?: StrategyTemplateUpdateManyWithWhereWithoutYieldOpportunitiesInput | StrategyTemplateUpdateManyWithWhereWithoutYieldOpportunitiesInput[]
+    deleteMany?: StrategyTemplateScalarWhereInput | StrategyTemplateScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -15207,7 +15318,7 @@ export namespace Prisma {
     amount: number
     price?: number | null
     timestamp?: Date | string
-    strategy?: StrategyCreateNestedOneWithoutTradingEventsInput
+    strategyTemplate?: StrategyTemplateCreateNestedOneWithoutTradingEventsInput
   }
 
   export type TradingHistoryUncheckedCreateWithoutUserInput = {
@@ -15216,7 +15327,7 @@ export namespace Prisma {
     asset: string
     amount: number
     price?: number | null
-    strategyId?: string | null
+    strategyTemplateId?: string | null
     timestamp?: Date | string
   }
 
@@ -15291,12 +15402,12 @@ export namespace Prisma {
     lastYieldClaimTimestamp?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    strategy: StrategyCreateNestedOneWithoutUserAllocationsInput
+    strategyTemplate: StrategyTemplateCreateNestedOneWithoutUserAllocationsInput
   }
 
   export type UserStrategyAllocationUncheckedCreateWithoutUserInput = {
     id?: string
-    strategyId: string
+    strategyTemplateId: string
     assetTicker: string
     allocatedAmount: number
     entryTimestamp?: Date | string
@@ -15323,12 +15434,12 @@ export namespace Prisma {
     receiveNotifications?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    strategy: StrategyCreateNestedOneWithoutUserPreferencesInput
+    strategyTemplate: StrategyTemplateCreateNestedOneWithoutUserPreferencesInput
   }
 
   export type UserStrategyPreferenceUncheckedCreateWithoutUserInput = {
     id?: string
-    strategyId: string
+    strategyTemplateId: string
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
@@ -15394,7 +15505,7 @@ export namespace Prisma {
     asset?: StringFilter<"TradingHistory"> | string
     amount?: FloatFilter<"TradingHistory"> | number
     price?: FloatNullableFilter<"TradingHistory"> | number | null
-    strategyId?: StringNullableFilter<"TradingHistory"> | string | null
+    strategyTemplateId?: StringNullableFilter<"TradingHistory"> | string | null
     timestamp?: DateTimeFilter<"TradingHistory"> | Date | string
   }
 
@@ -15476,7 +15587,7 @@ export namespace Prisma {
     NOT?: UserStrategyAllocationScalarWhereInput | UserStrategyAllocationScalarWhereInput[]
     id?: StringFilter<"UserStrategyAllocation"> | string
     userId?: StringFilter<"UserStrategyAllocation"> | string
-    strategyId?: StringFilter<"UserStrategyAllocation"> | string
+    strategyTemplateId?: StringFilter<"UserStrategyAllocation"> | string
     assetTicker?: StringFilter<"UserStrategyAllocation"> | string
     allocatedAmount?: FloatFilter<"UserStrategyAllocation"> | number
     entryTimestamp?: DateTimeFilter<"UserStrategyAllocation"> | Date | string
@@ -15508,7 +15619,7 @@ export namespace Prisma {
     NOT?: UserStrategyPreferenceScalarWhereInput | UserStrategyPreferenceScalarWhereInput[]
     id?: StringFilter<"UserStrategyPreference"> | string
     userId?: StringFilter<"UserStrategyPreference"> | string
-    strategyId?: StringFilter<"UserStrategyPreference"> | string
+    strategyTemplateId?: StringFilter<"UserStrategyPreference"> | string
     isFavorite?: BoolFilter<"UserStrategyPreference"> | boolean
     isHidden?: BoolFilter<"UserStrategyPreference"> | boolean
     receiveNotifications?: BoolFilter<"UserStrategyPreference"> | boolean
@@ -15573,39 +15684,39 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutTradingHistoryInput, UserUncheckedCreateWithoutTradingHistoryInput>
   }
 
-  export type StrategyCreateWithoutTradingEventsInput = {
+  export type StrategyTemplateCreateWithoutTradingEventsInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyInput
-    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyInput
+    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyUncheckedCreateWithoutTradingEventsInput = {
+  export type StrategyTemplateUncheckedCreateWithoutTradingEventsInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput
-    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput
+    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityUncheckedCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyCreateOrConnectWithoutTradingEventsInput = {
-    where: StrategyWhereUniqueInput
-    create: XOR<StrategyCreateWithoutTradingEventsInput, StrategyUncheckedCreateWithoutTradingEventsInput>
+  export type StrategyTemplateCreateOrConnectWithoutTradingEventsInput = {
+    where: StrategyTemplateWhereUniqueInput
+    create: XOR<StrategyTemplateCreateWithoutTradingEventsInput, StrategyTemplateUncheckedCreateWithoutTradingEventsInput>
   }
 
   export type UserUpsertWithoutTradingHistoryInput = {
@@ -15645,45 +15756,45 @@ export namespace Prisma {
     yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type StrategyUpsertWithoutTradingEventsInput = {
-    update: XOR<StrategyUpdateWithoutTradingEventsInput, StrategyUncheckedUpdateWithoutTradingEventsInput>
-    create: XOR<StrategyCreateWithoutTradingEventsInput, StrategyUncheckedCreateWithoutTradingEventsInput>
-    where?: StrategyWhereInput
+  export type StrategyTemplateUpsertWithoutTradingEventsInput = {
+    update: XOR<StrategyTemplateUpdateWithoutTradingEventsInput, StrategyTemplateUncheckedUpdateWithoutTradingEventsInput>
+    create: XOR<StrategyTemplateCreateWithoutTradingEventsInput, StrategyTemplateUncheckedCreateWithoutTradingEventsInput>
+    where?: StrategyTemplateWhereInput
   }
 
-  export type StrategyUpdateToOneWithWhereWithoutTradingEventsInput = {
-    where?: StrategyWhereInput
-    data: XOR<StrategyUpdateWithoutTradingEventsInput, StrategyUncheckedUpdateWithoutTradingEventsInput>
+  export type StrategyTemplateUpdateToOneWithWhereWithoutTradingEventsInput = {
+    where?: StrategyTemplateWhereInput
+    data: XOR<StrategyTemplateUpdateWithoutTradingEventsInput, StrategyTemplateUncheckedUpdateWithoutTradingEventsInput>
   }
 
-  export type StrategyUpdateWithoutTradingEventsInput = {
+  export type StrategyTemplateUpdateWithoutTradingEventsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyNestedInput
-    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput
+    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
-  export type StrategyUncheckedUpdateWithoutTradingEventsInput = {
+  export type StrategyTemplateUncheckedUpdateWithoutTradingEventsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput
-    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput
+    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUncheckedUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
   export type UserCreateWithoutCurrentAllocationsInput = {
@@ -15822,7 +15933,7 @@ export namespace Prisma {
     yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserStrategyAllocationCreateWithoutStrategyInput = {
+  export type UserStrategyAllocationCreateWithoutStrategyTemplateInput = {
     id?: string
     assetTicker: string
     allocatedAmount: number
@@ -15834,7 +15945,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutUserStrategyAllocationsInput
   }
 
-  export type UserStrategyAllocationUncheckedCreateWithoutStrategyInput = {
+  export type UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput = {
     id?: string
     userId: string
     assetTicker: string
@@ -15846,17 +15957,17 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type UserStrategyAllocationCreateOrConnectWithoutStrategyInput = {
+  export type UserStrategyAllocationCreateOrConnectWithoutStrategyTemplateInput = {
     where: UserStrategyAllocationWhereUniqueInput
-    create: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput>
+    create: XOR<UserStrategyAllocationCreateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput>
   }
 
-  export type UserStrategyAllocationCreateManyStrategyInputEnvelope = {
-    data: UserStrategyAllocationCreateManyStrategyInput | UserStrategyAllocationCreateManyStrategyInput[]
+  export type UserStrategyAllocationCreateManyStrategyTemplateInputEnvelope = {
+    data: UserStrategyAllocationCreateManyStrategyTemplateInput | UserStrategyAllocationCreateManyStrategyTemplateInput[]
     skipDuplicates?: boolean
   }
 
-  export type TradingHistoryCreateWithoutStrategyInput = {
+  export type TradingHistoryCreateWithoutStrategyTemplateInput = {
     id?: string
     action: string
     asset: string
@@ -15866,7 +15977,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutTradingHistoryInput
   }
 
-  export type TradingHistoryUncheckedCreateWithoutStrategyInput = {
+  export type TradingHistoryUncheckedCreateWithoutStrategyTemplateInput = {
     id?: string
     userId: string
     action: string
@@ -15876,17 +15987,17 @@ export namespace Prisma {
     timestamp?: Date | string
   }
 
-  export type TradingHistoryCreateOrConnectWithoutStrategyInput = {
+  export type TradingHistoryCreateOrConnectWithoutStrategyTemplateInput = {
     where: TradingHistoryWhereUniqueInput
-    create: XOR<TradingHistoryCreateWithoutStrategyInput, TradingHistoryUncheckedCreateWithoutStrategyInput>
+    create: XOR<TradingHistoryCreateWithoutStrategyTemplateInput, TradingHistoryUncheckedCreateWithoutStrategyTemplateInput>
   }
 
-  export type TradingHistoryCreateManyStrategyInputEnvelope = {
-    data: TradingHistoryCreateManyStrategyInput | TradingHistoryCreateManyStrategyInput[]
+  export type TradingHistoryCreateManyStrategyTemplateInputEnvelope = {
+    data: TradingHistoryCreateManyStrategyTemplateInput | TradingHistoryCreateManyStrategyTemplateInput[]
     skipDuplicates?: boolean
   }
 
-  export type UserStrategyPreferenceCreateWithoutStrategyInput = {
+  export type UserStrategyPreferenceCreateWithoutStrategyTemplateInput = {
     id?: string
     isFavorite?: boolean
     isHidden?: boolean
@@ -15896,7 +16007,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutStrategyPreferencesInput
   }
 
-  export type UserStrategyPreferenceUncheckedCreateWithoutStrategyInput = {
+  export type UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput = {
     id?: string
     userId: string
     isFavorite?: boolean
@@ -15906,62 +16017,127 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type UserStrategyPreferenceCreateOrConnectWithoutStrategyInput = {
+  export type UserStrategyPreferenceCreateOrConnectWithoutStrategyTemplateInput = {
     where: UserStrategyPreferenceWhereUniqueInput
-    create: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput>
+    create: XOR<UserStrategyPreferenceCreateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput>
   }
 
-  export type UserStrategyPreferenceCreateManyStrategyInputEnvelope = {
-    data: UserStrategyPreferenceCreateManyStrategyInput | UserStrategyPreferenceCreateManyStrategyInput[]
+  export type UserStrategyPreferenceCreateManyStrategyTemplateInputEnvelope = {
+    data: UserStrategyPreferenceCreateManyStrategyTemplateInput | UserStrategyPreferenceCreateManyStrategyTemplateInput[]
     skipDuplicates?: boolean
   }
 
-  export type UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyInput = {
-    where: UserStrategyAllocationWhereUniqueInput
-    update: XOR<UserStrategyAllocationUpdateWithoutStrategyInput, UserStrategyAllocationUncheckedUpdateWithoutStrategyInput>
-    create: XOR<UserStrategyAllocationCreateWithoutStrategyInput, UserStrategyAllocationUncheckedCreateWithoutStrategyInput>
+  export type YieldOpportunityCreateWithoutStrategyTemplatesInput = {
+    id?: string
+    platform: string
+    platformImage?: string | null
+    tickerImage?: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userOptOuts?: UserYieldOpportunityOptOutCreateNestedManyWithoutYieldOpportunityInput
   }
 
-  export type UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyInput = {
-    where: UserStrategyAllocationWhereUniqueInput
-    data: XOR<UserStrategyAllocationUpdateWithoutStrategyInput, UserStrategyAllocationUncheckedUpdateWithoutStrategyInput>
+  export type YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput = {
+    id?: string
+    platform: string
+    platformImage?: string | null
+    tickerImage?: string | null
+    name: string
+    marketId: string
+    assetTicker: string
+    apy: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userOptOuts?: UserYieldOpportunityOptOutUncheckedCreateNestedManyWithoutYieldOpportunityInput
   }
 
-  export type UserStrategyAllocationUpdateManyWithWhereWithoutStrategyInput = {
+  export type YieldOpportunityCreateOrConnectWithoutStrategyTemplatesInput = {
+    where: YieldOpportunityWhereUniqueInput
+    create: XOR<YieldOpportunityCreateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput>
+  }
+
+  export type UserStrategyAllocationUpsertWithWhereUniqueWithoutStrategyTemplateInput = {
+    where: UserStrategyAllocationWhereUniqueInput
+    update: XOR<UserStrategyAllocationUpdateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedUpdateWithoutStrategyTemplateInput>
+    create: XOR<UserStrategyAllocationCreateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedCreateWithoutStrategyTemplateInput>
+  }
+
+  export type UserStrategyAllocationUpdateWithWhereUniqueWithoutStrategyTemplateInput = {
+    where: UserStrategyAllocationWhereUniqueInput
+    data: XOR<UserStrategyAllocationUpdateWithoutStrategyTemplateInput, UserStrategyAllocationUncheckedUpdateWithoutStrategyTemplateInput>
+  }
+
+  export type UserStrategyAllocationUpdateManyWithWhereWithoutStrategyTemplateInput = {
     where: UserStrategyAllocationScalarWhereInput
-    data: XOR<UserStrategyAllocationUpdateManyMutationInput, UserStrategyAllocationUncheckedUpdateManyWithoutStrategyInput>
+    data: XOR<UserStrategyAllocationUpdateManyMutationInput, UserStrategyAllocationUncheckedUpdateManyWithoutStrategyTemplateInput>
   }
 
-  export type TradingHistoryUpsertWithWhereUniqueWithoutStrategyInput = {
+  export type TradingHistoryUpsertWithWhereUniqueWithoutStrategyTemplateInput = {
     where: TradingHistoryWhereUniqueInput
-    update: XOR<TradingHistoryUpdateWithoutStrategyInput, TradingHistoryUncheckedUpdateWithoutStrategyInput>
-    create: XOR<TradingHistoryCreateWithoutStrategyInput, TradingHistoryUncheckedCreateWithoutStrategyInput>
+    update: XOR<TradingHistoryUpdateWithoutStrategyTemplateInput, TradingHistoryUncheckedUpdateWithoutStrategyTemplateInput>
+    create: XOR<TradingHistoryCreateWithoutStrategyTemplateInput, TradingHistoryUncheckedCreateWithoutStrategyTemplateInput>
   }
 
-  export type TradingHistoryUpdateWithWhereUniqueWithoutStrategyInput = {
+  export type TradingHistoryUpdateWithWhereUniqueWithoutStrategyTemplateInput = {
     where: TradingHistoryWhereUniqueInput
-    data: XOR<TradingHistoryUpdateWithoutStrategyInput, TradingHistoryUncheckedUpdateWithoutStrategyInput>
+    data: XOR<TradingHistoryUpdateWithoutStrategyTemplateInput, TradingHistoryUncheckedUpdateWithoutStrategyTemplateInput>
   }
 
-  export type TradingHistoryUpdateManyWithWhereWithoutStrategyInput = {
+  export type TradingHistoryUpdateManyWithWhereWithoutStrategyTemplateInput = {
     where: TradingHistoryScalarWhereInput
-    data: XOR<TradingHistoryUpdateManyMutationInput, TradingHistoryUncheckedUpdateManyWithoutStrategyInput>
+    data: XOR<TradingHistoryUpdateManyMutationInput, TradingHistoryUncheckedUpdateManyWithoutStrategyTemplateInput>
   }
 
-  export type UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyInput = {
+  export type UserStrategyPreferenceUpsertWithWhereUniqueWithoutStrategyTemplateInput = {
     where: UserStrategyPreferenceWhereUniqueInput
-    update: XOR<UserStrategyPreferenceUpdateWithoutStrategyInput, UserStrategyPreferenceUncheckedUpdateWithoutStrategyInput>
-    create: XOR<UserStrategyPreferenceCreateWithoutStrategyInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyInput>
+    update: XOR<UserStrategyPreferenceUpdateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedUpdateWithoutStrategyTemplateInput>
+    create: XOR<UserStrategyPreferenceCreateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedCreateWithoutStrategyTemplateInput>
   }
 
-  export type UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyInput = {
+  export type UserStrategyPreferenceUpdateWithWhereUniqueWithoutStrategyTemplateInput = {
     where: UserStrategyPreferenceWhereUniqueInput
-    data: XOR<UserStrategyPreferenceUpdateWithoutStrategyInput, UserStrategyPreferenceUncheckedUpdateWithoutStrategyInput>
+    data: XOR<UserStrategyPreferenceUpdateWithoutStrategyTemplateInput, UserStrategyPreferenceUncheckedUpdateWithoutStrategyTemplateInput>
   }
 
-  export type UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyInput = {
+  export type UserStrategyPreferenceUpdateManyWithWhereWithoutStrategyTemplateInput = {
     where: UserStrategyPreferenceScalarWhereInput
-    data: XOR<UserStrategyPreferenceUpdateManyMutationInput, UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyInput>
+    data: XOR<UserStrategyPreferenceUpdateManyMutationInput, UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyTemplateInput>
+  }
+
+  export type YieldOpportunityUpsertWithWhereUniqueWithoutStrategyTemplatesInput = {
+    where: YieldOpportunityWhereUniqueInput
+    update: XOR<YieldOpportunityUpdateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedUpdateWithoutStrategyTemplatesInput>
+    create: XOR<YieldOpportunityCreateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedCreateWithoutStrategyTemplatesInput>
+  }
+
+  export type YieldOpportunityUpdateWithWhereUniqueWithoutStrategyTemplatesInput = {
+    where: YieldOpportunityWhereUniqueInput
+    data: XOR<YieldOpportunityUpdateWithoutStrategyTemplatesInput, YieldOpportunityUncheckedUpdateWithoutStrategyTemplatesInput>
+  }
+
+  export type YieldOpportunityUpdateManyWithWhereWithoutStrategyTemplatesInput = {
+    where: YieldOpportunityScalarWhereInput
+    data: XOR<YieldOpportunityUpdateManyMutationInput, YieldOpportunityUncheckedUpdateManyWithoutStrategyTemplatesInput>
+  }
+
+  export type YieldOpportunityScalarWhereInput = {
+    AND?: YieldOpportunityScalarWhereInput | YieldOpportunityScalarWhereInput[]
+    OR?: YieldOpportunityScalarWhereInput[]
+    NOT?: YieldOpportunityScalarWhereInput | YieldOpportunityScalarWhereInput[]
+    id?: StringFilter<"YieldOpportunity"> | string
+    platform?: StringFilter<"YieldOpportunity"> | string
+    platformImage?: StringNullableFilter<"YieldOpportunity"> | string | null
+    tickerImage?: StringNullableFilter<"YieldOpportunity"> | string | null
+    name?: StringFilter<"YieldOpportunity"> | string
+    marketId?: StringFilter<"YieldOpportunity"> | string
+    assetTicker?: StringFilter<"YieldOpportunity"> | string
+    apy?: FloatFilter<"YieldOpportunity"> | number
+    createdAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
+    updatedAt?: DateTimeFilter<"YieldOpportunity"> | Date | string
   }
 
   export type UserCreateWithoutUserStrategyAllocationsInput = {
@@ -15995,39 +16171,39 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutUserStrategyAllocationsInput, UserUncheckedCreateWithoutUserStrategyAllocationsInput>
   }
 
-  export type StrategyCreateWithoutUserAllocationsInput = {
+  export type StrategyTemplateCreateWithoutUserAllocationsInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyInput
-    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyInput
+    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyUncheckedCreateWithoutUserAllocationsInput = {
+  export type StrategyTemplateUncheckedCreateWithoutUserAllocationsInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyInput
-    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyInput
+    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityUncheckedCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyCreateOrConnectWithoutUserAllocationsInput = {
-    where: StrategyWhereUniqueInput
-    create: XOR<StrategyCreateWithoutUserAllocationsInput, StrategyUncheckedCreateWithoutUserAllocationsInput>
+  export type StrategyTemplateCreateOrConnectWithoutUserAllocationsInput = {
+    where: StrategyTemplateWhereUniqueInput
+    create: XOR<StrategyTemplateCreateWithoutUserAllocationsInput, StrategyTemplateUncheckedCreateWithoutUserAllocationsInput>
   }
 
   export type UserUpsertWithoutUserStrategyAllocationsInput = {
@@ -16067,45 +16243,45 @@ export namespace Prisma {
     yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type StrategyUpsertWithoutUserAllocationsInput = {
-    update: XOR<StrategyUpdateWithoutUserAllocationsInput, StrategyUncheckedUpdateWithoutUserAllocationsInput>
-    create: XOR<StrategyCreateWithoutUserAllocationsInput, StrategyUncheckedCreateWithoutUserAllocationsInput>
-    where?: StrategyWhereInput
+  export type StrategyTemplateUpsertWithoutUserAllocationsInput = {
+    update: XOR<StrategyTemplateUpdateWithoutUserAllocationsInput, StrategyTemplateUncheckedUpdateWithoutUserAllocationsInput>
+    create: XOR<StrategyTemplateCreateWithoutUserAllocationsInput, StrategyTemplateUncheckedCreateWithoutUserAllocationsInput>
+    where?: StrategyTemplateWhereInput
   }
 
-  export type StrategyUpdateToOneWithWhereWithoutUserAllocationsInput = {
-    where?: StrategyWhereInput
-    data: XOR<StrategyUpdateWithoutUserAllocationsInput, StrategyUncheckedUpdateWithoutUserAllocationsInput>
+  export type StrategyTemplateUpdateToOneWithWhereWithoutUserAllocationsInput = {
+    where?: StrategyTemplateWhereInput
+    data: XOR<StrategyTemplateUpdateWithoutUserAllocationsInput, StrategyTemplateUncheckedUpdateWithoutUserAllocationsInput>
   }
 
-  export type StrategyUpdateWithoutUserAllocationsInput = {
+  export type StrategyTemplateUpdateWithoutUserAllocationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyNestedInput
-    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyNestedInput
+    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
-  export type StrategyUncheckedUpdateWithoutUserAllocationsInput = {
+  export type StrategyTemplateUncheckedUpdateWithoutUserAllocationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyNestedInput
-    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyNestedInput
+    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUncheckedUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
   export type UserCreateWithoutStrategyPreferencesInput = {
@@ -16139,39 +16315,39 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutStrategyPreferencesInput, UserUncheckedCreateWithoutStrategyPreferencesInput>
   }
 
-  export type StrategyCreateWithoutUserPreferencesInput = {
+  export type StrategyTemplateCreateWithoutUserPreferencesInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyInput
-    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyInput
+    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyTemplateInput
+    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyUncheckedCreateWithoutUserPreferencesInput = {
+  export type StrategyTemplateUncheckedCreateWithoutUserPreferencesInput = {
     id?: string
     name: string
     description?: string | null
     image?: string | null
     assetTicker: string
-    apy: number
     riskLevel: $Enums.RiskLevel
     platform?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyInput
-    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyInput
+    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    yieldOpportunities?: YieldOpportunityUncheckedCreateNestedManyWithoutStrategyTemplatesInput
   }
 
-  export type StrategyCreateOrConnectWithoutUserPreferencesInput = {
-    where: StrategyWhereUniqueInput
-    create: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
+  export type StrategyTemplateCreateOrConnectWithoutUserPreferencesInput = {
+    where: StrategyTemplateWhereUniqueInput
+    create: XOR<StrategyTemplateCreateWithoutUserPreferencesInput, StrategyTemplateUncheckedCreateWithoutUserPreferencesInput>
   }
 
   export type UserUpsertWithoutStrategyPreferencesInput = {
@@ -16211,45 +16387,45 @@ export namespace Prisma {
     yieldOpportunityOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type StrategyUpsertWithoutUserPreferencesInput = {
-    update: XOR<StrategyUpdateWithoutUserPreferencesInput, StrategyUncheckedUpdateWithoutUserPreferencesInput>
-    create: XOR<StrategyCreateWithoutUserPreferencesInput, StrategyUncheckedCreateWithoutUserPreferencesInput>
-    where?: StrategyWhereInput
+  export type StrategyTemplateUpsertWithoutUserPreferencesInput = {
+    update: XOR<StrategyTemplateUpdateWithoutUserPreferencesInput, StrategyTemplateUncheckedUpdateWithoutUserPreferencesInput>
+    create: XOR<StrategyTemplateCreateWithoutUserPreferencesInput, StrategyTemplateUncheckedCreateWithoutUserPreferencesInput>
+    where?: StrategyTemplateWhereInput
   }
 
-  export type StrategyUpdateToOneWithWhereWithoutUserPreferencesInput = {
-    where?: StrategyWhereInput
-    data: XOR<StrategyUpdateWithoutUserPreferencesInput, StrategyUncheckedUpdateWithoutUserPreferencesInput>
+  export type StrategyTemplateUpdateToOneWithWhereWithoutUserPreferencesInput = {
+    where?: StrategyTemplateWhereInput
+    data: XOR<StrategyTemplateUpdateWithoutUserPreferencesInput, StrategyTemplateUncheckedUpdateWithoutUserPreferencesInput>
   }
 
-  export type StrategyUpdateWithoutUserPreferencesInput = {
+  export type StrategyTemplateUpdateWithoutUserPreferencesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyNestedInput
-    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyNestedInput
+    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyTemplateNestedInput
+    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
-  export type StrategyUncheckedUpdateWithoutUserPreferencesInput = {
+  export type StrategyTemplateUncheckedUpdateWithoutUserPreferencesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     assetTicker?: StringFieldUpdateOperationsInput | string
-    apy?: FloatFieldUpdateOperationsInput | number
     riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
     platform?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyNestedInput
-    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyNestedInput
+    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    yieldOpportunities?: YieldOpportunityUncheckedUpdateManyWithoutStrategyTemplatesNestedInput
   }
 
   export type UserCreateWithoutYieldOpportunityOptOutsInput = {
@@ -16294,6 +16470,7 @@ export namespace Prisma {
     apy: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    strategyTemplates?: StrategyTemplateCreateNestedManyWithoutYieldOpportunitiesInput
   }
 
   export type YieldOpportunityUncheckedCreateWithoutUserOptOutsInput = {
@@ -16307,6 +16484,7 @@ export namespace Prisma {
     apy: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    strategyTemplates?: StrategyTemplateUncheckedCreateNestedManyWithoutYieldOpportunitiesInput
   }
 
   export type YieldOpportunityCreateOrConnectWithoutUserOptOutsInput = {
@@ -16373,6 +16551,7 @@ export namespace Prisma {
     apy?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    strategyTemplates?: StrategyTemplateUpdateManyWithoutYieldOpportunitiesNestedInput
   }
 
   export type YieldOpportunityUncheckedUpdateWithoutUserOptOutsInput = {
@@ -16386,6 +16565,7 @@ export namespace Prisma {
     apy?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    strategyTemplates?: StrategyTemplateUncheckedUpdateManyWithoutYieldOpportunitiesNestedInput
   }
 
   export type UserYieldOpportunityOptOutCreateWithoutYieldOpportunityInput = {
@@ -16410,6 +16590,41 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type StrategyTemplateCreateWithoutYieldOpportunitiesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    image?: string | null
+    assetTicker: string
+    riskLevel: $Enums.RiskLevel
+    platform?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userAllocations?: UserStrategyAllocationCreateNestedManyWithoutStrategyTemplateInput
+    tradingEvents?: TradingHistoryCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceCreateNestedManyWithoutStrategyTemplateInput
+  }
+
+  export type StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    image?: string | null
+    assetTicker: string
+    riskLevel: $Enums.RiskLevel
+    platform?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userAllocations?: UserStrategyAllocationUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    tradingEvents?: TradingHistoryUncheckedCreateNestedManyWithoutStrategyTemplateInput
+    userPreferences?: UserStrategyPreferenceUncheckedCreateNestedManyWithoutStrategyTemplateInput
+  }
+
+  export type StrategyTemplateCreateOrConnectWithoutYieldOpportunitiesInput = {
+    where: StrategyTemplateWhereUniqueInput
+    create: XOR<StrategyTemplateCreateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput>
+  }
+
   export type UserYieldOpportunityOptOutUpsertWithWhereUniqueWithoutYieldOpportunityInput = {
     where: UserYieldOpportunityOptOutWhereUniqueInput
     update: XOR<UserYieldOpportunityOptOutUpdateWithoutYieldOpportunityInput, UserYieldOpportunityOptOutUncheckedUpdateWithoutYieldOpportunityInput>
@@ -16426,13 +16641,44 @@ export namespace Prisma {
     data: XOR<UserYieldOpportunityOptOutUpdateManyMutationInput, UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityInput>
   }
 
+  export type StrategyTemplateUpsertWithWhereUniqueWithoutYieldOpportunitiesInput = {
+    where: StrategyTemplateWhereUniqueInput
+    update: XOR<StrategyTemplateUpdateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedUpdateWithoutYieldOpportunitiesInput>
+    create: XOR<StrategyTemplateCreateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedCreateWithoutYieldOpportunitiesInput>
+  }
+
+  export type StrategyTemplateUpdateWithWhereUniqueWithoutYieldOpportunitiesInput = {
+    where: StrategyTemplateWhereUniqueInput
+    data: XOR<StrategyTemplateUpdateWithoutYieldOpportunitiesInput, StrategyTemplateUncheckedUpdateWithoutYieldOpportunitiesInput>
+  }
+
+  export type StrategyTemplateUpdateManyWithWhereWithoutYieldOpportunitiesInput = {
+    where: StrategyTemplateScalarWhereInput
+    data: XOR<StrategyTemplateUpdateManyMutationInput, StrategyTemplateUncheckedUpdateManyWithoutYieldOpportunitiesInput>
+  }
+
+  export type StrategyTemplateScalarWhereInput = {
+    AND?: StrategyTemplateScalarWhereInput | StrategyTemplateScalarWhereInput[]
+    OR?: StrategyTemplateScalarWhereInput[]
+    NOT?: StrategyTemplateScalarWhereInput | StrategyTemplateScalarWhereInput[]
+    id?: StringFilter<"StrategyTemplate"> | string
+    name?: StringFilter<"StrategyTemplate"> | string
+    description?: StringNullableFilter<"StrategyTemplate"> | string | null
+    image?: StringNullableFilter<"StrategyTemplate"> | string | null
+    assetTicker?: StringFilter<"StrategyTemplate"> | string
+    riskLevel?: EnumRiskLevelFilter<"StrategyTemplate"> | $Enums.RiskLevel
+    platform?: StringNullableFilter<"StrategyTemplate"> | string | null
+    createdAt?: DateTimeFilter<"StrategyTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"StrategyTemplate"> | Date | string
+  }
+
   export type TradingHistoryCreateManyUserInput = {
     id?: string
     action: string
     asset: string
     amount: number
     price?: number | null
-    strategyId?: string | null
+    strategyTemplateId?: string | null
     timestamp?: Date | string
   }
 
@@ -16454,7 +16700,7 @@ export namespace Prisma {
 
   export type UserStrategyAllocationCreateManyUserInput = {
     id?: string
-    strategyId: string
+    strategyTemplateId: string
     assetTicker: string
     allocatedAmount: number
     entryTimestamp?: Date | string
@@ -16466,7 +16712,7 @@ export namespace Prisma {
 
   export type UserStrategyPreferenceCreateManyUserInput = {
     id?: string
-    strategyId: string
+    strategyTemplateId: string
     isFavorite?: boolean
     isHidden?: boolean
     receiveNotifications?: boolean
@@ -16487,7 +16733,7 @@ export namespace Prisma {
     amount?: FloatFieldUpdateOperationsInput | number
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    strategy?: StrategyUpdateOneWithoutTradingEventsNestedInput
+    strategyTemplate?: StrategyTemplateUpdateOneWithoutTradingEventsNestedInput
   }
 
   export type TradingHistoryUncheckedUpdateWithoutUserInput = {
@@ -16496,7 +16742,7 @@ export namespace Prisma {
     asset?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
     price?: NullableFloatFieldUpdateOperationsInput | number | null
-    strategyId?: NullableStringFieldUpdateOperationsInput | string | null
+    strategyTemplateId?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -16506,7 +16752,7 @@ export namespace Prisma {
     asset?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
     price?: NullableFloatFieldUpdateOperationsInput | number | null
-    strategyId?: NullableStringFieldUpdateOperationsInput | string | null
+    strategyTemplateId?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -16567,12 +16813,12 @@ export namespace Prisma {
     lastYieldClaimTimestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    strategy?: StrategyUpdateOneRequiredWithoutUserAllocationsNestedInput
+    strategyTemplate?: StrategyTemplateUpdateOneRequiredWithoutUserAllocationsNestedInput
   }
 
   export type UserStrategyAllocationUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     assetTicker?: StringFieldUpdateOperationsInput | string
     allocatedAmount?: FloatFieldUpdateOperationsInput | number
     entryTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16584,7 +16830,7 @@ export namespace Prisma {
 
   export type UserStrategyAllocationUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     assetTicker?: StringFieldUpdateOperationsInput | string
     allocatedAmount?: FloatFieldUpdateOperationsInput | number
     entryTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16601,12 +16847,12 @@ export namespace Prisma {
     receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    strategy?: StrategyUpdateOneRequiredWithoutUserPreferencesNestedInput
+    strategyTemplate?: StrategyTemplateUpdateOneRequiredWithoutUserPreferencesNestedInput
   }
 
   export type UserStrategyPreferenceUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     isFavorite?: BoolFieldUpdateOperationsInput | boolean
     isHidden?: BoolFieldUpdateOperationsInput | boolean
     receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
@@ -16616,7 +16862,7 @@ export namespace Prisma {
 
   export type UserStrategyPreferenceUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    strategyId?: StringFieldUpdateOperationsInput | string
+    strategyTemplateId?: StringFieldUpdateOperationsInput | string
     isFavorite?: BoolFieldUpdateOperationsInput | boolean
     isHidden?: BoolFieldUpdateOperationsInput | boolean
     receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
@@ -16642,7 +16888,7 @@ export namespace Prisma {
     optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserStrategyAllocationCreateManyStrategyInput = {
+  export type UserStrategyAllocationCreateManyStrategyTemplateInput = {
     id?: string
     userId: string
     assetTicker: string
@@ -16654,7 +16900,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type TradingHistoryCreateManyStrategyInput = {
+  export type TradingHistoryCreateManyStrategyTemplateInput = {
     id?: string
     userId: string
     action: string
@@ -16664,7 +16910,7 @@ export namespace Prisma {
     timestamp?: Date | string
   }
 
-  export type UserStrategyPreferenceCreateManyStrategyInput = {
+  export type UserStrategyPreferenceCreateManyStrategyTemplateInput = {
     id?: string
     userId: string
     isFavorite?: boolean
@@ -16674,7 +16920,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type UserStrategyAllocationUpdateWithoutStrategyInput = {
+  export type UserStrategyAllocationUpdateWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     assetTicker?: StringFieldUpdateOperationsInput | string
     allocatedAmount?: FloatFieldUpdateOperationsInput | number
@@ -16686,7 +16932,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutUserStrategyAllocationsNestedInput
   }
 
-  export type UserStrategyAllocationUncheckedUpdateWithoutStrategyInput = {
+  export type UserStrategyAllocationUncheckedUpdateWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     assetTicker?: StringFieldUpdateOperationsInput | string
@@ -16698,7 +16944,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserStrategyAllocationUncheckedUpdateManyWithoutStrategyInput = {
+  export type UserStrategyAllocationUncheckedUpdateManyWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     assetTicker?: StringFieldUpdateOperationsInput | string
@@ -16710,7 +16956,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type TradingHistoryUpdateWithoutStrategyInput = {
+  export type TradingHistoryUpdateWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     asset?: StringFieldUpdateOperationsInput | string
@@ -16720,7 +16966,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutTradingHistoryNestedInput
   }
 
-  export type TradingHistoryUncheckedUpdateWithoutStrategyInput = {
+  export type TradingHistoryUncheckedUpdateWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
@@ -16730,7 +16976,7 @@ export namespace Prisma {
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type TradingHistoryUncheckedUpdateManyWithoutStrategyInput = {
+  export type TradingHistoryUncheckedUpdateManyWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
@@ -16740,7 +16986,7 @@ export namespace Prisma {
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserStrategyPreferenceUpdateWithoutStrategyInput = {
+  export type UserStrategyPreferenceUpdateWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     isFavorite?: BoolFieldUpdateOperationsInput | boolean
     isHidden?: BoolFieldUpdateOperationsInput | boolean
@@ -16750,7 +16996,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutStrategyPreferencesNestedInput
   }
 
-  export type UserStrategyPreferenceUncheckedUpdateWithoutStrategyInput = {
+  export type UserStrategyPreferenceUncheckedUpdateWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     isFavorite?: BoolFieldUpdateOperationsInput | boolean
@@ -16760,12 +17006,53 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyInput = {
+  export type UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyTemplateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     isFavorite?: BoolFieldUpdateOperationsInput | boolean
     isHidden?: BoolFieldUpdateOperationsInput | boolean
     receiveNotifications?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YieldOpportunityUpdateWithoutStrategyTemplatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userOptOuts?: UserYieldOpportunityOptOutUpdateManyWithoutYieldOpportunityNestedInput
+  }
+
+  export type YieldOpportunityUncheckedUpdateWithoutStrategyTemplatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userOptOuts?: UserYieldOpportunityOptOutUncheckedUpdateManyWithoutYieldOpportunityNestedInput
+  }
+
+  export type YieldOpportunityUncheckedUpdateManyWithoutStrategyTemplatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    platformImage?: NullableStringFieldUpdateOperationsInput | string | null
+    tickerImage?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    marketId?: StringFieldUpdateOperationsInput | string
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    apy?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16792,6 +17079,48 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     optedOutAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StrategyTemplateUpdateWithoutYieldOpportunitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+    platform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userAllocations?: UserStrategyAllocationUpdateManyWithoutStrategyTemplateNestedInput
+    tradingEvents?: TradingHistoryUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUpdateManyWithoutStrategyTemplateNestedInput
+  }
+
+  export type StrategyTemplateUncheckedUpdateWithoutYieldOpportunitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+    platform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userAllocations?: UserStrategyAllocationUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    tradingEvents?: TradingHistoryUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+    userPreferences?: UserStrategyPreferenceUncheckedUpdateManyWithoutStrategyTemplateNestedInput
+  }
+
+  export type StrategyTemplateUncheckedUpdateManyWithoutYieldOpportunitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    assetTicker?: StringFieldUpdateOperationsInput | string
+    riskLevel?: EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+    platform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

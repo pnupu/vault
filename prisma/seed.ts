@@ -63,10 +63,10 @@ async function main() {
   const strategiesFile = fs.readFileSync(strategiesPath, 'utf-8');
   const strategiesData = JSON.parse(strategiesFile);
 
-  console.log(`Found ${strategiesData.length} strategies in strategies.json`);
+  console.log(`Found ${strategiesData.length} strategy templates in strategies.json`);
 
   for (const item of strategiesData) {
-    const strategyName = `${item.app} ${item.name}`;
+    const strategyTemplateName = `${item.app} ${item.name}`;
     let determinedRiskLevel: RiskLevel;
     const strategyImage = findStrategyAppImage(item.app);
 
@@ -75,35 +75,35 @@ async function main() {
     } else if (item.name.toLowerCase() === 'normal') {
       determinedRiskLevel = RiskLevel.NORMAL;
     } else {
-      console.warn(`Could not determine risk level for strategy: ${strategyName} (name: ${item.name}).`);
+      console.warn(`Could not determine risk level for strategy template: ${strategyTemplateName} (name: ${item.name}).`);
       determinedRiskLevel = RiskLevel.NORMAL; // Defaulting to NORMAL
-      console.warn(`Defaulting risk level to NORMAL for strategy: ${strategyName}`);
+      console.warn(`Defaulting risk level to NORMAL for strategy template: ${strategyTemplateName}`);
     }
 
+    const description = item.sources ? `A ${item.name.toLowerCase()} ${item.category} strategy. Sources are dynamically determined based on best available APYs and user preferences.` : `A ${item.name.toLowerCase()} ${item.category} strategy.`;
+
     try {
-      await prisma.strategy.upsert({
-        where: { name: strategyName },
+      await prisma.strategyTemplate.upsert({
+        where: { name: strategyTemplateName },
         update: {
-          description: item.sources ? item.sources.join(', ') : null,
+          description: description,
           assetTicker: item.category,
-          apy: parseFloat(item.apy),
           riskLevel: determinedRiskLevel,
           platform: item.app,
           image: strategyImage,
         },
         create: {
-          name: strategyName,
-          description: item.sources ? item.sources.join(', ') : null,
+          name: strategyTemplateName,
+          description: description,
           assetTicker: item.category,
-          apy: parseFloat(item.apy),
           riskLevel: determinedRiskLevel,
           platform: item.app,
           image: strategyImage,
         },
       });
-      console.log(`Upserted strategy: ${strategyName} with risk: ${determinedRiskLevel}, image: ${strategyImage}`);
+      console.log(`Upserted strategy template: ${strategyTemplateName} with risk: ${determinedRiskLevel}, image: ${strategyImage}`);
     } catch (e: any) {
-      console.error(`Error upserting strategy ${strategyName}:`, e);
+      console.error(`Error upserting strategy template ${strategyTemplateName}:`, e);
     }
   }
 
@@ -113,6 +113,8 @@ async function main() {
   const yieldEndpointsData = JSON.parse(yieldEndpointsFile);
 
   console.log(`Found ${yieldEndpointsData.length} apps in yield_endpoints.json`);
+
+  const allUpsertedYieldOpportunities: { id: string; assetTicker: string }[] = [];
 
   for (const app of yieldEndpointsData) {
     const platformName = app.name;
@@ -127,7 +129,7 @@ async function main() {
           const assetTickerImage = findTickerImage(yieldAssetName);
 
           try {
-            await prisma.yieldOpportunity.upsert({
+            const upsertedOpportunity = await prisma.yieldOpportunity.upsert({
               where: { platform_marketId: { platform: platformName, marketId: yieldMarketId } },
               update: {
                 platformImage: platformImage,
@@ -145,13 +147,45 @@ async function main() {
                 apy: parseFloat(point.apy),
                 tickerImage: assetTickerImage,
               },
+              select: { id: true, assetTicker: true }, // Select id and assetTicker for linking
             });
+            allUpsertedYieldOpportunities.push(upsertedOpportunity);
             console.log(`Upserted yield opportunity: ${platformName} - ${yieldAssetName} (MarketID: ${yieldMarketId}), TickerImage: ${assetTickerImage}`);
           } catch (e: any) {
             console.error(`Error upserting yield opportunity ${platformName} - ${yieldAssetName}:`, e);
           }
         }
       }
+    }
+  }
+
+  // 3. Link StrategyTemplates with YieldOpportunities
+  console.log('Linking strategy templates with yield opportunities...');
+  const strategyTemplates = await prisma.strategyTemplate.findMany({
+    select: { id: true, assetTicker: true, name: true },
+  });
+
+  for (const template of strategyTemplates) {
+    const relevantOpportunities = allUpsertedYieldOpportunities.filter(
+      op => op.assetTicker === template.assetTicker
+    );
+
+    if (relevantOpportunities.length > 0) {
+      try {
+        await prisma.strategyTemplate.update({
+          where: { id: template.id },
+          data: {
+            yieldOpportunities: {
+              connect: relevantOpportunities.map(op => ({ id: op.id })),
+            },
+          },
+        });
+        console.log(`Linked ${relevantOpportunities.length} yield opportunities to strategy template: ${template.name} (Asset: ${template.assetTicker})`);
+      } catch (e: any) {
+        console.error(`Error linking yield opportunities to strategy template ${template.name}:`, e);
+      }
+    } else {
+      console.log(`No yield opportunities found for strategy template: ${template.name} (Asset: ${template.assetTicker})`);
     }
   }
 

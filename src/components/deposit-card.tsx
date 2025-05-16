@@ -31,16 +31,47 @@ import { useToast } from "@/components/ui/use-toast";
 import { getAssociatedTokenAddressSync } from "@solana/spl-token";
 import { TOKEN_PROGRAM_ID } from "@coral-xyz/anchor/dist/cjs/utils/token";
 import { Provider } from "@coral-xyz/anchor";
+import { trpc } from "@/lib/trpc";
 
 // Define USDC Mint constant (Devnet)
 const USDC_MINT_ADDRESS = new PublicKey("4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU");
 const USDC_DECIMALS = 6;
+const USDC_SYMBOL = "USDC"; // Ensure this is defined
+
+// Define types for the addToHistory function
+type HistoryActionType = 
+  | 'DEPOSIT_SOL' 
+  | 'WITHDRAW_SOL' 
+  | 'DEPOSIT_TOKEN' 
+  | 'WITHDRAW_TOKEN' 
+  | 'REQUEST_WITHDRAWAL';
+
+interface SolPayload {
+  amountSol: number;
+  transactionSignature: string;
+}
+
+interface TokenPayload {
+  amountUi: number;
+  tokenMint: string;
+  tokenSymbol: string;
+  tokenDecimals: number;
+  transactionSignature: string;
+}
+
+interface RequestPayload {
+  amount: number;
+  asset: string; // "SOL" or token symbol like "USDC"
+}
+
+type HistoryPayload = SolPayload | TokenPayload | RequestPayload;
 
 export function DepositCard() {
   const { publicKey, connected, sendTransaction } = useWallet();
   const { connection } = useConnection();
   const provider = useSolanaProvider();
-  const toast = useToast();
+  const { toast } = useToast();
+  const utils = trpc.useUtils();
 
   const [userBalance, setUserBalance] = useState(0);
   const [vaultBalance, setVaultBalance] = useState(0);
@@ -55,6 +86,110 @@ export function DepositCard() {
   const [userTokenBalance, setUserTokenBalance] = useState<number>(0);
   const [vaultTokenBalance, setVaultTokenBalance] = useState<number>(0);
   const [userTokenBalanceLamports, setUserTokenBalanceLamports] = useState<bigint>(BigInt(0));
+
+  // Define tRPC mutations before they are used in addToHistory
+  const recordDepositSolMutation = trpc.transaction.recordDepositSol.useMutation({
+    onSuccess: () => {
+      toast({ title: "Success!", description: "SOL Deposit recorded." });
+      utils.transaction.getAllForUser.invalidate();
+      // setBalances(); // Assuming setBalances is defined elsewhere
+    },
+    onError: (err: any) => {
+      toast({ title: "Recording Error", description: err.message });
+    },
+  });
+
+  const recordWithdrawSolMutation = trpc.transaction.recordWithdrawSol.useMutation({
+    onSuccess: () => {
+      toast({ title: "Success!", description: "SOL Withdrawal recorded." });
+      utils.transaction.getAllForUser.invalidate();
+      // setBalances(); 
+    },
+    onError: (err: any) => {
+      toast({ title: "Recording Error", description: err.message });
+    },
+  });
+
+  const recordDepositTokenMutation = trpc.transaction.recordDepositToken.useMutation({
+    onSuccess: () => {
+      toast({ title: "Success!", description: "Token Deposit recorded." });
+      utils.transaction.getAllForUser.invalidate();
+      // setTokenBalances(); 
+    },
+    onError: (err: any) => {
+      toast({ title: "Recording Error", description: err.message });
+    },
+  });
+
+  const recordWithdrawTokenMutation = trpc.transaction.recordWithdrawToken.useMutation({
+    onSuccess: () => {
+      toast({ title: "Success!", description: "Token Withdrawal recorded." });
+      utils.transaction.getAllForUser.invalidate();
+      // setTokenBalances(); 
+    },
+    onError: (err: any) => {
+      toast({ title: "Recording Error", description: err.message });
+    },
+  });
+  
+  const recordWithdrawalRequestMutation = trpc.transaction.recordWithdrawalRequest.useMutation({
+    onSuccess: () => {
+      toast({ title: "Success!", description: "Withdrawal request recorded." });
+      utils.transaction.getAllForUser.invalidate();
+    },
+    onError: (err: any) => {
+      toast({ title: "Recording Error", description: err.message });
+    }
+  });
+
+  const addToHistory = (actionType: HistoryActionType, payload: HistoryPayload) => {
+    switch (actionType) {
+      case 'DEPOSIT_SOL':
+        if ('amountSol' in payload && 'transactionSignature' in payload) {
+          recordDepositSolMutation.mutate(payload as SolPayload);
+        } else {
+          console.error('Invalid payload for DEPOSIT_SOL', payload);
+          toast({ title: "History Error", description: "Invalid data for recording SOL deposit."});
+        }
+        break;
+      case 'WITHDRAW_SOL':
+        if ('amountSol' in payload && 'transactionSignature' in payload) {
+          recordWithdrawSolMutation.mutate(payload as SolPayload);
+        } else {
+          console.error('Invalid payload for WITHDRAW_SOL', payload);
+          toast({ title: "History Error", description: "Invalid data for recording SOL withdrawal."});
+        }
+        break;
+      case 'DEPOSIT_TOKEN':
+        if ('amountUi' in payload && 'tokenMint' in payload && 'transactionSignature' in payload) {
+          recordDepositTokenMutation.mutate(payload as TokenPayload);
+        } else {
+          console.error('Invalid payload for DEPOSIT_TOKEN', payload);
+          toast({ title: "History Error", description: "Invalid data for recording token deposit."});
+        }
+        break;
+      case 'WITHDRAW_TOKEN':
+        if ('amountUi' in payload && 'tokenMint' in payload && 'transactionSignature' in payload) {
+          recordWithdrawTokenMutation.mutate(payload as TokenPayload);
+        } else {
+          console.error('Invalid payload for WITHDRAW_TOKEN', payload);
+          toast({ title: "History Error", description: "Invalid data for recording token withdrawal."});
+        }
+        break;
+      case 'REQUEST_WITHDRAWAL':
+        if ('amount' in payload && 'asset' in payload) {
+          recordWithdrawalRequestMutation.mutate(payload as RequestPayload);
+        } else {
+          console.error('Invalid payload for REQUEST_WITHDRAWAL', payload);
+          toast({ title: "History Error", description: "Invalid data for recording withdrawal request."});
+        }
+        break;
+      default:
+        const _exhaustiveCheck: never = actionType; // For exhaustive type checking
+        console.error('Unknown history action type:', _exhaustiveCheck);
+        toast({ title: "History Error", description: `Unknown action type encountered.`});
+    }
+  };
 
   const correctAmount = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -133,6 +268,9 @@ export function DepositCard() {
           .rpc(); // The rpc method sends the transaction to the cluster and returns the transaction signature.
           // Moved log here
           console.log("Transaction successfully sent. Signature: ", sig);
+          if (sig) {
+            addToHistory('DEPOSIT_SOL', { amountSol: amount, transactionSignature: sig });
+          }
       }
       if (type === "withdraw") {
         // Add similar detailed logging for withdraw if needed for testing
@@ -156,10 +294,13 @@ export function DepositCard() {
           .rpc(); // The rpc method sends the transaction to the cluster and returns the transaction signature.
           // Moved log here
           console.log("Transaction successfully sent. Signature: ", sig);
+          if (sig) {
+            addToHistory('WITHDRAW_SOL', { amountSol: amount, transactionSignature: sig });
+          }
       }
 
       // console.log("Transaction Signature: ", sig); // Original log, now handled above or in error
-      toast.toast({
+      toast({
         title: "Succes!",
         description: "Your transaction was succesful",
       });
@@ -168,7 +309,7 @@ export function DepositCard() {
     } catch (err) {
       // More specific log
       console.error("Detailed Transaction Error in onMoveFunds: ", err); 
-      toast.toast({
+      toast({
         title: "Error!",
         description: "Your transaction failed",
       });
@@ -176,19 +317,26 @@ export function DepositCard() {
     setIsLoading(false);
   };
 
-  const onRequestWithdrawal = async () => {
+  const onRequestWithdrawal = async (asset: "SOL" | "USDC", withdrawalAmount: number) => {
     if (!provider || !publicKey || !sendTransaction) {
-      toast.toast({ title: "Error!", description: "Wallet not connected" });
+      toast({ title: "Error!", description: "Wallet not connected" });
+      return;
+    }
+    if (withdrawalAmount <= 0) {
+      toast({ title: "Error!", description: "Amount must be greater than zero for withdrawal request." });
       return;
     }
 
-    toast.toast({ title: "Success!", description: "Withdrawal requested" });
-    
+    addToHistory('REQUEST_WITHDRAWAL', { amount: withdrawalAmount, asset });
+    // The toast for success/failure of recording is handled by the mutation's onSuccess/onError
+    // so we don't need an additional toast here unless it's for a different purpose.
+    // The existing 
+    toast({ title: "Success!", description: "Withdrawal requested" });
   }
 
   const onMoveTokens = async (type: "deposit" | "withdraw") => {
     if (!provider || !publicKey || !sendTransaction) {
-      toast.toast({ title: "Error!", description: "Wallet not connected" });
+      toast({ title: "Error!", description: "Wallet not connected" });
       return;
     }
 
@@ -219,6 +367,9 @@ export function DepositCard() {
             systemProgram: SystemProgram.programId, // Needed for init_if_needed
           })
           .rpc();
+        if (sig) {
+          addToHistory('DEPOSIT_TOKEN', { amountUi: tokenAmount, tokenMint: USDC_MINT_ADDRESS.toBase58(), tokenSymbol: "USDC", tokenDecimals: USDC_DECIMALS, transactionSignature: sig });
+        }
       }
 
       if (type === "withdraw") {
@@ -234,10 +385,13 @@ export function DepositCard() {
             tokenProgram: TOKEN_PROGRAM_ID,
            })
           .rpc();
+        if (sig) {
+          addToHistory('WITHDRAW_TOKEN', { amountUi: tokenAmount, tokenMint: USDC_MINT_ADDRESS.toBase58(), tokenSymbol: "USDC", tokenDecimals: USDC_DECIMALS, transactionSignature: sig });
+        }
       }
 
       console.log("Token Transaction Signature: ", sig);
-      toast.toast({
+      toast({
         title: "Success!",
         description: "Token transaction successful",
       });
@@ -247,7 +401,7 @@ export function DepositCard() {
 
     } catch (err) {
       console.error("Token Transaction Error: ", err);
-      toast.toast({
+      toast({
         title: "Error!",
         description: "Token transaction failed",
       });
@@ -441,7 +595,7 @@ export function DepositCard() {
                 isLoading ||
                 !connected
               }
-              onClick={() => onRequestWithdrawal()}
+              onClick={() => onRequestWithdrawal("SOL", amount)}
             >
               <ArrowDown className="mr-2 h-4 w-4" /> Request Withdrawal
             </Button>
@@ -493,8 +647,8 @@ export function DepositCard() {
             <Button
               variant="outline"
               className="w-full text-purple-500 hover:bg-purple-700"
-              disabled={isLoading || !connected }
-              onClick={() => onRequestWithdrawal()}
+              disabled={isLoading || !connected || tokenAmount <= 0}
+              onClick={() => onRequestWithdrawal("USDC", tokenAmount)}
             >
               <ArrowUp className="mr-2 h-4 w-4" /> Request Withdrawal
             </Button>

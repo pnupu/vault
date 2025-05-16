@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-05-17T01:10:08.282621",
+  "wallet_addresses": {
+    "stablecoin_wallet": "AcNSmd5CxwLs21TYUmhWt7CW2v159TdYRkvQxb1iBYRj",
+    "sol_wallet": "AcNSmd5CxwLs21TYUmhWt7CW2v159TdYRkvQxb1iBYRj"
+  },
+  "stablecoin_analysis1": {
+    "total_value": 22909.59
+  },
+  "stablecoin_analysis2": {
+    "total_value": 21006.57
+  },
+  "sol_analysis1": {
+    "total_value": 1384.29
+  },
+  "sol_analysis2": {
+    "total_value": 1250.19
+  }
+}
