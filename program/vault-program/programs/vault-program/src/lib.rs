@@ -374,7 +374,7 @@ pub struct InitializeConfig<'info> {
         init,
         payer = signer,
         space = 8 + VaultConfig::LEN,
-        seeds = [b"config"],
+        seeds = [b"config_v2"],
         bump
     )]
     pub config: Account<'info, VaultConfig>,
@@ -385,14 +385,14 @@ pub struct InitializeConfig<'info> {
 
 #[derive(Accounts)]
 pub struct UpdateAdmin<'info> {
-    #[account(mut, seeds = [b"config"], bump)]
+    #[account(mut, seeds = [b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     pub signer: Signer<'info>,
 }
 
 #[derive(Accounts)]
 pub struct UpdateAdminWallet<'info> {
-    #[account(mut, seeds = [b"config"], bump)]
+    #[account(mut, seeds = [b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     pub signer: Signer<'info>,
 }
@@ -421,7 +421,7 @@ pub struct DepositSol<'info> {
     pub user_interactions_counter: Account<'info, UserInteractionsCounter>,
     #[account(mut, seeds=[b"metadata", signer.key().as_ref()], bump)]
     pub user_metadata: Account<'info, UserMetadata>,
-    #[account(seeds=[b"config"], bump)]
+    #[account(seeds=[b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     /// CHECK: This is the admin's investment wallet
     #[account(mut)]
@@ -457,7 +457,7 @@ pub struct DepositToken<'info> {
     pub user_interactions_counter: Account<'info, UserInteractionsCounter>,
     #[account(mut, seeds=[b"metadata", signer.key().as_ref()], bump)]
     pub user_metadata: Account<'info, UserMetadata>,
-    #[account(seeds=[b"config"], bump)]
+    #[account(seeds=[b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     #[account(mut)]
     pub signer: Signer<'info>,
@@ -501,7 +501,7 @@ pub struct InvestSolToAdmin<'info> {
     pub user_vault_account: AccountInfo<'info>,
     #[account(mut, seeds=[b"metadata", user.key().as_ref()], bump)]
     pub user_metadata: Account<'info, UserMetadata>,
-    #[account(seeds=[b"config"], bump)]
+    #[account(seeds=[b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     /// CHECK: This is the admin's investment wallet
     #[account(mut)]
@@ -526,6 +526,7 @@ pub struct InvestTokenToAdmin<'info> {
     pub mint: Account<'info, Mint>,
     #[account(mut)]
     pub user_metadata: Account<'info, UserMetadata>,
+    #[account(seeds=[b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     /// CHECK: We only use this for seeds
     pub user: UncheckedAccount<'info>,
@@ -541,7 +542,7 @@ pub struct ReturnSolInvestmentFromAdmin<'info> {
     pub user_vault_account: AccountInfo<'info>,
     #[account(mut, seeds=[b"metadata", user.key().as_ref()], bump)]
     pub user_metadata: Account<'info, UserMetadata>,
-    #[account(seeds=[b"config"], bump)]
+    #[account(seeds=[b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     /// CHECK: This is the admin's investment wallet
     #[account(mut)]
@@ -566,6 +567,7 @@ pub struct ReturnTokenInvestmentFromAdmin<'info> {
     pub mint: Account<'info, Mint>,
     #[account(mut)]
     pub user_metadata: Account<'info, UserMetadata>,
+    #[account(seeds=[b"config_v2"], bump)]
     pub config: Account<'info, VaultConfig>,
     /// CHECK: We only use this for seeds
     pub user: UncheckedAccount<'info>,

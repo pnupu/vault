@@ -10,6 +10,9 @@ const outfit = Outfit({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Solana Vault",
   description: "Deposit and Claim $SOL",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -19,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <head>
+        <link rel="icon" href="/logo.png" sizes="any" />
+      </head>
       <Web3Provider>
         <TrpcProvider>
           <body className={outfit.className}>
