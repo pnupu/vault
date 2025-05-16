@@ -31,8 +31,7 @@ export function useSolanaProvider(): Provider | undefined {
   
   useEffect(() => {
     if (isGetMeSuccess) {
-      if (user) {
-        console.log("getMe query successful (useEffect), user context for:", user.walletAddress);
+      if (user) 
       } else {
         console.warn("getMe query successful (useEffect) but returned no user data. Clearing JWT if any.");
         localStorage.removeItem(SOLANA_VAULT_JWT_KEY);
@@ -44,8 +43,7 @@ export function useSolanaProvider(): Provider | undefined {
     if (isGetMeAuthError && getMeFullErrorObject) {
       console.warn("getMe query failed (useEffect):", getMeFullErrorObject.message);
       const trpcError = getMeFullErrorObject as { data?: { code?: string; httpStatus?: number } };
-      if (trpcError.data?.code === 'UNAUTHORIZED' || trpcError.data?.httpStatus === 401) {
-        console.log("getMe reported UNAUTHORIZED (useEffect), clearing stored JWT.");
+      if (trpcError.data?.code === 'UNAUTHORIZED' || trpcError.data?.httpStatus === 401) 
         localStorage.removeItem(SOLANA_VAULT_JWT_KEY);
       }
     }
@@ -53,10 +51,8 @@ export function useSolanaProvider(): Provider | undefined {
 
   const { mutate: verifyAndLogin, status: verifyStatus } = 
     trpc.user.verifySignatureAndLogin.useMutation({
-      onSuccess: (data) => {
-        console.log("JWT Token received:", data.token.substring(0,20) + "...");
-        localStorage.setItem(SOLANA_VAULT_JWT_KEY, data.token);
-        console.log("JWT stored. User data from verify:", data.user);
+      onSuccess: (data) => 
+        localStorage.setItem(SOLANA_VAULT_JWT_KEY, data.token)
         trpcUtils.user.getMe.invalidate();
       },
       onError: (error) => {
@@ -118,8 +114,7 @@ export function useSolanaProvider(): Provider | undefined {
     if (challengeStatus === 'pending' || verifyStatus === 'pending') {
       return;
     }
-    
-    console.log("AuthFlow: No valid user session from JWT. Initiating sign-in with wallet message.");
+  
     getLoginChallenge({ walletAddress: publicKey.toBase58() });
 
   }, [

@@ -73,6 +73,56 @@ export type VaultProgram = {
           }
         },
         {
+          "name": "userMetadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  101,
+                  116,
+                  97,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "adminInvestmentWallet",
+          "writable": true
+        },
+        {
           "name": "signer",
           "writable": true,
           "signer": true
@@ -135,6 +185,10 @@ export type VaultProgram = {
           }
         },
         {
+          "name": "adminTokenAccount",
+          "writable": true
+        },
+        {
           "name": "mint"
         },
         {
@@ -161,6 +215,52 @@ export type VaultProgram = {
               {
                 "kind": "account",
                 "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "userMetadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  101,
+                  116,
+                  97,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
               }
             ]
           }
@@ -212,7 +312,10 @@ export type VaultProgram = {
                   110,
                   102,
                   105,
-                  103
+                  103,
+                  95,
+                  118,
+                  50
                 ]
               }
             ]
@@ -231,6 +334,10 @@ export type VaultProgram = {
       "args": [
         {
           "name": "admin",
+          "type": "pubkey"
+        },
+        {
+          "name": "adminInvestmentWallet",
           "type": "pubkey"
         }
       ]
@@ -357,43 +464,21 @@ export type VaultProgram = {
                   110,
                   102,
                   105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "investmentPool",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
+                  103,
                   95,
-                  112,
-                  111,
-                  111,
-                  108
+                  118,
+                  50
                 ]
               }
             ]
           }
         },
         {
-          "name": "user",
+          "name": "adminInvestmentWallet",
           "writable": true
+        },
+        {
+          "name": "user"
         },
         {
           "name": "signer",
@@ -458,42 +543,8 @@ export type VaultProgram = {
           }
         },
         {
-          "name": "investmentTokenAccount",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  116,
-                  111,
-                  107,
-                  101,
-                  110,
-                  95,
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
-                  95,
-                  112,
-                  111,
-                  111,
-                  108
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "mint"
-              }
-            ]
-          }
+          "name": "adminTokenAccount",
+          "writable": true
         },
         {
           "name": "mint"
@@ -503,7 +554,25 @@ export type VaultProgram = {
           "writable": true
         },
         {
-          "name": "config"
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "user"
@@ -516,10 +585,6 @@ export type VaultProgram = {
         {
           "name": "tokenProgram",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
-        },
-        {
-          "name": "systemProgram",
-          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
@@ -601,43 +666,21 @@ export type VaultProgram = {
                   110,
                   102,
                   105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "investmentPool",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
+                  103,
                   95,
-                  112,
-                  111,
-                  111,
-                  108
+                  118,
+                  50
                 ]
               }
             ]
           }
         },
         {
-          "name": "user",
+          "name": "adminInvestmentWallet",
           "writable": true
+        },
+        {
+          "name": "user"
         },
         {
           "name": "signer",
@@ -702,42 +745,8 @@ export type VaultProgram = {
           }
         },
         {
-          "name": "investmentTokenAccount",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  116,
-                  111,
-                  107,
-                  101,
-                  110,
-                  95,
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
-                  95,
-                  112,
-                  111,
-                  111,
-                  108
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "mint"
-              }
-            ]
-          }
+          "name": "adminTokenAccount",
+          "writable": true
         },
         {
           "name": "mint"
@@ -747,7 +756,25 @@ export type VaultProgram = {
           "writable": true
         },
         {
-          "name": "config"
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "user"
@@ -794,7 +821,10 @@ export type VaultProgram = {
                   110,
                   102,
                   105,
-                  103
+                  103,
+                  95,
+                  118,
+                  50
                 ]
               }
             ]
@@ -808,6 +838,53 @@ export type VaultProgram = {
       "args": [
         {
           "name": "newAdmin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "updateAdminInvestmentWallet",
+      "discriminator": [
+        93,
+        26,
+        234,
+        64,
+        164,
+        25,
+        75,
+        133
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "newWallet",
           "type": "pubkey"
         }
       ]
@@ -1017,6 +1094,11 @@ export type VaultProgram = {
       "code": 6002,
       "name": "investmentDisabled",
       "msg": "Investment is currently disabled"
+    },
+    {
+      "code": 6003,
+      "name": "invalidAdminWallet",
+      "msg": "Invalid admin investment wallet"
     }
   ],
   "types": [
@@ -1063,6 +1145,10 @@ export type VaultProgram = {
         "fields": [
           {
             "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "adminInvestmentWallet",
             "type": "pubkey"
           },
           {

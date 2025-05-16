@@ -20,7 +20,6 @@ export const userRouter = createTRPCRouter({
       const nonce = crypto.randomBytes(32).toString('hex');
       // TODO: Store this nonce server-side (e.g., in Redis or a DB table)
       // with an expiry and associate it with input.walletAddress to prevent reuse.
-      console.log(`Generated nonce for ${input.walletAddress}: ${nonce}`);
       return { nonce };
     }),
 
@@ -52,7 +51,7 @@ export const userRouter = createTRPCRouter({
           throw new TRPCError({ code: 'UNAUTHORIZED', message: 'Invalid signature or nonce.' });
         }
         
-        console.log("Signature verified successfully for address:", walletAddress);
+
 
         // If signature is valid, find or create user
         let user = await ctx.prisma.user.findUnique({

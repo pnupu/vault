@@ -67,6 +67,56 @@
           }
         },
         {
+          "name": "user_metadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  101,
+                  116,
+                  97,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin_investment_wallet",
+          "writable": true
+        },
+        {
           "name": "signer",
           "writable": true,
           "signer": true
@@ -129,6 +179,10 @@
           }
         },
         {
+          "name": "admin_token_account",
+          "writable": true
+        },
+        {
           "name": "mint"
         },
         {
@@ -155,6 +209,52 @@
               {
                 "kind": "account",
                 "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_metadata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  101,
+                  116,
+                  97,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "signer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
               }
             ]
           }
@@ -206,7 +306,10 @@
                   110,
                   102,
                   105,
-                  103
+                  103,
+                  95,
+                  118,
+                  50
                 ]
               }
             ]
@@ -225,6 +328,10 @@
       "args": [
         {
           "name": "admin",
+          "type": "pubkey"
+        },
+        {
+          "name": "admin_investment_wallet",
           "type": "pubkey"
         }
       ]
@@ -351,43 +458,21 @@
                   110,
                   102,
                   105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "investment_pool",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
+                  103,
                   95,
-                  112,
-                  111,
-                  111,
-                  108
+                  118,
+                  50
                 ]
               }
             ]
           }
         },
         {
-          "name": "user",
+          "name": "admin_investment_wallet",
           "writable": true
+        },
+        {
+          "name": "user"
         },
         {
           "name": "signer",
@@ -452,42 +537,8 @@
           }
         },
         {
-          "name": "investment_token_account",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  116,
-                  111,
-                  107,
-                  101,
-                  110,
-                  95,
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
-                  95,
-                  112,
-                  111,
-                  111,
-                  108
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "mint"
-              }
-            ]
-          }
+          "name": "admin_token_account",
+          "writable": true
         },
         {
           "name": "mint"
@@ -497,7 +548,25 @@
           "writable": true
         },
         {
-          "name": "config"
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "user"
@@ -510,10 +579,6 @@
         {
           "name": "token_program",
           "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
-        },
-        {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
@@ -595,43 +660,21 @@
                   110,
                   102,
                   105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "investment_pool",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
+                  103,
                   95,
-                  112,
-                  111,
-                  111,
-                  108
+                  118,
+                  50
                 ]
               }
             ]
           }
         },
         {
-          "name": "user",
+          "name": "admin_investment_wallet",
           "writable": true
+        },
+        {
+          "name": "user"
         },
         {
           "name": "signer",
@@ -696,42 +739,8 @@
           }
         },
         {
-          "name": "investment_token_account",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  116,
-                  111,
-                  107,
-                  101,
-                  110,
-                  95,
-                  105,
-                  110,
-                  118,
-                  101,
-                  115,
-                  116,
-                  109,
-                  101,
-                  110,
-                  116,
-                  95,
-                  112,
-                  111,
-                  111,
-                  108
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "mint"
-              }
-            ]
-          }
+          "name": "admin_token_account",
+          "writable": true
         },
         {
           "name": "mint"
@@ -741,7 +750,25 @@
           "writable": true
         },
         {
-          "name": "config"
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "user"
@@ -788,7 +815,10 @@
                   110,
                   102,
                   105,
-                  103
+                  103,
+                  95,
+                  118,
+                  50
                 ]
               }
             ]
@@ -802,6 +832,53 @@
       "args": [
         {
           "name": "new_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "update_admin_investment_wallet",
+      "discriminator": [
+        93,
+        26,
+        234,
+        64,
+        164,
+        25,
+        75,
+        133
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103,
+                  95,
+                  118,
+                  50
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_wallet",
           "type": "pubkey"
         }
       ]
@@ -1011,6 +1088,11 @@
       "code": 6002,
       "name": "InvestmentDisabled",
       "msg": "Investment is currently disabled"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidAdminWallet",
+      "msg": "Invalid admin investment wallet"
     }
   ],
   "types": [
@@ -1057,6 +1139,10 @@
         "fields": [
           {
             "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "admin_investment_wallet",
             "type": "pubkey"
           },
           {

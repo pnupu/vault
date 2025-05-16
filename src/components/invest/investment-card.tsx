@@ -83,7 +83,6 @@ export function InvestmentCard() {
   return (
     <div className="space-y-6">
       {visibleStrategies.map((strategy) => {
-        console.log("Strategy Data for Card:", strategy.name, strategy.historicalData);
         return (
         <Card key={strategy.id} className="overflow-hidden">
           <CardHeader className="flex flex-row items-start justify-between pb-2">

@@ -24,7 +24,7 @@ import { User, UserStrategyPreference, UserYieldOpportunityOptOut, StrategyTempl
 
 // Define the extended User type based on the backend includes
 interface UserWithDetails extends User {
-  strategyPreferences: (UserStrategyPreference & { strategy: Pick<StrategyTemplate, 'name'> })[];
+  strategyPreferences: (UserStrategyPreference & { StrategyTemplate: Pick<StrategyTemplate, 'name'> })[];
   yieldOpportunityOptOuts: (UserYieldOpportunityOptOut & { yieldOpportunity: Pick<YieldOpportunity, 'name' | 'platform' | 'marketId'> })[];
 }
 
@@ -87,7 +87,7 @@ export function AdminUserList() {
                       {user.strategyPreferences && user.strategyPreferences.length > 0 ? (
                         user.strategyPreferences.map(pref => (
                           <DropdownMenuItem key={pref.strategyTemplateId} className="text-xs pl-5">
-                            {pref.strategy.name}
+                            {pref.StrategyTemplate?.name}
                           </DropdownMenuItem>
                         ))
                       ) : (

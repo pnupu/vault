@@ -17,7 +17,7 @@ async function verifySolanaTransaction(
   expectedRecipient?: string, 
   expectedSender?: string
 ): Promise<boolean> {
-  console.log(`[TODO] Verifying Solana transaction: ${signature}, amount: ${expectedAmountLamports}, recipient: ${expectedRecipient}, sender: ${expectedSender}`);
+
   // For now, assume valid if signature is present
   // Replace with actual on-chain verification logic
   return !!signature;

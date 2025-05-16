@@ -31,13 +31,11 @@ export function TrpcProvider({ children }: { children: React.ReactNode }) {
             if (typeof window !== 'undefined') {
               const token = localStorage.getItem(SOLANA_VAULT_JWT_KEY);
               if (token) {
-                console.log("Sending JWT from TrpcProvider:", token.substring(0, 20) + "...");
                 return {
                   Authorization: `Bearer ${token}`,
                 };
               }
             }
-            console.log("No JWT found, sending no Authorization header.");
             return {}; // Return empty object if no token or not in browser
           },
         }),

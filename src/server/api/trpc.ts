@@ -42,16 +42,13 @@ export const createTRPCContext = async (opts: {
   const authHeader = opts.headers.get('Authorization');
   if (authHeader && authHeader.startsWith('Bearer ')) {
     const token = authHeader.substring(7); // Remove "Bearer " prefix
-    console.log("Attempting to verify JWT from Authorization header:", token.substring(0, 20) + "...");
     try {
       const decoded = jwt.verify(token, JWT_SECRET) as DecodedJwtPayload;
-      console.log("JWT Decoded successfully:", decoded);
       // Fetch user from DB based on walletAddress or userId from token
       // Using walletAddress for consistency with previous logic, but userId is also good
       if (decoded && decoded.walletAddress) {
         user = await prisma.user.findUnique({ where: { walletAddress: decoded.walletAddress } });
         if (user) {
-          console.log("User context set from JWT for:", user.walletAddress);
         } else {
           console.warn("User not found for walletAddress in JWT:", decoded.walletAddress);
         }
@@ -59,7 +56,6 @@ export const createTRPCContext = async (opts: {
         // Fallback or primary lookup by userId if preferred
         user = await prisma.user.findUnique({ where: { id: decoded.userId } });
          if (user) {
-          console.log("User context set from JWT (using userId) for:", user.id);
         } else {
           console.warn("User not found for userId in JWT:", decoded.userId);
         }
@@ -69,7 +65,6 @@ export const createTRPCContext = async (opts: {
       // If token is invalid (e.g., expired, malformed, wrong secret), user remains null
     }
   } else {
-    console.log("No Authorization Bearer token found in headers.");
   }
 
   // Remove old x-wallet-address logic

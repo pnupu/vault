@@ -56,13 +56,11 @@ const allHistoricalData: Record<string, HistoricalDataPoint[]> = {
 
 // Helper function to get the correct historical data key
 const getHistoricalDataKey = (template: Pick<StrategyTemplate, 'assetTicker' | 'riskLevel'>): string | null => {
-  console.log(`[DEBUG getHistoricalDataKey] Processing template.assetTicker: '${template.assetTicker}', template.riskLevel: '${template.riskLevel}'`);
   
   // Adjusted assetTicker conditions to match actual data
   const assetPart = template.assetTicker === 'Solana' ? 'sol' : template.assetTicker === 'USD' ? 'stablecoin' : null; 
   const riskPart = template.riskLevel === RiskLevel.AGGRESSIVE ? 'aggressive' : template.riskLevel === RiskLevel.NORMAL ? 'normal' : null;
 
-  console.log(`[DEBUG getHistoricalDataKey] Mapped assetPart: '${assetPart}', riskPart: '${riskPart}'`);
 
   if (assetPart && riskPart) {
     return `${assetPart}_${riskPart}`;
@@ -135,7 +133,6 @@ export const strategyRouter = createTRPCRouter({
       z.object({}).optional()
     )
     .query(async ({ ctx }) => {
-      console.log("[TRPC DEBUG] getAllWithPreferences called");
       const strategyTemplates = await prisma.strategyTemplate.findMany({
         include: {
           yieldOpportunities: true, // Include linked yield opportunities
@@ -148,7 +145,6 @@ export const strategyRouter = createTRPCRouter({
 
       if (ctx.user?.id) {
         const userId = ctx.user.id;
-        console.log(`[TRPC DEBUG] User ${userId} is logged in. Fetching opt-outs, preferences, allocations.`);
         const [userOptOuts, userPreferences, userAllocations] = await Promise.all([
           prisma.userYieldOpportunityOptOut.findMany({
             where: { userId },
@@ -174,7 +170,6 @@ export const strategyRouter = createTRPCRouter({
         ]);
 
         userOptedOutOpportunityIds = new Set(userOptOuts.map(optOut => optOut.yieldOpportunityId));
-        console.log('[TRPC DEBUG] User Opted Out Opportunity IDs:', userOptedOutOpportunityIds);
 
         userPreferencesMap = new Map(
           userPreferences.map(p => [
@@ -196,13 +191,10 @@ export const strategyRouter = createTRPCRouter({
           ])
         );
       } else {
-        console.log("[TRPC DEBUG] No user logged in.");
       }
 
       return strategyTemplates.map(template => {
         if (template.name === "Solana Strategy Aggressive") {
-          console.log(`[TRPC DEBUG] Processing template: ${template.name}`);
-          console.log('[TRPC DEBUG] Original yieldOpportunities for Solana Aggressive:', template.yieldOpportunities.map(op => ({id: op.id, name: op.name, platform: op.platform, assetTicker: op.assetTicker, apy: op.apy })) );
         }
         
         const availableOpportunities = template.yieldOpportunities.filter(
@@ -210,7 +202,6 @@ export const strategyRouter = createTRPCRouter({
         );
 
         if (template.name === "Solana Strategy Aggressive") {
-          console.log('[TRPC DEBUG] Filtered availableOpportunities for Solana Aggressive (count: ${availableOpportunities.length}):', availableOpportunities.map(op => ({id: op.id, name: op.name, platform: op.platform, assetTicker: op.assetTicker, apy: op.apy })) );
         }
 
         const { apy, sources, description } = calculateStrategyDetails(
@@ -223,7 +214,6 @@ export const strategyRouter = createTRPCRouter({
         const historicalData = historicalKey ? allHistoricalData[historicalKey] || [] : [];
 
         if (template.name === "Solana Strategy Aggressive" && sources.some(s => s.toLowerCase().includes('sanctum'))) {
-            console.log('[TRPC DEBUG] SANCTUM STILL IN SOURCES FOR SOLANA AGGRESSIVE! APY:', apy, 'Sources:', sources);
         }
 
         return {
