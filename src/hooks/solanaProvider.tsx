@@ -31,9 +31,7 @@ export function useSolanaProvider(): Provider | undefined {
   
   useEffect(() => {
     if (isGetMeSuccess) {
-      if (user) 
-      } else {
-        console.warn("getMe query successful (useEffect) but returned no user data. Clearing JWT if any.");
+      if (!user) {
         localStorage.removeItem(SOLANA_VAULT_JWT_KEY);
       }
     }
@@ -43,7 +41,7 @@ export function useSolanaProvider(): Provider | undefined {
     if (isGetMeAuthError && getMeFullErrorObject) {
       console.warn("getMe query failed (useEffect):", getMeFullErrorObject.message);
       const trpcError = getMeFullErrorObject as { data?: { code?: string; httpStatus?: number } };
-      if (trpcError.data?.code === 'UNAUTHORIZED' || trpcError.data?.httpStatus === 401) 
+      if (trpcError.data?.code === 'UNAUTHORIZED' || trpcError.data?.httpStatus === 401) {
         localStorage.removeItem(SOLANA_VAULT_JWT_KEY);
       }
     }
@@ -51,8 +49,8 @@ export function useSolanaProvider(): Provider | undefined {
 
   const { mutate: verifyAndLogin, status: verifyStatus } = 
     trpc.user.verifySignatureAndLogin.useMutation({
-      onSuccess: (data) => 
-        localStorage.setItem(SOLANA_VAULT_JWT_KEY, data.token)
+      onSuccess: (data) => {
+        localStorage.setItem(SOLANA_VAULT_JWT_KEY, data.token);
         trpcUtils.user.getMe.invalidate();
       },
       onError: (error) => {
@@ -114,7 +112,7 @@ export function useSolanaProvider(): Provider | undefined {
     if (challengeStatus === 'pending' || verifyStatus === 'pending') {
       return;
     }
-  
+    
     getLoginChallenge({ walletAddress: publicKey.toBase58() });
 
   }, [
