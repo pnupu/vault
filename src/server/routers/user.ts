@@ -127,7 +127,7 @@ export const userRouter = createTRPCRouter({
         currentAssets: true,
         userStrategyAllocations: {
           include: {
-            strategy: true, // Also include details of the strategy they are allocated to
+            strategyTemplate: true, // Also include details of the strategy they are allocated to
           },
         },
       },

@@ -9,7 +9,7 @@ export const adminRouter = createTRPCRouter({
         strategyPreferences: {
           where: { isFavorite: true }, // Only favorite strategies
           include: {
-            strategy: { // Include the strategy details
+            strategyTemplate: { // Include the strategy details
               select: {
                 name: true,
               },

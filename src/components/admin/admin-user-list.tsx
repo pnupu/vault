@@ -20,11 +20,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontalIcon, StarIcon, EyeOffIcon } from "lucide-react";
-import { User, UserStrategyPreference, UserYieldOpportunityOptOut, Strategy, YieldOpportunity } from "@/generated/prisma"; // For type hint
+import { User, UserStrategyPreference, UserYieldOpportunityOptOut, StrategyTemplate, YieldOpportunity } from "@/generated/prisma"; // For type hint
 
 // Define the extended User type based on the backend includes
 interface UserWithDetails extends User {
-  strategyPreferences: (UserStrategyPreference & { strategy: Pick<Strategy, 'name'> })[];
+  strategyPreferences: (UserStrategyPreference & { strategy: Pick<StrategyTemplate, 'name'> })[];
   yieldOpportunityOptOuts: (UserYieldOpportunityOptOut & { yieldOpportunity: Pick<YieldOpportunity, 'name' | 'platform' | 'marketId'> })[];
 }
 
@@ -86,7 +86,7 @@ export function AdminUserList() {
                       </DropdownMenuLabel>
                       {user.strategyPreferences && user.strategyPreferences.length > 0 ? (
                         user.strategyPreferences.map(pref => (
-                          <DropdownMenuItem key={pref.strategyId} className="text-xs pl-5">
+                          <DropdownMenuItem key={pref.strategyTemplateId} className="text-xs pl-5">
                             {pref.strategy.name}
                           </DropdownMenuItem>
                         ))
