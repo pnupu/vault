@@ -94,7 +94,7 @@ export function StrategyPreferencesCard() {
   const typedStrategiesData = strategiesData as StrategyUIData[];
 
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Strategy Preferences</CardTitle>
       </CardHeader>

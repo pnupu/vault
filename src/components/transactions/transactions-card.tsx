@@ -56,7 +56,7 @@ export function TransactionsCard() {
 
   if (isLoading) {
     return (
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Transaction History</CardTitle>
         </CardHeader>
@@ -69,7 +69,7 @@ export function TransactionsCard() {
 
   if (error) {
     return (
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Transaction History</CardTitle>
         </CardHeader>
@@ -84,7 +84,7 @@ export function TransactionsCard() {
 
   if (transactions.length === 0) {
     return (
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Transaction History</CardTitle>
         </CardHeader>
@@ -96,7 +96,7 @@ export function TransactionsCard() {
   }
 
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Transaction History</CardTitle>
         <CardDescription>View your recent account activity.</CardDescription>

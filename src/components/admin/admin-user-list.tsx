@@ -46,7 +46,7 @@ export function AdminUserList() {
   }
 
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>User Management</CardTitle>
         <CardDescription>View and manage all registered users and their key preferences.</CardDescription>

@@ -188,7 +188,7 @@ export function YieldOptOutCard() {
   }
 
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Yield Opportunity Opt-Outs</CardTitle>
       </CardHeader>

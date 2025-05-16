@@ -25,34 +25,34 @@ export default function Home() {
   const tabsDisabled = !connected;
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center p-16 pt-24 sm:pt-32">
+    <main className="relative flex min-h-screen flex-col items-center justify-start p-16 pt-24 sm:pt-32">
       <Header />
-      <div className="mt-8">
+      <div className="mt-0">
         <Tabs defaultValue="deposit" className="w-full max-w-4xl">
           <TabsList className={`grid w-full ${gridColsClass}`}>
-            <TabsTrigger value="deposit" disabled={tabsDisabled}>Deposit</TabsTrigger>
-            <TabsTrigger value="preferences" disabled={tabsDisabled}>Preferences</TabsTrigger>
-            <TabsTrigger value="invest" disabled={tabsDisabled}>Invest</TabsTrigger>
-            <TabsTrigger value="transactions" disabled={tabsDisabled}>Transactions</TabsTrigger>
+            <TabsTrigger value="deposit" disabled={tabsDisabled} className="w-full">Deposit</TabsTrigger>
+            <TabsTrigger value="preferences" disabled={tabsDisabled} className="w-full">Preferences</TabsTrigger>
+            <TabsTrigger value="invest" disabled={tabsDisabled} className="w-full">Invest</TabsTrigger>
+            <TabsTrigger value="transactions" disabled={tabsDisabled} className="w-full">Transactions</TabsTrigger>
             {showAdminTab && (
-              <TabsTrigger value="admin" disabled={tabsDisabled || !isAdmin}>Admin</TabsTrigger>
+              <TabsTrigger value="admin" disabled={tabsDisabled || !isAdmin} className="w-full">Admin</TabsTrigger>
             )}
           </TabsList>
-          <TabsContent value="deposit">
+          <TabsContent value="deposit" className="w-full">
             <DepositCard />
           </TabsContent>
-          <TabsContent value="preferences" className="space-y-4">
+          <TabsContent value="preferences" className="space-y-4 w-full">
             <StrategyPreferencesCard />
             <YieldOptOutCard />
           </TabsContent>
-          <TabsContent value="invest">
+          <TabsContent value="invest" className="w-full">
             <InvestmentCard />
           </TabsContent>
-          <TabsContent value="transactions">
+          <TabsContent value="transactions" className="w-full">
             <TransactionsCard />
           </TabsContent>
           {showAdminTab && (
-            <TabsContent value="admin">
+            <TabsContent value="admin" className="w-full">
               <AdminUserList />
             </TabsContent>
           )}

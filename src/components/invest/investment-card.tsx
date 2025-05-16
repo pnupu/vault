@@ -37,7 +37,7 @@ export function InvestmentCard() {
 
   if (isLoading) {
     return (
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>My Investments</CardTitle>
         </CardHeader>
@@ -50,7 +50,7 @@ export function InvestmentCard() {
 
   if (error) {
     return (
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>My Investments</CardTitle>
         </CardHeader>
@@ -69,7 +69,7 @@ export function InvestmentCard() {
 
   if (!visibleStrategies || visibleStrategies.length === 0) {
     return (
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>My Investments</CardTitle>
         </CardHeader>
@@ -84,7 +84,7 @@ export function InvestmentCard() {
     <div className="space-y-6">
       {visibleStrategies.map((strategy) => {
         return (
-        <Card key={strategy.id} className="overflow-hidden">
+        <Card key={strategy.id} className="overflow-hidden w-full">
           <CardHeader className="flex flex-row items-start justify-between pb-2">
             <div>
               <CardTitle className="flex items-center text-xl">

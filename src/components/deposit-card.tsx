@@ -611,14 +611,7 @@ export function DepositCard() {
   }, [publicKey, connected, provider, setBalances, setTokenBalances, toast]); 
 
   return (
-    <Card
-      className={`w-[650px] transition-all duration-500 ${
-        isLoading &&
-        "animate-pulse duration-1000 pointer-events-none cursor-not-allowed grayscale"
-      } ${
-        !connected && "pointer-events-none cursor-not-allowed grayscale blur-sm"
-      }`}
-    >
+    <Card className="w-full">
       <CardHeader>
         <CardTitle className="flex flex-row items-center space-x-3">
           <p>Move Funds</p>
