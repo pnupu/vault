@@ -94,6 +94,15 @@ The core smart contract logic resides in `program/vault-program/programs/vault-p
 
 *(You should update this section with more specific details about your vault's functionality.)*
 
+## Fund Allocation and Data Model
+
+The logic for allocating user funds within the vault, managing positions, and tracking related data is a core aspect of this project. Key references for understanding this include:
+
+*   **Database Schema (ERD)**: An Entity Relationship Diagram, which can be found at `docs/Defi-position.jpg`, outlines the structure of the off-chain database used to manage accounts, investments, strategies, positions, and journaling of transactions. This schema details how user data, investment choices, and financial records are organized.
+*   **DeFi Position Calculations (`defi_position_calculations.pdf`)**: This document, located at `docs/defi_position_calculations.pdf`, details the methodologies and formulas used for calculating DeFi positions, tracking performance, and managing the financial aspects of fund allocation. It provides insights into how returns, AUM (Assets Under Management), and other key financial metrics are determined.
+
+These resources provide a deeper understanding of how user funds are managed and tracked throughout their lifecycle within the Solana Vault.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
