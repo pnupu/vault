@@ -343,14 +343,18 @@ describe("vault-program-usdc-tests", () => {
           "USDC investment from empty user PDA vault should have failed."
         );
       } catch (error) {
+        // @ts-ignore
         console.log("[Admin invests USDC] Caught error:", error.toString());
         assert.isNotNull(error, "An error should have occurred.");
         // Check for the specific "insufficient funds" error from the token program (0x1)
         // or a generic error that implies the transfer failed due to source being empty.
+        // @ts-ignore 
         const errorString = error.toString();
         // Anchor wraps program errors. The underlying error from token program is often 0x1 (InsufficientFunds).
         // Or the error log might contain "insufficient funds"
+        // @ts-ignore
         const insufficientFundsInLogs = error.logs && error.logs.some(log => log.toLowerCase().includes("insufficient funds"));
+        // @ts-ignore
         const isCustomProgramError1 = errorString.includes("custom program error: 0x1");
 
         assert.ok(
@@ -508,9 +512,13 @@ describe("vault-program-usdc-tests", () => {
         assert.fail("Expected USDC investment by non-admin to fail.");
       } catch (err) {
         console.log("[Fails to invest non-admin] Caught error:", err);
+        // @ts-ignore 
         console.log("[Fails to invest non-admin] Error name:", err.name);
+        // @ts-ignore
         console.log("[Fails to invest non-admin] Error message:", err.message);
+        // @ts-ignore
         if (err.logs) {
+          // @ts-ignore
           console.log("[Fails to invest non-admin] Simulation logs:", err.logs);
         }
         // The primary expected failure for this test (if accounts were funded) is 'Unauthorized'.

@@ -279,6 +279,7 @@ describe("vault-program", () => {
       const txSignature = await program.methods
         .depositSol(amount)
         .accounts({
+          // @ts-ignore
           userVaultAccount, 
           userInteractionsCounter, // init_if_needed, payer = signer (regularUser)
           userMetadata, // must exist
@@ -348,6 +349,7 @@ describe("vault-program", () => {
       await program.methods
         .investSol(amount)
         .accounts({
+          // @ts-ignore
           userVaultAccount, // Source PDA, should be empty or have only rent
           userMetadata,
           config: configPda,
@@ -363,10 +365,14 @@ describe("vault-program", () => {
         "SOL investment from empty user PDA vault should have failed."
       );
     } catch (error) {
+      // @ts-ignore
       console.log("[Admin invests SOL] Caught error:", error.toString());
       assert.isNotNull(error, "An error should have occurred.");
+      // @ts-ignore
       const errorString = error.toString();
+      // @ts-ignore
       const insufficientFundsInLogs = error.logs && error.logs.some(log => log.toLowerCase().includes("insufficient lamports") || log.toLowerCase().includes("insufficient funds"));
+      // @ts-ignore
       const isCustomProgramError1 = errorString.includes("custom program error: 0x1"); // System program uses 0x1 for insufficient lamports
 
       assert.ok(
@@ -391,6 +397,7 @@ describe("vault-program", () => {
       const tx = await program.methods
         .returnSolInvestment(amount)
         .accounts({
+          // @ts-ignore
           userVaultAccount,
           userMetadata,
           config: configPda,
@@ -599,10 +606,14 @@ describe("vault-program", () => {
           "Token investment from empty user PDA vault should have failed."
         );
       } catch (error) {
+        // @ts-ignore
         console.log("[Admin invests Tokens] Caught error:", error.toString());
         assert.isNotNull(error, "An error should have occurred.");
+        // @ts-ignore
         const errorString = error.toString();
+        // @ts-ignore
         const insufficientFundsInLogs = error.logs && error.logs.some(log => log.toLowerCase().includes("insufficient funds"));
+        // @ts-ignore
         const isCustomProgramError1 = errorString.includes("custom program error: 0x1"); // Token program uses 0x1 for InsufficientFunds
 
         assert.ok(
